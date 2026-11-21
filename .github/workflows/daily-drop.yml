@@ -1,0 +1,49 @@
+name: VEBL Midnight Daily Drop
+
+on:
+  schedule:
+    # 07:00 UTC = 12:00 AM MST (America/Denver standard time).
+    # Other midnight zones: MDT = "0 6 * * *", EST = "0 5 * * *", EDT = "0 4 * * *", PST = "0 8 * * *", UTC = "0 0 * * *".
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'Optional YYYY-MM-DD override (defaults to today in TZ)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Release & validate daily drop
+        env:
+          TZ: America/Denver
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          node scripts/release-daily.mjs
+          node scripts/release-daily.mjs --check
+
+      - name: Commit & push daily drop
+        run: |
+          git config user.name "vebl-bot"
+          git config user.email "vebl-bot@users.noreply.github.com"
+          git add daily/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: midnight daily drop ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No daily changes to commit."
+          fi

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-20",
+  "theme": "Launch Day Markets",
+  "prompts": [
+    {
+      "id": "drop-20261120-inflation-items",
+      "cat": "CPI basket",
+      "q": "Name an item or spending category tracked in a consumer price index (CPI) basket",
+      "a": "1|Rent|housing\n1|Gasoline|gas;petrol\n1|Groceries|food at home\n1|Electricity\n1|Clothing|apparel\n2|Used cars\n2|New vehicles|new cars\n2|Airline fares|airfare\n2|College tuition|tuition\n2|Health insurance\n3|Owners' equivalent rent|oer\n3|Daycare|childcare\n3|Prescription drugs\n3|Dining out|food away from home\n4|Internet service\n4|Auto insurance\n4|Haircuts|personal care\n4|Pet food\n5|Hedonic quality adjustment|quality adjustment\n5|Core PCE deflator|pce\n5|Veterinary services\n5|Smoking|tobacco\n6|College textbooks\n6|Funeral expenses\n6|Financial services fees\n6|Musical instruments"
+    },
+    {
+      "id": "drop-20261120-wallstreet-slang",
+      "cat": "Trading floor",
+      "q": "Name a Wall Street, stock-trading, or market slang term",
+      "a": "1|Bull market|bullish\n1|Bear market|bearish\n1|Buy the dip\n1|Crash|market crash\n1|Blue chip\n2|Short squeeze\n2|Diamond hands\n2|Paper hands\n2|Bagholder\n2|Penny stock\n3|Dead cat bounce\n3|Pump and dump\n3|Stop loss\n3|Margin call\n4|FOMO|fear of missing out\n4|White knight\n4|Poison pill\n4|Golden parachute\n5|Gamma squeeze\n5|Triple witching|quadruple witching\n5|Catching a falling knife\n5|Window dressing\n6|Don't fight the Fed\n6|Whisper number\n6|Spoofing|layering\n6|Painting the tape"
+    },
+    {
+      "id": "drop-20261120-tax-deductions",
+      "cat": "Household finance",
+      "q": "Name a household tax deduction, tax credit, or common write-off",
+      "a": "1|Standard deduction\n1|Charity|charitable donation\n1|Mortgage interest\n1|Child tax credit\n1|Student loan interest\n2|Earned Income Tax Credit|eitc\n2|SALT deduction|state and local taxes\n2|HSA contribution|hsa\n2|401k contribution|traditional ira\n3|Capital loss harvesting|tax loss harvesting\n3|Business travel expenses\n3|Home office deduction\n3|Medical expense deduction\n4|Foreign tax credit\n4|Adoption tax credit\n4|EV tax credit|clean vehicle credit\n4|American Opportunity Credit\n5|Section 179 expensing\n5|Lifetime Learning Credit\n5|Saver's Credit\n5|Educator expense deduction\n6|Depletion allowance\n6|Pass-through QBI deduction|section 199a\n6|Research & Experimentation credit\n6|Qualified small business stock|qsbs"
+    },
+    {
+      "id": "drop-20261120-monopoly-moats",
+      "cat": "Economic moats",
+      "q": "Name a competitive moat or barrier to entry that protects a company's profits",
+      "a": "1|Brand loyalty|brand\n1|Patents|patent\n1|Scale|economies of scale\n1|Network effects\n1|Customer switching costs|switching costs\n2|Government license|regulatory permit\n2|Trade secrets\n2|Exclusive distribution|exclusivity\n2|High capital requirements|startup costs\n3|Control of scarce resources|resource monopoly\n3|Copyrights\n3|Data moat|proprietary data\n3|Sunk costs\n4|Predatory pricing\n4|Platform lock-in\n4|Standard-setting dominance|de facto standard\n4|Regulatory capture\n5|Learning curve advantage|experience curve\n5|Vertical foreclosure\n5|Cross-subsidization\n5|Occupational licensing\n6|Two-sided chicken-and-egg liquidity\n6|Installed-base inertia\n6|Minimum efficient scale\n6|Patent thicket moat"
+    },
+    {
+      "id": "drop-20261120-boom-bust-indicators",
+      "cat": "Recession watch",
+      "q": "Name a quirky or real-world indicator people watch to spot recessions or booms",
+      "a": "1|Unemployment claims|initial jobless claims\n1|Home sales|housing starts\n1|Stock market|sp 500\n1|Gas prices\n2|Inverted yield curve|yield curve\n2|Sahm Rule\n2|Copper prices|dr copper\n2|Consumer sentiment\n3|Lipstick index\n3|Purchasing Managers Index|pmi\n3|Cardboard box demand\n3|Big Mac index\n4|Hemline index\n4|Men's underwear index|greenspan underwear\n4|Skyscraper index\n4|Temp agency hiring\n5|Vegas convention attendance\n5|Cass Freight Index\n5|Restaurant reservation volume\n5|Waffle House index\n6|Diaper rash cream indicator\n6|Used luxury watch index|chronopulse\n6|R-word count|economist r word\n6|Recession hair index"
+    },
+    {
+      "id": "drop-20261120-famous-economists-books",
+      "cat": "Classic econ titles",
+      "q": "Name a famous economics book or manifesto (aside from Freakonomics)",
+      "a": "1|The Wealth of Nations|wealth of nations\n1|Das Kapital|capital\n1|The Communist Manifesto|communist manifesto\n1|Rich Dad Poor Dad\n2|The General Theory|general theory\n2|Capitalism and Freedom\n2|The Road to Serfdom|road to serfdom\n2|Basic Economics\n3|Nudge\n3|Thinking, Fast and Slow\n3|Economics in One Lesson\n3|Why Nations Fail\n4|Capital in the Twenty-First Century|piketty\n4|The Affluent Society\n4|Theory of the Leisure Class\n4|Human Action\n5|A Monetary History of the United States\n5|Anarchy, State, and Utopia\n5|The Logic of Collective Action\n5|Microeconomic Analysis|varian\n6|The Use of Knowledge in Society\n6|Foundations of Economic Analysis\n6|Value and Capital\n6|Theory of Games and Economic Behavior"
+    },
+    {
+      "id": "drop-20261120-global-chokepoints",
+      "cat": "World trade routes",
+      "q": "Name a port, canal, strait, or corridor crucial to global trade",
+      "a": "1|Panama Canal\n1|Suez Canal\n1|Port of Los Angeles\n1|Port of Shanghai\n2|Port of Rotterdam\n2|Port of Singapore\n2|Strait of Hormuz\n2|English Channel\n3|Strait of Malacca\n3|Bosphorus Strait|bosporus\n3|Strait of Gibraltar\n3|Port of Long Beach\n4|Bab el-Mandeb|red sea strait\n4|Saint Lawrence Seaway|st lawrence\n4|Port of Shenzhen|yantian\n4|Port of Busan\n5|Danish Straits\n5|Strait of Dover\n5|Kiel Canal\n5|Port of Antwerp\n6|Lombok Strait\n6|Sunda Strait\n6|Cape of Good Hope\n6|Northern Sea Route"
+    }
+  ]
+}
