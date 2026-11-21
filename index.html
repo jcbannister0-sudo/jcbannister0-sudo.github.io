@@ -6985,25 +6985,6 @@ const PACKS=[
   {id:"world-cities",name:"World Regions & Wealth",desc:"Financial hubs, EU members, Asia, Americas, Africa, old money & assets",ids:["financial-hubs","eu-countries","asia-economies","americas-economies","africa-economies","famous-currencies-historic","household-assets"]}
 ];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-(function migrateStorage(){
-  try{
-    for(const oldP of ["econllion-","econillion-"]){
-      for(const key of ["mute","streak","tclub","stats","speed"]){
-        const oldV=localStorage.getItem(oldP+key);
-        if(oldV!==null && localStorage.getItem("vebl-"+key)===null) localStorage.setItem("vebl-"+key,oldV);
-      }
-      const oldKeys=[];
-      for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k && k.startsWith(oldP))oldKeys.push(k);}
-      for(const k of oldKeys){
-        if(/^(econllion|econillion)-(\d{4}-\d{2}-\d{2}|pack-.+)$/.test(k)){
-          const nk="vebl-"+k.slice(oldP.length);
-          if(localStorage.getItem(nk)===null) localStorage.setItem(nk,localStorage.getItem(k));
-        }
-      }
-    }
-  }catch(e){}
-})();
-
 
 // ================= tiers & art =================
 const TIERS=[null,
@@ -7073,7 +7054,7 @@ function encodeChallenge(ids,speed="standard",target=null,ctx=null){
 function decodeChallenge(input){
   try{
     let s=String(input||"").trim();if(!s)return null;
-    const um=s.match(/(?:^|[?#&\s])(?:c|challenge)=([A-Za-z0-9\-_]+)/i)||s.match(/\b(?:vebl|ecn)-([A-Za-z0-9\-_]+)/i);
+    const um=s.match(/(?:^|[?#&\s])(?:c|challenge)=([A-Za-z0-9\-_]+)/i)||s.match(/\bvebl-([A-Za-z0-9\-_]+)/i);
     if(um)s=um[1];
     else if(/^\S+$/.test(s))s=s.replace(/^[^A-Za-z0-9]+|[^A-Za-z0-9\-_]+$/g,"");
     else return null;
@@ -7643,7 +7624,7 @@ function home(){
        <div style="margin-top:6px;font-size:11px">Rarity tiers start as estimates and dynamically adapt as players play — if you're the only one out of 15+ plays to name an answer, it becomes a live Monopoly!</div></div></details>
      <div class="seg">${Object.values(SPEEDS).map(s=>`<button type="button" class="${speedMode===s.id?"on "+s.id:""}" onclick="setSpeed('${s.id}')">${s.label}</button>`).join("")}</div>
      ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:20px" onclick="launchDaily('${dkey}',${dayNo})">▲ OPEN THE MARKET ▲</button>`}
-     <div class="meta"><span>CLIMB #${dayNo} · STREAK ${sn} · ★${store.get("vebl-tclub")||0}</span><div style="display:flex;gap:6px"><button class="btn ghost small" onclick="openArchive('days')">ARCHIVE</button><button class="btn ghost small" onclick="start('unlimited')">Unlimited ∞</button></div></div>
+     <div class="meta"><span>CLIMB #${dayNo} · STREAK ${sn} · ★${store.get("vebl-monopolies")||0}</span><div style="display:flex;gap:6px"><button class="btn ghost small" onclick="openArchive('days')">ARCHIVE</button><button class="btn ghost small" onclick="start('unlimited')">Unlimited ∞</button></div></div>
    </div></div>`;
 }
 function start(mode="daily",opts={}){
@@ -7825,7 +7806,7 @@ function jackpot(){
   const jx=HEAD_X(),jy=Math.max(14,Math.min(H-14,valToY(G?G.alt:0)));
   for(let i=0;i<24;i++)SCN.coins.push({x:jx,y:jy,vx:rnd(-2.2,2.2),vy:rnd(-2.6,-.4),r:rnd(0,6)});
   try{navigator.vibrate&&navigator.vibrate([80,40,80,40,220]);}catch(e){}
-  store.set("vebl-tclub",(store.get("vebl-tclub")||0)+1);
+  store.set("vebl-monopolies",(store.get("vebl-monopolies")||0)+1);
 }
 function finish(){
   const res={score:G.score,alt:G.alt,speed:G.speed,grid:G.log.map(e=>e.tier?TIERS[e.tier].e:"🟥").join(""),log:G.log};
@@ -8043,7 +8024,7 @@ function results(res,mode="daily",meta={}){
      <button class="btn ghost small" type="submit" id="fbBtn" style="margin-top:10px;width:100%">SEND FEEDBACK ▲</button>
      <div id="fbOut" class="adate" style="margin-top:8px"></div>
    </form>
-   <div class="rankline" style="margin-top:14px;text-align:center">★ MONOPOLY CLUB: ${store.get("vebl-tclub")||0} LIFETIME ★</div>
+   <div class="rankline" style="margin-top:14px;text-align:center">★ MONOPOLY CLUB: ${store.get("vebl-monopolies")||0} LIFETIME ★</div>
    <div class="btnrow"><button class="btn gold" id="cp" style="flex:1">COPY RESULT</button>${cIds.length===ROUNDS?`<button class="btn ghost" id="chBtn" style="flex:1">⚔ CHALLENGE</button>`:""}</div>
    <div id="chOut" class="tipbox hide"></div>
    <button class="btn mint" style="margin-top:10px" onclick="start('unlimited')">KEEP CLIMBING ∞</button>
