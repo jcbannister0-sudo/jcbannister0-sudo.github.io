@@ -1,0 +1,19 @@
+name = "vebl-api"
+main = "vebl-api.js"
+compatibility_date = "2026-11-01"
+
+# Quick Deploy (Free Cloudflare Workers tier — 100k req/day):
+# 1. cd /Users/jackbannister/Desktop/Personal/Vebl/worker
+# 2. npx wrangler login
+# 3. npx wrangler kv namespace create VEBL_KV   # paste returned id below
+# 4. npx wrangler deploy                        # paste printed *.workers.dev URL into VEBL_API in index.html
+# Optional secrets:
+#   npx wrangler secret put ADMIN_TOKEN
+#   npx wrangler secret put FEEDBACK_WEBHOOK_URL
+
+[[kv_namespaces]]
+binding = "VEBL_KV"
+id = "REPLACE_WITH_YOUR_VEBL_KV_ID"
+
+[vars]
+ALLOWED_ORIGINS = "https://vebl.me,https://www.vebl.me,https://jcbannister0-sudo.github.io"

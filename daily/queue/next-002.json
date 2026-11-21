@@ -1,0 +1,48 @@
+{
+  "theme": "Everyday Spending & Brands",
+  "prompts": [
+    {
+      "id": "drop-q002-streaming-subs",
+      "cat": "Monthly spending",
+      "q": "Name a streaming service, membership, or digital subscription",
+      "a": "1|Netflix\n1|Spotify\n1|Amazon Prime|prime video\n1|Disney+|disney plus\n1|YouTube Premium|youtube tv\n1|Apple Music\n2|Hulu\n2|Max|hbo max\n2|Apple TV+|apple tv\n2|Paramount+|paramount plus\n2|Peacock\n2|Xbox Game Pass|game pass\n2|PlayStation Plus|ps plus\n3|iCloud+|icloud\n3|Google One\n3|DoorDash DashPass|dashpass\n3|Uber One\n3|Nintendo Switch Online|switch online\n3|Costco membership|costco\n3|Planet Fitness|gym membership\n4|Audible\n4|Kindle Unlimited\n4|Adobe Creative Cloud|photoshop subscription\n4|Microsoft 365|office 365\n4|ChatGPT Plus|openai plus\n4|New York Times|nyt digital\n5|Wall Street Journal|wsj digital\n5|Peloton App|peloton\n5|Strava|strava premium\n5|Dropbox\n5|Patreon\n5|Substack\n6|Criterion Channel\n6|MUBI\n6|Tidal\n6|Qobuz\n6|MasterClass\n6|Duolingo Super|super duolingo"
+    },
+    {
+      "id": "drop-q002-drink-brands",
+      "cat": "Drink & cafe brands",
+      "q": "Name a famous soda, coffee, tea, or bottled drink brand",
+      "a": "1|Coca-Cola|coke;diet coke\n1|Pepsi|diet pepsi\n1|Starbucks\n1|Sprite\n1|Red Bull\n1|Gatorade\n1|Dunkin'|dunkin donuts\n2|Mountain Dew\n2|Dr Pepper\n2|Monster Energy|monster\n2|Fanta\n2|Tim Hortons\n2|Tropicana\n2|Lipton\n3|7 Up|seven up\n3|Canada Dry|ginger ale\n3|Powerade\n3|Nespresso\n3|Folgers\n3|Maxwell House\n3|Dasani\n3|Aquafina\n4|Smartwater\n4|Fiji Water|fiji\n4|LaCroix\n4|Liquid Death\n4|Celsius\n4|Prime Hydration|prime drink\n4|AriZona Iced Tea|arizona tea\n4|Snapple\n5|Lavazza\n5|Illy\n5|Peet's Coffee|peets\n5|Blue Bottle Coffee|blue bottle\n5|Vitaminwater\n5|BodyArmor\n5|Oatly\n6|Spindrift\n6|Olipop\n6|Poppi\n6|Topo Chico\n6|San Pellegrino\n6|Perrier\n6|Jarritos\n6|Irn-Bru|irn bru"
+    },
+    {
+      "id": "drop-q002-bank-calls",
+      "cat": "Calling your bank",
+      "q": "Name a reason people call or message their bank or credit card company",
+      "a": "1|Lost card|lost debit card;lost credit card\n1|Stolen card\n1|Fraud alert|fraudulent charge\n1|Dispute a charge|chargeback\n1|Overdraft fee|bank fee waiver\n1|Reset PIN|forgot password\n2|Travel notice|card blocked abroad\n2|Check balance|missing deposit\n2|Wire transfer\n2|Late fee waiver\n2|Credit limit increase\n2|Mortgage quote|loan application\n3|Duplicate charge\n3|Cancel a card|close account\n3|Order new checks|chequebook\n3|Direct deposit setup|routing number\n3|Unauthorized subscription|recurring charge\n3|Activate new card\n4|Balance transfer\n4|Add authorized user\n4|Foreign transaction fee\n4|Stop payment on check\n4|Returned check|bounced check\n4|Hold on funds|check hold\n5|Zero-liability claim\n5|Credit bureau dispute\n5|Escrow shortage\n5|ACH reversal\n5|ATM failed withdrawal\n5|Cashier's check|bank draft\n6|Payoff statement|mortgage payoff\n6|Dormant account reactivation\n6|Merchant category code dispute\n6|Regulation E claim\n6|Pre-authorized debit revocation\n6|Beneficiary designation update"
+    },
+    {
+      "id": "drop-q002-tech-founders",
+      "cat": "Business founders",
+      "q": "Name a famous billionaire CEO or company founder",
+      "people": true,
+      "a": "1|Elon Musk\n1|Jeff Bezos\n1|Bill Gates\n1|Mark Zuckerberg\n1|Steve Jobs\n1|Tim Cook\n2|Warren Buffett\n2|Larry Page\n2|Sergey Brin\n2|Jensen Huang\n2|Sam Altman\n2|Reed Hastings\n3|Satya Nadella\n3|Sundar Pichai\n3|Brian Chesky\n3|Travis Kalanick\n3|Michael Dell\n3|Phil Knight\n4|Marc Benioff\n4|Patrick Collison\n4|Tobi Lutke\n4|Evan Spiegel\n4|Jack Dorsey\n4|Whitney Wolfe Herd\n5|Gwynne Shotwell\n5|Palmer Luckey\n5|Peter Thiel\n5|Demis Hassabis\n5|Dario Amodei\n5|Melanie Perkins\n6|Liang Wenfeng\n6|Morris Chang\n6|Masayoshi Son\n6|Bernard Arnault\n6|Amancio Ortega\n6|Francoise Bettencourt Meyers"
+    },
+    {
+      "id": "drop-q002-major-airports",
+      "cat": "Global travel hubs",
+      "q": "Name a major international airport or airline hub",
+      "a": "1|JFK|john f kennedy airport\n1|LAX|los angeles airport\n1|Heathrow|london heathrow;lhr\n1|Atlanta|hartsfield jackson;atl\n1|O'Hare|chicago ohare;ord\n1|Toronto Pearson|pearson;yyz\n2|Dubai International|dubai airport;dxb\n2|Tokyo Haneda|haneda;hnd\n2|Paris Charles de Gaulle|charles de gaulle;cdg\n2|Frankfurt Airport|frankfurt;fra\n2|Dallas Fort Worth|dfw\n2|Denver International|denver airport;den\n3|Singapore Changi|changi;sin\n3|Amsterdam Schiphol|schiphol;ams\n3|Miami International|miami airport;mia\n3|Newark|ewr\n3|LaGuardia|lga\n3|Vancouver International|yvr\n4|Incheon International|seoul incheon;icn\n4|Hong Kong International|hkg\n4|Istanbul Airport|ist\n4|Zurich Airport|zrh\n4|Munich Airport|muc\n4|Narita|tokyo narita;nrt\n5|Doha Hamad|hamad international;doh\n5|Madrid Barajas|barajas;mad\n5|Sydney Airport|kingsford smith;syd\n5|Montreal Trudeau|yul\n5|Gatwick|lgw\n5|Charlotte Douglas|clt\n6|Kansai International|kix\n6|Suvarnabhumi|bangkok airport;bkk\n6|Vienna International|vienna airport;vie\n6|Gardermoen|oslo airport;osl\n6|Keflavik|kef\n6|Auckland Airport|akl"
+    },
+    {
+      "id": "drop-q002-grocery-savings",
+      "cat": "Smart shopping",
+      "q": "Name a way shoppers save money at the grocery store",
+      "a": "1|Coupons|clip coupons\n1|Store brands|generic brands;private label\n1|Buying in bulk|bulk buying\n1|Sales|weekly flyer;clearance\n1|Loyalty card|rewards program\n1|Shopping at Costco|warehouse club\n2|Price matching\n2|Meal planning|shopping list\n2|Buying on clearance|day old bread\n2|Discount grocers|aldi;no frills\n2|Digital coupons|store app\n2|Cashback apps|ibotta\n3|Unit price comparison|price per ounce\n3|Buying seasonal produce|in season\n3|Frozen vegetables|frozen food\n3|BOGO deals|buy one get one\n3|Cashback credit card|grocery card\n3|Cooking from scratch\n4|Loss leaders|front page specials\n4|Rain checks\n4|Meat markdowns|manager special\n4|Avoiding convenience foods|precut fruit\n4|Farmer's market deals|csa share\n4|Food rescue apps|too good to go\n5|Cherry picking|store hopping\n5|Bulk bins|dry goods\n5|Stockpiling nonperishables\n5|Discount gift cards\n5|Bottom-shelf scanning|eye level trap\n5|Subscribing for staples|subscribe and save\n6|Flashfood|expired surplus deals\n6|Price-per-calorie optimization\n6|Shrinkflation size tracking\n6|Double-coupon stacking\n6|Manufacturer rebate stacking\n6|Off-peak bakery markdowns"
+    },
+    {
+      "id": "drop-q002-finance-movies",
+      "cat": "Money on screen",
+      "q": "Name a famous movie, show, or documentary about Wall Street, money, or business",
+      "a": "1|The Wolf of Wall Street|wolf of wall street\n1|The Big Short|big short\n1|Wall Street\n1|Succession\n1|The Social Network|social network\n1|Moneyball\n2|Margin Call\n2|Billions\n2|Dumb Money\n2|American Psycho\n2|Trading Places\n2|Silicon Valley\n3|Boiler Room\n3|Too Big to Fail\n3|The Founder|founder\n3|Air\n3|BlackBerry\n3|Steve Jobs\n4|Rogue Trader\n4|Enron: The Smartest Guys in the Room|smartest guys in the room\n4|Inside Job\n4|Glengarry Glen Ross\n4|Jerry Maguire\n4|WeCrashed\n5|Barbarians at the Gate\n5|Other People's Money\n5|Industry|hbo industry\n5|Super Pumped\n5|The Dropout|dropout\n5|Tetris\n6|Startup.com\n6|Betting on Zero\n6|Floored|floor traders documentary\n6|Assault on Wall Street\n6|Capitalism: A Love Story\n6|Rollover"
+    }
+  ]
+}

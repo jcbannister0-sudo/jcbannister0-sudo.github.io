@@ -140,7 +140,8 @@ async function generateDropWithGemini(targetDate, apiKey) {
       targetDate.replace(/-/g, '') +
       '-<slug>","cat":"<2-3 word label>","q":"<question prompt>","a":"<newline-delimited rows>"}]}',
     'Rules for each prompt:',
-    '- Tier 1 = obvious everyday "Common Cents" answers (3-6 rows). Tiers 2-4 = textbook to graduate intuition (3-5 rows each). Tier 5 = peer-reviewed/obscure (3-5 rows). Tier 6 = "Monopoly" answers almost nobody else says (3-5 rows).',
+    '- Tier 1 = obvious everyday "Common Cents" answers anyone knows immediately (5-7 rows). Tiers 2-4 = concrete real-world examples (5-7 rows each). Tier 5 = harder/niche answers (5-7 rows). Tier 6 = "Monopoly" answers almost nobody else says (5-7 rows). Aim for 35-50+ total accepted answers per prompt!',
+    '- Keep EVERY prompt concrete, accessible, and fun (e.g. specific brands, everyday bills, jobs, products, cities, countries, famous people, movies, scams). NEVER write vague academic prompts like "Name a [topic] economics concept".',
     '- Row format: <tier>|<Display Name> or <tier>|<Display Name>|<alias1>;<alias2>',
     '- Zero duplicate or colliding normalized aliases within a prompt. Accurate factual economics only.'
   ].join('\n');

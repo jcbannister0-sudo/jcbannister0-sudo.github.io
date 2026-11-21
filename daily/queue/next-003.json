@@ -1,0 +1,47 @@
+{
+  "theme": "Global Money & Work",
+  "prompts": [
+    {
+      "id": "drop-q003-hardware-items",
+      "cat": "Hardware store",
+      "q": "Name an item or tool commonly sold at a hardware store",
+      "a": "1|Hammer\n1|Nails\n1|Screws\n1|Drill|power drill\n1|Paint\n1|Screwdriver\n2|Tape measure|measuring tape\n2|Wrench\n2|Saw\n2|Lumber|plywood\n2|Ladder\n2|Sandpaper\n3|Pliers\n3|Level\n3|Utility knife|box cutter\n3|Extension cord\n3|Flashlight\n3|Wood glue|super glue\n4|Stud finder\n4|Caulk|caulking gun\n4|Work gloves\n4|PVC pipe\n4|Circular saw\n4|Socket set\n5|Jigsaw\n5|Orbital sander\n5|Chisel\n5|Angle grinder\n5|Voltage tester|multimeter\n5|Drywall anchors\n6|Conduit bender\n6|Pocket hole jig\n6|Miter gauge\n6|Step drill bit\n6|Torque wrench\n6|Countersink bit"
+    },
+    {
+      "id": "drop-q003-sports-brands",
+      "cat": "Athletic brands",
+      "q": "Name a sportswear, sneaker, or sports equipment company",
+      "a": "1|Nike\n1|Adidas\n1|Puma\n1|Under Armour\n1|Lululemon\n1|New Balance\n2|Reebok\n2|Jordan Brand|air jordan\n2|Asics\n2|Converse\n2|Vans\n2|Patagonia\n3|The North Face|north face\n3|Columbia\n3|Champion\n3|Fila\n3|Skechers\n3|Oakley\n4|Wilson\n4|Hoka\n4|On Running|on cloud\n4|Brooks\n4|Gymshark\n4|Alo Yoga\n5|Arc'teryx|arcteryx\n5|Salomon\n5|Bauer\n5|CCM\n5|Titleist\n5|Callaway\n6|Vuori\n6|Rapha\n6|Mizuno\n6|Diadora\n6|Yonex\n6|Umbro"
+    },
+    {
+      "id": "drop-q003-rich-per-capita",
+      "cat": "Wealthiest nations",
+      "q": "Name a country famous for high GDP per capita, oil wealth, or sovereign wealth funds",
+      "a": "1|United States|usa;us\n1|Switzerland\n1|Norway\n1|Singapore\n1|Qatar\n1|United Arab Emirates|uae;dubai\n2|Saudi Arabia\n2|Luxembourg\n2|Ireland\n2|Canada\n2|Australia\n2|Germany\n3|Denmark\n3|Netherlands\n3|Sweden\n3|Kuwait\n3|Japan\n3|United Kingdom|uk;britain\n4|South Korea\n4|Iceland\n4|Austria\n4|Belgium\n4|Finland\n4|Bahrain\n5|Oman\n5|Brunei\n5|Monaco\n5|Liechtenstein\n5|Taiwan\n5|New Zealand\n6|San Marino\n6|Andorra\n6|Malta\n6|Cyprus\n6|Estonia\n6|Bahamas"
+    },
+    {
+      "id": "drop-q003-commerce-inventions",
+      "cat": "Game changers",
+      "q": "Name an invention that transformed global business, shipping, or payments",
+      "a": "1|Internet\n1|Credit card\n1|Smartphone\n1|Computer\n1|Printing press\n1|Airplane\n2|Steam engine\n2|Railroad|trains\n2|Telephone\n2|Telegraph\n2|Assembly line\n2|Shipping container|containerization\n3|Barcode|upc code\n3|GPS\n3|Electricity\n3|Paper money|banknotes\n3|Microchip|semiconductor\n3|Refrigeration\n4|ATM|automated teller machine\n4|QR code\n4|Joint-stock company\n4|Double-entry bookkeeping\n4|RFID\n4|Fiber optic cable\n5|Magnetic stripe\n5|EMV chip|chip card\n5|Clearinghouse\n5|Undersea cable\n5|SWIFT network\n5|Ticker tape\n6|Bessemer process\n6|Container gantry crane\n6|EDI|electronic data interchange\n6|Cotton gin\n6|Bills of exchange\n6|Letter of credit"
+    },
+    {
+      "id": "drop-q003-financed-purchases",
+      "cat": "Buying on credit",
+      "q": "Name an expensive thing people often finance or buy on monthly payments",
+      "a": "1|House|home;real estate\n1|Car|truck;suv\n1|College tuition|student loans\n1|Smartphone|iphone\n1|Furniture|couch;mattress\n1|Wedding ring|engagement ring\n2|Appliances|fridge;washer\n2|Laptop\n2|TV|television\n2|Vacation|flights\n2|Medical bills\n2|Motorcycle\n3|Boat\n3|RV|camper\n3|Solar panels\n3|Jewelry|luxury watch\n3|Dental braces|orthodontics\n3|Home renovation|kitchen remodel\n4|HVAC system|furnace;air conditioner\n4|Roof replacement\n4|Peloton|exercise equipment\n4|Musical instrument|piano\n4|Hot tub\n4|Swimming pool\n5|LASIK eye surgery\n5|Hearing aids\n5|Fertility treatment|ivf\n5|Farm tractor|heavy equipment\n5|Funeral costs\n5|Private school tuition\n6|Aviation flight training\n6|Veterinary surgery\n6|Commercial espresso machine\n6|Food truck buildout\n6|Home generator\n6|Geothermal heat pump"
+    },
+    {
+      "id": "drop-q003-shipping-giants",
+      "cat": "Moving goods",
+      "q": "Name a major package delivery, trucking, rail, or shipping company",
+      "a": "1|FedEx\n1|UPS\n1|USPS|postal service\n1|DHL\n1|Amazon Logistics|amazon delivery\n1|Canada Post\n2|Maersk\n2|Union Pacific\n2|CSX\n2|Royal Mail\n2|Purolator\n2|BNSF\n3|Norfolk Southern\n3|Canadian National|cn rail\n3|J.B. Hunt|jb hunt\n3|Ryder\n3|Penske\n3|MSC\n4|CMA CGM\n4|Hapag-Lloyd\n4|COSCO\n4|Evergreen Marine|evergreen\n4|Old Dominion Freight Line|old dominion\n4|XPO\n5|CPKC|canadian pacific\n5|Kuehne+Nagel|kuehne nagel\n5|C.H. Robinson|ch robinson\n5|Schneider National\n5|Knight-Swift\n5|SF Express\n6|Matson\n6|ZIM Shipping|zim\n6|Yang Ming\n6|Expeditors International\n6|Saia\n6|DPD Group|dpd"
+    },
+    {
+      "id": "drop-q003-dynamic-prices",
+      "cat": "Changing prices",
+      "q": "Name an everyday item or service whose price fluctuates frequently by day, hour, or season",
+      "a": "1|Plane tickets|airfare;flights\n1|Uber rides|lyft;rideshare\n1|Gasoline|gas prices\n1|Hotel rooms|hotels\n1|Concert tickets|ticketmaster\n1|Stocks|crypto\n2|Electricity|power bill\n2|Rental cars\n2|Airbnb stays|vacation rentals\n2|Sports tickets\n2|Eggs\n2|Produce|berries;avocados\n3|Heating oil|natural gas\n3|Cruise fares\n3|Gold|silver\n3|Mortgage rates\n3|Foreign currency|exchange rate\n3|Lumber\n4|Ski lift tickets\n4|Theme park tickets\n4|Flowers on Valentine's Day|roses\n4|Hotel parking|airport parking\n4|Highway express tolls|dynamic tolls\n4|Moving truck rentals|u haul\n5|Holiday candy|seasonal decor\n5|Halloween pumpkins\n5|Christmas trees\n5|Turkey before Thanksgiving\n5|Beefsteak|lobster\n5|Golf tee times\n6|Cloud spot instances|gpu compute\n6|Container freight rates\n6|Taxi surge surcharge\n6|Wedding venue Saturday dates\n6|College stadium parking\n6|Airline checked-bag promos"
+    }
+  ]
+}
