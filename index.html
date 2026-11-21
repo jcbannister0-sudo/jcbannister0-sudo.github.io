@@ -6796,7 +6796,7 @@ async function loadDailyDrop(key){
   }catch(e){return null;}
 }
 // ---------- user-based dynamic rarity & backend config ----------
-const VEBL_API="";
+const VEBL_API="https://vebl-api.vebl-game.workers.dev";
 const FEEDBACK_ENDPOINT="https://formspree.io/f/mzerarok";
 const GITHUB_ISSUES_URL="https://github.com/jcbannister0-sudo/jcbannister0-sudo.github.io/issues/new";
 const CROWD_PRIOR=12;
@@ -8066,12 +8066,12 @@ function results(res,mode="daily",meta={}){
     const savedFb=store.get("vebl-feedback")||[];
     savedFb.unshift(entry);
     store.set("vebl-feedback",savedFb.slice(0,50));
-    const targetUrl=VEBL_API?`${VEBL_API}/api/feedback`:FEEDBACK_ENDPOINT;
-    if(targetUrl&&typeof fetch==="function"){
+    const targets=[FEEDBACK_ENDPOINT,VEBL_API?`${VEBL_API}/api/feedback`:""].filter(Boolean);
+    if(targets.length&&typeof fetch==="function"){
       $("fbBtn").disabled=true;$("fbBtn").textContent="SENDING…";
       try{
-        const r=await fetch(targetUrl,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(entry)});
-        if(r.ok){
+        const rs=await Promise.allSettled(targets.map(u=>fetch(u,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(entry)})));
+        if(rs.some(x=>x.status==="fulfilled"&&x.value&&x.value.ok)){
           $("fbBtn").textContent="✓ SENT";
           $("fbOut").innerHTML=`<span style="color:var(--mint)">✓ Feedback received — thank you!</span>`;
           return;
@@ -8102,5 +8102,6 @@ loadDailyManifest();
 loadDailyDrop(dkey);
 home();
 </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "af43907d912c4cbab044ba0332267cad"}'></script>
 </body>
 </html>
