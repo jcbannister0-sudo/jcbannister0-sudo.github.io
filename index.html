@@ -16,15 +16,15 @@
 <meta property="og:title" content="VEBL — Can You Beat My Score?">
 <meta property="og:description" content="7 rounds of rare-answer economics trivia. Obvious answers dip, rare picks rocket $VEBL to the moon.">
 <meta property="og:url" content="https://jcbannister0-sudo.github.io/">
-<meta property="og:image" content="https://jcbannister0-sudo.github.io/og-preview.png">
+<meta property="og:image" content="https://jcbannister0-sudo.github.io/og-preview.png?v=2">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VEBL — Pixel-art dollar bill riding a glowing stock chart moonshot">
+<meta property="og:image:alt" content="VEBL — Pixel-art dollar bill riding the glowing $VEBL stock chart">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VEBL — Can You Beat My Score?">
 <meta name="twitter:description" content="7 rounds of rare-answer economics trivia. Think obscure and ride $VEBL to Monopoly status.">
-<meta name="twitter:image" content="https://jcbannister0-sudo.github.io/og-preview.png">
+<meta name="twitter:image" content="https://jcbannister0-sudo.github.io/og-preview.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--gold:#f5c542;--mint:#4ef2a3;--ink:#e9f0ff;--mute:#8a9bc0;--panel:#0e1830;--edge:#2c4170;--red:#ff5a6e;
@@ -189,14 +189,14 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .qfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
 #passBtn{font-size:10px;letter-spacing:2px;padding:6px 10px;border-color:var(--edge);color:var(--mute);box-shadow:none}
 #passBtn:hover{border-color:var(--red);color:var(--ink)}
-details.rdet{margin:0;border-bottom:1px solid #1d2b52}
-details.rdet summary{font-family:'IBM Plex Mono',monospace;letter-spacing:0;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 2px;color:var(--ink)}
-details.rdet summary::before{content:none}
-details.rdet summary .rcat{color:var(--mute);display:flex;align-items:center;gap:6px}
-details.rdet summary .rcat::before{content:"▸";font-size:11px;color:#5f73a0;transition:transform .12s}
-details.rdet[open] summary .rcat::before{content:"▾";color:var(--gold)}
-details.rdet .rdet-body{padding:0 4px 10px 16px;font-size:12px;color:var(--mute);line-height:1.5}
-details.rdet .rdet-q{color:#c9d4f0;margin-bottom:4px}
+.recap{padding:8px 12px}
+.rrow{padding:9px 0;border-bottom:1px solid #1d2b52}
+.rrow:last-child{border-bottom:0;padding-bottom:2px}
+.rtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px}
+.rtop .rcat{color:var(--mute);font-weight:600}
+.rsub{font-size:11px;color:#8a9bc0;margin-top:3px;line-height:1.35}
+.rhard{margin-top:6px}
+.rhard-lbl{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:1.5px;color:var(--gold);margin-bottom:3px;display:block}
 #archive{overflow-y:auto;background:rgba(5,6,16,.9);padding:24px 16px 40px;display:block;z-index:35}
 .arch{max-width:540px;margin:0 auto}
 .archhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
@@ -216,12 +216,8 @@ details.rdet .rdet-q{color:#c9d4f0;margin-bottom:4px}
 .acard .aright{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none}
 .acard .abadge{font-family:'VT323',monospace;font-size:19px;color:var(--gold);white-space:nowrap}
 .archnote{font-size:12px;color:var(--mute);line-height:1.5;text-align:center;margin-top:14px}
-.hardgrid{padding:10px 12px}
-.hardrow{padding:8px 0;border-bottom:1px solid #1d2b52}
-.hardrow:last-child{border-bottom:0;padding-bottom:2px}
-.hardq{font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:1.5px;color:var(--mute);margin-bottom:5px}
 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.chip{font-size:11px;padding:3px 7px;border:1px solid var(--edge);background:rgba(14,24,48,.75);color:var(--ink)}
+.chip{font-size:11px;padding:2px 6px;border:1px solid var(--edge);background:rgba(14,24,48,.75);color:var(--ink)}
 .chip.t6{border-color:rgba(245,197,66,.65);color:var(--gold);background:rgba(245,197,66,.08)}
 .chip.t5{border-color:rgba(255,159,67,.55);color:var(--t5);background:rgba(255,159,67,.07)}
 .chip.hit{box-shadow:0 0 10px rgba(78,242,163,.35);border-color:var(--mint);color:#fff;font-weight:600}
@@ -7991,12 +7987,6 @@ function results(res,mode="daily",meta={}){
   })():"";
   const reached=MS.filter((m,i)=>i===0||res.alt>=m.s-.5);
   const cIds=res.log.map(e=>e.id||(PROMPTS.find(p=>p.cat===e.cat)||{}).id).filter(Boolean);
-  const hardRows=res.log.map((e,k)=>{
-    const P=(e.id&&PROMPT_BY_ID[e.id])||PROMPTS.find(p=>p.cat===e.cat);
-    const chips=hardPicksFor(P,e.d,e);
-    if(!chips.length)return "";
-    return `<div class="hardrow"><div class="hardq">${k+1}. ${esc(e.cat)} · <span style="color:var(--ink)">${esc(e.q||(P&&P.q)||"")}</span></div><div class="chips">${chips.map(ch=>`<span class="chip ${ch.tier===6?"t6":"t5"}${ch.hit?" hit":""}">${ch.tier===6?"🟨":"🟧"} ${esc(ch.d)}${ch.live?" ★":(ch.hit?" ✓":"")}</span>`).join("")}</div></div>`;
-  }).filter(Boolean).join("");
   const fbOpts=res.log.map((e,k)=>{
     const pid=e.id||(PROMPTS.find(p=>p.cat===e.cat)||{}).id||"";
     return `<option value="${esc(pid)}">${k+1}. ${esc(e.cat)} — ${esc(e.q||"")}</option>`;
@@ -8008,21 +7998,22 @@ function results(res,mode="daily",meta={}){
    ${h2hHtml}
    <div class="sec">STOCK CHART <span style="color:#3b5185">LOG SCALE</span></div>
    <div class="panel" id="log" style="padding:10px">${tradeLog(res.log)}</div>
-   <div class="recap" style="margin-top:8px">${res.log.map((e,k)=>{
+   <div class="sec">YOUR ANSWERS <span style="color:var(--gold)">&amp; HARD SCORES</span></div>
+   <div class="panel recap">${res.log.map((e,k)=>{
      const P=(e.id&&PROMPT_BY_ID[e.id])||PROMPTS.find(p=>p.cat===e.cat);
      const ans=e.d?esc(e.d):(e.passed?"passed":(e.raw?"<s>"+esc(e.raw)+"</s>":"—"));
      const tags=(e.lev?`<span class="rtag" style="color:var(--gold)">2×</span>`:"")+(e.tip?`<span class="rtag" style="color:var(--t4)">TIP</span>`:"")+(e.liveMonopoly?`<span class="rtag" style="color:var(--gold)">ONLY YOU</span>`:"");
      const mnote=[e.lev?"⚡ 2× Leveraged":"",e.tip?"🕵 Insider Tip (-20)":"",e.crowdDynamic?`Crowd: ${e.crowdCount}/${e.crowdTotal} plays`:""].filter(Boolean).join(" · ");
+     const sub=[esc(e.q||(P&&P.q)||""),mnote].filter(Boolean).join(" · ");
      const rHard=hardPicksFor(P,e.d,e);
-     const hardHtml=rHard.length?`<div style="margin-top:6px"><span style="color:var(--gold)">Hard-score options:</span><div class="chips">${rHard.map(ch=>`<span class="chip ${ch.tier===6?"t6":"t5"}${ch.hit?" hit":""}">${ch.tier===6?"🟨":"🟧"} ${esc(ch.d)}</span>`).join("")}</div></div>`:"";
-     return `<details class="rdet"><summary><span class="rcat">${k+1}. ${esc(e.cat)}</span><span style="color:${e.tier?TIERS[e.tier].c:"var(--red)"}">${ans}${tags} · ${e.pts}</span></summary><div class="rdet-body"><div class="rdet-q">${esc(e.q||(P&&P.q)||"")}</div>${mnote?`<div>${mnote}</div>`:""}${hardHtml}</div></details>`;
+     const hardHtml=rHard.length?`<div class="rhard"><span class="rhard-lbl">HARD SCORES (🟨 MONOPOLY · 🟧 PEER REVIEWED)</span><div class="chips">${rHard.map(ch=>`<span class="chip ${ch.tier===6?"t6":"t5"}${ch.hit?" hit":""}">${ch.tier===6?"🟨":"🟧"} ${esc(ch.d)}${ch.live?" ★":(ch.hit?" ✓":"")}</span>`).join("")}</div></div>`:"";
+     return `<div class="rrow"><div class="rtop"><span class="rcat">${k+1}. ${esc(e.cat)}</span><span style="color:${e.tier?TIERS[e.tier].c:"var(--red)"}">${ans}${tags} · ${e.pts}</span></div><div class="rsub">${sub}</div>${hardHtml}</div>`;
    }).join("")}</div>
    <div class="sec">YOUR POSITION</div>
    <div class="panel" style="padding:12px">
      <div style="font-size:13px;color:var(--ink)"><b>${esc(rk[1])}</b> · <span style="color:var(--mint)">${money(res.alt)}</span> <span style="color:var(--mute)">— ${esc(rk[2])}</span></div>
      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">${reached.map(m=>`<span class="rtag" style="color:var(--gold);margin-left:0">${m.v} · ${m.n}</span>`).join("")}</div>
    </div>
-   ${hardRows?`<div class="sec">HARD SCORES <span style="color:var(--gold)">MONOPOLY &amp; PEER REVIEWED OPTIONS</span></div><div class="panel hardgrid">${hardRows}</div>`:""}
    <div class="sec">FEEDBACK &amp; MISSING ANSWERS</div>
    <form id="fbForm" class="panel fbpanel">
      <div class="fblbl" style="margin-top:0">RATE THIS CLIMB</div>
