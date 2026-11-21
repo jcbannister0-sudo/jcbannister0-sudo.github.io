@@ -189,14 +189,25 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .qfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
 #passBtn{font-size:10px;letter-spacing:2px;padding:6px 10px;border-color:var(--edge);color:var(--mute);box-shadow:none}
 #passBtn:hover{border-color:var(--red);color:var(--ink)}
-.recap{padding:8px 12px}
-.rrow{padding:9px 0;border-bottom:1px solid #1d2b52}
-.rrow:last-child{border-bottom:0;padding-bottom:2px}
-.rtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px}
-.rtop .rcat{color:var(--mute);font-weight:600}
-.rsub{font-size:11px;color:#8a9bc0;margin-top:3px;line-height:1.35}
+.recap{padding:4px 12px}
+details.rdet{margin:0;border-bottom:1px solid #1d2b52}
+details.rdet:last-child{border-bottom:0}
+details.rdet>summary{font-family:'IBM Plex Mono',monospace;letter-spacing:0;font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;color:var(--ink);cursor:pointer;list-style:none}
+details.rdet>summary::before{content:none}
+details.rdet>summary .rcat{color:var(--mute);display:flex;align-items:center;gap:6px;min-width:0}
+details.rdet>summary .rcat::before{content:"▸";font-size:11px;color:#5f73a0}
+details.rdet[open]>summary .rcat::before{content:"▾";color:var(--gold)}
+details.rdet>summary .rans{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;text-align:right}
+.rhint{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:1px;color:var(--gold);border:1px solid rgba(245,197,66,.4);padding:2px 5px;background:rgba(245,197,66,.07);white-space:nowrap}
+details.rdet .rdet-body{padding:0 2px 12px 14px;font-size:12px;color:var(--mute);line-height:1.45}
+details.rdet .rdet-q{color:#c9d4f0;margin-bottom:4px}
 .rhard{margin-top:6px}
-.rhard-lbl{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:1.5px;color:var(--gold);margin-bottom:3px;display:block}
+.rhard-lbl{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:1.5px;color:var(--gold);margin-bottom:4px;display:block}
+details.all-ans{margin-top:8px;border-top:1px dashed #22345e;padding-top:7px}
+details.all-ans>summary{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:1.5px;color:var(--mute);cursor:pointer;list-style:none}
+details.all-ans>summary::before{content:"▸ "}
+details.all-ans[open]>summary::before{content:"▾ "}
+details.all-ans>summary:hover{color:var(--ink)}
 #archive{overflow-y:auto;background:rgba(5,6,16,.9);padding:24px 16px 40px;display:block;z-index:35}
 .arch{max-width:540px;margin:0 auto}
 .archhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
@@ -220,6 +231,10 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .chip{font-size:11px;padding:2px 6px;border:1px solid var(--edge);background:rgba(14,24,48,.75);color:var(--ink)}
 .chip.t6{border-color:rgba(245,197,66,.65);color:var(--gold);background:rgba(245,197,66,.08)}
 .chip.t5{border-color:rgba(255,159,67,.55);color:var(--t5);background:rgba(255,159,67,.07)}
+.chip.t4{border-color:rgba(180,140,255,.45);color:var(--t4)}
+.chip.t3{border-color:rgba(78,242,163,.4);color:var(--t3)}
+.chip.t2{border-color:rgba(95,179,255,.4);color:var(--t2)}
+.chip.t1{border-color:rgba(201,138,86,.4);color:var(--t1)}
 .chip.hit{box-shadow:0 0 10px rgba(78,242,163,.35);border-color:var(--mint);color:#fff;font-weight:600}
 .fbpanel{padding:14px}
 .fblbl{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:2px;color:var(--mute);margin:8px 0 5px}
@@ -6714,7 +6729,7 @@ function dlev(a,b,maxD=6){
   return d[n][m];
 }
 const STOP_TOKS=new Set(["in","to","for","on","at","by","from","with","and","vs","versus"]);
-const SUFFIX_RE=/\b(curve|law|effect|paradox|puzzle|fallacy|theorem|model|index|ratio|tax|rate|goods|good|bias|heuristic|theory|game|rule|crisis|bubble|crash|problem|principle|system|policy|market|auction|experiment|strategy|pricing|subsidy|monopoly|bank|exchange|fund|account|bond|stock|option|credit|loan|wage|trade|tariff|cost|price|demand|supply|equilibrium|efficiency|competition|integration|discrimination|selection|hazard|utility|aversion|capital|income|deficit|surplus|growth|inflation|unemployment|control|floor|ceiling|share|rights|clause|act|plan|study|test|approach|hypothesis|equation|formula|measure|mechanism|algorithm)$/;
+const SUFFIX_RE=/\b(curve|law|effect|paradox|puzzle|fallacy|theorem|model|index|ratio|tax|rate|goods|good|bias|heuristic|theory|game|rule|crisis|bubble|crash|problem|principle|system|policy|market|auction|experiment|strategy|pricing|subsidy|monopoly|bank|exchange|fund|account|bond|stock|option|credit|loan|wage|trade|tariff|cost|price|demand|supply|equilibrium|efficiency|competition|integration|discrimination|selection|hazard|utility|aversion|capital|income|deficit|surplus|growth|inflation|unemployment|control|floor|ceiling|share|rights|clause|act|plan|study|test|approach|hypothesis|equation|formula|measure|mechanism|algorithm|fee|fees|charge|charges|bill|bills|app|card|service|services|membership|subscription|canal|strait|airport|company|brand|store|program|deduction|allowance|expense|expenses|insurance|platform|network|indicator|defense|tool)$/;
 function compilePrompt(P){
   P.reject=Object.fromEntries(Object.entries(P.reject||{}).map(([k,v])=>[norm(k),v]));
   P.answers=P.a.split("\n").map(l=>{
@@ -7627,7 +7642,7 @@ function home(){
        <div style="margin-top:8px">${TIERS.slice(1).map(t=>`<div class="trow"><span style="color:${t.c}">■ ${t.n}</span><span class="vt" style="font-size:18px">+${t.p}</span></div>`).join("")}</div>
        <div style="margin-top:6px;font-size:11px">Rarity tiers start as estimates and dynamically adapt as players play — if you're the only one out of 15+ plays to name an answer, it becomes a live Monopoly!</div></div></details>
      <div class="seg">${Object.values(SPEEDS).map(s=>`<button type="button" class="${speedMode===s.id?"on "+s.id:""}" onclick="setSpeed('${s.id}')">${s.label}</button>`).join("")}</div>
-     ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:20px" onclick="launchDaily('${dkey}',${dayNo})">▲ BEGIN ASCENT ▲</button>`}
+     ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:20px" onclick="launchDaily('${dkey}',${dayNo})">▲ OPEN THE MARKET ▲</button>`}
      <div class="meta"><span>CLIMB #${dayNo} · STREAK ${sn} · ★${store.get("vebl-tclub")||0}</span><div style="display:flex;gap:6px"><button class="btn ghost small" onclick="openArchive('days')">ARCHIVE</button><button class="btn ghost small" onclick="start('unlimited')">Unlimited ∞</button></div></div>
    </div></div>`;
 }
@@ -7956,19 +7971,19 @@ function pickFbKind(el,k){
   if(el&&el.parentNode)Array.from(el.parentNode.children).forEach(c=>c.classList.remove("on"));
   if(el)el.classList.add("on");
 }
-function hardPicksFor(P,userDisplay,e){
+function picksFor(P,userDisplay,e,minTier=1){
   if(!P||!P.answers)return [];
   const ud=userDisplay?norm(userDisplay):"";
   const picks=[];
   for(const a of P.answers){
     const isHit=ud&&norm(a.d)===ud;
     const eff=isHit&&e&&e.tier?{tier:e.tier,liveMonopoly:!!e.liveMonopoly}:effectiveTier(P,a,false);
-    if(eff.tier>=5)picks.push({d:a.d,tier:eff.tier,hit:isHit,live:!!eff.liveMonopoly});
+    if(eff.tier>=minTier)picks.push({d:a.d,tier:eff.tier,hit:isHit,live:!!eff.liveMonopoly});
   }
-  const t6=picks.filter(x=>x.tier===6).sort((a,b)=>(b.hit-a.hit));
-  const t5=picks.filter(x=>x.tier===5).sort((a,b)=>(b.hit-a.hit));
-  return [...t6.slice(0,4),...t5.slice(0,3)];
+  return picks.sort((a,b)=>(b.tier-a.tier)||(b.hit-a.hit));
 }
+const hardPicksFor=(P,userDisplay,e)=>picksFor(P,userDisplay,e,5);
+const allPicksFor=(P,userDisplay,e)=>picksFor(P,userDisplay,e,1);
 function results(res,mode="daily",meta={}){
   if(mode===true)mode="daily";else if(mode===false)mode="unlimited";
   hideAll();SCN.hideHead=true;show("results");
@@ -7998,16 +8013,18 @@ function results(res,mode="daily",meta={}){
    ${h2hHtml}
    <div class="sec">STOCK CHART <span style="color:#3b5185">LOG SCALE</span></div>
    <div class="panel" id="log" style="padding:10px">${tradeLog(res.log)}</div>
-   <div class="sec">YOUR ANSWERS <span style="color:var(--gold)">&amp; HARD SCORES</span></div>
+   <div class="sec">YOUR ANSWERS <span style="color:var(--gold)">· TAP ANY ROUND FOR HARD SCORES</span></div>
    <div class="panel recap">${res.log.map((e,k)=>{
      const P=(e.id&&PROMPT_BY_ID[e.id])||PROMPTS.find(p=>p.cat===e.cat);
      const ans=e.d?esc(e.d):(e.passed?"passed":(e.raw?"<s>"+esc(e.raw)+"</s>":"—"));
      const tags=(e.lev?`<span class="rtag" style="color:var(--gold)">2×</span>`:"")+(e.tip?`<span class="rtag" style="color:var(--t4)">TIP</span>`:"")+(e.liveMonopoly?`<span class="rtag" style="color:var(--gold)">ONLY YOU</span>`:"");
      const mnote=[e.lev?"⚡ 2× Leveraged":"",e.tip?"🕵 Insider Tip (-20)":"",e.crowdDynamic?`Crowd: ${e.crowdCount}/${e.crowdTotal} plays`:""].filter(Boolean).join(" · ");
      const sub=[esc(e.q||(P&&P.q)||""),mnote].filter(Boolean).join(" · ");
-     const rHard=hardPicksFor(P,e.d,e);
-     const hardHtml=rHard.length?`<div class="rhard"><span class="rhard-lbl">HARD SCORES (🟨 MONOPOLY · 🟧 PEER REVIEWED)</span><div class="chips">${rHard.map(ch=>`<span class="chip ${ch.tier===6?"t6":"t5"}${ch.hit?" hit":""}">${ch.tier===6?"🟨":"🟧"} ${esc(ch.d)}${ch.live?" ★":(ch.hit?" ✓":"")}</span>`).join("")}</div></div>`:"";
-     return `<div class="rrow"><div class="rtop"><span class="rcat">${k+1}. ${esc(e.cat)}</span><span style="color:${e.tier?TIERS[e.tier].c:"var(--red)"}">${ans}${tags} · ${e.pts}</span></div><div class="rsub">${sub}</div>${hardHtml}</div>`;
+     const rHard=hardPicksFor(P,e.d,e),allPicks=allPicksFor(P,e.d,e);
+     const t6n=rHard.filter(c=>c.tier===6).length,t5n=rHard.filter(c=>c.tier===5).length;
+     const hardHtml=rHard.length?`<div class="rhard"><span class="rhard-lbl">HARD SCORES · ${t6n} MONOPOLY · ${t5n} PEER REVIEWED</span><div class="chips">${rHard.map(ch=>`<span class="chip ${ch.tier===6?"t6":"t5"}${ch.hit?" hit":""}">${ch.tier===6?"🟨":"🟧"} ${esc(ch.d)}${ch.live?" ★":(ch.hit?" ✓":"")}</span>`).join("")}</div></div>`:"";
+     const allHtml=allPicks.length?`<details class="all-ans"><summary>SHOW ALL ${allPicks.length} ACCEPTED ANSWERS (TIERS 6 → 1)</summary><div class="chips" style="margin-top:6px">${allPicks.map(ch=>`<span class="chip t${ch.tier}${ch.hit?" hit":""}">${TIERS[ch.tier].e} ${esc(ch.d)}${ch.live?" ★":(ch.hit?" ✓":"")}</span>`).join("")}</div></details>`:"";
+     return `<details class="rdet"><summary><span class="rcat">${k+1}. ${esc(e.cat)}</span><span class="rans"><span style="color:${e.tier?TIERS[e.tier].c:"var(--red)"}">${ans}${tags} · ${e.pts}</span>${rHard.length?`<span class="rhint">${rHard.length} HARD ▾</span>`:""}</span></summary><div class="rdet-body"><div class="rdet-q">${sub}</div>${hardHtml}${allHtml}</div></details>`;
    }).join("")}</div>
    <div class="sec">YOUR POSITION</div>
    <div class="panel" style="padding:12px">
