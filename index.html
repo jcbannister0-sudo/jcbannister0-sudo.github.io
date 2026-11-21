@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev https://api.vebl.me https://formspree.io; base-uri 'self'; form-action 'self'; object-src 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev https://api.vebl.me https://formspree.io https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; object-src 'none';">
 <title>VEBL — rare-answer economics trivia</title>
 <meta name="description" content="Rare-answer economics trivia. Ride the $VEBL stock chart — obvious answers dip, obscure answers rally, and Monopolies moonshot.">
 <meta name="theme-color" content="#050816">
@@ -6797,7 +6797,7 @@ async function loadDailyDrop(key){
 }
 // ---------- user-based dynamic rarity & backend config ----------
 const VEBL_API="";
-const FEEDBACK_ENDPOINT="";
+const FEEDBACK_ENDPOINT="https://formspree.io/f/mzerarok";
 const GITHUB_ISSUES_URL="https://github.com/jcbannister0-sudo/jcbannister0-sudo.github.io/issues/new";
 const CROWD_PRIOR=12;
 const BASE_SHARE=[0,0.24,0.13,0.07,0.035,0.015,0.004];
@@ -8051,6 +8051,7 @@ function results(res,mode="daily",meta={}){
       return;
     }
     const entry={
+      _subject:`[VEBL Feedback] ${fbState.kind||"General"}${pid?" ("+pid+")":""}`,
       rating:fbState.rating||null,
       kind:fbState.kind||"General",
       promptId:pid||"general",
@@ -8069,7 +8070,7 @@ function results(res,mode="daily",meta={}){
     if(targetUrl&&typeof fetch==="function"){
       $("fbBtn").disabled=true;$("fbBtn").textContent="SENDING…";
       try{
-        const r=await fetch(targetUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(entry)});
+        const r=await fetch(targetUrl,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(entry)});
         if(r.ok){
           $("fbBtn").textContent="✓ SENT";
           $("fbOut").innerHTML=`<span style="color:var(--mint)">✓ Feedback received — thank you!</span>`;
