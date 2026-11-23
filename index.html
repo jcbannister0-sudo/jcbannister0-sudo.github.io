@@ -78,7 +78,9 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .meta span{font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:2px;color:var(--mute)}
 /* question */
 #qPanel{margin-top:96px;width:calc(100% - 24px);max-width:520px;padding:18px 20px}
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .qnum{font-family:'Silkscreen',monospace;font-size:11px;letter-spacing:4px;color:var(--gold)}
+.readpill{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:1.5px;padding:3px 7px;border:1px solid var(--gold);color:var(--gold);background:rgba(245,197,66,.12);white-space:nowrap}
 .qtext{font-weight:700;font-size:clamp(20px,5.2vw,28px);line-height:1.25;margin:10px 0 8px}
 .qhint{font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:2px;color:var(--mute)}
 #bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;flex-direction:column;align-items:center;padding:12px;background:linear-gradient(transparent,rgba(5,5,15,.85) 40%)}
@@ -89,6 +91,7 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .dial svg{position:absolute;inset:0;transform:rotate(-90deg)}
 .dial b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'VT323',monospace;font-size:26px;color:var(--mint)}
 .dial.low b{color:var(--red);animation:blink .5s steps(2) infinite}
+.dial.wait b{color:var(--gold)}
 #ans{flex:1;min-width:0;height:54px;background:#0a1226;border:2px solid var(--mint);color:var(--ink);font:500 17px 'IBM Plex Mono',monospace;padding:0 14px;outline:none;box-shadow:0 0 16px rgba(78,242,163,.2)}
 #ans::placeholder{color:#4e6491}
 #buyBtn{width:auto;height:54px;padding:0 16px;font-size:13px;letter-spacing:3px}
@@ -7005,6 +7008,7 @@ const SPEEDS={
   study:{id:"study",n:"Study",secs:null,low:0,mult:1,code:"u",label:"📖 STUDY ∞",tag:"untimed study mode"}
 };
 const SPEED_BY_CODE={b:"blitz",c:"standard",u:"study"};
+const READ_SECS=3;
 let speedMode=(()=>{try{const v=localStorage.getItem("vebl-speed");return SPEEDS[v]?v:"standard";}catch(e){return "standard";}})();
 function setSpeed(id){if(!SPEEDS[id])return;speedMode=id;try{localStorage.setItem("vebl-speed",id);}catch(e){}home();}
 function makeTip(P){
@@ -7618,7 +7622,7 @@ function home(){
      ${pendingChallenge?`<div class="panel chcard"><div class="chtitle">⚔ FRIEND CHALLENGE · ${SPEEDS[pendingChallenge.speed].label}</div><div class="chsub">${pendingChallenge.targetScore!=null?`Target to beat: <b>${pendingChallenge.targetScore} pts</b>${pendingChallenge.targetAlt!=null?` (${money(pendingChallenge.targetAlt)})`:""}${pendingChallenge.targetGrid?`<div style="margin-top:4px;letter-spacing:2px">${pendingChallenge.targetGrid}</div>`:""}`:`7-round seeded duel — set the score to beat!`}</div><div class="btnrow" style="margin-top:10px"><button class="btn gold small" style="flex:1" onclick="acceptPendingChallenge()">▲ ACCEPT CHALLENGE ▲</button><button class="btn ghost small" onclick="dismissChallenge()">✕</button></div></div>`:""}
      <details><summary>How to play</summary><div class="panel">
        Ride the rigid <b>$VEBL</b> stock chart on a logarithmic scale. Obvious <b>Common Cents</b> answers are already priced in and dip slightly; misses crash hard. Rarer answers rally sharply, and each prompt hides one ultra-rare <b>Monopoly</b> (plus any valid answer only you named once 15+ players join) that shoots straight up with no dip!<br><br>
-       <b>Speeds:</b> ⚡ Blitz (10s, +25% pts), Classic (20s), 📖 Study (untimed + Pass in Unlimited &amp; Vault).<br>
+       <b>Speeds:</b> ⚡ Blitz (3s read + 10s, +25% pts), Classic (3s read + 20s), 📖 Study (untimed + Pass in Unlimited &amp; Vault).<br>
        <b>Tools (1 per climb):</b> ⚡ <b>2× Leverage</b> (2× move up <i>or</i> down — ONE attempt only!) · 🕵 <b>Insider Tip</b> (-20 fee for a masked Tier 5–6 clue).
        <div style="margin-top:8px">${TIERS.slice(1).map(t=>`<div class="trow"><span style="color:${t.c}">■ ${t.n}</span><span class="vt" style="font-size:18px">+${t.p}</span></div>`).join("")}</div>
        <div style="margin-top:6px;font-size:11px">Rarity tiers start as estimates and dynamically adapt as players play — if you're the only one out of 15+ plays to name an answer, it becomes a live Monopoly!</div></div></details>
@@ -7654,7 +7658,7 @@ function ask(){
   $("ans").classList.remove("lev","bad");$("ans").placeholder="type one answer…";$("buyBtn").textContent="BUY ▲";show("errMsg",false);
   show("reveal",false);show("nextWrap",false);
   pips();show("question");show("bar");SCN.mood="idle";G.late=false;clearTimeout(G.idleT);if(Math.random()<.45)G.idleT=setTimeout(()=>say(pickL("idle")),1200);
-  $("qPanel").innerHTML=`<div class="qnum">PROMPT ${G.i+1} OF ${ROUNDS} · ${esc(P.cat.toUpperCase())}${sp.id!=="standard"?" · "+esc(sp.n.toUpperCase()):""}</div><div class="qtext">${esc(P.q)}</div><div id="tipBox" class="tipbox hide"></div><div class="qtools"><button type="button" class="tbtn" id="levBtn" ${G.levLeft<=0?"disabled":""}>${G.levLeft>0?"⚡ 2× (1)":"⚡ 2× USED"}</button><button type="button" class="tbtn tip" id="tipBtn" ${G.tipLeft<=0?"disabled":""}>${G.tipLeft>0?"🕵 TIP (-20)":"🕵 TIP USED"}</button>${allowPass?'<button type="button" class="tbtn pass" id="passBtn">PASS →</button>':""}</div>`;
+  $("qPanel").innerHTML=`<div class="qtop"><div class="qnum">PROMPT ${G.i+1} OF ${ROUNDS} · ${esc(P.cat.toUpperCase())}${sp.id!=="standard"?" · "+esc(sp.n.toUpperCase()):""}</div>${sp.secs!=null?`<span id="readTag" class="readpill">READ · ${READ_SECS}s</span>`:""}</div><div class="qtext">${esc(P.q)}</div><div id="tipBox" class="tipbox hide"></div><div class="qtools"><button type="button" class="tbtn" id="levBtn" ${G.levLeft<=0?"disabled":""}>${G.levLeft>0?"⚡ 2× (1)":"⚡ 2× USED"}</button><button type="button" class="tbtn tip" id="tipBtn" ${G.tipLeft<=0?"disabled":""}>${G.tipLeft>0?"🕵 TIP (-20)":"🕵 TIP USED"}</button>${allowPass?'<button type="button" class="tbtn pass" id="passBtn">PASS →</button>':""}</div>`;
   $("levBtn").onclick=()=>{
     if($("ans").disabled||G.levLeft<=0)return;
     G.roundLev=!G.roundLev;
@@ -7681,16 +7685,32 @@ function ask(){
   clearInterval(timerId);timerId=null;
   if(sp.secs==null){
     $("dialArc").style.strokeDashoffset=0;$("dialArc").style.stroke="#5fb3ff";
-    $("dialN").textContent="∞";$("dial").classList.remove("low");
+    $("dialN").textContent="∞";$("dial").classList.remove("low","wait");
     $("tbar").style.width="100%";$("tbar").style.background="#5fb3ff";
   }else{
-    const t0=Date.now();
-    timerId=setInterval(()=>{const left=Math.max(0,sp.secs-(Date.now()-t0)/1000),f=left/sp.secs;
+    $("dialArc").style.strokeDashoffset=0;$("dialArc").style.stroke="#f5c542";
+    $("dialN").textContent=String(sp.secs);$("dial").classList.remove("low");$("dial").classList.add("wait");
+    $("tbar").style.width="100%";$("tbar").style.background="#f5c542";
+    const t0=Date.now(),goAt=t0+READ_SECS*1000;
+    timerId=setInterval(()=>{
+      const now=Date.now();
+      if(now<goAt){
+        const rLeft=Math.max(0,(goAt-now)/1000);
+        $("dialArc").style.strokeDashoffset=0;$("dialArc").style.stroke="#f5c542";
+        $("dialN").textContent=String(sp.secs);
+        $("tbar").style.width=(rLeft/READ_SECS*100)+"%";$("tbar").style.background="#f5c542";
+        const rt=$("readTag");if(rt)rt.textContent="READ · "+Math.ceil(rLeft)+"s";
+        return;
+      }
+      $("dial").classList.remove("wait");
+      const rt=$("readTag");if(rt)rt.classList.add("hide");
+      const left=Math.max(0,sp.secs-(now-goAt)/1000),f=left/sp.secs;
       $("dialArc").style.strokeDashoffset=144.5*(1-f);$("dialArc").style.stroke=left<sp.low?"#ff5a6e":"#4ef2a3";
       $("dialN").textContent=Math.ceil(left);$("dial").classList.toggle("low",left<sp.low);
       $("tbar").style.width=(f*100)+"%";$("tbar").style.background=left<sp.low?"#ff5a6e":"#4ef2a3";
       if(left<sp.low){SCN.shake=Math.max(SCN.shake,.6);if(!G.late){G.late=true;SCN.mood="nervous";say(pickL("late"),1500);}if(Math.ceil(left)!==G.lastSec){G.lastSec=Math.ceil(left);sfx.tick();}}
-      if(left<=0){clearInterval(timerId);resolve(inp.value,true,false);}},100);
+      if(left<=0){clearInterval(timerId);resolve(inp.value,true,false);}
+    },100);
   }
 }
 $("ans").oninput=()=>{show("errMsg",false);$("ans").classList.remove("bad");};
@@ -7721,7 +7741,7 @@ function submitAnswer(){
 $("f").onsubmit=e=>{e.preventDefault();submitAnswer();};
 function resolve(raw,timeout,passed=false){
   clearTimeout(G.idleT);const P=G.set[G.i],sp=SPEEDS[G.speed]||SPEEDS.standard;
-  show("errMsg",false);$("ans").disabled=true;$("ans").blur();$("ans").classList.remove("lev","bad");$("ans").placeholder="type one answer…";$("buyBtn").textContent="BUY ▲";
+  show("errMsg",false);$("dial").classList.remove("low","wait");$("ans").disabled=true;$("ans").blur();$("ans").classList.remove("lev","bad");$("ans").placeholder="type one answer…";$("buyBtn").textContent="BUY ▲";
   const usedTip=!!G.roundTip, usedLev=!passed&&!!G.roundLev;
   if(usedLev)G.levLeft=Math.max(0,G.levLeft-1);
   const r=!passed&&norm(raw)?judge(P,raw):null;
