@@ -98,10 +98,13 @@ export function validateDrop(drop, label = 'drop') {
         seenAliases.set(al, d);
       }
     }
-    for (let t = 1; t <= 6; t++) {
+    for (let t = 1; t <= 5; t++) {
       if (tierCounts[t] < 2) {
         throw new Error(`${label} (${P.id}): tier ${t} has only ${tierCounts[t]} answers (need >= 2)`);
       }
+    }
+    if (tierCounts[6] !== 1) {
+      throw new Error(`${label} (${P.id}): tier 6 must have exactly 1 Monopoly answer (got ${tierCounts[6]})`);
     }
   }
 }
@@ -140,7 +143,7 @@ async function generateDropWithGemini(targetDate, apiKey) {
       targetDate.replace(/-/g, '') +
       '-<slug>","cat":"<2-3 word label>","q":"<question prompt>","a":"<newline-delimited rows>"}]}',
     'Rules for each prompt:',
-    '- Tier 1 = obvious everyday "Common Cents" answers anyone knows immediately (12-16 rows). Tiers 2-4 = concrete real-world examples (12-16 rows each). Tier 5 = harder/niche answers (12-16 rows). Tier 6 = "Monopoly" answers almost nobody else says (12-16 rows). Aim for 70-90+ total accepted answers per prompt!',
+    '- Tier 1 = obvious everyday "Common Cents" answers anyone knows immediately (12-16 rows). Tiers 2-4 = concrete real-world examples (12-16 rows each). Tier 5 = harder/niche answers (20-30 rows). Tier 6 = EXACTLY 1 secret "Monopoly" row per prompt — an answer almost nobody else thinks of. Aim for 70-90+ total accepted answers per prompt!',
     '- Keep EVERY prompt concrete, accessible, and fun (e.g. specific brands, everyday bills, jobs, products, cities, countries, famous people, movies, scams). NEVER write vague academic prompts like "Name a [topic] economics concept".',
     '- Row format: <tier>|<Display Name> or <tier>|<Display Name>|<alias1>;<alias2>;<alias3>;<alias4> — pack EVERY row with 2-5 rich alternate aliases (slang, abbreviations, common variants, synonyms) so alternate phrasings always count!',
     '- Zero duplicate or colliding normalized aliases within a prompt. Accurate factual economics only.'

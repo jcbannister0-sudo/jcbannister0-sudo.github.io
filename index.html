@@ -360,28 +360,28 @@ const PROMPTS=[
 5|Oliver Hart
 5|Bengt Holmstrom
 6|Peter Howitt
-6|Guido Imbens
-6|Philip Dybvig
-6|Finn Kydland
-6|William Vickrey
-6|James Mirrlees
-6|John Harsanyi
-6|Reinhard Selten
-6|Theodore Schultz
-6|Ragnar Frisch
-6|Leonid Kantorovich
-6|Tjalling Koopmans
-6|Richard Stone
-6|Maurice Allais
-6|Trygve Haavelmo
-6|Leonid Hurwicz
-6|Oliver Williamson
-6|Dale Mortensen
-6|Christopher Pissarides
-6|Robert Engle
-6|Bertil Ohlin
-6|James Meade
-6|Lawrence Klein`},
+5|Guido Imbens
+5|Philip Dybvig
+5|Finn Kydland
+5|William Vickrey
+5|James Mirrlees
+5|John Harsanyi
+5|Reinhard Selten
+5|Theodore Schultz
+5|Ragnar Frisch
+5|Leonid Kantorovich
+5|Tjalling Koopmans
+5|Richard Stone
+5|Maurice Allais
+5|Trygve Haavelmo
+5|Leonid Hurwicz
+5|Oliver Williamson
+5|Dale Mortensen
+5|Christopher Pissarides
+5|Robert Engle
+5|Bertil Ohlin
+5|James Meade
+5|Lawrence Klein`},
 {id:"currencies",cat:"Currencies",q:"Name a national currency that isn't called a 'dollar'",
  reject:{"dollar":"Anything but a dollar!","usd":"Anything but a dollar!","cad":"Anything but a dollar!","aud":"Anything but a dollar!","nzd":"Anything but a dollar!","hkd":"Anything but a dollar!","sgd":"Anything but a dollar!","twd":"Anything but a dollar!","bitcoin":"Not a national currency (El Salvador aside, nice try).","crypto":"Not a national currency.","lev":"Bulgaria switched from the lev to the euro in Jan 2026!","bulgarian lev":"Bulgaria switched from the lev to the euro in Jan 2026!"},
  rejectRe:[[/\bdollars?\b/,"Anything but a dollar!"]],
@@ -415,28 +415,28 @@ const PROMPTS=[
 5|Rial|iranian rial;omani rial
 5|Sol|peruvian sol;nuevo sol;pen
 5|Bolivar|venezuelan bolivar
-6|Leu|romanian leu;lei;ron
+5|Leu|romanian leu;lei;ron
 6|Hryvnia|ukrainian hryvnia
-6|Tenge|kazakh tenge
-6|Cedi|ghanaian cedi
-6|Kwacha|zambian kwacha
-6|Taka|bangladeshi taka
-6|Kyat|myanmar kyat
-6|Birr|ethiopian birr
-6|Lari|georgian lari
-6|Dram|armenian dram
-6|Manat|azerbaijani manat
-6|Som|kyrgyz som
-6|Guarani|paraguayan guarani
-6|Colon|costa rican colon
-6|Quetzal|guatemalan quetzal
-6|Lempira|honduran lempira
-6|Boliviano
-6|Tugrik|togrog;mongolian tugrik
-6|Rufiyaa
-6|Pula|botswana pula
-6|Ariary
-6|Kina|papua new guinea kina`},
+5|Tenge|kazakh tenge
+5|Cedi|ghanaian cedi
+5|Kwacha|zambian kwacha
+5|Taka|bangladeshi taka
+5|Kyat|myanmar kyat
+5|Birr|ethiopian birr
+5|Lari|georgian lari
+5|Dram|armenian dram
+5|Manat|azerbaijani manat
+5|Som|kyrgyz som
+5|Guarani|paraguayan guarani
+5|Colon|costa rican colon
+5|Quetzal|guatemalan quetzal
+5|Lempira|honduran lempira
+5|Boliviano
+5|Tugrik|togrog;mongolian tugrik
+5|Rufiyaa
+5|Pula|botswana pula
+5|Ariary
+5|Kina|papua new guinea kina`},
 {id:"market-failure",cat:"Market failure",q:"Name a cause of market failure",
  a:`1|Externalities|externality;negative externality;positive externality;pollution
 1|Monopoly|monopolies
@@ -456,11 +456,11 @@ const PROMPTS=[
 5|Barriers to entry
 5|Factor immobility|labour immobility;labor immobility
 5|Bounded rationality|irrational behaviour;behavioral biases
-6|Missing markets|missing market;incomplete markets
-6|Transaction costs|transaction cost
-6|Network effects|network externality
-6|Hold-up problem|holdup
-6|Coordination failure
+5|Missing markets|missing market;incomplete markets
+5|Transaction costs|transaction cost
+5|Network effects|network externality
+5|Hold-up problem|holdup
+5|Coordination failure
 1|Climate change|global warming;carbon emissions
 1|Price gouging
 2|Imperfect competition
@@ -485,9 +485,9 @@ const PROMPTS=[
 5|Incomplete property rights|missing property rights
 5|Public bads
 6|X-inefficiency|leibenstein x inefficiency
-6|Asymmetric bargaining power|unequal bargaining power
-6|Pecuniary externality
-6|Non-convexity|non convexities`},
+5|Asymmetric bargaining power|unequal bargaining power
+5|Pecuniary externality
+5|Non-convexity|non convexities`},
 {id:"g20",cat:"G20",q:"Name a member of the G20",
  a:`1|United States|usa;us;america;united states of america
 1|China
@@ -509,7 +509,7 @@ const PROMPTS=[
 5|Turkey|turkiye
 5|South Africa
 6|Argentina
-6|African Union|au`,
+5|African Union|au`,
  reject:{"spain":"Spain is a permanent guest, not a member.","netherlands":"Not a member.","switzerland":"Not a member.","nigeria":"Not a member, but the African Union is.","sweden":"Not a G20 member (represented via the EU).","norway":"Not a G20 member.","poland":"Not a G20 member (represented via the EU)."}},
 {id:"exchanges",cat:"Exchanges",q:"Name a stock or derivatives exchange",
  a:`1|New York Stock Exchange|nyse;new york stock exchange
@@ -538,13 +538,13 @@ const PROMPTS=[
 5|Singapore Exchange|sgx;singapore
 5|Intercontinental Exchange|ice
 6|Nasdaq Nordic|nasdaq stockholm;stockholm
-6|Borsa Italiana|milan
-6|Mexican Stock Exchange|bmv;bolsa mexicana
-6|Borsa Istanbul|istanbul
-6|Tel Aviv Stock Exchange|tase;tel aviv
-6|IEX|investors exchange
-6|Canadian Securities Exchange|cse
-6|London Metal Exchange|lme
+5|Borsa Italiana|milan
+5|Mexican Stock Exchange|bmv;bolsa mexicana
+5|Borsa Istanbul|istanbul
+5|Tel Aviv Stock Exchange|tase;tel aviv
+5|IEX|investors exchange
+5|Canadian Securities Exchange|cse
+5|London Metal Exchange|lme
 4|NYSE Arca|arca
 4|Philadelphia Stock Exchange|phlx
 5|Montreal Exchange|mx
@@ -558,15 +558,15 @@ const PROMPTS=[
 5|Indonesia Stock Exchange|idx
 5|Philippine Stock Exchange|pse
 5|New Zealand Exchange|nzx
-6|Vienna Stock Exchange|wiener borse
-6|Athens Stock Exchange|athex
-6|Dubai Financial Market|dfm
-6|Abu Dhabi Securities Exchange|adx
-6|Qatar Stock Exchange|qse
-6|Egyptian Exchange|egx;cairo exchange
-6|Nigerian Exchange|ngx
-6|Santiago Stock Exchange|bolsa de santiago
-6|Lima Stock Exchange|bvl`},
+5|Vienna Stock Exchange|wiener borse
+5|Athens Stock Exchange|athex
+5|Dubai Financial Market|dfm
+5|Abu Dhabi Securities Exchange|adx
+5|Qatar Stock Exchange|qse
+5|Egyptian Exchange|egx;cairo exchange
+5|Nigerian Exchange|ngx
+5|Santiago Stock Exchange|bolsa de santiago
+5|Lima Stock Exchange|bvl`},
 {id:"central-banks",cat:"Central banks",q:"Name a central bank",
  reject:{"world bank":"Development lender, not a central bank.","imf":"International fund, not a central bank.","rbc":"Commercial bank, not a central bank."},
  a:`1|Federal Reserve|fed;the fed;us federal reserve;federal reserve system
@@ -588,14 +588,14 @@ const PROMPTS=[
 5|Bank of Mexico|banxico;banco de mexico
 5|South African Reserve Bank|sarb
 6|Central Bank of Russia|bank of russia
-6|Bank of Israel
-6|Monetary Authority of Singapore|mas
-6|Hong Kong Monetary Authority|hkma
-6|Central Bank of the Republic of Turkey|cbrt;turkish central bank
-6|Central Bank of Ireland
-6|Danmarks Nationalbank
-6|Bank of Italy|banca d'italia;banca ditalia
-6|Bank for International Settlements|bis
+5|Bank of Israel
+5|Monetary Authority of Singapore|mas
+5|Hong Kong Monetary Authority|hkma
+5|Central Bank of the Republic of Turkey|cbrt;turkish central bank
+5|Central Bank of Ireland
+5|Danmarks Nationalbank
+5|Bank of Italy|banca d'italia;banca ditalia
+5|Bank for International Settlements|bis
 4|Bank of Spain|banco de espana
 4|De Nederlandsche Bank|dnb;dutch central bank
 4|National Bank of Belgium|nbb
@@ -616,15 +616,15 @@ const PROMPTS=[
 5|Central Bank of the UAE|cbuae
 5|Central Bank of Egypt|cbe
 5|Central Bank of Nigeria|cbn
-6|State Bank of Vietnam|sbv
-6|Central Bank of Kenya|cbk
-6|State Bank of Pakistan|sbp
-6|Bangladesh Bank
-6|Central Bank of Iceland|sedlabanki
-6|National Bank of Ukraine|nbu
-6|Central Bank of Taiwan|cbc taiwan
-6|Magyar Nemzeti Bank|hungarian national bank
-6|National Bank of Romania|bnr`},
+5|State Bank of Vietnam|sbv
+5|Central Bank of Kenya|cbk
+5|State Bank of Pakistan|sbp
+5|Bangladesh Bank
+5|Central Bank of Iceland|sedlabanki
+5|National Bank of Ukraine|nbu
+5|Central Bank of Taiwan|cbc taiwan
+5|Magyar Nemzeti Bank|hungarian national bank
+5|National Bank of Romania|bnr`},
 {id:"books",cat:"Books",q:"Name a famous economics book",
  reject:{"the bible":"Not an economics textbook (though it has parables)."},
  a:`1|The Wealth of Nations|wealth of nations
@@ -661,14 +661,14 @@ const PROMPTS=[
 5|Doughnut Economics
 5|The Worldly Philosophers|worldly philosophers
 6|On the Principles of Political Economy and Taxation|principles of political economy and taxation
-6|The Great Transformation|great transformation
-6|Manias, Panics, and Crashes|manias panics and crashes
-6|Lombard Street
-6|The Entrepreneurial State|entrepreneurial state
-6|Stabilizing an Unstable Economy|stabilizing an unstable economy
-6|A Monetary History of the United States|monetary history of the united states
-6|The Logic of Collective Action|logic of collective action
-6|Governing the Commons|governing the commons
+5|The Great Transformation|great transformation
+5|Manias, Panics, and Crashes|manias panics and crashes
+5|Lombard Street
+5|The Entrepreneurial State|entrepreneurial state
+5|Stabilizing an Unstable Economy|stabilizing an unstable economy
+5|A Monetary History of the United States|monetary history of the united states
+5|The Logic of Collective Action|logic of collective action
+5|Governing the Commons|governing the commons
 1|Rich Dad Poor Dad
 2|The Psychology of Money|psychology of money
 2|The Intelligent Investor|intelligent investor
@@ -704,13 +704,13 @@ const PROMPTS=[
 5|The Deficit Myth|deficit myth
 5|The Great Crash 1929|great crash
 5|Modern Principles of Economics|cowen tabarrok
-6|Radical Markets|posner weyl
-6|Who Gets What — and Why|who gets what and why
-6|The Art of Strategy|art of strategy
-6|Slouching Towards Utopia
-6|Microeconomic Theory|mas colell
-6|Kicking Away the Ladder
-6|Seeing Like a State`},
+5|Radical Markets|posner weyl
+5|Who Gets What — and Why|who gets what and why
+5|The Art of Strategy|art of strategy
+5|Slouching Towards Utopia
+5|Microeconomic Theory|mas colell
+5|Kicking Away the Ladder
+5|Seeing Like a State`},
 {id:"crises",cat:"Crises",q:"Name a financial crisis, crash, or bubble",
  a:`1|Great Depression
 1|2008 Financial Crisis|2008;great recession;subprime mortgage crisis;subprime crisis;global financial crisis;gfc;2008 crash
@@ -748,13 +748,13 @@ const PROMPTS=[
 5|Terra-Luna Collapse|terra luna;luna crash
 5|Evergrande Crisis|evergrande
 6|Long Depression
-6|Herstatt Bank Collapse|herstatt
-6|Latin American Debt Crisis|lost decade latin america;1980s debt crisis
-6|Railway Mania|railway mania
-6|Credit Suisse Collapse|credit suisse
-6|Panic of 1819|1819
-6|Black Friday of 1869|black friday 1869
-6|Nifty Fifty
+5|Herstatt Bank Collapse|herstatt
+5|Latin American Debt Crisis|lost decade latin america;1980s debt crisis
+5|Railway Mania|railway mania
+5|Credit Suisse Collapse|credit suisse
+5|Panic of 1819|1819
+5|Black Friday of 1869|black friday 1869
+5|Nifty Fifty
 2|2022 Crypto Winter|crypto crash;crypto winter
 2|Lehman Brothers Collapse|lehman;lehman brothers
 3|Bear Stearns Collapse|bear stearns
@@ -772,10 +772,10 @@ const PROMPTS=[
 5|Wirecard Scandal|wirecard
 5|Panic of 1893|1893
 5|Panic of 1857|1857
-6|Panic of 1825|1825
-6|2013 Taper Tantrum|taper tantrum
-6|Sri Lanka Sovereign Default|sri lanka default
-6|2025 Tariff Selloff|2025 market crash`},
+5|Panic of 1825|1825
+5|2013 Taper Tantrum|taper tantrum
+5|Sri Lanka Sovereign Default|sri lanka default
+5|2025 Tariff Selloff|2025 market crash`},
 {id:"canadian-finance",cat:"Canadian finance",q:"Name a Canadian bank or credit union",
  a:`1|RBC|royal bank;royal bank of canada
 1|TD|td bank;toronto dominion;td canada trust
@@ -794,21 +794,21 @@ const PROMPTS=[
 5|Meridian Credit Union|meridian
 5|Wealthsimple
 6|Canadian Western Bank|cwb
-6|Servus Credit Union|servus
-6|Alterna Savings|alterna
-6|Manulife Bank
-6|First Nations Bank of Canada|first nations bank
-6|Koho
-6|Motusbank|motus
-6|Steinbach Credit Union|steinbach
-6|President's Choice Bank|pc financial;pc bank
-6|HomeEquity Bank|homeequity
-6|B2B Bank|b2b
-6|Conexus Credit Union|conexus
-6|Affinity Credit Union|affinity
-6|ConnectFirst Credit Union|connectfirst
-6|BlueShore Financial|blueshore
-6|Libro Credit Union|libro`,
+5|Servus Credit Union|servus
+5|Alterna Savings|alterna
+5|Manulife Bank
+5|First Nations Bank of Canada|first nations bank
+5|Koho
+5|Motusbank|motus
+5|Steinbach Credit Union|steinbach
+5|President's Choice Bank|pc financial;pc bank
+5|HomeEquity Bank|homeequity
+5|B2B Bank|b2b
+5|Conexus Credit Union|conexus
+5|Affinity Credit Union|affinity
+5|ConnectFirst Credit Union|connectfirst
+5|BlueShore Financial|blueshore
+5|Libro Credit Union|libro`,
  reject:{"bank of canada":"That's the central bank — it doesn't take deposits from you and me.","hsbc":"HSBC Canada was absorbed into RBC in 2024."}},
 {id:"indicators",cat:"Indicators",q:"Name an economic indicator reported in the news",
  a:`1|GDP|gross domestic product;real gdp;gdp growth
@@ -845,11 +845,11 @@ const PROMPTS=[
 5|Output gap
 5|Velocity of money|money velocity
 6|Beige Book
-6|JOLTS|job openings
-6|NAIRU|natural rate of unemployment
-6|Sahm rule
-6|Misery index
-6|Big Mac Index|big mac
+5|JOLTS|job openings
+5|NAIRU|natural rate of unemployment
+5|Sahm rule
+5|Misery index
+5|Big Mac Index|big mac
 2|Personal income
 2|Consumer spending
 3|Personal savings rate|savings rate
@@ -868,12 +868,12 @@ const PROMPTS=[
 5|Foreign exchange reserves|fx reserves
 5|U-6 unemployment|u6;underemployment rate
 5|Quits rate|quit rate
-6|Baltic Dry Index|bdi
-6|Unit labor costs|unit labour costs
-6|Employment Cost Index|eci
-6|Atlanta Fed GDPNow|gdpnow
-6|M3 money supply|broad money
-6|Okun gap`},
+5|Baltic Dry Index|bdi
+5|Unit labor costs|unit labour costs
+5|Employment Cost Index|eci
+5|Atlanta Fed GDPNow|gdpnow
+5|M3 money supply|broad money
+5|Okun gap`},
 {id:"taxes",cat:"Taxes",q:"Name a type of tax",
  a:`1|Income tax|income
 1|Sales tax|sales
@@ -904,10 +904,10 @@ const PROMPTS=[
 5|Stamp duty|stamp tax
 5|Empty homes tax|vacancy tax;speculation and vacancy tax
 6|Negative income tax|negative income
-6|Alternative minimum tax|amt
-6|Window tax
-6|Seigniorage|inflation tax
-6|Tithe|tithes
+5|Alternative minimum tax|amt
+5|Window tax
+5|Seigniorage|inflation tax
+5|Tithe|tithes
 1|Progressive tax
 1|Regressive tax
 2|Marginal tax|marginal tax rate
@@ -928,11 +928,11 @@ const PROMPTS=[
 5|Franchise tax
 5|Use tax
 5|Severance tax
-6|Export tax|export duty
-6|Global minimum tax|pillar two
-6|Carbon border adjustment|cbam;border adjustment tax
-6|Excess profits tax
-6|Capital levy`},
+5|Export tax|export duty
+5|Global minimum tax|pillar two
+5|Carbon border adjustment|cbam;border adjustment tax
+5|Excess profits tax
+5|Capital levy`},
 {id:"game-theory",cat:"Game theory",q:"Name a famous game, strategy, or concept from game theory",
  a:`1|Nash equilibrium|nash
 1|Prisoner's dilemma|prisoners dilemma
@@ -967,11 +967,11 @@ const PROMPTS=[
 5|Grim trigger
 5|Auction theory|vickrey auction;second price auction
 6|Trembling hand perfect equilibrium|trembling hand
-6|Cheap talk
-6|The core|core
-6|Revelation principle
-6|Correlated equilibrium
-6|Hawk-dove game|hawk dove
+5|Cheap talk
+5|The core|core
+5|Revelation principle
+5|Correlated equilibrium
+5|Hawk-dove game|hawk dove
 2|Payoff matrix
 2|Pure strategy
 2|Positive-sum game|win win
@@ -996,12 +996,12 @@ const PROMPTS=[
 5|Pooling equilibrium
 5|Separating equilibrium
 5|Nash bargaining
-6|Iterated elimination of dominated strategies|iesds
-6|Tit for two tats
-6|Rubinstein bargaining
-6|Perfect Bayesian equilibrium|pbe
-6|Price of anarchy
-6|Banzhaf power index`},
+5|Iterated elimination of dominated strategies|iesds
+5|Tit for two tats
+5|Rubinstein bargaining
+5|Perfect Bayesian equilibrium|pbe
+5|Price of anarchy
+5|Banzhaf power index`},
 {id:"economists",cat:"Economists",q:"Name any economist, living or dead",people:true,
  a:`1|Adam Smith
 1|John Maynard Keynes
@@ -1063,22 +1063,22 @@ const PROMPTS=[
 5|Emily Oster
 5|Gabriel Zucman
 6|Francois Quesnay
-6|Piero Sraffa
-6|Michal Kalecki
-6|Kate Raworth
-6|Albert Hirschman
-6|Karl Polanyi
-6|Gunnar Myrdal
-6|Abba Lerner
-6|Nicholas Kaldor
-6|Roy Harrod
-6|Evsey Domar
-6|Harold Innis
-6|Richard Cantillon
-6|Henry George
-6|Anne Robert Jacques Turgot|turgot
-6|Robert Hall|robert e hall
-6|Michael Woodford
+5|Piero Sraffa
+5|Michal Kalecki
+5|Kate Raworth
+5|Albert Hirschman
+5|Karl Polanyi
+5|Gunnar Myrdal
+5|Abba Lerner
+5|Nicholas Kaldor
+5|Roy Harrod
+5|Evsey Domar
+5|Harold Innis
+5|Richard Cantillon
+5|Henry George
+5|Anne Robert Jacques Turgot|turgot
+5|Robert Hall|robert e hall
+5|Michael Woodford
 3|John Nash
 3|Abhijit Banerjee
 3|David Card
@@ -1110,19 +1110,19 @@ const PROMPTS=[
 5|Carmen Reinhart
 5|Kenneth Rogoff
 5|Claudia Sahm
-6|Wassily Leontief
-6|Tjalling Koopmans
-6|Ragnar Frisch
-6|Jan Tinbergen
-6|Simon Kuznets
-6|Gérard Debreu|debreu
-6|Harold Hotelling
-6|Francis Edgeworth
-6|A.W. Phillips|william phillips;phillips
-6|Arthur Okun
-6|Esther Boserup
-6|Trygve Haavelmo
-6|Knut Wicksell`},
+5|Wassily Leontief
+5|Tjalling Koopmans
+5|Ragnar Frisch
+5|Jan Tinbergen
+5|Simon Kuznets
+5|Gérard Debreu|debreu
+5|Harold Hotelling
+5|Francis Edgeworth
+5|A.W. Phillips|william phillips;phillips
+5|Arthur Okun
+5|Esther Boserup
+5|Trygve Haavelmo
+5|Knut Wicksell`},
 {id:"central-bank-tools",cat:"Central bank tools",q:"Name a tool or action a central bank uses to steer the economy",
  a:`1|Interest rate cut|rate cut
 1|Interest rate hike|rate hike
@@ -1172,15 +1172,15 @@ const PROMPTS=[
 5|Term Auction Facility|taf
 5|Price-level targeting
 6|Bagehot's dictum|bagehot
-6|Corridor system
-6|Floor system
-6|Fiscal dominance
-6|Financial repression
-6|Impossible trinity|mundell fleming trilemma
-6|Real bills doctrine
-6|Neo-Fisherism
-6|Chicago Plan
-6|Collateral haircut|haircut`},
+5|Corridor system
+5|Floor system
+5|Fiscal dominance
+5|Financial repression
+5|Impossible trinity|mundell fleming trilemma
+5|Real bills doctrine
+5|Neo-Fisherism
+5|Chicago Plan
+5|Collateral haircut|haircut`},
 {id:"govt-spending",cat:"Government spending",q:"Name a major thing governments spend taxpayer money on",
  a:`1|Healthcare|medicare;medicaid;nhs
 1|Education|public schools
@@ -1224,15 +1224,15 @@ const PROMPTS=[
 5|Industrial policy|chips act
 5|Municipal bailouts
 6|Henry George theorem
-6|Tiebout sorting|voting with your feet
-6|Flypaper effect
-6|Crowding out
-6|Ricardian equivalence
-6|Debt monetization
-6|Functional finance
-6|Zero-based budgeting
-6|Pay-as-you-go|paygo
-6|Sovereign debt restructuring`},
+5|Tiebout sorting|voting with your feet
+5|Flypaper effect
+5|Crowding out
+5|Ricardian equivalence
+5|Debt monetization
+5|Functional finance
+5|Zero-based budgeting
+5|Pay-as-you-go|paygo
+5|Sovereign debt restructuring`},
 {id:"recession-signs",cat:"Recession signs",q:"Name a sign or quirky indicator that a recession is coming",
  a:`1|Unemployment rising|layoffs;jobless claims
 1|Stock market crash|bear market;sp 500 drop
@@ -1276,15 +1276,15 @@ const PROMPTS=[
 5|Pawn shop traffic
 5|Used luxury watch slump|chronopulse
 6|Diaper rash cream index
-6|Trash volume decline
-6|Recession hair index
-6|Dental floss index
-6|Corporate jet departures drop
-6|Champagne sales slump
-6|Concert ticket demand cooling|live entertainment slowdown
-6|Cardboard-box inventory divergence
-6|Menu costs freezing
-6|Buffer-stock hoarding`},
+5|Trash volume decline
+5|Recession hair index
+5|Dental floss index
+5|Corporate jet departures drop
+5|Champagne sales slump
+5|Concert ticket demand cooling|live entertainment slowdown
+5|Cardboard-box inventory divergence
+5|Menu costs freezing
+5|Buffer-stock hoarding`},
 {id:"central-bankers",cat:"Central bankers",q:"Name a current or former central bank governor or Fed chair",people:true,
  reject:{"keynes":"Keynes sat on the Bank of England's Court, but was never Governor.","adam smith":"Adam Smith never ran a central bank.","smith":"Adam Smith never ran a central bank.","milton friedman":"Famous critic of the Fed, never chaired it.","friedman":"Famous critic of the Fed, never chaired it.","krugman":"Famous economist, never ran a central bank.","paul krugman":"Famous economist, never ran a central bank.","janet":"Use full name or last name (Yellen)."},
  a:`1|Jerome Powell
@@ -1344,33 +1344,33 @@ const PROMPTS=[
 5|Alan Bollard
 5|Roberto Campos Neto
 6|Charles Hamlin
-6|William Harding
-6|Daniel Crissinger
-6|Roy Young
-6|Eugene Meyer
-6|Eugene Black
-6|Thomas McCabe
-6|G. William Miller
-6|Hjalmar Schacht
-6|Wilhelm Vocke
-6|Otmar Emminger
-6|Helmut Schlesinger
-6|Yasushi Mieno
-6|Satoshi Sumita
-6|Agustin Carstens
-6|Victoria Rodriguez Ceja|ceja
-6|Guillermo Ortiz
-6|Lesetja Kganyago
-6|Tito Mboweni
-6|Stanley Fischer
-6|Amir Yaron
-6|Karnit Flug
-6|Jacob Frenkel
-6|Erik Thedeen
-6|Ida Wolden Bache
-6|Oystein Olsen
-6|Perry Warjiyo
-6|Rhee Chang-yong|rhee`},
+5|William Harding
+5|Daniel Crissinger
+5|Roy Young
+5|Eugene Meyer
+5|Eugene Black
+5|Thomas McCabe
+5|G. William Miller
+5|Hjalmar Schacht
+5|Wilhelm Vocke
+5|Otmar Emminger
+5|Helmut Schlesinger
+5|Yasushi Mieno
+5|Satoshi Sumita
+5|Agustin Carstens
+5|Victoria Rodriguez Ceja|ceja
+5|Guillermo Ortiz
+5|Lesetja Kganyago
+5|Tito Mboweni
+5|Stanley Fischer
+5|Amir Yaron
+5|Karnit Flug
+5|Jacob Frenkel
+5|Erik Thedeen
+5|Ida Wolden Bache
+5|Oystein Olsen
+5|Perry Warjiyo
+5|Rhee Chang-yong|rhee`},
 {id:"instruments",cat:"Financial instruments",q:"Name a type of investment or financial asset",
  a:`1|Stock|stocks;equity;equities;share;shares
 1|Bond|bonds
@@ -1425,26 +1425,26 @@ const PROMPTS=[
 5|Promissory note
 5|Covered bond
 6|Brady bond
-6|Dim sum bond
-6|Samurai bond
-6|Panda bond
-6|Kangaroo bond
-6|Yankee bond
-6|Bulldog bond
-6|Masala bond
-6|Treasury STRIPS|strips
-6|PIK bond|pik toggle note
-6|Contingent convertible bond|coco;at1 bond
-6|Credit-linked note|cln
-6|Variance swap
-6|Barrier option
-6|Asian option
-6|Bermudan option
-6|Binary option|digital option
-6|Synthetic CDO
-6|Reverse repo
-6|Special Drawing Rights|sdr
-6|Global depositary receipt|gdr`},
+5|Dim sum bond
+5|Samurai bond
+5|Panda bond
+5|Kangaroo bond
+5|Yankee bond
+5|Bulldog bond
+5|Masala bond
+5|Treasury STRIPS|strips
+5|PIK bond|pik toggle note
+5|Contingent convertible bond|coco;at1 bond
+5|Credit-linked note|cln
+5|Variance swap
+5|Barrier option
+5|Asian option
+5|Bermudan option
+5|Binary option|digital option
+5|Synthetic CDO
+5|Reverse repo
+5|Special Drawing Rights|sdr
+5|Global depositary receipt|gdr`},
 {id:"indices",cat:"Stock indices",q:"Name a stock market index",
  reject:{"vix":"The VIX measures volatility, not stock prices — name an equity index!","nyse":"That's an exchange — try NYSE Composite or an index!"},
  a:`1|S&P 500|sp500;sp 500;standard and poors 500
@@ -1503,29 +1503,29 @@ const PROMPTS=[
 5|TA-35|tel aviv 35
 5|NZX 50
 6|Dow Jones Transportation Average|djta;dow transports
-6|Dow Jones Utility Average|djua
-6|NYSE Composite
-6|Value Line Composite
-6|CRSP US Total Market
-6|Stoxx Europe 600|stoxx 600
-6|Euronext 100
-6|TecDAX
-6|MDAX
-6|SDAX
-6|JPX-Nikkei 400
-6|Hang Seng Tech
-6|KOSDAQ
-6|ChiNext
-6|KSE 100|karachi 100
-6|EGX 30
-6|COLCAP
-6|ISEQ 20
-6|PX Index
-6|BUX
-6|BET Index
-6|Athex Composite
-6|SOFIX
-6|S&P Global 1200|sp global 1200`},
+5|Dow Jones Utility Average|djua
+5|NYSE Composite
+5|Value Line Composite
+5|CRSP US Total Market
+5|Stoxx Europe 600|stoxx 600
+5|Euronext 100
+5|TecDAX
+5|MDAX
+5|SDAX
+5|JPX-Nikkei 400
+5|Hang Seng Tech
+5|KOSDAQ
+5|ChiNext
+5|KSE 100|karachi 100
+5|EGX 30
+5|COLCAP
+5|ISEQ 20
+5|PX Index
+5|BUX
+5|BET Index
+5|Athex Composite
+5|SOFIX
+5|S&P Global 1200|sp global 1200`},
 {id:"finance-metrics",cat:"Finance metrics",q:"Name a number or ratio investors check when judging a company",
  a:`1|Market cap|market capitalization
 1|P/E ratio|pe ratio;price to earnings;price earnings
@@ -1592,22 +1592,22 @@ const PROMPTS=[
 5|Bid-ask spread
 5|Short interest ratio|days to cover
 6|Graham number
-6|Shiller P/E|cape ratio;cyclically adjusted pe;shiller pe
-6|Buffett indicator
-6|Sterling ratio
-6|Burke ratio
-6|Kappa ratio
-6|Conditional Value at Risk|cvar;expected shortfall
-6|Roy's safety-first ratio
-6|Sloan ratio
-6|Accrual ratio
-6|CFROI|cash flow return on investment
-6|Net-net working capital|ncav
-6|Rule of 40
-6|LTV/CAC ratio|ltv cac
-6|Magic number
-6|Modigliani M2|m2 ratio
-6|Stutzer index`},
+5|Shiller P/E|cape ratio;cyclically adjusted pe;shiller pe
+5|Buffett indicator
+5|Sterling ratio
+5|Burke ratio
+5|Kappa ratio
+5|Conditional Value at Risk|cvar;expected shortfall
+5|Roy's safety-first ratio
+5|Sloan ratio
+5|Accrual ratio
+5|CFROI|cash flow return on investment
+5|Net-net working capital|ncav
+5|Rule of 40
+5|LTV/CAC ratio|ltv cac
+5|Magic number
+5|Modigliani M2|m2 ratio
+5|Stutzer index`},
 {id:"commodities",cat:"Commodities",q:"Name a traded commodity",
  reject:{"onions":"Onion futures have been banned in the US since 1958! (Onion Futures Act)","onion":"Onion futures have been banned in the US since 1958!","bitcoin":"Crypto asset, not a physical commodity."},
  a:`1|Oil|crude oil;wti;brent crude;petroleum
@@ -1676,32 +1676,32 @@ const PROMPTS=[
 5|Biodiesel
 5|Bitumen
 6|Iridium
-6|Ruthenium
-6|Osmium
-6|Gallium
-6|Germanium
-6|Indium
-6|Tellurium
-6|Antimony
-6|Bismuth
-6|Magnesium
-6|Manganese
-6|Chromium|ferrochrome
-6|Titanium
-6|Graphite
-6|Silicon
-6|Helium
-6|Sulfur|sulphur
-6|Wood pulp|pulp;nbsk
-6|Freight|baltic dry;ffa
-6|Eggs
-6|Potatoes
-6|Almonds
-6|Silk
-6|Jute
-6|Hemp
-6|Copra
-6|Tallow`},
+5|Ruthenium
+5|Osmium
+5|Gallium
+5|Germanium
+5|Indium
+5|Tellurium
+5|Antimony
+5|Bismuth
+5|Magnesium
+5|Manganese
+5|Chromium|ferrochrome
+5|Titanium
+5|Graphite
+5|Silicon
+5|Helium
+5|Sulfur|sulphur
+5|Wood pulp|pulp;nbsk
+5|Freight|baltic dry;ffa
+5|Eggs
+5|Potatoes
+5|Almonds
+5|Silk
+5|Jute
+5|Hemp
+5|Copra
+5|Tallow`},
 {id:"dow-jones",cat:"Dow Jones",q:"Name a current or former component of the Dow Jones Industrial Average",
  reject:{"ford":"Surprisingly, Ford Motor Company has NEVER been in the Dow!","ford motor":"Surprisingly, Ford has NEVER been in the Dow!","meta":"Meta (Facebook) has never been in the Dow.","facebook":"Meta (Facebook) has never been in the Dow.","tesla":"Tesla has never been in the Dow.","berkshire hathaway":"Berkshire's share price is way too high for a price-weighted index!","berkshire":"Berkshire Hathaway has never been in the Dow.","netflix":"Netflix has never been in the Dow."},
  a:`1|Apple
@@ -1786,32 +1786,32 @@ const PROMPTS=[
 5|American Tobacco
 5|American Sugar Refining
 6|American Cotton Oil
-6|American Spirits Manufacturing
-6|Chicago Gas
-6|Distilling & Cattle Feeding
-6|Laclede Gas
-6|National Lead
-6|North American Company
-6|Tennessee Coal and Iron
-6|U.S. Leather
-6|U.S. Rubber|uniroyal
-6|Pacific Mail Steamship
-6|Peoples Gas
-6|Colorado Fuel and Iron
-6|Amalgamated Copper
-6|Baldwin Locomotive
-6|Studebaker
-6|Hudson Motor Car
-6|Victor Talking Machine
-6|Wright Aeronautical
-6|Texas Gulf Sulphur
-6|Atlantic Refining
-6|B.F. Goodrich|goodrich
-6|Remington Rand
-6|Curtiss-Wright
-6|Borden
-6|Standard Brands
-6|ASARCO|american smelting and refining`},
+5|American Spirits Manufacturing
+5|Chicago Gas
+5|Distilling & Cattle Feeding
+5|Laclede Gas
+5|National Lead
+5|North American Company
+5|Tennessee Coal and Iron
+5|U.S. Leather
+5|U.S. Rubber|uniroyal
+5|Pacific Mail Steamship
+5|Peoples Gas
+5|Colorado Fuel and Iron
+5|Amalgamated Copper
+5|Baldwin Locomotive
+5|Studebaker
+5|Hudson Motor Car
+5|Victor Talking Machine
+5|Wright Aeronautical
+5|Texas Gulf Sulphur
+5|Atlantic Refining
+5|B.F. Goodrich|goodrich
+5|Remington Rand
+5|Curtiss-Wright
+5|Borden
+5|Standard Brands
+5|ASARCO|american smelting and refining`},
 {id:"wall-street-terms",cat:"Wall Street",q:"Name a Wall Street, trading, or stock market term",
  a:`1|Bull market|bullish
 1|Bear market|bearish
@@ -1881,21 +1881,21 @@ const PROMPTS=[
 5|Direct listing
 5|Reverse merger|spac
 6|Spoofing|layering
-6|Painting the tape
-6|Tape bomb
-6|Churning
-6|Pac-Man defense
-6|Lobster trap defense
-6|Stalking horse bid
-6|Greenshoe option|overallotment
-6|Delta hedging
-6|Option Greeks|vega risk
-6|Iron condor|straddle
-6|Contango|backwardation
-6|Short ladder attack
-6|Don't fight the Fed
-6|Whisper number
-6|Dead-hand poison pill`},
+5|Painting the tape
+5|Tape bomb
+5|Churning
+5|Pac-Man defense
+5|Lobster trap defense
+5|Stalking horse bid
+5|Greenshoe option|overallotment
+5|Delta hedging
+5|Option Greeks|vega risk
+5|Iron condor|straddle
+5|Contango|backwardation
+5|Short ladder attack
+5|Don't fight the Fed
+5|Whisper number
+5|Dead-hand poison pill`},
 {id:"types-of-goods",cat:"Types of goods",q:"Name a textbook category of economic good (like public, luxury, or inferior)",
  a:`1|Public good|public goods
 1|Private good|private goods
@@ -1945,18 +1945,18 @@ const PROMPTS=[
 5|Tradable good
 5|Non-tradable good|nontradable good
 6|Anti-rival good|antirival good
-6|Toll good|toll goods
-6|Impure public good
-6|Local public good
-6|Global public good
-6|Quasi-public good
-6|Composite good
-6|Numeraire good|numeraire
-6|Neutral good
-6|Economic bad|bad
-6|Z-good|z good
-6|Congestible good
-6|Merit bad`},
+5|Toll good|toll goods
+5|Impure public good
+5|Local public good
+5|Global public good
+5|Quasi-public good
+5|Composite good
+5|Numeraire good|numeraire
+5|Neutral good
+5|Economic bad|bad
+5|Z-good|z good
+5|Congestible good
+5|Merit bad`},
 {id:"business-rivalries",cat:"Brand rivalries",q:"Name a famous business or brand rivalry",
  a:`1|Coca-Cola vs Pepsi|coke vs pepsi;pepsi vs coke;pepsi vs coca cola
 1|Apple vs Microsoft|mac vs pc;pc vs mac;microsoft vs apple
@@ -2012,17 +2012,17 @@ const PROMPTS=[
 5|Zara vs H&M|h and m vs zara
 5|Puma vs Reebok|reebok vs puma
 6|Kodak vs Fujifilm|fujifilm vs kodak
-6|Airbnb vs Marriott|marriott vs airbnb
-6|Southwest vs Ryanair|ryanair vs easyjet
-6|TSMC vs Intel|samsung foundry vs tsmc
-6|BlackRock vs Vanguard|vanguard vs blackrock
-6|CME vs ICE|cme group vs intercontinental exchange
-6|Moody's vs S&P Global|sp global vs moodys
-6|Westinghouse vs Edison|ac vs dc;edison vs tesla
-6|Goodyear vs Michelin|michelin vs bridgestone
-6|John Deere vs Caterpillar|caterpillar vs john deere
-6|Lockheed Martin vs Northrop Grumman|raytheon vs lockheed
-6|P&G vs Unilever|procter and gamble vs unilever;pg vs unilever`},
+5|Airbnb vs Marriott|marriott vs airbnb
+5|Southwest vs Ryanair|ryanair vs easyjet
+5|TSMC vs Intel|samsung foundry vs tsmc
+5|BlackRock vs Vanguard|vanguard vs blackrock
+5|CME vs ICE|cme group vs intercontinental exchange
+5|Moody's vs S&P Global|sp global vs moodys
+5|Westinghouse vs Edison|ac vs dc;edison vs tesla
+5|Goodyear vs Michelin|michelin vs bridgestone
+5|John Deere vs Caterpillar|caterpillar vs john deere
+5|Lockheed Martin vs Northrop Grumman|raytheon vs lockheed
+5|P&G vs Unilever|procter and gamble vs unilever;pg vs unilever`},
 {id:"curves-laws",cat:"Curves & laws",q:"Name an economics curve, law, or effect",
  a:`1|Law of demand|supply and demand;law of supply
 1|Phillips curve
@@ -2081,22 +2081,22 @@ const PROMPTS=[
 5|Flypaper effect
 5|Peacock-Wiseman effect
 6|Rahn curve
-6|Armey curve
-6|Great Gatsby curve
-6|Elephant curve|lakner milanovic
-6|Offer curve
-6|Contract curve
-6|Rybczynski effect
-6|Thirlwall's law
-6|Benford's law
-6|Petty-Clark law
-6|Pasinetti's law
-6|Patinkin real-balance effect
-6|Keynes effect
-6|Samuelson effect
-6|Houthakker effect
-6|Marshall-Lerner condition
-6|Slutsky effect`},
+5|Armey curve
+5|Great Gatsby curve
+5|Elephant curve|lakner milanovic
+5|Offer curve
+5|Contract curve
+5|Rybczynski effect
+5|Thirlwall's law
+5|Benford's law
+5|Petty-Clark law
+5|Pasinetti's law
+5|Patinkin real-balance effect
+5|Keynes effect
+5|Samuelson effect
+5|Houthakker effect
+5|Marshall-Lerner condition
+5|Slutsky effect`},
 {id:"paradoxes",cat:"Paradoxes",q:"Name an economics paradox, puzzle, or fallacy",
  a:`1|Broken window fallacy
 1|Sunk cost fallacy
@@ -2151,26 +2151,26 @@ const PROMPTS=[
 5|Friendship paradox
 5|Inspection paradox
 6|Samuelson's consumption-loan paradox
-6|Hicks-Kaldor paradox
-6|Missing trade puzzle|trefler puzzle
-6|Meese-Rogoff puzzle
-6|Border puzzle|mccallum border puzzle;engel rogers
-6|Quantity anomaly|backus kehoe kydland
-6|Shimer puzzle|unemployment volatility puzzle
-6|Price puzzle
-6|Liquidity puzzle
-6|Excess sensitivity puzzle
-6|Excess smoothness puzzle
-6|Deaton paradox
-6|Edgeworth taxation paradox
-6|Bertrand paradox
-6|Chainstore paradox
-6|No-trade theorem|milgrom stokey
-6|Mandeville's paradox|fable of the bees
-6|Reswitching paradox|cambridge capital controversy
-6|Sen's paradox|paretian liberal
-6|Ostrogorski paradox
-6|Anscombe's paradox`},
+5|Hicks-Kaldor paradox
+5|Missing trade puzzle|trefler puzzle
+5|Meese-Rogoff puzzle
+5|Border puzzle|mccallum border puzzle;engel rogers
+5|Quantity anomaly|backus kehoe kydland
+5|Shimer puzzle|unemployment volatility puzzle
+5|Price puzzle
+5|Liquidity puzzle
+5|Excess sensitivity puzzle
+5|Excess smoothness puzzle
+5|Deaton paradox
+5|Edgeworth taxation paradox
+5|Bertrand paradox
+5|Chainstore paradox
+5|No-trade theorem|milgrom stokey
+5|Mandeville's paradox|fable of the bees
+5|Reswitching paradox|cambridge capital controversy
+5|Sen's paradox|paretian liberal
+5|Ostrogorski paradox
+5|Anscombe's paradox`},
 {id:"global-orgs",cat:"Global institutions",q:"Name an international economic or trade organization",
  a:`1|IMF|international monetary fund
 1|World Bank
@@ -2214,21 +2214,21 @@ const PROMPTS=[
 5|RCEP
 5|AfCFTA|african continental free trade area
 6|Islamic Development Bank|isdb
-6|Nordic Investment Bank|nib
-6|MIGA|multilateral investment guarantee agency
-6|ICSID
-6|FATF|financial action task force
-6|IOSCO
-6|London Club
-6|Club of Rome
-6|Black Sea Trade and Development Bank
-6|CAF|development bank of latin america
-6|CABEI
-6|WAEMU|uemoa
-6|CEMAC
-6|SACU
-6|East African Community|eac
-6|SAARC`},
+5|Nordic Investment Bank|nib
+5|MIGA|multilateral investment guarantee agency
+5|ICSID
+5|FATF|financial action task force
+5|IOSCO
+5|London Club
+5|Club of Rome
+5|Black Sea Trade and Development Bank
+5|CAF|development bank of latin america
+5|CABEI
+5|WAEMU|uemoa
+5|CEMAC
+5|SACU
+5|East African Community|eac
+5|SAARC`},
 {id:"trade-barriers",cat:"Trade & borders",q:"Name a trade barrier, trade deal, or way countries restrict trade",
  a:`1|Tariff|tariffs
 1|Free trade
@@ -2277,21 +2277,21 @@ const PROMPTS=[
 5|Tariff-rate quota|trq
 5|Tech blockade|chip controls
 6|Carbon border adjustment|cbam;border carbon adjustment
-6|Jones Act|cabotage
-6|Sanitary and phytosanitary measures|sps
-6|Technical barriers to trade|tbt
-6|Zollverein
-6|Navigation Acts
-6|Generalized System of Preferences|gsp
-6|Safeguard measures
-6|De minimis exemption|de minimis loophole
-6|Import licensing
-6|Optimal tariff
-6|Trade diversion|trade creation
-6|Investor-state dispute settlement|isds
-6|Plaza Accord
-6|TRIPS|gats
-6|Section 301 tariffs|section 232`},
+5|Jones Act|cabotage
+5|Sanitary and phytosanitary measures|sps
+5|Technical barriers to trade|tbt
+5|Zollverein
+5|Navigation Acts
+5|Generalized System of Preferences|gsp
+5|Safeguard measures
+5|De minimis exemption|de minimis loophole
+5|Import licensing
+5|Optimal tariff
+5|Trade diversion|trade creation
+5|Investor-state dispute settlement|isds
+5|Plaza Accord
+5|TRIPS|gats
+5|Section 301 tariffs|section 232`},
 {id:"eurozone",cat:"Eurozone",q:"Name a country that uses the Euro",
  reject:{"united kingdom":"The UK kept the pound (and left the EU).","uk":"The UK never adopted the euro.","britain":"The UK never adopted the euro.","england":"The UK never adopted the euro.","switzerland":"Switzerland uses the Swiss franc.","sweden":"Sweden uses the Swedish krona.","denmark":"Denmark has an opt-out and uses the krone.","norway":"Norway isn't in the EU and uses the krone.","poland":"Poland uses the zloty.","hungary":"Hungary uses the forint.","czechia":"Czechia uses the koruna.","czech republic":"Czechia uses the koruna.","romania":"Romania still uses the leu."},
  a:`1|France
@@ -2318,9 +2318,9 @@ const PROMPTS=[
 5|Monaco
 5|Vatican City|vatican;holy see
 6|Andorra
-6|San Marino
-6|Montenegro
-6|Kosovo`},
+5|San Marino
+5|Montenegro
+5|Kosovo`},
 {id:"opec",cat:"OPEC & OPEC+",q:"Name a current or former member of OPEC or OPEC+",
  reject:{"united states":"The US is the world's top oil producer, but not in OPEC or OPEC+.","usa":"Not in OPEC or OPEC+.","us":"Not in OPEC or OPEC+.","canada":"Major oil producer, not in OPEC or OPEC+.","norway":"Norway stays independent of OPEC+.","united kingdom":"Not in OPEC or OPEC+.","uk":"Not in OPEC or OPEC+.","china":"Major oil consumer/producer, not in OPEC+."},
  a:`1|Saudi Arabia
@@ -2349,7 +2349,7 @@ const PROMPTS=[
 5|Bahrain
 5|Brunei
 6|Sudan
-6|South Sudan`},
+5|South Sudan`},
 {id:"trade-routes",cat:"Trade routes",q:"Name a major port, canal, strait, or global shipping corridor",
  a:`1|Panama Canal
 1|Port of Los Angeles|la port
@@ -2393,17 +2393,17 @@ const PROMPTS=[
 5|Kerch Strait
 5|Bering Strait
 6|Lombok Strait
-6|Sunda Strait
-6|Cape of Good Hope
-6|Northern Sea Route|northeast passage
-6|Dardanelles
-6|Tsugaru Strait
-6|Northwest Passage
-6|Strait of Magellan
-6|Corinth Canal
-6|Port of Tanger-Med|tanger med
-6|Port of Santos
-6|Port of Piraeus|piraeus`},
+5|Sunda Strait
+5|Cape of Good Hope
+5|Northern Sea Route|northeast passage
+5|Dardanelles
+5|Tsugaru Strait
+5|Northwest Passage
+5|Strait of Magellan
+5|Corinth Canal
+5|Port of Tanger-Med|tanger med
+5|Port of Santos
+5|Port of Piraeus|piraeus`},
 {id:"schools",cat:"Schools of thought",q:"Name a school of economic thought",
  reject:{"capitalism":"That's an economic system — name a school of economic thought!","communism":"That's a political/economic system — try Marxist or another school!","socialism":"Broad economic system — name a specific school of thought!"},
  a:`1|Keynesian|keynesianism;keynesian economics
@@ -2442,20 +2442,20 @@ const PROMPTS=[
 5|Complexity economics
 5|Radical political economy
 6|Cameralism
-6|Bullionism
-6|Manchester school
-6|Banking school
-6|Currency school
-6|Birmingham school
-6|Real business cycle theory|rbc
-6|Market monetarism
-6|Monetary circuit theory|circuitism
-6|Regulation school
-6|Econophysics
-6|Thermoeconomics
-6|Chartalism
-6|Metallism
-6|Freshwater economics|saltwater economics`},
+5|Bullionism
+5|Manchester school
+5|Banking school
+5|Currency school
+5|Birmingham school
+5|Real business cycle theory|rbc
+5|Market monetarism
+5|Monetary circuit theory|circuitism
+5|Regulation school
+5|Econophysics
+5|Thermoeconomics
+5|Chartalism
+5|Metallism
+5|Freshwater economics|saltwater economics`},
 {id:"econ-history",cat:"Economic history",q:"Name a historic economic system, policy program, or agreement",
  a:`1|New Deal
 1|Gold standard
@@ -2535,34 +2535,34 @@ const PROMPTS=[
 5|Zaibatsu
 5|Dirigisme
 6|Edict on Maximum Prices|diocletian edict
-6|Domesday Book
-6|Lex Mercatoria
-6|Commenda
-6|Tally stick system
-6|Assignat
-6|Greenbacks
-6|Free Banking Era
-6|Suffolk System
-6|National Banking Acts
-6|Reconstruction Finance Corporation|rfc
-6|Reciprocal Tariff Act
-6|Jamaica Accords
-6|Snake in the tunnel
-6|Exchange Rate Mechanism|erm
-6|Delors Report
-6|Brady Plan
-6|Baker Plan
-6|Beveridge Report
-6|Speenhamland system
-6|Poor Laws|new poor law
-6|Bubble Act
-6|Encomienda
-6|Mita system
-6|Canton System
-6|Dodge Line
-6|Income Doubling Plan
-6|Doi Moi
-6|License Raj`},
+5|Domesday Book
+5|Lex Mercatoria
+5|Commenda
+5|Tally stick system
+5|Assignat
+5|Greenbacks
+5|Free Banking Era
+5|Suffolk System
+5|National Banking Acts
+5|Reconstruction Finance Corporation|rfc
+5|Reciprocal Tariff Act
+5|Jamaica Accords
+5|Snake in the tunnel
+5|Exchange Rate Mechanism|erm
+5|Delors Report
+5|Brady Plan
+5|Baker Plan
+5|Beveridge Report
+5|Speenhamland system
+5|Poor Laws|new poor law
+5|Bubble Act
+5|Encomienda
+5|Mita system
+5|Canton System
+5|Dodge Line
+5|Income Doubling Plan
+5|Doi Moi
+5|License Raj`},
 {id:"biases",cat:"Behavioral biases",q:"Name a psychological bias or mental shortcut that affects decisions",
  reject:{"nudge":"Nudging is a policy tool — name a cognitive bias or heuristic!"},
  a:`1|Loss aversion
@@ -2616,21 +2616,21 @@ const PROMPTS=[
 5|Scope neglect|scope insensitivity
 5|Identifiable victim effect
 6|Focusing illusion
-6|Hot-cold empathy gap|empathy gap
-6|Restraint bias
-6|Diversification bias
-6|Naive diversification|1 n heuristic
-6|Denominator neglect
-6|Proportion dominance
-6|Moral licensing|licensing effect
-6|Subadditivity effect
-6|Contrast effect
-6|Satisficing
-6|Weber-Fechner law
-6|Ellsberg ambiguity
-6|Allais certainty effect
-6|Inequity aversion
-6|Social preferences`},
+5|Hot-cold empathy gap|empathy gap
+5|Restraint bias
+5|Diversification bias
+5|Naive diversification|1 n heuristic
+5|Denominator neglect
+5|Proportion dominance
+5|Moral licensing|licensing effect
+5|Subadditivity effect
+5|Contrast effect
+5|Satisficing
+5|Weber-Fechner law
+5|Ellsberg ambiguity
+5|Allais certainty effect
+5|Inequity aversion
+5|Social preferences`},
 {id:"econ-media",cat:"Econ media",q:"Name a business, finance, or economics publication, journal, or podcast",
  a:`1|The Economist|economist
 1|Financial Times|ft
@@ -2707,34 +2707,34 @@ const PROMPTS=[
 5|The Rational Reminder
 5|Plain Bagel
 6|Economica
-6|Journal of Economic Theory|jet
-6|Theoretical Economics
-6|Quantitative Economics
-6|Journal of Economic History|jeh
-6|Explorations in Economic History
-6|Journal of Economic Growth
-6|Journal of Urban Economics|jue
-6|Journal of Health Economics|jhe
-6|Journal of Environmental Economics and Management|jeem
-6|Journal of Law and Economics|jle
-6|Journal of Economic Behavior and Organization|jebo
-6|European Economic Review|eer
-6|Scandinavian Journal of Economics
-6|Oxford Economic Papers
-6|Cambridge Journal of Economics
-6|IMF Economic Review
-6|World Bank Economic Review
-6|Brookings Papers on Economic Activity|bpea
-6|NBER Macroeconomics Annual
-6|Naked Capitalism
-6|Econlog
-6|Conversable Economist
-6|Stumbling and Mumbling
-6|Moneyness
-6|The Overshoot
-6|Stay-At-Home Macro
-6|Full Stack Economics
-6|Works in Progress`},
+5|Journal of Economic Theory|jet
+5|Theoretical Economics
+5|Quantitative Economics
+5|Journal of Economic History|jeh
+5|Explorations in Economic History
+5|Journal of Economic Growth
+5|Journal of Urban Economics|jue
+5|Journal of Health Economics|jhe
+5|Journal of Environmental Economics and Management|jeem
+5|Journal of Law and Economics|jle
+5|Journal of Economic Behavior and Organization|jebo
+5|European Economic Review|eer
+5|Scandinavian Journal of Economics
+5|Oxford Economic Papers
+5|Cambridge Journal of Economics
+5|IMF Economic Review
+5|World Bank Economic Review
+5|Brookings Papers on Economic Activity|bpea
+5|NBER Macroeconomics Annual
+5|Naked Capitalism
+5|Econlog
+5|Conversable Economist
+5|Stumbling and Mumbling
+5|Moneyness
+5|The Overshoot
+5|Stay-At-Home Macro
+5|Full Stack Economics
+5|Works in Progress`},
 {id:"monthly-bills",cat:"Monthly bills",q:"Name a monthly bill or recurring household expense",
  a:`1|Rent|apartment rent
 1|Mortgage|mortgage payment
@@ -2782,14 +2782,14 @@ const PROMPTS=[
 5|Identity theft protection
 5|Solar panel lease
 6|Septic pumping
-6|Stormwater fee|municipal storm drain fee
-6|Umbrella liability insurance
-6|Long-term care insurance
-6|Safe deposit box
-6|Club dues|country club dues
-6|Well water testing
-6|PO box rental|post office box
-6|Alarm monitoring permit`},
+5|Stormwater fee|municipal storm drain fee
+5|Umbrella liability insurance
+5|Long-term care insurance
+5|Safe deposit box
+5|Club dues|country club dues
+5|Well water testing
+5|PO box rental|post office box
+5|Alarm monitoring permit`},
 {id:"things-you-insure",cat:"Insurance",q:"Name something people or businesses buy insurance for",
  a:`1|Car|auto;vehicle
 1|Home|house;homeowners
@@ -2830,14 +2830,14 @@ const PROMPTS=[
 5|Aviation|aircraft hull
 5|Terrorism risk
 6|Celebrity body parts|musician hands
-6|Weather rainout|pluvius policy
-6|Political risk
-6|Product recall
-6|Trade credit insurance
-6|Catastrophe reinsurance|cat bond
-6|Boiler and machinery
-6|Nuclear liability
-6|Parametric hurricane`},
+5|Weather rainout|pluvius policy
+5|Political risk
+5|Product recall
+5|Trade credit insurance
+5|Catastrophe reinsurance|cat bond
+5|Boiler and machinery
+5|Nuclear liability
+5|Parametric hurricane`},
 {id:"types-of-loans",cat:"Borrowing & loans",q:"Name a type of loan, mortgage, or way to borrow money",
  a:`1|Mortgage
 1|Car loan|auto loan
@@ -2878,14 +2878,14 @@ const PROMPTS=[
 5|Overdraft protection
 5|Invoice factoring
 6|Lombard loan|securities backed lending
-6|Mezzanine financing
-6|Non-recourse loan
-6|Revolving credit facility|revolver
-6|DIP financing|debtor in possession
-6|Repurchase agreement|repo loan
-6|PIK toggle loan
-6|Assumable mortgage
-6|Chattel loan|manufactured home loan`},
+5|Mezzanine financing
+5|Non-recourse loan
+5|Revolving credit facility|revolver
+5|DIP financing|debtor in possession
+5|Repurchase agreement|repo loan
+5|PIK toggle loan
+5|Assumable mortgage
+5|Chattel loan|manufactured home loan`},
 {id:"personal-accounts",cat:"Bank accounts",q:"Name a type of bank, savings, or retirement account",
  a:`1|Checking account|chequing account;checking
 1|Savings account|savings
@@ -2928,14 +2928,14 @@ const PROMPTS=[
 5|Superannuation
 5|CPF account
 6|Donor-advised fund|daf
-6|Nostro account|vostro account
-6|Zero-balance account|zba
-6|ABLE account
-6|Coverdell ESA
-6|LIRA|locked in retirement account
-6|IOLTA trust account
-6|Totten trust
-6|Health reimbursement arrangement|hra`},
+5|Nostro account|vostro account
+5|Zero-balance account|zba
+5|ABLE account
+5|Coverdell ESA
+5|LIRA|locked in retirement account
+5|IOLTA trust account
+5|Totten trust
+5|Health reimbursement arrangement|hra`},
 {id:"payments",cat:"Payment systems",q:"Name a payment app, card network, or cryptocurrency",
  a:`1|Visa
 1|Mastercard
@@ -3025,42 +3025,42 @@ const PROMPTS=[
 5|Uniswap
 5|Aave
 6|FedACH
-6|Nacha
-6|ISO 20022
-6|RTGS|real time gross settlement
-6|Deferred net settlement|dns
-6|T2S|target2 securities
-6|BOJ-NET
-6|Zengin
-6|CHATS
-6|MEPS+|meps plus
-6|BECS
-6|BPAY
-6|SPEI
-6|CoDi
-6|Sinpe Movil
-6|DuitNow
-6|PayID
-6|Osko
-6|KFTC
-6|Multibanco
-6|MB Way
-6|Bancontact
-6|Satispay
-6|Vipps
-6|MobilePay
-6|Dankort
-6|Eftpos
-6|Hawala
-6|Hundi
-6|Fei qian
-6|Rai stones
-6|mBridge
-6|Zcash
-6|Stellar|xlm
-6|Algorand|algo
-6|Arbitrum
-6|Optimism`},
+5|Nacha
+5|ISO 20022
+5|RTGS|real time gross settlement
+5|Deferred net settlement|dns
+5|T2S|target2 securities
+5|BOJ-NET
+5|Zengin
+5|CHATS
+5|MEPS+|meps plus
+5|BECS
+5|BPAY
+5|SPEI
+5|CoDi
+5|Sinpe Movil
+5|DuitNow
+5|PayID
+5|Osko
+5|KFTC
+5|Multibanco
+5|MB Way
+5|Bancontact
+5|Satispay
+5|Vipps
+5|MobilePay
+5|Dankort
+5|Eftpos
+5|Hawala
+5|Hundi
+5|Fei qian
+5|Rai stones
+5|mBridge
+5|Zcash
+5|Stellar|xlm
+5|Algorand|algo
+5|Arbitrum
+5|Optimism`},
 {id:"home-buying-costs",cat:"Housing costs",q:"Name a cost of buying, owning, or renting a home",
  a:`1|Rent
 1|Mortgage payment|mortgage
@@ -3101,13 +3101,13 @@ const PROMPTS=[
 5|Home capital gains|real estate gains tax
 5|Special assessment
 6|Impact fees|development charges
-6|Frontage tax|assessed frontage charge
-6|Mello-Roos tax
-6|Ground rent|leasehold fee
-6|Depreciation levy|strata reserve levy
-6|Estoppel certificate fee
-6|Lien release fee|mechanics lien release
-6|Mortgage discharge fee`},
+5|Frontage tax|assessed frontage charge
+5|Mello-Roos tax
+5|Ground rent|leasehold fee
+5|Depreciation levy|strata reserve levy
+5|Estoppel certificate fee
+5|Lien release fee|mechanics lien release
+5|Mortgage discharge fee`},
 {id:"ways-paid",cat:"Getting paid",q:"Name a way workers get paid or compensated at a job",
  a:`1|Salary
 1|Hourly wage|hourly pay
@@ -3150,13 +3150,13 @@ const PROMPTS=[
 5|Standby pay
 5|Sweat equity
 6|Efficiency wage
-6|Tournament prize|rank order pay
-6|Commission clawback|piecework clawback
-6|Golden handshake
-6|Longevity bonus
-6|Draw against commission
-6|Piece-rate differential
-6|Housing stipend|parsonage allowance`},
+5|Tournament prize|rank order pay
+5|Commission clawback|piecework clawback
+5|Golden handshake
+5|Longevity bonus
+5|Draw against commission
+5|Piece-rate differential
+5|Housing stipend|parsonage allowance`},
 {id:"unemployment-causes",cat:"Unemployment",q:"Name a reason people lose jobs or struggle to find work",
  a:`1|Recession|economic downturn
 1|Layoffs|downsizing
@@ -3197,13 +3197,13 @@ const PROMPTS=[
 5|Housing lock-in|mobility barrier
 5|App deactivation
 6|Creative destruction
-6|Skill-biased tech change|sbtc
-6|Job polarization
-6|High reservation wage|reservation wage
-6|Search-and-matching lag
-6|Local monopsony
-6|Cohort crowding
-6|Occupational licensing barrier`},
+5|Skill-biased tech change|sbtc
+5|Job polarization
+5|High reservation wage|reservation wage
+5|Search-and-matching lag
+5|Local monopsony
+5|Cohort crowding
+5|Occupational licensing barrier`},
 {id:"climate-fixes",cat:"Climate action",q:"Name a policy, technology, or action used to fight climate change",
  a:`1|Solar power|solar panels
 1|Wind power|wind turbines
@@ -3248,14 +3248,14 @@ const PROMPTS=[
 5|Agroforestry
 5|Smart grid
 6|Enhanced rock weathering
-6|Biochar|beccs
-6|Nordhaus climate club
-6|Weitzman price vs quantity
-6|Pigouvian emissions tax
-6|Tradable green certificates|recs
-6|Double dividend tax shift
-6|Loss and damage fund
-6|Debt-for-nature swap`},
+5|Biochar|beccs
+5|Nordhaus climate club
+5|Weitzman price vs quantity
+5|Pigouvian emissions tax
+5|Tradable green certificates|recs
+5|Double dividend tax shift
+5|Loss and damage fund
+5|Debt-for-nature swap`},
 {id:"demand-shifters",cat:"Demand & supply",q:"Name something (other than its own price) that shifts demand or supply for a product",
  reject:{"price":"Price moves you ALONG the curve — it doesn't shift the curve!","own price":"A good's own price moves along the curve, not a shift!","quantity":"Quantity is an axis variable, not a shifter!"},
  a:`1|Income
@@ -3295,13 +3295,13 @@ const PROMPTS=[
 5|Reservation price shift
 5|Factor endowment shift|capital accumulation
 6|Sidewise drilling|hydraulic fracturing;fracking
-6|Intertemporal speculation|speculation
-6|Capacity constraint shock
-6|Cobweb expectations|adaptive expectations
-6|Conspicuous consumption shift|snob effect
-6|Habit formation|hysteresis in demand
-6|Regulatory compliance lag
-6|Learning-by-doing cost shift
+5|Intertemporal speculation|speculation
+5|Capacity constraint shock
+5|Cobweb expectations|adaptive expectations
+5|Conspicuous consumption shift|snob effect
+5|Habit formation|hysteresis in demand
+5|Regulatory compliance lag
+5|Learning-by-doing cost shift
 2|Market size
 2|Related goods|related goods prices
 2|Cost of capital
@@ -3314,9 +3314,9 @@ const PROMPTS=[
 5|Policy uncertainty|regulatory uncertainty
 5|Capital depreciation
 5|Supply chain bottleneck|port congestion
-6|Balassa-Samuelson productivity shift
-6|Stolper-Samuelson factor shift
-6|Hicks-neutral technical change`},
+5|Balassa-Samuelson productivity shift
+5|Stolper-Samuelson factor shift
+5|Hicks-neutral technical change`},
 {id:"pricing-tricks",cat:"Pricing strategies",q:"Name a pricing trick, discount, or fee companies use on customers",
  a:`1|Coupons|discounts;promo codes
 1|Student discount|senior discount
@@ -3360,16 +3360,16 @@ const PROMPTS=[
 5|Dutch auction|auction pricing
 5|Non-transferable tickets|id check;arbitrage prevention
 5|Slotting fees
-6|Intertemporal price discrimination
-6|Coasean durable-goods leasing|leasing vs selling
-6|Ramsey-Boiteux pricing
-6|Nonlinear pricing|menu pricing
-6|Two-sided platform subsidy|cross side subsidy
+5|Intertemporal price discrimination
+5|Coasean durable-goods leasing|leasing vs selling
+5|Ramsey-Boiteux pricing
+5|Nonlinear pricing|menu pricing
+5|Two-sided platform subsidy|cross side subsidy
 6|Hollywood block booking|block booking
-6|IBM punch-card tying|ibm tabulating cards
-6|Unbundling|reverse bundling
-6|Screened self-selection|incentive compatibility
-6|Personalized algorithmic pricing|surveillance pricing
+5|IBM punch-card tying|ibm tabulating cards
+5|Unbundling|reverse bundling
+5|Screened self-selection|incentive compatibility
+5|Personalized algorithmic pricing|surveillance pricing
 1|BOGO|buy one get one
 1|VIP tier|vip membership
 1|Shrinkflation
@@ -3384,8 +3384,8 @@ const PROMPTS=[
 4|Roach motel|cancellation friction
 5|Group pricing
 5|Conditional rebates|loyalty rebates
-6|Shrouded add-ons|shrouded attributes
-6|Second-degree block tariff`},
+5|Shrouded add-ons|shrouded attributes
+5|Second-degree block tariff`},
 {id:"inelastic-goods",cat:"Elasticity",q:"Name an everyday product or service people still buy even when prices jump",
  a:`1|Gasoline|gas;fuel;petrol
 1|Water
@@ -3439,14 +3439,14 @@ const PROMPTS=[
 5|Hicksian elasticity|compensated elasticity
 5|Marshallian elasticity|uncompensated elasticity
 6|Lerner inverse elasticity rule|markup rule
-6|Ramsey inverse elasticity rule
-6|Marshall-Lerner condition
-6|Kimball superelasticity|superelasticity
-6|Morishima elasticity of substitution
-6|Allen-Uzawa partial elasticity
-6|Engel aggregation|cournot aggregation
-6|Slutsky symmetry condition
-6|Long-run oil supply elasticity
+5|Ramsey inverse elasticity rule
+5|Marshall-Lerner condition
+5|Kimball superelasticity|superelasticity
+5|Morishima elasticity of substitution
+5|Allen-Uzawa partial elasticity
+5|Engel aggregation|cournot aggregation
+5|Slutsky symmetry condition
+5|Long-run oil supply elasticity
 1|Toilet paper
 1|Heating oil
 2|Pet food
@@ -3462,8 +3462,8 @@ const PROMPTS=[
 4|Burial plots|cemetery plot
 5|Cross-price inelasticity
 5|Giffen demand curve
-6|Vickrey congestion toll
-6|Stone-Geary subsistence demand`},
+5|Vickrey congestion toll
+5|Stone-Geary subsistence demand`},
 {id:"price-controls",cat:"Price controls",q:"Name a famous price cap/floor or what happens when prices are fixed",
  a:`1|Minimum wage
 1|Rent control
@@ -3511,15 +3511,15 @@ const PROMPTS=[
 5|Supply management|dairy quotas;maple syrup cartel
 5|Youth subminimum wage|subminimum wage
 6|Barzel rationing by waiting|waiting time dissipation
-6|Cheung rent dissipation
-6|Quality-margin adjustment
-6|Intertemporal misallocation
-6|Parallel exchange rate|dual exchange rate
-6|Quota rent
-6|Buffer stock scheme
-6|Deficiency payment
-6|Shadow price distortion
-6|Monopsony minimum-wage exception|card krueger exception
+5|Cheung rent dissipation
+5|Quality-margin adjustment
+5|Intertemporal misallocation
+5|Parallel exchange rate|dual exchange rate
+5|Quota rent
+5|Buffer stock scheme
+5|Deficiency payment
+5|Shadow price distortion
+5|Monopsony minimum-wage exception|card krueger exception
 1|Surge pricing ban
 1|Price cap
 1|Rent freeze
@@ -3533,8 +3533,8 @@ const PROMPTS=[
 4|Interest rate ceilings
 5|Wartime price controls|office of price administration;opa
 5|Eviction moratorium
-6|Rent-stabilization lock-in
-6|Deadweight trapezoid|allocation inefficiency`},
+5|Rent-stabilization lock-in
+5|Deadweight trapezoid|allocation inefficiency`},
 {id:"externalities-examples",cat:"Externalities",q:"Name a real-world side effect (good or bad) that spills over onto bystanders",
  a:`1|Pollution|air pollution;water pollution;smog
 1|Traffic|traffic congestion
@@ -3593,15 +3593,15 @@ const PROMPTS=[
 5|Marginal external cost|mec
 5|Marginal social benefit|msb
 6|Acid Rain Program of 1990|clean air act 1990
-6|Weitzman prices vs quantities
-6|Pigou-Knight road problem
-6|Vickrey congestion toll
-6|Double dividend of green taxes
-6|Coasean lighthouse|coase lighthouse
-6|Ostrom polycentric commons
-6|Shadow pricing of biodiversity
-6|Ambient pollution tax
-6|Asymmetric-information externality mechanism
+5|Weitzman prices vs quantities
+5|Pigou-Knight road problem
+5|Vickrey congestion toll
+5|Double dividend of green taxes
+5|Coasean lighthouse|coase lighthouse
+5|Ostrom polycentric commons
+5|Shadow pricing of biodiversity
+5|Ambient pollution tax
+5|Asymmetric-information externality mechanism
 1|Fireworks|neighborhood fireworks
 1|Clean air
 2|Electric vehicles|ev adoption
@@ -3614,8 +3614,8 @@ const PROMPTS=[
 4|Agricultural runoff|fertilizer runoff
 4|Bank run contagion|fire sale externality
 5|Gentrification spillover
-6|Lindahl pricing|lindahl tax
-6|Vickrey-Clarke-Groves externality fix`},
+5|Lindahl pricing|lindahl tax
+5|Vickrey-Clarke-Groves externality fix`},
 {id:"automakers",cat:"Automakers",q:"Name a major car manufacturer or automotive brand",
  a:`1|Ford
 1|Toyota
@@ -3680,21 +3680,21 @@ const PROMPTS=[
 5|Dacia
 5|Citroen
 6|VinFast
-6|Nio
-6|Xpeng
-6|Li Auto
-6|Geely
-6|Chery
-6|Tata Motors
-6|Mahindra
-6|Lada
-6|Morgan Motor|morgan
-6|Caterham
-6|Spyker
-6|Fisker
-6|DeLorean
-6|Rimac
-6|Pininfarina`},
+5|Nio
+5|Xpeng
+5|Li Auto
+5|Geely
+5|Chery
+5|Tata Motors
+5|Mahindra
+5|Lada
+5|Morgan Motor|morgan
+5|Caterham
+5|Spyker
+5|Fisker
+5|DeLorean
+5|Rimac
+5|Pininfarina`},
 {id:"airlines",cat:"Airlines",q:"Name a commercial airline",
  a:`1|Delta|delta air lines
 1|United|united airlines
@@ -3758,21 +3758,21 @@ const PROMPTS=[
 5|GOL
 5|Azul
 6|Air Transat|transat
-6|Norwegian Air|norwegian
-6|Play Airlines
-6|Scoot
-6|Jetstar
-6|Peach Aviation
-6|Bamboo Airways
-6|Vietnam Airlines
-6|Philippine Airlines
-6|Garuda Indonesia
-6|Royal Air Maroc
-6|Ethiopian Airlines
-6|Kenya Airways
-6|South African Airways
-6|Aerolineas Argentinas
-6|Pan Am|twa`},
+5|Norwegian Air|norwegian
+5|Play Airlines
+5|Scoot
+5|Jetstar
+5|Peach Aviation
+5|Bamboo Airways
+5|Vietnam Airlines
+5|Philippine Airlines
+5|Garuda Indonesia
+5|Royal Air Maroc
+5|Ethiopian Airlines
+5|Kenya Airways
+5|South African Airways
+5|Aerolineas Argentinas
+5|Pan Am|twa`},
 {id:"fast-food",cat:"Fast food",q:"Name a fast-food, coffee, or quick-service restaurant chain",
  a:`1|McDonald's|mcdonalds
 1|Starbucks
@@ -3837,21 +3837,21 @@ const PROMPTS=[
 5|Smoothie King
 5|Jamba|jamba juice
 6|Wimpy's
-6|MOS Burger
-6|Yoshinoya
-6|Lotteria
-6|Quick Burger
-6|Supermac's
-6|Leon
-6|Wasabi
-6|Max Burgers
-6|Hesburger
-6|Pita Pit
-6|Freddy's|freddys frozen custard
-6|Cook Out
-6|Krystal
-6|Braum's|braums
-6|Taco Cabana`},
+5|MOS Burger
+5|Yoshinoya
+5|Lotteria
+5|Quick Burger
+5|Supermac's
+5|Leon
+5|Wasabi
+5|Max Burgers
+5|Hesburger
+5|Pita Pit
+5|Freddy's|freddys frozen custard
+5|Cook Out
+5|Krystal
+5|Braum's|braums
+5|Taco Cabana`},
 {id:"tech-apps",cat:"Tech & apps",q:"Name a major tech company, app, or online platform",
  a:`1|Apple
 1|Google|alphabet
@@ -3931,22 +3931,22 @@ const PROMPTS=[
 5|Threads
 5|Bluesky
 6|Mastodon
-6|Linear
-6|Vercel
-6|Supabase
-6|Retool
-6|Airtable
-6|Miro
-6|Asana
-6|Trello
-6|ClickUp
-6|HubSpot
-6|Zendesk
-6|Twilio
-6|Okta
-6|Datadog
-6|CrowdStrike
-6|Poshmark|depop`},
+5|Linear
+5|Vercel
+5|Supabase
+5|Retool
+5|Airtable
+5|Miro
+5|Asana
+5|Trello
+5|ClickUp
+5|HubSpot
+5|Zendesk
+5|Twilio
+5|Okta
+5|Datadog
+5|CrowdStrike
+5|Poshmark|depop`},
 {id:"retail-chains",cat:"Retail stores",q:"Name a major retail store, supermarket, or pharmacy chain",
  a:`1|Walmart
 1|Target
@@ -4017,21 +4017,21 @@ const PROMPTS=[
 5|Lidl
 5|Edeka
 6|Boots|boots uk
-6|Superdrug
-6|Waitrose
-6|Asda
-6|Morrisons
-6|Woolworths Australia
-6|Coles
-6|Bunnings
-6|Uniqlo
-6|Muji
-6|Don Quijote
-6|Bic Camera
-6|Daiso
-6|Decathlon
-6|El Corte Ingles
-6|Hudson's Bay|the bay`},
+5|Superdrug
+5|Waitrose
+5|Asda
+5|Morrisons
+5|Woolworths Australia
+5|Coles
+5|Bunnings
+5|Uniqlo
+5|Muji
+5|Don Quijote
+5|Bic Camera
+5|Daiso
+5|Decathlon
+5|El Corte Ingles
+5|Hudson's Bay|the bay`},
 {id:"famous-founders",cat:"Famous founders",q:"Name a famous billionaire, CEO, or business founder",people:true,
  a:`1|Elon Musk
 1|Jeff Bezos
@@ -4093,19 +4093,19 @@ const PROMPTS=[
 5|Akio Morita
 5|Soichiro Honda
 6|Morris Chang
-6|Masayoshi Son
-6|Gautam Adani
-6|Lei Jun
-6|Dietrich Mateschitz
-6|Enzo Ferrari
-6|Ferdinand Porsche
-6|Henry Royce
-6|Thomas Edison
-6|Nikola Tesla
-6|Cornelius Vanderbilt
-6|Jay Gould
-6|Estee Lauder
-6|Coco Chanel`},
+5|Masayoshi Son
+5|Gautam Adani
+5|Lei Jun
+5|Dietrich Mateschitz
+5|Enzo Ferrari
+5|Ferdinand Porsche
+5|Henry Royce
+5|Thomas Edison
+5|Nikola Tesla
+5|Cornelius Vanderbilt
+5|Jay Gould
+5|Estee Lauder
+5|Coco Chanel`},
 {id:"famous-scandals",cat:"Corporate scandals",q:"Name a famous corporate scandal, fraud, or business collapse",
  a:`1|Enron
 1|FTX
@@ -4160,17 +4160,17 @@ const PROMPTS=[
 5|Terra-Luna|do kwon
 5|MoviePass
 6|Bre-X|bre x minerals
-6|Nortel Networks|nortel
-6|Kobe Steel|kobe data falsification
-6|Toshiba accounting|toshiba scandal
-6|London Whale|jpmorgan london whale
-6|LIBOR rigging|tom hayes
-6|1MDB
-6|Carillion
-6|BCCI
-6|Steinhoff
-6|Drexel Burnham Lambert|michael milken
-6|Samuel Insull|insull utility`},
+5|Nortel Networks|nortel
+5|Kobe Steel|kobe data falsification
+5|Toshiba accounting|toshiba scandal
+5|London Whale|jpmorgan london whale
+5|LIBOR rigging|tom hayes
+5|1MDB
+5|Carillion
+5|BCCI
+5|Steinhoff
+5|Drexel Burnham Lambert|michael milken
+5|Samuel Insull|insull utility`},
 {id:"econ-experiments",cat:"Famous experiments",q:"Name a famous economics or psychology experiment or game",
  a:`1|Prisoner's dilemma|prisoners dilemma
 1|Marshmallow test|stanford marshmallow test
@@ -4215,15 +4215,15 @@ const PROMPTS=[
 5|Penny auction|bidding war
 5|Safelite windshield pay|lazear safelite
 6|Ellsberg paradox|ellsberg urn
-6|Allais paradox
-6|St. Petersburg paradox|coin flip paradox
-6|Becker-DeGroot-Marschak|bdm mechanism
-6|Chicago teachers cheating|jacob levitt
-6|NYC cab drivers|camerer babcock
-6|Maine lobster gangs|acheson lobsters
-6|Swiss nuclear waste NIMBY|frey oberholzer gee
-6|Moving to Opportunity|mto
-6|Perry Preschool|heckman preschool`},
+5|Allais paradox
+5|St. Petersburg paradox|coin flip paradox
+5|Becker-DeGroot-Marschak|bdm mechanism
+5|Chicago teachers cheating|jacob levitt
+5|NYC cab drivers|camerer babcock
+5|Maine lobster gangs|acheson lobsters
+5|Swiss nuclear waste NIMBY|frey oberholzer gee
+5|Moving to Opportunity|mto
+5|Perry Preschool|heckman preschool`},
 {id:"cryptocurrencies",cat:"Crypto & web3",q:"Name a cryptocurrency, blockchain, or crypto platform",
  a:`1|Bitcoin|btc
 1|Ethereum|eth
@@ -4276,17 +4276,17 @@ const PROMPTS=[
 5|Cosmos|atom
 5|Near Protocol|near
 6|Zcash|zec
-6|Tezos|xtz
-6|Hedera|hbar
-6|Filecoin|fil
-6|Arweave
-6|ZK rollup|zero knowledge proof
-6|Automated market maker|amm
-6|Flash loan
-6|MEV|maximal extractable value
-6|Solidity
-6|Byzantine fault tolerance
-6|Hashgraph`},
+5|Tezos|xtz
+5|Hedera|hbar
+5|Filecoin|fil
+5|Arweave
+5|ZK rollup|zero knowledge proof
+5|Automated market maker|amm
+5|Flash loan
+5|MEV|maximal extractable value
+5|Solidity
+5|Byzantine fault tolerance
+5|Hashgraph`},
 {id:"tech-hardware",cat:"Tech hardware",q:"Name a major electronics, semiconductor, or gaming company",
  a:`1|Apple
 1|Samsung
@@ -4355,20 +4355,20 @@ const PROMPTS=[
 5|SteelSeries
 5|Electronic Arts|ea
 6|Tokyo Electron
-6|Synopsys
-6|Cadence
-6|GlobalFoundries
-6|UMC
-6|SMIC
-6|Advantest
-6|Lasertec
-6|Amphenol
-6|Lattice Semiconductor
-6|Take-Two|rockstar games
-6|Capcom
-6|Square Enix
-6|Bandai Namco
-6|FromSoftware`},
+5|Synopsys
+5|Cadence
+5|GlobalFoundries
+5|UMC
+5|SMIC
+5|Advantest
+5|Lasertec
+5|Amphenol
+5|Lattice Semiconductor
+5|Take-Two|rockstar games
+5|Capcom
+5|Square Enix
+5|Bandai Namco
+5|FromSoftware`},
 {id:"ai-companies",cat:"AI & cloud",q:"Name an AI company, AI model, or major cloud/software brand",
  a:`1|OpenAI|chatgpt
 1|Google|gemini
@@ -4430,20 +4430,20 @@ const PROMPTS=[
 5|Cerebras
 5|SambaNova
 6|Qwen|alibaba qwen
-6|Moonshot AI|kimi
-6|Baichuan
-6|Poolside
-6|Sakana AI
-6|Physical Intelligence
-6|Skild AI
-6|Covariant
-6|Harvey AI
-6|Glean
-6|Sierra AI
-6|Adept
-6|Cognition|devin ai
-6|LangChain
-6|01.AI|yi model`},
+5|Moonshot AI|kimi
+5|Baichuan
+5|Poolside
+5|Sakana AI
+5|Physical Intelligence
+5|Skild AI
+5|Covariant
+5|Harvey AI
+5|Glean
+5|Sierra AI
+5|Adept
+5|Cognition|devin ai
+5|LangChain
+5|01.AI|yi model`},
 {id:"streaming-media",cat:"Streaming & TV",q:"Name a streaming service, TV network, or movie studio",
  a:`1|Netflix
 1|Disney+|disney plus
@@ -4510,21 +4510,21 @@ const PROMPTS=[
 5|Vimeo
 5|Twitch
 6|Curiosity Stream
-6|Nebula
-6|Dropout|collegehumor
-6|Kanopy
-6|Hoopla
-6|TCM|turner classic movies
-6|Hallmark Channel
-6|BET|black entertainment television
-6|MSNBC
-6|CNBC
-6|Bloomberg TV
-6|Toho
-6|Studio Ghibli
-6|Neon
-6|Annapurna Pictures
-6|Focus Features`},
+5|Nebula
+5|Dropout|collegehumor
+5|Kanopy
+5|Hoopla
+5|TCM|turner classic movies
+5|Hallmark Channel
+5|BET|black entertainment television
+5|MSNBC
+5|CNBC
+5|Bloomberg TV
+5|Toho
+5|Studio Ghibli
+5|Neon
+5|Annapurna Pictures
+5|Focus Features`},
 {id:"business-models",cat:"Business models",q:"Name a way a company makes money (business model)",
  a:`1|Subscription|subscriptions
 1|Advertising|ad supported;ads
@@ -4557,11 +4557,11 @@ const PROMPTS=[
 5|Data monetization
 5|Insurance float|berkshire float
 6|Double marginalization
-6|Planned obsolescence
-6|Peak-load pricing
-6|Platform envelopment|envelopment
-6|Switching-cost lock-in|lock in rent
-6|Long-tail inventory
+5|Planned obsolescence
+5|Peak-load pricing
+5|Platform envelopment|envelopment
+5|Switching-cost lock-in|lock in rent
+5|Long-tail inventory
 1|Membership|club membership
 1|Royalty|royalty fee
 2|Pay-per-click|cpc;cpm advertising
@@ -4573,7 +4573,7 @@ const PROMPTS=[
 4|Enterprise licensing|seat pricing
 5|Captive pricing
 5|Franchise royalty|franchise fee
-6|Siphon pricing|cross subsidy model`},
+5|Siphon pricing|cross subsidy model`},
 {id:"startup-vc",cat:"Startups & VC",q:"Name a startup, venture capital, or IPO term",
  a:`1|Startup
 1|Venture capital|vc
@@ -4608,12 +4608,12 @@ const PROMPTS=[
 5|Direct listing
 5|Pre-money valuation
 5|Secondary share sale|secondaries
-6|Anti-dilution ratchet|ratchet
-6|Power law returns|babe ruth effect
+5|Anti-dilution ratchet|ratchet
+5|Power law returns|babe ruth effect
 6|Greenshoe option|overallotment
-6|Drag-along rights
-6|Zebra company
-6|VC J-curve|j curve effect
+5|Drag-along rights
+5|Zebra company
+5|VC J-curve|j curve effect
 1|Investor|backing
 1|Incubator|accelerator;y combinator
 2|Pre-seed round|pre seed
@@ -4625,7 +4625,7 @@ const PROMPTS=[
 4|Pay-to-play|cram down
 5|S-1 filing|ipo prospectus
 5|Lock-up period|lockup
-6|Double dip liquidation|participating preferred`},
+5|Double dip liquidation|participating preferred`},
 {id:"intellectual-property",cat:"Patents & IP",q:"Name a type of intellectual property, tech protection, or patent term",
  a:`1|Patent
 1|Copyright
@@ -4669,15 +4669,15 @@ const PROMPTS=[
 5|Moral rights|droit moral
 5|Mask work protection|semiconductor layout
 6|Pay-for-delay|reverse payment
-6|Advance market commitment|amc
-6|Patent buyout|kremer patent
-6|Orphan works
-6|Submarine patent
-6|Patent box|ip box tax regime
-6|PCT filing|patent cooperation treaty
-6|Hatch-Waxman exclusivity
-6|Bayh-Dole Act
-6|Copyright termination right`},
+5|Advance market commitment|amc
+5|Patent buyout|kremer patent
+5|Orphan works
+5|Submarine patent
+5|Patent box|ip box tax regime
+5|PCT filing|patent cooperation treaty
+5|Hatch-Waxman exclusivity
+5|Bayh-Dole Act
+5|Copyright termination right`},
 {id:"energy-sources",cat:"Energy sources",q:"Name an energy source or way electricity is generated",
  a:`1|Solar|solar power
 1|Wind|wind power
@@ -4721,14 +4721,14 @@ const PROMPTS=[
 5|Syngas|coal gasification
 5|Alcohol-to-jet|sustainable aviation fuel
 6|Ocean thermal energy conversion|otec
-6|Enhanced geothermal system|egs
-6|Osmotic power|salinity gradient
-6|Space-based solar power
-6|Beta-voltaic cell
-6|Magnetohydrodynamic generator|mhd
-6|Microgrid CHP
-6|Molten salt reactor
-6|Perovskite tandem solar`},
+5|Enhanced geothermal system|egs
+5|Osmotic power|salinity gradient
+5|Space-based solar power
+5|Beta-voltaic cell
+5|Magnetohydrodynamic generator|mhd
+5|Microgrid CHP
+5|Molten salt reactor
+5|Perovskite tandem solar`},
 {id:"grocery-staples",cat:"Grocery staples",q:"Name a grocery item or household staple tracked for inflation",
  a:`1|Milk
 1|Eggs
@@ -4799,17 +4799,17 @@ const PROMPTS=[
 5|Seltzer|sparkling water
 5|Infant formula|baby formula
 6|Ghee
-6|Tahini
-6|Cardamom
-6|Saffron
-6|Miso paste
-6|Yeast|baking powder
-6|Capers
-6|Truffle oil
-6|Kombucha
-6|Pickled herring
-6|Bulgur wheat
-6|Pine nuts`},
+5|Tahini
+5|Cardamom
+5|Saffron
+5|Miso paste
+5|Yeast|baking powder
+5|Capers
+5|Truffle oil
+5|Kombucha
+5|Pickled herring
+5|Bulgur wheat
+5|Pine nuts`},
 {id:"critical-minerals",cat:"Materials & metals",q:"Name a metal or raw material used in phones, batteries, cars, or buildings",
  a:`1|Steel
 1|Iron
@@ -4868,18 +4868,18 @@ const PROMPTS=[
 5|Silicon carbide
 5|Polysilicon
 6|Dysprosium
-6|Praseodymium
-6|Hafnium
-6|Rhenium
-6|Terbium
-6|Antimony
-6|Tellurium
-6|Bismuth
-6|Ruthenium
-6|Osmium
-6|Scandium
-6|Gallium nitride|gan
-6|Aramid fiber|kevlar`},
+5|Praseodymium
+5|Hafnium
+5|Rhenium
+5|Terbium
+5|Antimony
+5|Tellurium
+5|Bismuth
+5|Ruthenium
+5|Osmium
+5|Scandium
+5|Gallium nitride|gan
+5|Aramid fiber|kevlar`},
 {id:"crops-agriculture",cat:"Crops & farming",q:"Name a major agricultural crop or farm export grown worldwide",
  a:`1|Corn|maize
 1|Wheat
@@ -4940,18 +4940,18 @@ const PROMPTS=[
 5|Flax|flaxseed
 5|Cabbage|sugar beets
 6|Teff
-6|Fonio
-6|Buckwheat
-6|Triticale
-6|Spelt
-6|Cardamom
-6|Cloves
-6|Nutmeg
-6|Sisal
-6|Jute
-6|Kenaf
-6|Kola nuts
-6|Guar gum`},
+5|Fonio
+5|Buckwheat
+5|Triticale
+5|Spelt
+5|Cardamom
+5|Cloves
+5|Nutmeg
+5|Sisal
+5|Jute
+5|Kenaf
+5|Kola nuts
+5|Guar gum`},
 {id:"luxury-brands",cat:"Luxury brands",q:"Name a luxury fashion, watch, jewelry, or designer brand",
  a:`1|Gucci
 1|Louis Vuitton|lv
@@ -5011,18 +5011,18 @@ const PROMPTS=[
 5|Panerai
 5|Zenith
 6|A. Lange & Sohne|lange
-6|Blancpain
-6|Breguet
-6|Brioni
-6|Kiton
-6|Berluti
-6|Moynat
-6|Delvaux
-6|Boucheron
-6|Chaumet
-6|Piaget
-6|Girard-Perregaux
-6|Ulysse Nardin`},
+5|Blancpain
+5|Breguet
+5|Brioni
+5|Kiton
+5|Berluti
+5|Moynat
+5|Delvaux
+5|Boucheron
+5|Chaumet
+5|Piaget
+5|Girard-Perregaux
+5|Ulysse Nardin`},
 {id:"world-banks",cat:"Major banks",q:"Name a major global or US commercial or investment bank",
  a:`1|JPMorgan Chase|jpmorgan;chase
 1|Bank of America|bofa
@@ -5083,18 +5083,18 @@ const PROMPTS=[
 5|Lazard
 5|Evercore
 6|Moelis & Company|moelis
-6|Centerview Partners
-6|Rothschild & Co|rothschild
-6|Perella Weinberg
-6|PJT Partners
-6|Guggenheim Partners
-6|Itau Unibanco
-6|Banco Bradesco
-6|First Citizens
-6|Zions Bancorporation
-6|Comerica
-6|Nordea
-6|SEB|skandinaviska enskilda banken`},
+5|Centerview Partners
+5|Rothschild & Co|rothschild
+5|Perella Weinberg
+5|PJT Partners
+5|Guggenheim Partners
+5|Itau Unibanco
+5|Banco Bradesco
+5|First Citizens
+5|Zions Bancorporation
+5|Comerica
+5|Nordea
+5|SEB|skandinaviska enskilda banken`},
 {id:"sports-money",cat:"Sports business",q:"Name a way pro sports teams or leagues make or spend money",
  a:`1|Salary cap
 1|Ticket sales|box office;season tickets
@@ -5139,14 +5139,14 @@ const PROMPTS=[
 5|Parachute payments
 5|Winner's curse in free agency
 6|Rottenberg invariance principle
-6|Scully MRP model|scully model
-6|Regional sports networks|rsn blackouts
-6|Stadium bond tax exemptions|municipal stadium bonds
-6|Promotion and relegation windfall
-6|Signing-bonus proration
-6|Bird rights exception
-6|Arbitration-eligible salary
-6|Co-branding equity stake`},
+5|Scully MRP model|scully model
+5|Regional sports networks|rsn blackouts
+5|Stadium bond tax exemptions|municipal stadium bonds
+5|Promotion and relegation windfall
+5|Signing-bonus proration
+5|Bird rights exception
+5|Arbitration-eligible salary
+5|Co-branding equity stake`},
 {id:"famous-companies",cat:"Corporate giants",q:"Name a major public company in the S&P 500",
  a:`1|Apple
 1|Microsoft
@@ -5240,20 +5240,20 @@ const PROMPTS=[
 5|AutoZone
 5|O'Reilly Automotive|oreilly
 6|Linde
-6|Danaher
-6|Amphenol
-6|Eaton
-6|Cintas
-6|Parker-Hannifin
-6|Copart
-6|Arthur J. Gallagher
-6|Synopsys
-6|Fair Isaac|fico
-6|Verisk
-6|Gartner
-6|Mettler-Toledo
-6|IDEXX Laboratories
-6|Tyler Technologies`},
+5|Danaher
+5|Amphenol
+5|Eaton
+5|Cintas
+5|Parker-Hannifin
+5|Copart
+5|Arthur J. Gallagher
+5|Synopsys
+5|Fair Isaac|fico
+5|Verisk
+5|Gartner
+5|Mettler-Toledo
+5|IDEXX Laboratories
+5|Tyler Technologies`},
 {id:"credit-cards",cat:"Credit cards",q:"Name a credit card perk, card type, or bank fee",
  a:`1|Cashback|cash back
 1|Travel points|airline miles;rewards points
@@ -5299,14 +5299,14 @@ const PROMPTS=[
 5|Merchant surcharge
 5|Minimum finance charge
 6|Residual interest
-6|Dynamic currency conversion
-6|Charge card|no preset spending limit
-6|Two-cycle billing
-6|Universal default
-6|Penalty APR
-6|BIN sponsorship
-6|EMV liability shift
-6|Interchange rollback`},
+5|Dynamic currency conversion
+5|Charge card|no preset spending limit
+5|Two-cycle billing
+5|Universal default
+5|Penalty APR
+5|BIN sponsorship
+5|EMV liability shift
+5|Interchange rollback`},
 {id:"financial-regulators",cat:"Regulators",q:"Name a government agency, watchdog, or regulator that oversees money or business",
  a:`1|IRS|internal revenue service
 1|SEC|securities and exchange commission
@@ -5348,15 +5348,15 @@ const PROMPTS=[
 5|ESMA
 5|ASIC|australian securities commission
 5|OSC|ontario securities commission
-6|BIS|bank for international settlements
+5|BIS|bank for international settlements
 6|Basel Committee
-6|FATF
-6|IOSCO
-6|PRA|prudential regulation authority
-6|BaFin
-6|AMF|autorite des marches financiers
-6|MAS|monetary authority of singapore
-6|CIRO|iiroc`},
+5|FATF
+5|IOSCO
+5|PRA|prudential regulation authority
+5|BaFin
+5|AMF|autorite des marches financiers
+5|MAS|monetary authority of singapore
+5|CIRO|iiroc`},
 {id:"asset-managers",cat:"Investment firms",q:"Name a major investment firm, hedge fund, private equity firm, or broker",
  a:`1|BlackRock
 1|Vanguard
@@ -5410,18 +5410,18 @@ const PROMPTS=[
 5|Silver Lake
 5|Thoma Bravo
 6|Tiger Global
-6|Coatue
-6|Lone Pine Capital
-6|Viking Global
-6|D1 Capital
-6|Hudson River Trading|hrt
-6|Jump Trading
-6|Virtu Financial
-6|Susquehanna|sig
-6|Oaktree Capital|howard marks
-6|Advent International
-6|Hellman & Friedman
-6|Vista Equity Partners`},
+5|Coatue
+5|Lone Pine Capital
+5|Viking Global
+5|D1 Capital
+5|Hudson River Trading|hrt
+5|Jump Trading
+5|Virtu Financial
+5|Susquehanna|sig
+5|Oaktree Capital|howard marks
+5|Advent International
+5|Hellman & Friedman
+5|Vista Equity Partners`},
 {id:"money-nicknames",cat:"Money slang",q:"Name a slang term or nickname for money or a coin/bill",
  a:`1|Cash
 1|Bucks
@@ -5476,18 +5476,18 @@ const PROMPTS=[
 5|Pony|monkey uk
 5|Shekels
 6|Mazuma
-6|Long green
-6|Pinchbeck
-6|Spondulicks
-6|Readies|rhino
-6|Bunce
-6|Pieces of eight|cobs
-6|Bawbee
-6|Sestertius
-6|Cowrie
-6|Rai stones
-6|Gold guinea|sovereign
-6|Specie`},
+5|Long green
+5|Pinchbeck
+5|Spondulicks
+5|Readies|rhino
+5|Bunce
+5|Pieces of eight|cobs
+5|Bawbee
+5|Sestertius
+5|Cowrie
+5|Rai stones
+5|Gold guinea|sovereign
+5|Specie`},
 {id:"why-stocks-move",cat:"Moving stocks",q:"Name a reason a company's stock price jumps or crashes",
  a:`1|Earnings beat|earnings report;earnings miss
 1|New product launch|iphone launch
@@ -5531,13 +5531,13 @@ const PROMPTS=[
 5|Credit rating downgrade
 5|Margin call liquidation
 6|Whisper number miss
-6|Triple witching rebalance
-6|Gamma hedging flow|delta squeeze
-6|Dead cat bounce
-6|Tax-loss harvesting|january effect
-6|Spinoff announcement
-6|Lock-up expiration
-6|Poison pill triggered`},
+5|Triple witching rebalance
+5|Gamma hedging flow|delta squeeze
+5|Dead cat bounce
+5|Tax-loss harvesting|january effect
+5|Spinoff announcement
+5|Lock-up expiration
+5|Poison pill triggered`},
 {id:"high-paying-jobs",cat:"Top careers",q:"Name a well-known high-paying or in-demand career",
  a:`1|Doctor|physician;surgeon
 1|Lawyer|attorney
@@ -5585,15 +5585,15 @@ const PROMPTS=[
 5|Ship captain|maritime captain
 5|Mine manager
 6|Saturation diver
-6|Orthopedic surgeon
-6|Neurosurgeon
-6|Corporate tax partner
-6|Power grid dispatcher
-6|Actuarial fellow
-6|Fixed income trader
-6|Forensic accountant
-6|Nuclear reactor operator
-6|Speech-language pathologist`},
+5|Orthopedic surgeon
+5|Neurosurgeon
+5|Corporate tax partner
+5|Power grid dispatcher
+5|Actuarial fellow
+5|Fixed income trader
+5|Forensic accountant
+5|Nuclear reactor operator
+5|Speech-language pathologist`},
 {id:"job-perks",cat:"Job perks",q:"Name a workplace benefit, perk, or job policy",
  a:`1|Health insurance
 1|Paid time off|pto;vacation days
@@ -5637,14 +5637,14 @@ const PROMPTS=[
 5|Phone stipend
 5|Egg freezing
 6|Defined benefit pension|pension plan
-6|Split-dollar life policy
-6|Charitable gift match|donor advised match
-6|Book stipend
-6|Financial planning benefit
-6|Backup elder care
-6|Concierge laundry
-6|Nap pods
-6|Dry-cleaning service`},
+5|Split-dollar life policy
+5|Charitable gift match|donor advised match
+5|Book stipend
+5|Financial planning benefit
+5|Backup elder care
+5|Concierge laundry
+5|Nap pods
+5|Dry-cleaning service`},
 {id:"college-costs",cat:"Paying for college",q:"Name a cost of going to college or way students pay for school",
  a:`1|Tuition
 1|Student loans
@@ -5688,14 +5688,14 @@ const PROMPTS=[
 5|Transcript fee
 5|Placement exam fee
 6|Endowment bursary
-6|Student union levy
-6|Deferred tuition plan
-6|Perkins loan
-6|National Defense Student Loan
-6|Tuition freeze guarantee
-6|Summer bridge stipend
-6|Sheepskin diploma fee
-6|Ombudsman fee`},
+5|Student union levy
+5|Deferred tuition plan
+5|Perkins loan
+5|National Defense Student Loan
+5|Tuition freeze guarantee
+5|Summer bridge stipend
+5|Sheepskin diploma fee
+5|Ombudsman fee`},
 {id:"famous-unions",cat:"Unions & labor",q:"Name a labor union, workers' group, or famous strike/labor term",
  a:`1|Labor union|labour union;union;unions;trade union
 1|Minimum wage
@@ -5742,16 +5742,16 @@ const PROMPTS=[
 5|Yellow-dog contract
 5|Closed shop
 5|Open shop
-6|IWW|wobblies
+5|IWW|wobblies
 6|Knights of Labor
-6|Pullman Strike
-6|Homestead Strike
-6|Taft-Hartley Act
-6|Wagner Act|nlra
-6|Ghent system
-6|Works council|codetermination
-6|Union shop card
-6|Checkoff dues`},
+5|Pullman Strike
+5|Homestead Strike
+5|Taft-Hartley Act
+5|Wagner Act|nlra
+5|Ghent system
+5|Works council|codetermination
+5|Union shop card
+5|Checkoff dues`},
 {id:"gig-apps",cat:"Gig apps",q:"Name a gig-economy app, delivery platform, or freelance site",
  a:`1|Uber
 1|Lyft
@@ -5804,15 +5804,15 @@ const PROMPTS=[
 5|Lugg
 5|HopSkipDrive
 6|Meituan
-6|Ele.me
-6|Getir
-6|Gorillas
-6|Careem
-6|inDrive
-6|Ola Cabs|ola
-6|BlaBlaCar
-6|Bellhop
-6|Bark.com`},
+5|Ele.me
+5|Getir
+5|Gorillas
+5|Careem
+5|inDrive
+5|Ola Cabs|ola
+5|BlaBlaCar
+5|Bellhop
+5|Bark.com`},
 {id:"office-roles",cat:"Office roles",q:"Name a corporate job title or department inside a company",
  a:`1|CEO|chief executive officer
 1|CFO|chief financial officer
@@ -5867,15 +5867,15 @@ const PROMPTS=[
 5|Sales engineer
 5|Copywriter
 6|Chief of staff
-6|SDR|bdr;sales development
-6|Solutions architect
-6|Actuary
-6|Brand manager
-6|Growth marketing
-6|FP&A|financial planning and analysis
-6|Compensation analyst
-6|Treasury operations
-6|Compliance officer`},
+5|SDR|bdr;sales development
+5|Solutions architect
+5|Actuary
+5|Brand manager
+5|Growth marketing
+5|FP&A|financial planning and analysis
+5|Compensation analyst
+5|Treasury operations
+5|Compliance officer`},
 {id:"sports-leagues",cat:"Sports leagues",q:"Name a major pro sports league or tournament",
  a:`1|NFL|national football league
 1|NBA|national basketball association
@@ -5931,15 +5931,15 @@ const PROMPTS=[
 5|MotoGP
 5|Copa Libertadores
 6|Big Bash League|bbl
-6|UFL|xfl
-6|NLL|national lacrosse league
-6|ONE Championship
-6|PFL|bellator
-6|PDC World Darts|pdc darts
-6|World Snooker Championship
-6|America's Cup|americas cup
-6|Davis Cup
-6|Eredivisie`},
+5|UFL|xfl
+5|NLL|national lacrosse league
+5|ONE Championship
+5|PFL|bellator
+5|PDC World Darts|pdc darts
+5|World Snooker Championship
+5|America's Cup|americas cup
+5|Davis Cup
+5|Eredivisie`},
 {id:"travel-costs",cat:"Travel expenses",q:"Name an expense when taking a trip or vacation",
  a:`1|Flights|airfare;plane tickets
 1|Hotel|airbnb;lodging
@@ -5984,13 +5984,13 @@ const PROMPTS=[
 5|Pool cabana
 5|Golf cart rental
 6|Currency conversion markup|dcc fee
-6|Port taxes and fees
-6|Exit-row legroom fee
-6|Check-in agent fee
-6|Airport shuttle tip
-6|National park pass
-6|Travel clinic vaccines
-6|Lost keycard fee`},
+5|Port taxes and fees
+5|Exit-row legroom fee
+5|Check-in agent fee
+5|Airport shuttle tip
+5|National park pass
+5|Travel clinic vaccines
+5|Lost keycard fee`},
 {id:"healthcare-costs",cat:"Healthcare costs",q:"Name a healthcare expense, insurance term, or medical billing item",
  a:`1|Health insurance
 1|Deductible
@@ -6038,13 +6038,13 @@ const PROMPTS=[
 5|Community rating
 5|Experience rating
 6|Insurance death spiral|death spiral
-6|Accountable care organization|aco
-6|Third-party payer
-6|Baumol cost disease|baumol health
-6|Supplier-induced demand
-6|Grossman health capital
-6|Medicare Part D donut hole|donut hole
-6|Medical loss ratio|mlr`},
+5|Accountable care organization|aco
+5|Third-party payer
+5|Baumol cost disease|baumol health
+5|Supplier-induced demand
+5|Grossman health capital
+5|Medicare Part D donut hole|donut hole
+5|Medical loss ratio|mlr`},
 {id:"auction-formats",cat:"Auctions",q:"Name a famous auction site, auction house, or way auctions work",
  a:`1|eBay
 1|Bid|bidding
@@ -6091,15 +6091,15 @@ const PROMPTS=[
 5|Aalsmeer flower auction
 5|Shill bidding|phantom bidding
 6|VCG mechanism|vickrey clarke groves
-6|Myerson optimal auction
-6|Clock-proxy auction
-6|Top trading cycles|ttc
-6|Milgrom-Wilson theorem
-6|Revenue equivalence theorem
-6|Becker-DeGroot-Marschak|bdm mechanism
-6|Descending clock auction
-6|Simultaneous ascending auction
-6|Bidder ring|bid rigging`},
+5|Myerson optimal auction
+5|Clock-proxy auction
+5|Top trading cycles|ttc
+5|Milgrom-Wilson theorem
+5|Revenue equivalence theorem
+5|Becker-DeGroot-Marschak|bdm mechanism
+5|Descending clock auction
+5|Simultaneous ascending auction
+5|Bidder ring|bid rigging`},
 {id:"everyday-subscriptions",cat:"Subscriptions",q:"Name a subscription, membership, or loyalty program people pay for",
  a:`1|Netflix
 1|Spotify
@@ -6162,15 +6162,15 @@ const PROMPTS=[
 5|Chick-fil-A One
 5|Instacart+
 6|Criterion Channel
-6|Economist Digital
-6|Bloomberg Terminal|bloomberg pro
-6|Whoop membership
-6|Oura membership
-6|Tasting Club|wine club
-6|Car wash club|unlimited car wash
-6|Priority Pass
-6|Soho House
-6|Exclusive golf club|country club`},
+5|Economist Digital
+5|Bloomberg Terminal|bloomberg pro
+5|Whoop membership
+5|Oura membership
+5|Tasting Club|wine club
+5|Car wash club|unlimited car wash
+5|Priority Pass
+5|Soho House
+5|Exclusive golf club|country club`},
 {id:"wedding-costs",cat:"Life events",q:"Name a big expense people spend money on for a wedding or major life event",
  a:`1|Venue|reception hall
 1|Wedding dress|tuxedo
@@ -6215,15 +6215,15 @@ const PROMPTS=[
 5|String quartet
 5|On-site babysitter|wedding childcare
 6|Wedding insurance|cancellation cover
-6|Custom crest monogram|monogrammed napkins
-6|Gown steaming concierge
-6|Marriage certificate apostille
-6|Pre-nuptial legal fee|prenup lawyer
-6|Tent generator rental
-6|Heater and AC rental
-6|Security guard fee
-6|Vendor meal charges
-6|Trash haul-away fee`},
+5|Custom crest monogram|monogrammed napkins
+5|Gown steaming concierge
+5|Marriage certificate apostille
+5|Pre-nuptial legal fee|prenup lawyer
+5|Tent generator rental
+5|Heater and AC rental
+5|Security guard fee
+5|Vendor meal charges
+5|Trash haul-away fee`},
 {id:"financial-hubs",cat:"Financial hubs",q:"Name a major global financial center or business capital city",
  a:`1|New York City|nyc;new york;manhattan
 1|London
@@ -6299,23 +6299,23 @@ const PROMPTS=[
 5|Philadelphia
 5|Washington DC|dc
 6|Vaduz
-6|Monaco
-6|George Town|cayman islands
-6|Hamilton|bermuda
-6|St. Helier|jersey
-6|Douglas|isle of man
-6|Nassau
-6|Panama City
-6|Casablanca
-6|Kigali
-6|Gaborone
-6|Port Louis|mauritius
-6|Baku
-6|Astana
-6|Manama
-6|Muscat
-6|Helsinki
-6|Lisbon`},
+5|Monaco
+5|George Town|cayman islands
+5|Hamilton|bermuda
+5|St. Helier|jersey
+5|Douglas|isle of man
+5|Nassau
+5|Panama City
+5|Casablanca
+5|Kigali
+5|Gaborone
+5|Port Louis|mauritius
+5|Baku
+5|Astana
+5|Manama
+5|Muscat
+5|Helsinki
+5|Lisbon`},
 {id:"eu-countries",cat:"EU members",q:"Name a member country of the European Union",
  reject:{"uk":"The UK left the European Union in 2020 (Brexit)!","united kingdom":"The UK left the European Union in 2020 (Brexit)!","britain":"Britain left the EU in 2020.","england":"England left the EU in 2020.","switzerland":"Switzerland is not in the EU (it is in EFTA).","norway":"Norway is not an EU member state.","iceland":"Iceland is not an EU member state.","turkey":"Turkey is a candidate, not an EU member.","ukraine":"Ukraine is a candidate country, not yet an EU member."},
  a:`1|France
@@ -6343,8 +6343,8 @@ const PROMPTS=[
 5|Latvia
 5|Lithuania
 6|Luxembourg
-6|Malta
-6|Cyprus`},
+5|Malta
+5|Cyprus`},
 {id:"asia-economies",cat:"Asian economies",q:"Name a country or major economy in Asia",
  a:`1|China
 1|Japan
@@ -6388,13 +6388,13 @@ const PROMPTS=[
 5|Armenia
 5|Azerbaijan
 6|Macao
-6|Maldives
-6|Brunei
-6|Kyrgyzstan
-6|Tajikistan
-6|Turkmenistan
-6|Bhutan
-6|Timor-Leste|east timor`},
+5|Maldives
+5|Brunei
+5|Kyrgyzstan
+5|Tajikistan
+5|Turkmenistan
+5|Bhutan
+5|Timor-Leste|east timor`},
 {id:"americas-economies",cat:"The Americas",q:"Name a country in North, Central, or South America",
  reject:{"puerto rico":"Puerto Rico is a US territory — name a sovereign country in the Americas!","greenland":"Greenland is an autonomous Danish territory — name a sovereign country!"},
  a:`1|United States|usa;us;america
@@ -6430,8 +6430,8 @@ const PROMPTS=[
 5|Grenada
 5|Antigua and Barbuda
 6|Dominica
-6|Saint Kitts and Nevis|st kitts
-6|Saint Vincent and the Grenadines|st vincent`},
+5|Saint Kitts and Nevis|st kitts
+5|Saint Vincent and the Grenadines|st vincent`},
 {id:"africa-economies",cat:"African economies",q:"Name a country in Africa",
  a:`1|Egypt
 1|South Africa
@@ -6481,12 +6481,12 @@ const PROMPTS=[
 5|Gambia
 5|Lesotho
 6|Eswatini|swaziland
-6|Comoros
-6|Sao Tome and Principe
-6|Guinea-Bissau
-6|Burundi
-6|Central African Republic
-6|South Sudan`},
+5|Comoros
+5|Sao Tome and Principe
+5|Guinea-Bissau
+5|Burundi
+5|Central African Republic
+5|South Sudan`},
 {id:"famous-currencies-historic",cat:"Old & fictional money",q:"Name a famous historic, extinct, or fictional currency",
  a:`1|Gold coins|gold
 1|Silver coins|silver
@@ -6544,17 +6544,17 @@ const PROMPTS=[
 5|Cocoa beans
 5|Rai stones|yap stone money
 6|Electrum stater|stater
-6|Lydian lion
-6|Byzantine solidus|solidus
-6|Venetian ducat|ducat
-6|Florentine florin|florin
-6|Farthing|groat
-6|Guinea|british guinea
-6|Jiaozi|song dynasty paper money
-6|Koban|tokugawa ryo
-6|Sycee|chinese tael
-6|Manilla bracelets|copper manillas
-6|Katanga cross`},
+5|Lydian lion
+5|Byzantine solidus|solidus
+5|Venetian ducat|ducat
+5|Florentine florin|florin
+5|Farthing|groat
+5|Guinea|british guinea
+5|Jiaozi|song dynasty paper money
+5|Koban|tokugawa ryo
+5|Sycee|chinese tael
+5|Manilla bracelets|copper manillas
+5|Katanga cross`},
 {id:"household-assets",cat:"Wealth & assets",q:"Name a major asset or valuable thing a person or family might own",
  a:`1|House|home;real estate
 1|Car|truck;suv
@@ -6598,13 +6598,13 @@ const PROMPTS=[
 5|Escrow balance
 5|Deferred compensation|rsu shares
 6|Tax lien certificate
-6|Air rights|water rights
-6|Private equity stake|angel shares
-6|Promissory note
-6|Bearer bond
-6|Viatical settlement
-6|Fine violin|stradivarius
-6|Oil well royalties|overriding royalty`},
+5|Air rights|water rights
+5|Private equity stake|angel shares
+5|Promissory note
+5|Bearer bond
+5|Viatical settlement
+5|Fine violin|stradivarius
+5|Oil well royalties|overriding royalty`},
 {id:"world-economies",cat:"World economies",q:"Name one of the 50 largest national economies by GDP (other than the US)",
  reject:{"us":"Anyone but the United States — try another top-50 economy!","usa":"Anyone but the United States — try another top-50 economy!","united states":"Anyone but the United States — try another top-50 economy!","united states of america":"Anyone but the United States — try another top-50 economy!","america":"Anyone but the United States — try another top-50 economy!"},
  a:`1|China
@@ -6649,23 +6649,23 @@ const PROMPTS=[
 5|Hong Kong
 5|Chile
 5|Romania
-6|Czechia|czech republic
-6|Pakistan
-6|Finland
-6|Portugal
+5|Czechia|czech republic
+5|Pakistan
+5|Finland
+5|Portugal
 6|Kazakhstan
-6|Peru
-6|New Zealand
-6|Greece
-6|Iraq
-6|Algeria
-6|Qatar
-6|Nigeria
+5|Peru
+5|New Zealand
+5|Greece
+5|Iraq
+5|Algeria
+5|Qatar
+5|Nigeria
 4|Iran
 5|Hungary
 5|Ukraine
-6|Morocco
-6|Slovakia`}
+5|Morocco
+5|Slovakia`}
 ];
 
 // ---------- matching ----------
@@ -6810,7 +6810,7 @@ function effectiveTier(P,ans,includeCurrent=false){
   if(total<15)return {tier:ans.tier,share:BASE_SHARE[ans.tier],count,total,liveMonopoly:false,dynamic:false};
   if(count===1)return {tier:6,share:1/total,count,total,liveMonopoly:true,dynamic:true};
   const share=(CROWD_PRIOR*BASE_SHARE[ans.tier]+count)/(CROWD_PRIOR+total);
-  const tier=share>=0.17?1:(share>=0.095?2:(share>=0.05?3:(share>=0.024?4:(share>=0.010?5:6))));
+  const tier=share>=0.17?1:(share>=0.095?2:(share>=0.05?3:(share>=0.024?4:5)));
   return {tier,share,count,total,liveMonopoly:false,dynamic:true};
 }
 function recordCrowdPlay(P,ans,raw){
@@ -7008,9 +7008,9 @@ const SPEED_BY_CODE={b:"blitz",c:"standard",u:"study"};
 let speedMode=(()=>{try{const v=localStorage.getItem("vebl-speed");return SPEEDS[v]?v:"standard";}catch(e){return "standard";}})();
 function setSpeed(id){if(!SPEEDS[id])return;speedMode=id;try{localStorage.setItem("vebl-speed",id);}catch(e){}home();}
 function makeTip(P){
-  const t6=P.answers.filter(a=>a.tier===6),t5=P.answers.filter(a=>a.tier===5);
-  let pool=t6.filter(a=>a.d.length>=4);
-  if(!pool.length)pool=t6.length?t6:t5;
+  const t56=P.answers.filter(a=>a.tier===5||a.tier===6);
+  let pool=t56.filter(a=>a.d.length>=4);
+  if(!pool.length)pool=t56;
   const ans=pool[Math.floor(Math.random()*pool.length)];
   const words=ans.d.trim().split(/\s+/);
   const singleLong=words.length===1&&[...words[0]].filter(c=>/[a-z0-9]/i.test(c)).length>=5;
@@ -7617,7 +7617,7 @@ function home(){
    <div class="homebot"><div class="in">
      ${pendingChallenge?`<div class="panel chcard"><div class="chtitle">⚔ FRIEND CHALLENGE · ${SPEEDS[pendingChallenge.speed].label}</div><div class="chsub">${pendingChallenge.targetScore!=null?`Target to beat: <b>${pendingChallenge.targetScore} pts</b>${pendingChallenge.targetAlt!=null?` (${money(pendingChallenge.targetAlt)})`:""}${pendingChallenge.targetGrid?`<div style="margin-top:4px;letter-spacing:2px">${pendingChallenge.targetGrid}</div>`:""}`:`7-round seeded duel — set the score to beat!`}</div><div class="btnrow" style="margin-top:10px"><button class="btn gold small" style="flex:1" onclick="acceptPendingChallenge()">▲ ACCEPT CHALLENGE ▲</button><button class="btn ghost small" onclick="dismissChallenge()">✕</button></div></div>`:""}
      <details><summary>How to play</summary><div class="panel">
-       Ride the rigid <b>$VEBL</b> stock chart on a logarithmic scale. Obvious <b>Common Cents</b> answers are already priced in and dip slightly; misses crash hard. Rarer answers rally sharply, and ultra-rare <b>Monopolies</b> — answers only you thought of — shoot straight up with no dip!<br><br>
+       Ride the rigid <b>$VEBL</b> stock chart on a logarithmic scale. Obvious <b>Common Cents</b> answers are already priced in and dip slightly; misses crash hard. Rarer answers rally sharply, and each prompt hides one ultra-rare <b>Monopoly</b> (plus any valid answer only you named once 15+ players join) that shoots straight up with no dip!<br><br>
        <b>Speeds:</b> ⚡ Blitz (10s, +25% pts), Classic (20s), 📖 Study (untimed + Pass in Unlimited &amp; Vault).<br>
        <b>Tools (1 per climb):</b> ⚡ <b>2× Leverage</b> (2× move up <i>or</i> down — ONE attempt only!) · 🕵 <b>Insider Tip</b> (-20 fee for a masked Tier 5–6 clue).
        <div style="margin-top:8px">${TIERS.slice(1).map(t=>`<div class="trow"><span style="color:${t.c}">■ ${t.n}</span><span class="vt" style="font-size:18px">+${t.p}</span></div>`).join("")}</div>
