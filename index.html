@@ -181,8 +181,8 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .slam{animation:slam .45s cubic-bezier(.2,1.6,.4,1) both}
 @keyframes slam{0%{transform:scale(3) rotate(-14deg);opacity:0}60%{opacity:1}100%{transform:scale(1) rotate(-3deg)}}
 #rays{position:fixed;left:50%;top:30%;width:900px;height:900px;margin:-450px 0 0 -450px;z-index:9;pointer-events:none;opacity:0;transition:opacity .6s;
- background:repeating-conic-gradient(rgba(245,197,66,.28) 0 8deg,transparent 8deg 22deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%);animation:spin 18s linear infinite}
-#rays.on{opacity:1}@keyframes spin{to{transform:rotate(360deg)}}
+ background:repeating-conic-gradient(rgba(245,197,66,.28) 0 8deg,transparent 8deg 22deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%);animation:none}
+#rays.on{opacity:1;animation:spin 18s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 #jack{font-family:'Silkscreen',monospace;font-weight:700;letter-spacing:6px;font-size:13px;color:#1a1300;background:var(--gold);display:inline-block;padding:4px 10px;margin-bottom:12px;box-shadow:0 0 24px rgba(245,197,66,.8)}
 .jackpot #rTier{animation:slam .45s cubic-bezier(.2,1.6,.4,1) both,glow 1s ease-in-out .5s infinite alternate}
 @keyframes glow{to{text-shadow:0 0 30px #f5c542,0 0 60px #f5c542;filter:brightness(1.25)}}
@@ -249,10 +249,40 @@ details.all-ans>summary:hover{color:var(--ink)}
 .fbtag.on{border-color:var(--mint);color:var(--mint);background:rgba(78,242,163,.10)}
 .fbctl{width:100%;background:#0a1226;border:2px solid var(--edge);color:var(--ink);font:500 12px 'IBM Plex Mono',monospace;padding:8px 10px;outline:none;margin-top:6px}
 .fbctl:focus{border-color:var(--mint)}
-/* ECON 101 Study Hub */
+/* ECON 101 Study Hub & Arcade */
 .btn.studybtn{background:linear-gradient(180deg,#5fb3ff,#3385d6);color:#061124;box-shadow:inset 0 -4px 0 rgba(0,0,0,.28),0 0 18px rgba(95,179,255,.28)}
-.home-study{margin-top:10px;display:flex;gap:8px;align-items:center}
-#study{overflow-y:auto;-webkit-overflow-scrolling:touch;background:rgba(5,6,16,.93);padding:calc(20px + env(safe-area-inset-top)) 16px calc(44px + env(safe-area-inset-bottom));display:block;z-index:35}
+.btn.arcbtn{background:linear-gradient(180deg,#b48cff,#7b52d3);color:#090618;box-shadow:inset 0 -4px 0 rgba(0,0,0,.28),0 0 18px rgba(180,140,255,.28)}
+.home-study{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.home-study .btn{font-size:10px;letter-spacing:1.4px;padding:11px 8px}
+#study,#arcade{overflow-y:auto;-webkit-overflow-scrolling:touch;background:rgba(5,6,16,.94);padding:calc(20px + env(safe-area-inset-top)) 16px calc(44px + env(safe-area-inset-bottom));display:block;z-index:35}
+.aggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.agtab{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:.8px;padding:8px 6px;cursor:pointer;background:rgba(10,18,38,.9);border:2px solid var(--edge);color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:3px;touch-action:manipulation;text-align:center}
+.agtab.on{border-color:var(--t4);color:var(--ink);box-shadow:0 0 12px rgba(180,140,255,.28);background:rgba(180,140,255,.1)}
+.agtab b{font-family:'VT323',monospace;font-size:16px;color:var(--gold);line-height:1}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.stcard{padding:12px;background:rgba(14,24,48,.78);border:2px solid var(--edge);display:flex;flex-direction:column;gap:8px}
+.stsym{font-family:'VT323',monospace;font-size:28px;line-height:1;color:var(--gold)}
+.stname{font-size:12px;color:var(--mute);line-height:1.25}
+.dirrow{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.dirbtn{font-family:'Silkscreen',monospace;font-size:8px;letter-spacing:.5px;padding:8px 4px;cursor:pointer;background:rgba(10,18,38,.92);border:1px solid var(--edge);color:var(--mute);touch-action:manipulation}
+.dirbtn.on.up{border-color:var(--mint);color:var(--mint);background:rgba(78,242,163,.14)}
+.dirbtn.on.flat{border-color:var(--gold);color:var(--gold);background:rgba(245,197,66,.14)}
+.dirbtn.on.dn{border-color:var(--red);color:var(--red);background:rgba(255,90,110,.14)}
+.barpair{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.barline{display:grid;grid-template-columns:72px 1fr 64px;gap:8px;align-items:center;font-size:12px}
+.bartrack{height:12px;background:#0a1226;border:1px solid var(--edge);position:relative;overflow:hidden}
+.barfill{height:100%;transition:width .25s ease}
+.sdrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed #22345e}
+.sdrow:last-child{border-bottom:0}
+.sdpills{display:flex;gap:5px}
+.sdpill{font-family:'Silkscreen',monospace;font-size:9px;padding:6px 9px;cursor:pointer;background:rgba(10,18,38,.92);border:1px solid var(--edge);color:var(--mute);touch-action:manipulation}
+.sdpill.on{border-color:var(--mint);color:var(--mint);background:rgba(78,242,163,.12)}
+.sdpill.ok{border-color:var(--mint);color:#fff;background:rgba(78,242,163,.2)}
+.sdpill.no{border-color:var(--red);color:#ffb3bc;background:rgba(255,90,110,.18)}
+.mstat{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.arklist{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.arkitem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:rgba(10,18,38,.92);border:2px solid var(--edge);color:var(--ink);font:600 13px 'IBM Plex Mono',monospace;cursor:pointer;touch-action:manipulation;text-align:left}
+.arkitem.picked{border-color:var(--gold);background:rgba(245,197,66,.1)}
 .unitpills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .upill{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:1px;padding:6px 8px;cursor:pointer;background:rgba(10,18,38,.9);border:1px solid var(--edge);color:var(--mute);touch-action:manipulation}
 .upill.on{border-color:var(--t2);color:var(--t2);background:rgba(95,179,255,.12)}
@@ -279,6 +309,7 @@ body.kb-open .qtext{font-size:clamp(16px,4.4vw,21px);margin:6px 0 4px}
 body.kb-open .qtools{margin-top:6px}
 body.kb-open #bar{padding:8px 10px!important}
 @media (max-width:560px){
+  .aggrid,.mstat{grid-template-columns:repeat(2,1fr)}
   #hud{padding:calc(8px + env(safe-area-inset-top)) 48px 0 8px;gap:6px}
   .hbox{padding:5px 8px 3px;min-width:74px}
   .hbox .lbl{font-size:8px;letter-spacing:2px}
@@ -301,6 +332,7 @@ body.kb-open #bar{padding:8px 10px!important}
   .meta{justify-content:center}
   .fbctl{font-size:16px}
 }
+@media (max-width:480px){.pairgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -331,6 +363,7 @@ body.kb-open #bar{padding:8px 10px!important}
 <div id="results" class="layer hide"></div>
 <div id="archive" class="layer hide"></div>
 <div id="study" class="layer hide"></div>
+<div id="arcade" class="layer hide"></div>
 
 <script>
 // Answer format: tier|Display|alias;alias
@@ -7971,19 +8004,18 @@ function show(id,on=true){$(id).classList.toggle("hide",!on);}
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1700);}
 
 // ================= scene ($VEBL live stock wave) =================
-const cv=$("scene"),ctx=cv.getContext("2d");
+const cv=$("scene"),ctx=cv.getContext("2d",{alpha:false})||cv.getContext("2d");
 let S=1,W=1024,H=768,dpr=1,tick=0,lastW=0,lastH=0;
 const DECADE=700/12;
-const easeIO=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
 const lerpK=(rate,dt)=>1-Math.exp(-rate*dt);
 const SCN={floats:[],coins:[],rain:0,punch:0,goldBill:0,mood:'idle',quiet:true,hideHead:false,shake:0,parts:[],rings:[],flag:false};
-const WAVE={cur:0,cam:0,span:155,spanT:155,pts:[],col:"#4ef2a3",anim:null,speed:1,slope:0,lastBeat:0,idleDir:1,idleFrom:0,idleTo:0,idleT0:0,idleDur:1500,lastNow:0,gx:0};
+const WAVE={cur:0,cam:0,span:155,spanT:155,pts:[],col:"#4ef2a3",anim:null,speed:1,slope:0,lastBeat:0,idleDir:1,idleFrom:0,idleTo:0,idleT0:0,idleDur:380,lastNow:0,gx:0};
 function rnd(a,b){return a+Math.random()*(b-a);}
 function resetWave(v=0){
   WAVE.cur=v;WAVE.cam=v;WAVE.span=155;WAVE.spanT=155;WAVE.anim=null;WAVE.speed=1;WAVE.slope=0;WAVE.col=v<0?"#ff5a6e":"#4ef2a3";
-  WAVE.idleDir=1;WAVE.idleFrom=v;WAVE.idleTo=v+4.5;WAVE.idleT0=performance.now();WAVE.idleDur=1600;WAVE.lastNow=0;
+  WAVE.idleDir=1;WAVE.idleFrom=v;WAVE.idleTo=v+5;WAVE.idleT0=performance.now();WAVE.idleDur=380;WAVE.lastNow=0;
   WAVE.pts=[];const hx=Math.round((W||1024)*(W<560?0.52:0.62));
-  const n=18,offs=[0,-2.8,-4.5,-2.2,1.8,4.2,2.5,-1.5,-3.8,-2.0,2.2,5.0,3.2,-1.0,-3.2,-1.8,1.5,2.2,0];
+  const n=8,offs=[0,-5,4.5,-4,6,-5.5,4,-3.5,0];
   for(let i=0;i<=n;i++)WAVE.pts.push({x:Math.round((hx*i)/n),v:v+offs[i],c:WAVE.col});
   WAVE.pts.push({x:hx,v:v,c:WAVE.col});
 }
@@ -8106,7 +8138,7 @@ function flushWave(){
   const tail=WAVE.pts[WAVE.pts.length-1];
   tail.x=hx;tail.v=a.to;tail.c=col;
   WAVE.pts.push({x:hx,v:a.to,c:col});
-  WAVE.idleFrom=a.to;WAVE.idleTo=a.to;WAVE.idleT0=performance.now();WAVE.idleDur=1400;
+  WAVE.idleFrom=a.to;WAVE.idleTo=a.to;WAVE.idleT0=performance.now();WAVE.idleDur=280;
   if(a.onDone)a.onDone();
 }
 function fmtGridVal(d,m){
@@ -8193,11 +8225,11 @@ function frame(now){
       idleTurn=WAVE.idleTo;
       WAVE.idleFrom=WAVE.idleTo;
       WAVE.idleDir=-(WAVE.idleDir||1);
-      WAVE.idleTo=Math.random()<0.15?base:(base+WAVE.idleDir*rnd(3.0,6.5));
-      WAVE.idleT0=now;WAVE.idleDur=rnd(1250,1950);
+      WAVE.idleTo=Math.random()<0.2?base:(base+WAVE.idleDir*rnd(3.5,7.5));
+      WAVE.idleT0=now;WAVE.idleDur=rnd(300,520);
     }
     const it=Math.min(1,Math.max(0,(now-WAVE.idleT0)/WAVE.idleDur));
-    WAVE.cur=WAVE.idleFrom+(WAVE.idleTo-WAVE.idleFrom)*easeIO(it);
+    WAVE.cur=WAVE.idleFrom+(WAVE.idleTo-WAVE.idleFrom)*it;
   }
   const camTarget=WAVE.anim?WAVE.cur:(G?G.alt:0);
   WAVE.cam+=(camTarget-WAVE.cam)*lerpK(WAVE.anim?10:5.5,dt);
@@ -8223,18 +8255,17 @@ function frame(now){
       WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
       a.lastSeg=seg;
     }
-  }else{
-    const tail=WAVE.pts[WAVE.pts.length-1],prevPt=WAVE.pts.length>1?WAVE.pts[WAVE.pts.length-2]:tail;
-    if(idleTurn!==null||hx-prevPt.x>=12){
-      WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
-    }
+  }else if(idleTurn!==null){
+    const prevHead=WAVE.pts[WAVE.pts.length-1];
+    prevHead.x=hx-stepX*0.5;prevHead.v=idleTurn;
+    WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
   }
   const head=WAVE.pts[WAVE.pts.length-1];
   if(doneTo!==null){
     WAVE.cur=doneTo;head.x=hx;head.v=doneTo;head.c=WAVE.col;
     WAVE.pts.push({x:hx,v:doneTo,c:WAVE.col});
     WAVE.anim=null;WAVE.speed=1;WAVE.spanT=155;
-    WAVE.idleFrom=doneTo;WAVE.idleTo=doneTo+4.5;WAVE.idleT0=now;WAVE.idleDur=1500;
+    WAVE.idleFrom=doneTo;WAVE.idleTo=doneTo;WAVE.idleT0=now;WAVE.idleDur=280;
     if(doneCb)doneCb();
   }else{
     head.x=hx;head.v=WAVE.cur;head.c=WAVE.col;
@@ -8288,41 +8319,25 @@ function frame(now){
     pxText(lbl,17,yy,lit?"#1a1300":"#9fb0d6","left",14);
   }
 
-  // Smooth area fill & rounded Retina ticker curve
+  // Rigid area fill & mitered sharp polyline segments
   if(WAVE.pts.length>1){
     const grad=ctx.createLinearGradient(0,Math.max(0,hy-120),0,H);
     const fillRGB=WAVE.col==="#ff5a6e"?"255,90,110":(WAVE.col==="#f5c542"?"245,197,66":(WAVE.col==="#c98a56"?"201,138,86":"78,242,163"));
     grad.addColorStop(0,`rgba(${fillRGB},0.22)`);grad.addColorStop(1,`rgba(${fillRGB},0.0)`);
     ctx.fillStyle=grad;ctx.beginPath();
     ctx.moveTo(WAVE.pts[0].x,valToY(WAVE.pts[0].v));
-    if(WAVE.anim){
-      for(let k=1;k<WAVE.pts.length;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
-    }else{
-      for(let k=1;k<WAVE.pts.length-1;k++){
-        const x0=WAVE.pts[k].x,y0=valToY(WAVE.pts[k].v),x1=WAVE.pts[k+1].x,y1=valToY(WAVE.pts[k+1].v);
-        ctx.quadraticCurveTo(x0,y0,(x0+x1)/2,(y0+y1)/2);
-      }
-      const lp=WAVE.pts[WAVE.pts.length-1];ctx.lineTo(lp.x,valToY(lp.v));
-    }
+    for(let k=1;k<WAVE.pts.length;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
     ctx.lineTo(WAVE.pts[WAVE.pts.length-1].x,H);ctx.lineTo(WAVE.pts[0].x,H);ctx.closePath();ctx.fill();
 
-    ctx.lineJoin="round";ctx.lineCap="round";
+    ctx.lineJoin="miter";ctx.miterLimit=6;ctx.lineCap="square";
     let i=1;
     while(i<WAVE.pts.length){
       const col=WAVE.pts[i].c;let j=i;
       while(j+1<WAVE.pts.length&&WAVE.pts[j+1].c===col)j++;
       ctx.beginPath();
       ctx.moveTo(WAVE.pts[i-1].x,valToY(WAVE.pts[i-1].v));
-      if(WAVE.anim){
-        for(let k=i;k<=j;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
-      }else{
-        for(let k=i;k<j;k++){
-          const x0=WAVE.pts[k].x,y0=valToY(WAVE.pts[k].v),x1=WAVE.pts[k+1].x,y1=valToY(WAVE.pts[k+1].v);
-          ctx.quadraticCurveTo(x0,y0,(x0+x1)/2,(y0+y1)/2);
-        }
-        ctx.lineTo(WAVE.pts[j].x,valToY(WAVE.pts[j].v));
-      }
-      ctx.strokeStyle=col;ctx.globalAlpha=0.22;ctx.lineWidth=7.5;ctx.stroke();
+      for(let k=i;k<=j;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
+      ctx.strokeStyle=col;ctx.globalAlpha=0.24;ctx.lineWidth=7.5;ctx.stroke();
       ctx.globalAlpha=1;ctx.lineWidth=3.2;ctx.stroke();
       if(col==="#f5c542"){ctx.strokeStyle="#fff8cf";ctx.lineWidth=1.4;ctx.stroke();}
       i=j+1;
@@ -8441,7 +8456,7 @@ function bumpStreak(){const s=streak(),ykey=addDays(dkey,-1);
 function hideAll(){
   clearInterval(timerId);timerId=null;if(G&&G.idleT){clearTimeout(G.idleT);G.idleT=null;}
   WAVE.anim=null;SCN.hideHead=false;SCN.rings=[];SCN.goldBill=0;$("rays").classList.remove("on");$("bubble").classList.add("hide");$("hud").classList.remove("bigshake");$("reveal").classList.remove("bigshake");SCN.mood="idle";
-  ["home","question","bar","reveal","nextWrap","results","hud","archive","study"].forEach(i=>show(i,false));
+  ["home","question","bar","reveal","nextWrap","results","hud","archive","study","arcade"].forEach(i=>show(i,false));
 }
 async function acceptPendingChallenge(){
   if(!pendingChallenge)return;
@@ -8473,7 +8488,7 @@ function home(){
        <div style="margin-top:6px;font-size:11px">Rarity tiers start as estimates and dynamically adapt as players play — if you're the only one out of 15+ plays to name an answer, it becomes a live Monopoly!</div></div></details>
      <div class="seg">${Object.values(SPEEDS).map(s=>`<button type="button" class="${speedMode===s.id?"on "+s.id:""}" onclick="setSpeed('${s.id}')">${s.label}</button>`).join("")}</div>
      ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:18px" onclick="launchDaily('${dkey}',${dayNo})">▲ OPEN THE MARKET ▲</button>`}
-     <div class="home-study"><button type="button" class="btn studybtn small" style="width:100%" onclick="openStudy('cards')">🎓 ECON 101 FINAL PREP · FLASHCARDS &amp; QUIZ</button></div>
+     <div class="home-study"><button type="button" class="btn studybtn small" style="width:100%" onclick="openStudy('cards')">🎓 ECON 101 PREP</button><button type="button" class="btn arcbtn small" style="width:100%" onclick="openArcade('aftershock')">🎮 ECON ARCADE</button></div>
      <div class="meta"><span>CLIMB #${dayNo} · STREAK ${sn} · ★${store.get("vebl-monopolies")||0}</span><div style="display:flex;gap:6px"><button class="btn ghost small" onclick="openArchive('days')">ARCHIVE</button><button class="btn ghost small" onclick="start('unlimited')">Unlimited ∞</button></div></div>
    </div></div>`;
 }
@@ -9157,7 +9172,7 @@ function openStudy(tab=studyState.tab||"cards",unit=studyState.unit||"all"){
     bodyHtml=`<div class="fgrid">${fList.map(f=>`<div class="panel fbox"><div class="ftit">${esc(f.name)}</div><div class="feq">${esc(f.eq)}</div><div class="fnote">${esc(f.note)}</div></div>`).join("")}</div>`;
   }
   $("study").innerHTML=`<div class="arch">
-    <div class="archhead"><div class="chroma">ECON 101 PREP</div><button class="btn ghost small" onclick="show('study',false)">✕ CLOSE</button></div>
+    <div class="archhead"><div class="chroma">ECON 101 PREP</div><div style="display:flex;gap:6px"><button class="btn arcbtn small" onclick="show('study',false);openArcade('aftershock')">🎮 ARCADE</button><button class="btn ghost small" onclick="show('study',false)">✕ CLOSE</button></div></div>
     <div class="statrow">
       <div class="panel statbox"><div class="slbl">MASTERED</div><div class="sval">${knownN}/${ECON101_CARDS.length}</div></div>
       <div class="panel statbox"><div class="slbl">QUIZ SCORE</div><div class="sval">${quizCorrect}/${quizIds.length}</div></div>
@@ -9184,10 +9199,379 @@ function studyNavQuiz(d){const list=studyState.unit==="all"?ECON101_QUIZ:ECON101
 function studyPickQuiz(id,idx){const q=ECON101_QUIZ.find(x=>x.id===id);if(!q)return;studyState.quiz[id]=idx;saveStudy();sfx.blip(idx===q.ans);openStudy("quiz",studyState.unit);}
 function studyResetQuiz(){studyState.quiz={};studyState.qIdx=0;saveStudy();openStudy("quiz",studyState.unit);}
 
+// ================= VEBL ECON ARCADE (6 NON-KRILLION GAMES) =================
+const ARC_GAMES=[
+  {id:"aftershock",ico:"📈",n:"AFTERSHOCK"},
+  {id:"shockwave",ico:"⚡",n:"SHOCKWAVE"},
+  {id:"mmaker",ico:"🎯",n:"MKT MAKER"},
+  {id:"fed",ico:"🏛️",n:"FED CHAIR"},
+  {id:"rank",ico:"📊",n:"REVEALED"},
+  {id:"beauty",ico:"🎭",n:"2/3 GAME"}
+];
+const ARC_AFTERSHOCK=[
+  {ev:"Nov 2022: OpenAI launches ChatGPT",win:"6-MONTH WINDOW",a:{sym:"NVDA",name:"NVIDIA",pct:130,dir:"up"},b:{sym:"CHGG",name:"Chegg",pct:-64,dir:"down"},why:"AI boom ignited explosive GPU data-center demand (+130% NVDA), while free AI homework help cannibalized Chegg subscriptions (-64% CHGG)."},
+  {ev:"Mar 2020: WHO declares COVID-19 pandemic & lockdowns",win:"3-MONTH WINDOW",a:{sym:"ZM",name:"Zoom Video",pct:125,dir:"up"},b:{sym:"CCL",name:"Carnival Cruise",pct:-62,dir:"down"},why:"Sudden shift from in-person travel to remote work caused a positive demand shock for Zoom (+125%) and crushed cruise lines (-62%)."},
+  {ev:"Aug 2023: Wegovy GLP-1 trial cuts heart attacks 20%",win:"1-MONTH WINDOW",a:{sym:"NVO",name:"Novo Nordisk",pct:19,dir:"up"},b:{sym:"RMD",name:"ResMed (CPAP)",pct:-24,dir:"down"},why:"Clinical proof boosted GLP-1 demand expectations (+19% NVO), while investors priced in lower future sleep-apnea CPAP device demand (-24% RMD)."},
+  {ev:"Spring 2022: Ukraine war sends crude oil past $115/bbl",win:"3-MONTH WINDOW",a:{sym:"XOM",name:"ExxonMobil",pct:31,dir:"up"},b:{sym:"DAL",name:"Delta Air Lines",pct:-23,dir:"down"},why:"Energy supply shock raised producer margins (+31% XOM) while surging jet fuel compressed airline operating margins (-23% DAL)."},
+  {ev:"Mar 2023: Silicon Valley Bank fails in a 48-hour bank run",win:"2-WEEK WINDOW",a:{sym:"FRC",name:"First Republic",pct:-89,dir:"down"},b:{sym:"JPM",name:"JPMorgan Chase",pct:2,dir:"flat"},why:"Depositors fled uninsured regional banks (-89% FRC) and rotated flights to safety toward systemically important giants (+2% JPM)."},
+  {ev:"2007–2011: Apple iPhone disrupts mobile handsets",win:"4-YEAR WINDOW",a:{sym:"AAPL",name:"Apple",pct:340,dir:"up"},b:{sym:"BB",name:"BlackBerry",pct:-78,dir:"down"},why:"Schumpeterian creative destruction: touchscreen ecosystem scaled wildly (+340% AAPL) as physical keyboard share eroded (-78% BB)."},
+  {ev:"2022 Fed Rate-Hike Shock: Fed lifts rates 0% -> 4.25%",win:"FULL YEAR 2022",a:{sym:"ARKK",name:"ARK Innovation",pct:-67,dir:"down"},b:{sym:"BRK.B",name:"Berkshire Hathaway",pct:3,dir:"flat"},why:"Higher discount rates crushed long-duration unprofitable growth multiples (-67% ARKK), while cash-rich value holdings stayed resilient (+3% BRK.B)."},
+  {ev:"Apr 2010: Deepwater Horizon Gulf oil spill",win:"2-MONTH WINDOW",a:{sym:"BP",name:"BP plc",pct:-52,dir:"down"},b:{sym:"CVX",name:"Chevron",pct:-12,dir:"down"},why:"Direct cleanup liabilities hammered BP (-52%) and regulatory deepwater moratorium fears dragged peer offshore drillers down (-12% CVX)."}
+];
+const ARC_SHOCKWAVE=[
+  {mkt:"Electric Vehicles",ev:"Battery lithium prices plunge 50% due to huge new mines.",d:0,s:1,p:-1,q:1,why:"Cheaper battery inputs lower marginal cost, shifting Supply RIGHT (zero Demand shift) -> P* falls, Q* rises."},
+  {mkt:"Hot Coffee",ev:"A major freeze ruins Brazil's crop, and consumers develop an espresso obsession simultaneously.",d:1,s:-1,p:1,q:"?",why:"Supply shifts LEFT (freeze) and Demand shifts RIGHT (tastes). Both push P* UP, while Q* moves oppositely -> Q* is AMBIGUOUS (?)."},
+  {mkt:"Printers",ev:"Replacement ink cartridge prices spike 80% overnight.",d:-1,s:0,p:-1,q:-1,why:"Ink is a classic complement! Higher ink prices shrink Printer Demand (LEFT) -> both P* and Q* fall."},
+  {mkt:"City Apartments",ev:"A strict binding rent-control law caps rent below equilibrium while a tech hub opens nearby.",d:1,s:0,p:1,q:1,why:"Without accounting for the cap, demand boom pushes P* and Q* up on the unconstrained curve — note binding ceilings freeze price and cause shortages!"},
+  {mkt:"Tea",ev:"Severe coffee crop blight doubles coffee prices at cafes nationwide.",d:1,s:0,p:1,q:1,why:"Coffee and tea are substitutes! Pricier coffee shifts Tea Demand RIGHT -> both P* and Q* rise."},
+  {mkt:"Compact Solar Kits",ev:"A breakthrough silicon factory opens just as recession shrinks household incomes (normal good).",d:-1,s:1,p:-1,q:"?",why:"Supply shifts RIGHT (lower cost) while Demand shifts LEFT (lower income) -> P* falls definitely, Q* is AMBIGUOUS (?)."}
+];
+const ARC_MMAKER=[
+  {q:"What was peak US headline CPI inflation (YoY %) in June 2022?",unit:"%",ans:9.1,spreads:[[0.6,120,"TIGHT ±0.6"],[1.5,70,"MED ±1.5"],[3.0,35,"WIDE ±3.0"]],note:"US CPI hit +9.1% year-over-year in June 2022, a 40-year high."},
+  {q:"In what year was the U.S. Federal Reserve System founded?",unit:"",ans:1913,spreads:[[4,120,"TIGHT ±4"],[10,70,"MED ±10"],[25,35,"WIDE ±25"]],note:"Signed into law on Dec 23, 1913 following the Panic of 1907."},
+  {q:"Roughly what % of global merchandise trade volume moves by sea?",unit:"%",ans:80,spreads:[[5,120,"TIGHT ±5"],[12,70,"MED ±12"],[20,35,"WIDE ±20"]],note:"UNCTAD estimates ~80% of global merchandise trade by volume moves via maritime shipping."},
+  {q:"What is the current US federal statutory minimum wage ($/hour)?",unit:"$/hr",ans:7.25,spreads:[[0.25,120,"TIGHT ±0.25"],[1.0,70,"MED ±1.00"],[2.0,35,"WIDE ±2.00"]],note:"Set at $7.25/hr since July 2009 (though many states set higher floors)."},
+  {q:"Using the Rule of 70, how many years to double GDP at 3.5% annual growth?",unit:"yrs",ans:20,spreads:[[1,120,"TIGHT ±1"],[3,70,"MED ±3"],[7,35,"WIDE ±7"]],note:"Rule of 70: 70 / 3.5 = 20 years."},
+  {q:"What is the short-run price elasticity |Ed| × 100 of gasoline (~0.20)?",unit:"",ans:20,spreads:[[6,120,"TIGHT ±6"],[15,70,"MED ±15"],[28,35,"WIDE ±28"]],note:"Short-run gasoline demand is very inelastic (|Ed| ≈ 0.20 -> 20)."}
+];
+const ARC_FED_SHOCKS=[
+  {title:"Q1 · Oil Supply Spike",desc:"Crude spikes +28%. Inflation pressure heats up while growth slows.",di:0.7,du:0.2,dg:-0.4},
+  {title:"Q2 · Consumer Credit Boom",desc:"Retail sales surge fast; core services inflation stays sticky.",di:0.6,du:-0.3,dg:0.8},
+  {title:"Q3 · Regional Bank Jitters",desc:"Deposit outflows tighten lending and threaten layoffs.",di:-0.3,du:0.7,dg:-0.9},
+  {title:"Q4 · AI Productivity Wave",desc:"Strong business investment expands aggregate supply capacity.",di:-0.4,du:-0.1,dg:0.9},
+  {title:"Q5 · Global Trade Slowdown",desc:"Export orders dip ahead of final policy landing.",di:-0.3,du:0.4,dg:-0.6}
+];
+const ARC_RANK=[
+  {title:"Nominal GDP Size (Highest -> Lowest)",hint:"Top world economies in USD",perm:[2,0,3,1],items:[["United States","~$29T"],["China","~$18T"],["Germany","~$4.6T"],["Canada","~$2.2T"]]},
+  {title:"Short-Run Price Elasticity |Ed| (Most Elastic -> Least)",hint:"How fast buyers bolt when price jumps 20%",perm:[1,3,0,2],items:[["Restaurant dining","|Ed| ≈ 2.3"],["Airfare leisure","|Ed| ≈ 1.4"],["Coffee","|Ed| ≈ 0.3"],["Insulin","|Ed| ≈ 0.05"]]},
+  {title:"Market Concentration / Markup Power (Highest -> Lowest)",hint:"Pure monopoly down to price taker",perm:[3,1,2,0],items:[["ASML EUV lithography","100% Monopoly"],["Wireless carrier","Oligopoly (3–4)"],["Local coffee cafe","Monop. Comp."],["No. 2 Yellow Corn farmer","Price Taker"]]},
+  {title:"Gross Public Debt % of GDP (Highest -> Lowest)",hint:"Approx IMF recent ratios",perm:[2,3,1,0],items:[["Japan","~250%"],["United States","~123%"],["France","~112%"],["Germany","~63%"]]},
+  {title:"Highest Monthly Hyperinflation in History",hint:"Cagan / Hanke extreme inflation peaks",perm:[1,2,3,0],items:[["Hungary 1946 (Pengo)","~4.19e16 %"],["Zimbabwe 2008","~7.96e10 %"],["Weimar Germany 1923","~29,500 %"],["Argentina 1989","~197 %"]]}
+];
+const ARC_BEAUTY=[
+  {room:"Intro Econ Lecture Hall (100 Freshmen)",hint:"Most students pick around 50 or take one step down to 33.",crowd:[50,48,33,35,62,28,33,42,25,30,55]},
+  {room:"Midterm Review Group (Upper-Year Econ)",hint:"Sharp students aim around 2/3 of 33 (Level-2 thinking ≈ 22).",crowd:[22,33,24,18,20,25,15,28,22,30,19]},
+  {room:"Grad Micro Seminar",hint:"Almost everyone thinks 2 to 4 levels deep.",crowd:[14,10,15,12,8,20,5,11,16,9,7]},
+  {room:"Pure Game-Theory Bots",hint:"Iterated elimination pushes toward the unique Nash Equilibrium!",crowd:[0,1,2,0,3,1,0,2,5,0,1]}
+];
+
+const arcStore=(()=>store.get("vebl-arcade")||{best:{}} )();
+function saveArcadeBest(gid,sc){
+  arcStore.best[gid]=Math.max(arcStore.best[gid]||0,Math.round(sc));
+  store.set("vebl-arcade",arcStore);
+}
+let arcState={
+  game:"aftershock",
+  pair:{i:0,score:0,pickA:null,pickB:null,rev:false,done:false,log:[]},
+  sd:{i:0,score:0,d:null,s:null,p:null,q:null,rev:false,done:false},
+  mm:{i:0,score:0,spread:1,rev:false,done:false,last:null},
+  fed:{q:1,inf:4.8,unemp:4.2,gdp:2.2,log:[],done:false,score:null},
+  rk:{i:0,score:0,chosen:[],rev:false,done:false},
+  bc:{i:0,score:0,rev:false,done:false,last:null}
+};
+
+function openArcade(game=arcState.game||"aftershock"){
+  if(!ARC_GAMES.some(g=>g.id===game))game="aftershock";
+  arcState.game=game;
+  const tabsHtml=`<div class="aggrid">${ARC_GAMES.map(g=>{
+    const b=arcStore.best[g.id];
+    return `<button type="button" class="agtab ${game===g.id?"on":""}" onclick="openArcade('${g.id}')"><span>${g.ico} ${g.n}</span><b>${b!=null?"★"+b:"NEW"}</b></button>`;
+  }).join("")}</div>`;
+
+  let bodyHtml="";
+  if(game==="aftershock"){
+    const st=arcState.pair, tot=ARC_AFTERSHOCK.length;
+    if(st.done){
+      saveArcadeBest("aftershock",st.score);
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">AFTERSHOCK RUN COMPLETE</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--gold);line-height:1;margin:8px 0">${st.score} PTS</div>
+        <div style="font-size:13px;color:var(--mute);margin-bottom:14px">Max possible: ${tot*125} pts (${tot} real event-pair shockwaves)</div>
+        <div class="recap panel" style="text-align:left;margin-bottom:14px">${st.log.map(l=>`<div class="rr"><span>${esc(l.ev.slice(0,34))}…</span><b style="color:${l.pts===125?"var(--gold)":(l.pts?"var(--mint)":"var(--red)")}">+${l.pts}</b></div>`).join("")}</div>
+        <button type="button" class="btn gold small" onclick="arcReset('aftershock')">PLAY AGAIN ▲</button>
+      </div>`;
+    }else{
+      const R=ARC_AFTERSHOCK[st.i];
+      const renderStock=(side,obj,pick)=>{
+        const dirTag=pick==="up"?"▲ UP (>+8%)":(pick==="flat"?"▬ FLAT (±8%)":(pick==="down"?"▼ DOWN (<-8%)":"PICK CALL"));
+        return `<div class="stcard">
+          <div><div class="stsym">${esc(obj.sym)}</div><div class="stname">${esc(obj.name)}</div></div>
+          <div class="dirrow">
+            <button type="button" class="dirbtn ${pick==="up"?"on up":""}" ${st.rev?"disabled":""} onclick="arcPickPair('${side}','up')">▲ UP</button>
+            <button type="button" class="dirbtn ${pick==="flat"?"on flat":""}" ${st.rev?"disabled":""} onclick="arcPickPair('${side}','flat')">▬ FLAT</button>
+            <button type="button" class="dirbtn ${pick==="dn"||pick==="down"?"on dn":""}" ${st.rev?"disabled":""} onclick="arcPickPair('${side}','down')">▼ DN</button>
+          </div>
+          <div style="font-family:'Silkscreen',monospace;font-size:8px;color:var(--mute)">${st.rev?(pick===obj.dir?"✓ NAILED (+50)":"✗ WAS "+obj.dir.toUpperCase()):dirTag}</div>
+        </div>`;
+      };
+      const barRow=o=>{
+        const col=o.pct>8?"var(--mint)":(o.pct<-8?"var(--red)":"var(--gold)");
+        const w=Math.max(8,Math.min(100,Math.round(Math.abs(o.pct)/1.8)));
+        return `<div class="barline"><b>${esc(o.sym)}</b><div class="bartrack"><div class="barfill" style="width:${w}%;background:${col}"></div></div><span style="color:${col};font-weight:700;text-align:right">${o.pct>0?"+":""}${o.pct}%</span></div>`;
+      };
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="qtop"><span class="qnum">EVENT ${st.i+1} OF ${tot} · ${esc(R.win)}</span><span class="readpill">SCORE ${st.score}</span></div>
+        <div style="font-size:17px;font-weight:700;line-height:1.35;margin:10px 0 4px;color:#fff">${esc(R.ev)}</div>
+        <div style="font-size:11px;color:var(--mute)">Predict each stock over the window: ▲ UP (&gt; +8%), ▬ FLAT (±8%), ▼ DOWN (&lt; -8%). +50 each +25 combo!</div>
+        <div class="pairgrid">${renderStock("a",R.a,st.pickA)}${renderStock("b",R.b,st.pickB)}</div>
+        ${st.rev
+          ?`<div class="barpair panel" style="padding:10px">${barRow(R.a)}${barRow(R.b)}</div>
+            <div class="qexp"><b>Economic Mechanism:</b> ${esc(R.why)}</div>
+            <div class="btnrow" style="margin-top:12px"><button type="button" class="btn gold small" style="flex:1" onclick="arcNext('aftershock')">${st.i+1<tot?"NEXT EVENT ▶":"FINISH RUN ▲"}</button></div>`
+          :`<button type="button" id="arcLockBtn" class="btn mint small" style="width:100%" ${st.pickA&&st.pickB?"":"disabled"} onclick="arcLockPair()">${st.pickA&&st.pickB?"LOCK IN CALL ▲":"PICK BOTH STOCKS FIRST"}</button>`}
+      </div>`;
+    }
+  }else if(game==="shockwave"){
+    const st=arcState.sd, tot=ARC_SHOCKWAVE.length;
+    if(st.done){
+      saveArcadeBest("shockwave",st.score);
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">SHOCKWAVE LAB COMPLETE</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--mint);line-height:1;margin:8px 0">${st.score} / ${tot*100}</div>
+        <button type="button" class="btn gold small" onclick="arcReset('shockwave')">PLAY AGAIN ▲</button>
+      </div>`;
+    }else{
+      const R=ARC_SHOCKWAVE[st.i];
+      const sdRow=(lbl,fld,opts,val,trueV)=>`<div class="sdrow"><span style="font-size:12px;font-weight:700">${lbl}</span><div class="sdpills">${opts.map(([v,t])=>{
+        let cls=val===v?"on":"";
+        if(st.rev)cls=v===trueV?"ok":(val===v?"no":"");
+        return `<button type="button" class="sdpill ${cls}" ${st.rev?"disabled":""} onclick="arcPickSD('${fld}',${typeof v==="string"?`'${v}'`:v})">${t}</button>`;
+      }).join("")}</div></div>`;
+      const svgDiagram=st.rev?(()=>{
+        const dOff=R.d*18, sOff=R.s*18;
+        return `<svg viewBox="0 0 180 96" style="width:100%;max-width:260px;display:block;margin:10px auto 0;background:#081022;border:1px solid var(--edge)">
+          <line x1="35" y1="78" x2="135" y2="18" stroke="#5f73a0" stroke-dasharray="3 3" stroke-width="1.5"/>
+          <line x1="${35+sOff}" y1="78" x2="${135+sOff}" y2="18" stroke="#4ef2a3" stroke-width="2"/>
+          <line x1="35" y1="18" x2="135" y2="78" stroke="#5f73a0" stroke-dasharray="3 3" stroke-width="1.5"/>
+          <line x1="${35+dOff}" y1="18" x2="${135+dOff}" y2="78" stroke="#f5c542" stroke-width="2"/>
+          <text x="8" y="14" fill="#8a9bc0" font-size="9" font-family="IBM Plex Mono">P</text>
+          <text x="164" y="88" fill="#8a9bc0" font-size="9" font-family="IBM Plex Mono">Q</text>
+        </svg>`;
+      })():"";
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="qtop"><span class="qnum">MARKET: ${esc(R.mkt.toUpperCase())} (${st.i+1}/${tot})</span><span class="readpill">SCORE ${st.score}</span></div>
+        <div style="font-size:16px;font-weight:700;margin:10px 0 6px;color:#fff">${esc(R.ev)}</div>
+        ${sdRow("Demand Curve","d",[[-1,"◀ LEFT"],[0,"▬ NONE"],[1,"▶ RIGHT"]],st.d,R.d)}
+        ${sdRow("Supply Curve","s",[[-1,"◀ LEFT"],[0,"▬ NONE"],[1,"▶ RIGHT"]],st.s,R.s)}
+        ${sdRow("Eq. Price P*","p",[[-1,"▼ DOWN"],["?","? AMBIG"],[1,"▲ UP"]],st.p,R.p)}
+        ${sdRow("Eq. Qty Q*","q",[[-1,"▼ DOWN"],["?","? AMBIG"],[1,"▲ UP"]],st.q,R.q)}
+        ${st.rev
+          ?`${svgDiagram}<div class="qexp">${esc(R.why)}</div><div class="btnrow" style="margin-top:10px"><button type="button" class="btn gold small" style="flex:1" onclick="arcNext('shockwave')">${st.i+1<tot?"NEXT MARKET ▶":"FINISH ▲"}</button></div>`
+          :`<button type="button" class="btn mint small" style="width:100%;margin-top:12px" ${st.d!==null&&st.s!==null&&st.p!==null&&st.q!==null?"":"disabled"} onclick="arcCheckShock()">CHECK EQUILIBRIUM ▲</button>`}
+      </div>`;
+    }
+  }else if(game==="mmaker"){
+    const st=arcState.mm, tot=ARC_MMAKER.length;
+    if(st.done){
+      saveArcadeBest("mmaker",st.score);
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">MARKET MAKER DESK CLOSED</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--gold);line-height:1;margin:8px 0">${st.score} PTS</div>
+        <button type="button" class="btn gold small" onclick="arcReset('mmaker')">RE-OPEN DESK ▲</button>
+      </div>`;
+    }else{
+      const R=ARC_MMAKER[st.i], sp=R.spreads[st.spread];
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="qtop"><span class="qnum">QUOTE ${st.i+1} / ${tot}</span><span class="readpill">PNL ${st.score}</span></div>
+        <div style="font-size:16px;font-weight:700;margin:10px 0 8px;color:#fff">${esc(R.q)}</div>
+        <div class="fblbl">YOUR MIDPOINT GUESS ${R.unit?"("+esc(R.unit)+")":""}</div>
+        <input id="mmMid" type="number" step="any" class="fbctl" style="font-size:16px;padding:10px" placeholder="Enter midpoint number…">
+        <div class="fblbl" style="margin-top:10px">SELECT BID-ASK SPREAD WIDTH</div>
+        <div class="seg" style="margin-top:6px">${R.spreads.map((s,idx)=>`<button type="button" class="${st.spread===idx?"on":""}" onclick="arcPickSpread(${idx})">${esc(s[2])}<br><span style="color:var(--gold)">+${s[1]}</span></button>`).join("")}</div>
+        ${st.rev
+          ?`<div class="qexp"><b>${st.last.hit?"✓ FILLED INSIDE SPREAD! +"+st.last.pts:"✗ TOXIC FLOW! "+st.last.pts}</b> True: <b>${R.ans}${esc(R.unit)}</b> vs your [${st.last.lo}, ${st.last.hi}].<br>${esc(R.note)}</div>
+            <div class="btnrow" style="margin-top:10px"><button type="button" class="btn gold small" style="flex:1" onclick="arcNext('mmaker')">${st.i+1<tot?"NEXT QUOTE ▶":"CLOSE BOOK ▲"}</button></div>`
+          :`<button type="button" class="btn mint small" style="width:100%" onclick="arcQuoteMM()">QUOTE SPREAD (${esc(sp[2])}) ▲</button>`}
+      </div>`;
+    }
+  }else if(game==="fed"){
+    const st=arcState.fed;
+    if(st.done){
+      saveArcadeBest("fed",st.score);
+      const v=st.score>=75?"🏆 SOFT LANDING!":(st.inf>4.5&&st.unemp>5.8?"😵 STAGFLATION":(st.inf>4.5?"🔥 INFLATION SPIRAL":"📉 HARD RECESSION"));
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">5-QUARTER TERM COMPLETE</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--gold);line-height:1;margin:6px 0">${st.score}/100</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:13px;color:var(--mint);margin-bottom:10px">${v}</div>
+        <div class="mstat">
+          <div class="panel statbox"><div class="slbl">FINAL INF</div><div class="sval">${st.inf.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">FINAL UNEMP</div><div class="sval">${st.unemp.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">FINAL GDP</div><div class="sval">${st.gdp.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">TARGET</div><div class="sval">2%/4%</div></div>
+        </div>
+        <button type="button" class="btn gold small" onclick="arcReset('fed')">NEW TERM ▲</button>
+      </div>`;
+    }else{
+      const shk=ARC_FED_SHOCKS[st.q-1];
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="mstat">
+          <div class="panel statbox"><div class="slbl">INFLATION</div><div class="sval" style="color:${st.inf>3.5?"var(--red)":"var(--mint)"}">${st.inf.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">UNEMP</div><div class="sval" style="color:${st.unemp>5.5?"var(--red)":"var(--t2)"}">${st.unemp.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">REAL GDP</div><div class="sval" style="color:${st.gdp<1?"var(--red)":"var(--mint)"}">${st.gdp.toFixed(1)}%</div></div>
+          <div class="panel statbox"><div class="slbl">QUARTER</div><div class="sval">${st.q}/5</div></div>
+        </div>
+        <div class="qnum">${esc(shk.title)}</div>
+        <div style="font-size:14px;margin:8px 0 12px;color:#fff;line-height:1.4">${esc(shk.desc)} <span style="color:var(--mute)">Dual mandate goal: ~2.0% inflation &amp; ~4.0% unemployment.</span></div>
+        <div class="btnrow" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:0">
+          <button type="button" class="btn gold small" style="width:100%" onclick="arcFedAct('hike')">🦅 HIKE +50bp</button>
+          <button type="button" class="btn ghost small" style="width:100%" onclick="arcFedAct('hold')">⚖️ HOLD STEADY</button>
+          <button type="button" class="btn mint small" style="width:100%" onclick="arcFedAct('cut')">🕊️ CUT -50bp</button>
+          <button type="button" class="btn studybtn small" style="width:100%" onclick="arcFedAct('qe')">🖨️ QE LIQUIDITY</button>
+        </div>
+        ${st.log.length?`<div class="qexp" style="margin-top:12px">${st.log.slice(-2).map(x=>esc(x)).join("<br>")}</div>`:""}
+      </div>`;
+    }
+  }else if(game==="rank"){
+    const st=arcState.rk, tot=ARC_RANK.length;
+    if(st.done){
+      saveArcadeBest("rank",st.score);
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">RANKING SESSION DONE</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--gold);line-height:1;margin:8px 0">${st.score} / ${tot*100}</div>
+        <button type="button" class="btn gold small" onclick="arcReset('rank')">PLAY AGAIN ▲</button>
+      </div>`;
+    }else{
+      const R=ARC_RANK[st.i];
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="qtop"><span class="qnum">RANK ${st.i+1} / ${tot}</span><span class="readpill">SCORE ${st.score}</span></div>
+        <div style="font-size:16px;font-weight:700;margin:8px 0 2px;color:#fff">${esc(R.title)}</div>
+        <div style="font-size:12px;color:var(--mute)">Tap from <b>1st (Highest)</b> to <b>4th (Lowest)</b>: ${esc(R.hint)}</div>
+        <div class="arklist">${R.perm.map(origIdx=>{
+          const pos=st.chosen.indexOf(origIdx);
+          const item=R.items[origIdx];
+          let tag=pos>=0?`#${pos+1}`:"TAP";
+          let col="";
+          if(st.rev){tag=`TRUE #${origIdx+1} · ${item[1]}`;col=pos===origIdx?"color:var(--mint)":"color:var(--red)";}
+          return `<button type="button" class="arkitem ${pos>=0?"picked":""}" ${st.rev?"disabled":""} onclick="arcTapRank(${origIdx})"><span>${esc(item[0])}</span><span style="font-family:'Silkscreen',monospace;font-size:10px;${col}">${esc(tag)}</span></button>`;
+        }).join("")}</div>
+        ${st.rev
+          ?`<div class="btnrow" style="margin-top:10px"><button type="button" class="btn gold small" style="flex:1" onclick="arcNext('rank')">${st.i+1<tot?"NEXT RANKING ▶":"FINISH ▲"}</button></div>`
+          :`<div class="btnrow" style="margin-top:10px"><button type="button" class="btn ghost small" onclick="arcClearRank()">CLEAR</button><button type="button" class="btn mint small" style="flex:1" ${st.chosen.length===4?"":"disabled"} onclick="arcSubmitRank()">SUBMIT ORDER ▲</button></div>`}
+      </div>`;
+    }
+  }else{
+    const st=arcState.bc, tot=ARC_BEAUTY.length;
+    if(st.done){
+      saveArcadeBest("beauty",st.score);
+      bodyHtml=`<div class="panel acard" style="display:block;text-align:center">
+        <div class="qnum">CONTEST COMPLETE</div>
+        <div style="font-family:'VT323',monospace;font-size:64px;color:var(--gold);line-height:1;margin:8px 0">${st.score} / ${tot*100}</div>
+        <button type="button" class="btn gold small" onclick="arcReset('beauty')">PLAY AGAIN ▲</button>
+      </div>`;
+    }else{
+      const R=ARC_BEAUTY[st.i];
+      bodyHtml=`<div class="panel acard" style="display:block">
+        <div class="qtop"><span class="qnum">ROOM ${st.i+1} / ${tot}</span><span class="readpill">SCORE ${st.score}</span></div>
+        <div style="font-size:16px;font-weight:700;margin:8px 0 4px;color:#fff">${esc(R.room)}</div>
+        <div style="font-size:12px;color:var(--mute);margin-bottom:10px">Pick an integer <b>0–100</b>. Closest to <b>2/3 of the room average</b> wins! ${esc(R.hint)}</div>
+        <input id="bcInp" type="number" min="0" max="100" step="1" class="fbctl" style="font-size:16px;padding:10px" placeholder="Pick 0 to 100…">
+        ${st.rev
+          ?`<div class="qexp">Room mean: <b>${st.last.mean.toFixed(1)}</b> · 2/3 Target: <b>${st.last.target.toFixed(1)}</b> · You picked <b>${st.last.pick}</b> (<b>+${st.last.pts} pts</b>) · Reasoning: <b>${esc(st.last.lvl)}</b></div>
+            <div class="btnrow" style="margin-top:10px"><button type="button" class="btn gold small" style="flex:1" onclick="arcNext('beauty')">${st.i+1<tot?"NEXT ROOM ▶":"FINISH ▲"}</button></div>`
+          :`<button type="button" class="btn mint small" style="width:100%;margin-top:10px" onclick="arcSubmitBeauty()">SUBMIT PICK ▲</button>`}
+      </div>`;
+    }
+  }
+
+  $("arcade").innerHTML=`<div class="arch">
+    <div class="archhead"><div class="chroma">ECON ARCADE</div><div style="display:flex;gap:6px"><button class="btn studybtn small" onclick="show('arcade',false);openStudy('cards')">🎓 STUDY</button><button class="btn ghost small" onclick="show('arcade',false)">✕ CLOSE</button></div></div>
+    ${tabsHtml}
+    ${bodyHtml}
+    <div class="archnote">6 experimental non-Krillion economics mini-games sharing the $VEBL universe.</div>
+  </div>`;
+  $("arcade").scrollTop=0;show("arcade",true);
+}
+function arcPickPair(side,dir){
+  if(arcState.pair.rev)return;
+  if(side==="a")arcState.pair.pickA=dir;else arcState.pair.pickB=dir;
+  sfx.tick();openArcade("aftershock");
+}
+function arcLockPair(){
+  const st=arcState.pair, R=ARC_AFTERSHOCK[st.i];
+  if(!st.pickA||!st.pickB||st.rev)return;
+  const hitA=st.pickA===R.a.dir, hitB=st.pickB===R.b.dir;
+  const pts=(hitA?50:0)+(hitB?50:0)+(hitA&&hitB?25:0);
+  st.score+=pts;st.rev=true;st.log.push({ev:R.ev,pts});
+  sfx.blip(pts>0);openArcade("aftershock");
+}
+function arcPickSD(fld,val){if(arcState.sd.rev)return;arcState.sd[fld]=val;sfx.tick();openArcade("shockwave");}
+function arcCheckShock(){
+  const st=arcState.sd, R=ARC_SHOCKWAVE[st.i];
+  if(st.d===null||st.s===null||st.p===null||st.q===null||st.rev)return;
+  const pts=(st.d===R.d?25:0)+(st.s===R.s?25:0)+(st.p===R.p?25:0)+(st.q===R.q?25:0);
+  st.score+=pts;st.rev=true;sfx.blip(pts>=50);openArcade("shockwave");
+}
+function arcPickSpread(idx){arcState.mm.spread=idx;sfx.tick();openArcade("mmaker");}
+function arcQuoteMM(){
+  const st=arcState.mm, R=ARC_MMAKER[st.i], inp=$("mmMid");
+  const raw=inp&&inp.value!==""?Number(inp.value):NaN;
+  if(!Number.isFinite(raw))return;
+  const sp=R.spreads[st.spread], lo=Number((raw-sp[0]).toFixed(2)), hi=Number((raw+sp[0]).toFixed(2));
+  const hit=R.ans>=lo&&R.ans<=hi, pts=hit?sp[1]:-25;
+  st.score=Math.max(0,st.score+pts);st.rev=true;st.last={hit,pts,lo,hi};
+  sfx.blip(hit);openArcade("mmaker");
+}
+function arcFedAct(act){
+  const st=arcState.fed;if(st.done)return;
+  const shk=ARC_FED_SHOCKS[st.q-1];
+  const mvOpts={hike:{di:-0.8,du:0.4,dg:-0.6,lbl:"Hiked +50bp"},hold:{di:-0.1,du:0.0,dg:0.1,lbl:"Held Rates"},cut:{di:0.6,du:-0.4,dg:0.6,lbl:"Cut -50bp"},qe:{di:0.9,du:-0.5,dg:0.8,lbl:"Injected QE"}};
+  const mv=mvOpts[act]||mvOpts.hold;
+  if(!mv)return;
+  st.inf=Math.max(0.2,Number((st.inf+shk.di+mv.di).toFixed(1)));
+  st.unemp=Math.max(2.5,Number((st.unemp+shk.du+mv.du).toFixed(1)));
+  st.gdp=Math.max(-3.0,Number((st.gdp+shk.dg+mv.dg).toFixed(1)));
+  st.log.push(`Q${st.q}: ${mv.lbl} -> Inf ${st.inf}%, Unemp ${st.unemp}%, GDP ${st.gdp}%`);
+  if(st.q>=5){
+    st.done=true;
+    st.score=Math.max(0,Math.min(100,Math.round(100-Math.abs(st.inf-2.0)*12-Math.abs(st.unemp-4.0)*14-Math.max(0,1.5-st.gdp)*12)));
+  }else{st.q++;}
+  sfx.tick();openArcade("fed");
+}
+function arcTapRank(idx){
+  const st=arcState.rk;if(st.rev)return;
+  const pos=st.chosen.indexOf(idx);
+  if(pos>=0)st.chosen.splice(pos,1);else if(st.chosen.length<4)st.chosen.push(idx);
+  sfx.tick();openArcade("rank");
+}
+function arcClearRank(){arcState.rk.chosen=[];openArcade("rank");}
+function arcSubmitRank(){
+  const st=arcState.rk;if(st.chosen.length!==4||st.rev)return;
+  const pts=st.chosen.reduce((s,orig,pos)=>s+(orig===pos?25:0),0);
+  st.score+=pts;st.rev=true;sfx.blip(pts>=50);openArcade("rank");
+}
+function arcSubmitBeauty(){
+  const st=arcState.bc, R=ARC_BEAUTY[st.i], inp=$("bcInp");
+  const pick=inp&&inp.value!==""?Math.round(Math.max(0,Math.min(100,Number(inp.value)))):NaN;
+  if(!Number.isFinite(pick))return;
+  const all=[...R.crowd,pick], mean=all.reduce((a,b)=>a+b,0)/all.length, target=(2/3)*mean;
+  const pts=Math.max(0,Math.round(100-Math.abs(pick-target)*3.5));
+  const lvl=pick<=5?"Nash (0–5)":(pick<=17?"Level-3+ (~15)":(pick<=27?"Level-2 (~22)":(pick<=40?"Level-1 (~33)":"Level-0 (~50)")));
+  st.score+=pts;st.rev=true;st.last={mean,target,pick,pts,lvl};
+  sfx.blip(pts>=60);openArcade("beauty");
+}
+function arcNext(game){
+  if(game==="aftershock"){const s=arcState.pair;s.i++;s.pickA=null;s.pickB=null;s.rev=false;if(s.i>=ARC_AFTERSHOCK.length)s.done=true;}
+  else if(game==="shockwave"){const s=arcState.sd;s.i++;s.d=s.s=s.p=s.q=null;s.rev=false;if(s.i>=ARC_SHOCKWAVE.length)s.done=true;}
+  else if(game==="mmaker"){const s=arcState.mm;s.i++;s.rev=false;s.last=null;if(s.i>=ARC_MMAKER.length)s.done=true;}
+  else if(game==="rank"){const s=arcState.rk;s.i++;s.chosen=[];s.rev=false;if(s.i>=ARC_RANK.length)s.done=true;}
+  else if(game==="beauty"){const s=arcState.bc;s.i++;s.rev=false;s.last=null;if(s.i>=ARC_BEAUTY.length)s.done=true;}
+  openArcade(game);
+}
+function arcReset(game){
+  if(game==="aftershock")arcState.pair={i:0,score:0,pickA:null,pickB:null,rev:false,done:false,log:[]};
+  else if(game==="shockwave")arcState.sd={i:0,score:0,d:null,s:null,p:null,q:null,rev:false,done:false};
+  else if(game==="mmaker")arcState.mm={i:0,score:0,spread:1,rev:false,done:false,last:null};
+  else if(game==="fed")arcState.fed={q:1,inf:4.8,unemp:4.2,gdp:2.2,log:[],done:false,score:null};
+  else if(game==="rank")arcState.rk={i:0,score:0,chosen:[],rev:false,done:false};
+  else if(game==="beauty")arcState.bc={i:0,score:0,rev:false,done:false,last:null};
+  openArcade(game);
+}
+
 addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&!$("arcade").classList.contains("hide")){show("arcade",false);return;}
   if(e.key==="Escape"&&!$("study").classList.contains("hide")){show("study",false);return;}
   if(e.key==="Escape"&&!$("archive").classList.contains("hide")){show("archive",false);return;}
-  if(e.key==="Enter"&&!$("reveal").classList.contains("hide")&&$("archive").classList.contains("hide")&&$("study").classList.contains("hide")&&performance.now()-revealAt>380){
+  if(e.key==="Enter"&&!$("reveal").classList.contains("hide")&&$("archive").classList.contains("hide")&&$("study").classList.contains("hide")&&$("arcade").classList.contains("hide")&&performance.now()-revealAt>380){
     e.preventDefault();$("nextBtn").click();
   }
 });
