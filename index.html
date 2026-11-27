@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.workers.dev https://api.vebl.me https://formspree.io https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; object-src 'none';">
 <title>VEBL — rare-answer economics trivia</title>
 <meta name="description" content="Rare-answer economics trivia. Ride the $VEBL stock chart — obvious answers dip, obscure answers rally, and Monopolies moonshot.">
@@ -10,13 +10,12 @@
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<!-- Update URLs below to https://vebl.me/... once your custom domain is live -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VEBL">
 <meta property="og:title" content="VEBL — Can You Beat My Score?">
 <meta property="og:description" content="7 rounds of rare-answer economics trivia. Obvious answers dip, rare picks rocket $VEBL to the moon.">
-<meta property="og:url" content="https://jcbannister0-sudo.github.io/">
-<meta property="og:image" content="https://jcbannister0-sudo.github.io/og-preview.png?v=2">
+<meta property="og:url" content="https://vebl.me/">
+<meta property="og:image" content="https://vebl.me/og-preview.png?v=2">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,14 +23,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VEBL — Can You Beat My Score?">
 <meta name="twitter:description" content="7 rounds of rare-answer economics trivia. Think obscure and ride $VEBL to Monopoly status.">
-<meta name="twitter:image" content="https://jcbannister0-sudo.github.io/og-preview.png?v=2">
+<meta name="twitter:image" content="https://vebl.me/og-preview.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--gold:#f5c542;--mint:#4ef2a3;--ink:#e9f0ff;--mute:#8a9bc0;--panel:#0e1830;--edge:#2c4170;--red:#ff5a6e;
 --t1:#c98a56;--t2:#5fb3ff;--t3:#4ef2a3;--t4:#b48cff;--t5:#ff9f43;--t6:#f5c542}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;height:100%;overflow:hidden;background:#05050f;color:var(--ink);font-family:'IBM Plex Mono',monospace}
-#scene{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated}
+html,body{margin:0;height:100%;height:100dvh;overflow:hidden;background:#05050f;color:var(--ink);font-family:'IBM Plex Mono',monospace}
+#scene{position:fixed;inset:0;width:100%;height:100%;image-rendering:auto}
 /* CRT */
 #crt{position:fixed;inset:0;pointer-events:none;z-index:50;
  background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55) 100%)}
@@ -41,7 +40,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#05050f;color:var(--in
 .chroma{color:#fff;text-shadow:-3px 0 var(--mint),3px 0 var(--gold),0 0 18px rgba(245,197,66,.35)}
 .panel{background:rgba(10,18,38,.88);border:2px solid var(--edge);
  clip-path:polygon(0 6px,6px 6px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px))}
-.btn{font-family:'Silkscreen',monospace;text-transform:uppercase;letter-spacing:4px;font-size:15px;border:0;cursor:pointer;padding:15px 18px;width:100%;
+.btn{font-family:'Silkscreen',monospace;text-transform:uppercase;letter-spacing:4px;font-size:15px;border:0;cursor:pointer;padding:15px 18px;width:100%;touch-action:manipulation;
  color:#0b0f1e;box-shadow:inset 0 -5px 0 rgba(0,0,0,.28);transition:transform .08s,filter .15s}
 .btn:hover{filter:brightness(1.1)}.btn:active{transform:translateY(2px);box-shadow:inset 0 -2px 0 rgba(0,0,0,.28)}
 .btn.gold{background:var(--gold);box-shadow:inset 0 -5px 0 rgba(0,0,0,.28),0 0 22px rgba(245,197,66,.35)}
@@ -52,7 +51,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#05050f;color:var(--in
 .layer>*{pointer-events:auto}
 .hide{display:none!important}
 /* HUD */
-#hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;gap:10px;padding:10px 10px 0;align-items:flex-start}
+#hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 50px 0;align-items:flex-start}
 .hbox{padding:6px 12px 4px;min-width:104px}
 .hbox .lbl{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:3px;color:var(--mute)}
 .hbox .val{font-family:'VT323',monospace;font-size:28px;line-height:1}
@@ -63,12 +62,13 @@ html,body{margin:0;height:100%;overflow:hidden;background:#05050f;color:var(--in
 @keyframes blink{50%{opacity:.35}}
 .hmid .lbl{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:3px;color:var(--mute);margin-top:6px}
 /* home */
-#home{justify-content:flex-start;padding:9vh 16px 16px;text-align:center}
+#home{justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:max(4vh,26px) 16px calc(22px + env(safe-area-inset-bottom));text-align:center}
+.homehead{margin-top:min(4vh,34px)}
 .title{font-family:'Silkscreen',monospace;font-weight:700;font-size:clamp(34px,9.6vw,80px);letter-spacing:4px;line-height:1}
 .sub{font-family:'Silkscreen',monospace;color:#1a4d7a;letter-spacing:10px;font-size:clamp(13px,3.4vw,20px);margin-top:14px;text-shadow:0 0 1px #fff}
 .tag{color:#294768;font-size:13px;letter-spacing:1px;margin-top:12px;font-weight:600}
-.homebot{position:fixed;left:0;right:0;bottom:0;padding:60px 16px 22px;background:linear-gradient(transparent,rgba(5,8,20,.88) 45%);display:flex;justify-content:center}
-.homebot .in{width:100%;max-width:480px}
+.homebot{position:relative;width:100%;max-width:480px;margin:auto auto 0;padding:24px 0 6px;display:flex;justify-content:center}
+.homebot .in{width:100%;max-width:480px;background:linear-gradient(transparent,rgba(5,8,20,.9) 24%);padding:10px 8px 4px}
 details{font-size:13px;color:var(--mute);margin-bottom:10px;text-align:left}
 details summary{font-family:'Silkscreen',monospace;letter-spacing:3px;font-size:11px;cursor:pointer;color:var(--ink);list-style:none}
 details summary::before{content:"► "}details[open] summary::before{content:"▼ "}
@@ -77,13 +77,13 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:6px;flex-wrap:wrap}
 .meta span{font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:2px;color:var(--mute)}
 /* question */
-#qPanel{margin-top:96px;width:calc(100% - 24px);max-width:520px;padding:18px 20px}
+#qPanel{margin-top:92px;width:calc(100% - 24px);max-width:520px;padding:18px 20px;transition:margin-top .16s ease,padding .16s ease}
 .qtop{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .qnum{font-family:'Silkscreen',monospace;font-size:11px;letter-spacing:4px;color:var(--gold)}
 .readpill{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:1.5px;padding:3px 7px;border:1px solid var(--gold);color:var(--gold);background:rgba(245,197,66,.12);white-space:nowrap}
 .qtext{font-weight:700;font-size:clamp(20px,5.2vw,28px);line-height:1.25;margin:10px 0 8px}
 .qhint{font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:2px;color:var(--mute)}
-#bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;flex-direction:column;align-items:center;padding:12px;background:linear-gradient(transparent,rgba(5,5,15,.85) 40%)}
+#bar{position:fixed;left:0;right:0;bottom:var(--kb-off,0px);z-index:20;display:flex;flex-direction:column;align-items:center;padding:12px 12px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(5,5,15,.92) 38%)}
 #bar form{display:flex;gap:8px;align-items:center;width:100%;max-width:560px}
 .errmsg{width:100%;max-width:560px;margin-bottom:8px;padding:7px 12px;background:rgba(36,8,18,.94);border:2px solid var(--red);color:#ffb3bc;font-family:'Silkscreen',monospace;font-size:10px;letter-spacing:1.5px;text-align:center;line-height:1.4;box-shadow:0 0 14px rgba(255,90,110,.28)}
 #ans.bad{border-color:var(--red);box-shadow:0 0 16px rgba(255,90,110,.4)}
@@ -92,12 +92,12 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
 .dial b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'VT323',monospace;font-size:26px;color:var(--mint)}
 .dial.low b{color:var(--red);animation:blink .5s steps(2) infinite}
 .dial.wait b{color:var(--gold)}
-#ans{flex:1;min-width:0;height:54px;background:#0a1226;border:2px solid var(--mint);color:var(--ink);font:500 17px 'IBM Plex Mono',monospace;padding:0 14px;outline:none;box-shadow:0 0 16px rgba(78,242,163,.2)}
+#ans{flex:1;min-width:0;height:54px;background:#0a1226;border:2px solid var(--mint);color:var(--ink);font:500 17px 'IBM Plex Mono',monospace;padding:0 14px;outline:none;border-radius:0;box-shadow:0 0 16px rgba(78,242,163,.2)}
 #ans::placeholder{color:#4e6491}
 #buyBtn{width:auto;height:54px;padding:0 16px;font-size:13px;letter-spacing:3px}
 .tbar{position:absolute;left:0;bottom:0;height:3px;background:var(--mint)}
 /* reveal */
-#reveal{justify-content:center;padding-bottom:22vh!important;text-align:center;padding:20px}
+#reveal{justify-content:center;padding:74px 20px clamp(92px,20vh,175px)!important;text-align:center;overflow-y:auto}
 #reveal{background:radial-gradient(ellipse 60% 45% at 50% 42%,rgba(5,8,22,.72),transparent 75%)}
 #reveal>div{text-shadow:0 2px 0 rgba(0,0,0,.6),0 0 12px rgba(0,0,0,.6)}
 #rIcon{width:120px;height:120px;margin:0 auto 18px;animation:float 2.4s ease-in-out infinite}
@@ -176,7 +176,7 @@ details .panel{padding:12px;margin-top:8px;line-height:1.55}
  box-shadow:3px 3px 0 rgba(0,0,0,.35);clip-path:polygon(0 3px,3px 3px,3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 9px),calc(100% - 3px) calc(100% - 9px),calc(100% - 3px) calc(100% - 6px),calc(50% + 6px) calc(100% - 6px),50% 100%,calc(50% - 6px) calc(100% - 6px),3px calc(100% - 6px),3px calc(100% - 9px),0 calc(100% - 9px))}
 #bubble{padding-bottom:12px}
 .bpop{animation:bpop .3s cubic-bezier(.3,1.8,.5,1)}@keyframes bpop{from{transform:translate(-50%,-100%) scale(.3)}}
-#muteBtn{position:fixed;top:10px;right:10px;z-index:25;background:rgba(10,18,38,.85);border:2px solid #2c4170;color:#fff;font-size:15px;width:36px;height:36px;cursor:pointer;padding:0}
+#muteBtn{position:fixed;top:calc(10px + env(safe-area-inset-top));right:10px;z-index:25;background:rgba(10,18,38,.85);border:2px solid #2c4170;color:#fff;font-size:15px;width:36px;height:36px;cursor:pointer;padding:0;touch-action:manipulation}
 #rTier.stamp{display:inline-block;border:4px solid currentColor;padding:6px 16px 4px;transform:rotate(-3deg);box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
 .slam{animation:slam .45s cubic-bezier(.2,1.6,.4,1) both}
 @keyframes slam{0%{transform:scale(3) rotate(-14deg);opacity:0}60%{opacity:1}100%{transform:scale(1) rotate(-3deg)}}
@@ -249,7 +249,58 @@ details.all-ans>summary:hover{color:var(--ink)}
 .fbtag.on{border-color:var(--mint);color:var(--mint);background:rgba(78,242,163,.10)}
 .fbctl{width:100%;background:#0a1226;border:2px solid var(--edge);color:var(--ink);font:500 12px 'IBM Plex Mono',monospace;padding:8px 10px;outline:none;margin-top:6px}
 .fbctl:focus{border-color:var(--mint)}
-@media (max-width:520px){#qPanel{max-width:calc(100% - 28px)!important}#reveal{padding-left:20px!important;padding-right:20px!important}.statrow{grid-template-columns:repeat(2,1fr)}}
+/* ECON 101 Study Hub */
+.btn.studybtn{background:linear-gradient(180deg,#5fb3ff,#3385d6);color:#061124;box-shadow:inset 0 -4px 0 rgba(0,0,0,.28),0 0 18px rgba(95,179,255,.28)}
+.home-study{margin-top:10px;display:flex;gap:8px;align-items:center}
+#study{overflow-y:auto;-webkit-overflow-scrolling:touch;background:rgba(5,6,16,.93);padding:calc(20px + env(safe-area-inset-top)) 16px calc(44px + env(safe-area-inset-bottom));display:block;z-index:35}
+.unitpills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.upill{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:1px;padding:6px 8px;cursor:pointer;background:rgba(10,18,38,.9);border:1px solid var(--edge);color:var(--mute);touch-action:manipulation}
+.upill.on{border-color:var(--t2);color:var(--t2);background:rgba(95,179,255,.12)}
+.fcard{padding:18px 16px;margin-bottom:12px;cursor:pointer;min-height:175px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .15s}
+.fcard:hover{border-color:var(--t2)}
+.fcard .ftag{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);display:flex;justify-content:space-between;gap:8px}
+.fcard .fq{font-size:17px;font-weight:700;line-height:1.35;margin:14px 0;color:var(--ink)}
+.fcard .fa{border-top:1px dashed var(--edge);padding-top:12px;margin-top:8px;font-size:13px;line-height:1.5;color:#cfe2ff}
+.fcard .fa b{color:var(--mint)}
+.fcard .ftap{font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:2px;color:var(--mute);text-align:center;padding-top:10px}
+.qopts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.qopt{text-align:left;padding:11px 12px;background:rgba(10,18,38,.92);border:2px solid var(--edge);color:var(--ink);font:500 13px 'IBM Plex Mono',monospace;cursor:pointer;line-height:1.35;touch-action:manipulation}
+.qopt:hover:not(:disabled){border-color:var(--t2)}
+.qopt.ok{border-color:var(--mint);background:rgba(78,242,163,.12);color:#fff}
+.qopt.no{border-color:var(--red);background:rgba(255,90,110,.12);color:#ffb3bc}
+.qexp{margin-top:12px;padding:10px 12px;background:rgba(14,24,48,.85);border-left:3px solid var(--gold);font-size:12px;line-height:1.45;color:#d6e3ff}
+.fgrid{display:grid;grid-template-columns:1fr;gap:10px}
+.fbox{padding:12px 14px}
+.fbox .ftit{font-family:'Silkscreen',monospace;font-size:11px;letter-spacing:1.5px;color:var(--gold)}
+.fbox .feq{font-family:'VT323',monospace;font-size:23px;color:var(--mint);margin:4px 0;line-height:1.15}
+.fbox .fnote{font-size:12px;color:var(--mute);line-height:1.45}
+body.kb-open #qPanel{margin-top:64px!important;padding:11px 14px!important}
+body.kb-open .qtext{font-size:clamp(16px,4.4vw,21px);margin:6px 0 4px}
+body.kb-open .qtools{margin-top:6px}
+body.kb-open #bar{padding:8px 10px!important}
+@media (max-width:560px){
+  #hud{padding:calc(8px + env(safe-area-inset-top)) 48px 0 8px;gap:6px}
+  .hbox{padding:5px 8px 3px;min-width:74px}
+  .hbox .lbl{font-size:8px;letter-spacing:2px}
+  .hbox .val{font-size:22px}
+  .hmid{padding-top:4px;max-width:160px}
+  .pip{width:9px;height:9px}
+  .hmid .lbl{font-size:8px;letter-spacing:2px;margin-top:4px}
+  #muteBtn{width:32px;height:32px;font-size:13px;top:calc(8px + env(safe-area-inset-top));right:8px}
+  .sub{letter-spacing:6px}
+  #qPanel{margin-top:72px;max-width:calc(100% - 20px)!important;padding:14px}
+  #bar{padding:8px 10px calc(10px + env(safe-area-inset-bottom))}
+  #bar form{gap:6px}
+  .dial{width:44px;height:44px}
+  .dial b{font-size:21px}
+  #ans{height:46px;font-size:16px;padding:0 10px}
+  #buyBtn{height:46px;padding:0 12px;font-size:11px;letter-spacing:2px}
+  #reveal{padding:68px 16px 96px!important}
+  #nextWrap{bottom:calc(14px + env(safe-area-inset-bottom))}
+  .statrow{grid-template-columns:repeat(2,1fr)}
+  .meta{justify-content:center}
+  .fbctl{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -270,7 +321,7 @@ details.all-ans>summary:hover{color:var(--ink)}
 <div id="question" class="layer hide"><div id="qPanel" class="panel"></div></div>
 <div id="bar" class="hide"><div id="errMsg" class="errmsg hide"></div><form id="f" autocomplete="off">
   <div class="dial" id="dial"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="23" fill="#0a1226" stroke="#1b2a4d" stroke-width="4"/><circle id="dialArc" cx="27" cy="27" r="23" fill="none" stroke="#4ef2a3" stroke-width="4" stroke-dasharray="144.5" stroke-dashoffset="0"/></svg><b id="dialN">20</b></div>
-  <div style="position:relative;flex:1;display:flex"><input id="ans" placeholder="type one answer…" autocapitalize="off" spellcheck="false"><div class="tbar" id="tbar"></div></div>
+  <div style="position:relative;flex:1;display:flex"><input id="ans" placeholder="type one answer…" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send"><div class="tbar" id="tbar"></div></div>
   <button class="btn gold" id="buyBtn" type="submit">BUY ▲</button>
 </form></div>
 <div id="reveal" class="layer hide">
@@ -279,6 +330,7 @@ details.all-ans>summary:hover{color:var(--ink)}
 <div id="nextWrap" class="hide"><button class="btn ghost" id="nextBtn">ASCEND ▲</button></div>
 <div id="results" class="layer hide"></div>
 <div id="archive" class="layer hide"></div>
+<div id="study" class="layer hide"></div>
 
 <script>
 // Answer format: tier|Display|alias;alias
@@ -6668,7 +6720,726 @@ const PROMPTS=[
 5|Hungary
 5|Ukraine
 5|Morocco
-5|Slovakia`}
+5|Slovakia`},
+{id:"opportunity-costs",cat:"Trade-offs",q:"Name an everyday decision or scenario illustrating opportunity cost or sunk cost",
+ a:`1|Going to college|college tuition;university degree;forgone wages while studying
+1|Buying vs renting a home|rent vs buy;homeownership trade off
+1|Concert or game ticket|nonrefundable ticket;walking out of show
+1|All-you-can-eat buffet|stuffing yourself;cleaning your plate
+1|Fixing an old car|car repair trap;lemon car
+1|Staying in a dull movie|bad movie;walking out of theater
+1|Working overtime vs leisure|labor leisure trade off;weekend shift
+1|Holding a losing stock|bagholding;waiting to break even
+1|Gym membership unused|unused gym pass;paying not to go
+1|Saving vs spending today|present consumption;delayed gratification
+1|Waiting in a long line|black friday queue;time spent queuing
+1|Gap year before school|traveling before college;deferring enrollment
+2|Guns vs butter|defense vs healthcare budget;public spending trade off
+2|Finishing an awful book|reading sunk cost
+2|Stay in a dead-end job|career lock in;golden handcuffs
+2|Canceling a cheap flight|nonrefundable airfare;flight credit
+2|Grad school opportunity cost|mba vs salary;phd forgone pay
+2|Driving around for free parking|cruising for parking;paid garage
+2|Ordering too much takeout|over eating leftovers
+2|Skipping sleep to cram|all nighter;marginal study return
+2|Ignoring 401k employer match|leaving free money;retirement match
+2|Forgot to cancel subscription|recurring auto renew;zombie trial
+2|Early retirement|claiming benefits early;forgone peak salary
+2|DIY home project|spending whole weekend painting
+3|Buying bulk that spoils|costco waste;expired groceries
+3|Keeping a vacant apartment|waiting for higher rent;vacancy cost
+3|Paying for express shipping|speed vs delivery fee
+3|Chasing casino losses|gamblers ruin;doubling down at blackjack
+3|Starting a business vs salary|entrepreneurship risk;quitting corporate job
+3|Switching college majors late|extra semester;sunk course credits
+3|Pre-paying for a marathon|running injured;race entry fee
+3|Living far away for lower rent|long commute vs housing cost
+3|Holding cash during high inflation|cash drag;purchasing power loss
+3|Volunteer work|unpaid labor;donating billable hours
+3|Taking AP classes|high school workload;college credit savings
+3|Holding out for lower prices|waiting for a sale;option value
+4|Building a bridge to nowhere|white elephant project;boondoggle
+4|Deferred factory maintenance|skipping upkeep;short term savings
+4|Paying a fine vs waiting|time cost of traffic court
+4|Using frequent flyer miles|award ticket timing;points hoarding
+4|Extended warranty trap|applecare regret;protection plan
+4|Overbuilding excess factory capacity|stranded capital;sunk plant
+4|Paying for Priority Pass|airport lounge fee
+4|Buying a yearly ski pass|forcing ski trips;season pass
+4|Hiring a mover vs friends|moving truck vs pizza
+5|Locking in a fixed mortgage|giving up mobility;mortgage lock in effect
+5|Concorde supersonic jet program|concorde fallacy;anglo french airliner
+5|Military escalation trap|vietnam sunk cost;quagmire
+5|Continuing a failing drug trial|pharma sunk cost;phase 3 bail
+5|Keeping an obsolete factory open|legacy plant inertia
+5|Re-watching ad-supported video|time price of free media
+5|Training for diminishing marginal returns|overfitting hours
+5|Standing at a slow grocery lane|switching lines regret
+5|Selling winners too early|disposition effect
+5|Over-insuring small appliances|low deductible cost
+6|Ricardian equivalence trade-off|tax vs debt timing`},
+{id:"complementary-goods",cat:"Complements",q:"Name a classic pair of goods that are complements (used together)",
+ a:`1|Coffee and creamer|coffee and milk;espresso and sugar
+1|Peanut butter and jelly|pb and j;bread and butter
+1|Printers and ink|ink cartridges;printer paper
+1|Cars and gasoline|automobiles and fuel;tires and cars
+1|Smartphones and chargers|iphone and airpods;phone and case
+1|Game consoles and video games|playstation and controllers;xbox and games
+1|Burgers and fries|hot dogs and mustard;ketchup and fries
+1|Toothbrush and toothpaste|floss and mouthwash
+1|Laptops and Wi-Fi|computers and software;monitors and cables
+1|Shoes and socks|sneakers and shoelaces
+1|Cereal and milk|oatmeal and spoon
+1|Chips and salsa|nachos and guacamole;tortilla chips and queso
+2|Shampoo and conditioner|soap and towels
+2|Razors and blades|gillette handles and cartridges
+2|Movie tickets and popcorn|movies and soda
+2|Pancakes and maple syrup|waffles and butter
+2|Cameras and lenses|dslr and memory card;film and camera
+2|Skis and ski lift tickets|snowboard and boots
+2|Guitars and picks|guitar and amplifier;strings and rosin
+2|Flashlights and batteries|remotes and aa batteries
+2|Coffee makers and K-Cups|keurig and pods;nespresso capsules
+2|Flash drives and laptops|ssds and motherboards
+2|Eggs and bacon|toast and jam
+2|Locks and keys|padlock and chain
+3|Tennis rackets and tennis balls|golf clubs and golf balls
+3|Beer and pretzels|wine and cheese;steak and red wine
+3|Electric cars and charging stations|evs and lithium batteries;superchargers
+3|Air conditioners and electricity|heaters and natural gas
+3|Pools and chlorine|hot tubs and filters
+3|Campers and national parks|tents and sleeping bags
+3|Vinyl records and turntables|record players and needles
+3|E-readers and ebooks|kindle and digital books
+3|Board games and dice|chess boards and timers
+3|Airplanes and jet fuel|airports and rental cars
+3|Bicycles and helmets|bikes and bike locks
+3|Mortgages and title insurance|homes and furniture
+4|Paint and paintbrushes|rollers and drop cloths
+4|Washing machines and detergent|dryers and fabric softener
+4|Sewing machines and thread|needles and fabric
+4|Fishing rods and bait|tackle box and lures
+4|Tea kettles and tea bags|matcha whisk and powder
+4|VR headsets and VR apps|headsets and controllers
+4|Lawnmowers and grass seed|sprinklers and fertilizer
+4|Contact lenses and saline solution|glasses and lens cleaner
+4|Barbecues and propane|grills and charcoal
+4|Pasta and marinara sauce|spaghetti and parmesan
+5|3D printers and filament|resin and printers
+5|Fountain pens and bottled ink|calligraphy nibs and paper
+5|EUV lithography and wafers|semiconductor tools and silicon
+5|Container ships and port cranes|shipping containers and chassis
+5|Oil refineries and pipelines|tankers and terminals
+5|Solar panels and inverters|batteries and charge controllers
+5|Oscilloscopes and probes|soldering irons and solder
+5|Turntables and phono preamps|amplifiers and speakers
+5|CNC routers and end mills|lathes and cutting fluid
+6|Shoemakers and shoe lasts|cobbler tools and leather`},
+{id:"substitute-goods",cat:"Substitutes",q:"Name a pair of substitute goods people swap between when one gets pricey",
+ a:`1|Coffee and tea|matcha vs espresso;energy drinks vs coffee
+1|Coke and Pepsi|soda brands;cola substitutes
+1|Butter and margarine|olive oil and canola oil
+1|Beef and chicken|steak and pork;tofu and meat
+1|Uber and taxis|lyft vs uber;public transit vs rideshare
+1|Netflix and cable TV|streaming vs cable;youtube vs tv
+1|Airbnb and hotels|motels vs hostels;short term rentals vs resorts
+1|Cane sugar and corn syrup|stevia vs sugar;splenda vs sugar
+1|Gas cars and electric vehicles|hybrids vs gas cars;diesel vs gasoline
+1|Paperbacks and ebooks|audiobooks vs hardcover
+1|Bottled water and tap water|filter pitchers vs spring water
+1|Apples and oranges|pears vs apples;bananas vs berries
+2|Air travel and trains|amtrak vs flights;bus vs train
+2|White rice and pasta|potatoes vs quinoa;bread vs tortillas
+2|Cow milk and oat milk|almond milk vs dairy milk;soy milk
+2|Restaurant dining and cooking at home|delivery vs groceries;meal prep vs takeout
+2|Movie theaters and home streaming|drive in vs couch
+2|iPhones and Android phones|samsung vs apple;pixel vs iphone
+2|Desktops and laptops|tablets vs chromebooks
+2|Brand-name and generic drugs|store brand vs advil;acetaminophen vs ibuprofen
+2|Cotton and polyester|wool vs fleece;linen vs rayon
+2|Coal and natural gas|wind vs solar power;nuclear vs fossil power
+2|Visa and Mastercard|debit vs cash;amex vs discover
+2|Nike and Adidas|puma vs reebok;hoka vs brooks
+3|Aluminum and steel|copper and aluminum wire;plastic vs glass bottles
+3|Contact lenses and eyeglasses|lasik vs contacts
+3|Electric razors and disposable blades|safety razor vs cartridge
+3|Video calls and business travel|zoom vs flights
+3|Freelancers and full-time staff|contractors vs temps
+3|Index ETFs and mutual funds|robo advisors vs human brokers
+3|Paper bags and plastic bags|reusable totes vs single use
+3|Snowboards and skis|snowshoes vs cross country
+3|Silk and nylon|cashmere vs acrylic
+3|Timber and concrete framing|brick vs vinyl siding
+3|Gold bars and TIPS bonds|bitcoin vs gold
+4|Safflower oil and palm oil|sunflower oil vs soybean oil
+4|Corn ethanol and gasoline|biodiesel vs regular diesel
+4|Fresh fish and canned tuna|wild salmon vs farmed tilapia
+4|Physical stores and e-commerce|bricks vs clicks
+4|Hardwood floors and carpet|laminate vs tile
+4|Renting an apartment and roommates|living at home vs renting
+4|Private tutors and online courses|khan academy vs test prep
+4|Linen napkins and paper towels|rags vs sponges
+4|Solar thermal and heat pumps|gas furnace vs electric baseboard
+5|Tungsten and molybdenum alloys|cobalt vs nickel batteries
+5|Lithium carbonate and sodium-ion|lfp vs nmc cathode
+5|Rare earth magnets and ferrite|neodymium vs samarium
+5|Natural rubber and synthetic styrene|isoprene vs latex
+5|Hops pellets and extract|barley malt vs wheat malt
+5|Kraft pulp and recycled fiber|virgin cardboard vs recovered pulp
+5|Helium and hydrogen lifting gas|nitrogen vs argon shielding
+5|Saccharin and aspartame|acesulfame k vs sucralose
+5|Lead-acid and AGM starter batteries|capacitor vs chemical starter
+6|Whale oil and kerosene|sperm oil vs camphene`},
+{id:"barriers-to-entry",cat:"Monopoly walls",q:"Name a barrier to entry that shields a monopoly or giant firm from competition",
+ a:`1|Patents|patent protection;pharmaceutical patents;intellectual property
+1|Economies of scale|massive scale;huge fixed costs;natural monopoly
+1|High startup costs|heavy capital requirements;expensive factories
+1|Government licenses|occupational licensing;taxi medallions;permits
+1|Network effects|two sided platform;everyone uses it
+1|Brand loyalty|household brand name;massive marketing budget
+1|Exclusive contracts|locked in suppliers;apple exclusivity
+1|Ownership of key resource|de beers diamonds;cobalt mines;scarce land
+1|Switching costs|ecosystem lock in;hard to leave ios
+1|Copyright and trademarks|disney ip;trademark moat
+2|Trade secrets|coca cola formula;proprietary algorithms
+2|Predatory pricing|undercutting entrants;loss leader warfare
+2|Tariffs and import quotas|protectionism;trade barriers
+2|FDA or safety approvals|drug trial hurdles;regulatory moat
+2|Radio spectrum licenses|fcc wireless auction;bandwidth cap
+2|Utility grid franchises|power lines;local water pipes
+2|Customer data advantage|search data moat;ai training corpus
+2|Vertical integration|owning supply chain;oil pipelines
+2|First-mover advantage|early lead;entrenched market share
+2|Distribution network lockup|shelf space slotting fees;grocery slotting
+3|Non-compete clauses|employee mobility restrictions
+3|Excess idle capacity|threat to flood market
+3|Technical standards ownership|usb standards;proprietary plugs
+3|Lobbying and regulatory capture|tailored regulations;insider rules
+3|Long-term leases|prime airport gates;mall anchor clauses
+3|Patent thickets|evergreening drug patents;defensive filings
+3|Railroad rights of way|track ownership;scarce corridor
+3|Accreditation bottlenecks|medical school seats;law bar limits
+3|Minimum efficient scale|single plant fills market
+3|Sunk R&D investment|billions spent before launch
+4|Software API restrictions|walled garden;app store tollbooth
+4|Bundling and tying|microsoft browser bundle;package lock
+4|Limit pricing|pricing low to deter entry
+4|Advertising blitz saturation|ad spend moat;super bowl presence
+4|Zoning restrictions|nimby building caps;liquor license caps
+4|Clearinghouse scale|swift network;credit bureau moat
+4|Subsea cable landing rights|fiber bottleneck
+4|Clinical trial patient pools|rare disease enrollment lead
+5|Congested airport slots|heathrow takeoff slots;gate hoarding
+5|Most-favored-nation clauses|platform price parity clauses
+5|Cross-licensing pools|closed patent cartels
+5|Proprietary compiler lock-in|cuda developer ecosystem
+5|Sovereign mineral concessions|national oil charter
+5|Mandatory product certification|ul testing moat
+5|Port terminal concessions|deepwater berth monopoly
+5|Seigniorage charter|legal tender bank charter
+5|Geographic indication protection|champagne pdo rules
+6|Guild apprenticeship caps|medieval master guild rules`},
+{id:"production-inputs",cat:"Production costs",q:"Name a business input, factor of production, or cost line for a firm",
+ a:`1|Labor|wages;salaries;workers;employees
+1|Raw materials|steel;lumber;ingredients;parts
+1|Rent|lease payment;office space;factory rent
+1|Electricity|power bill;utilities;energy
+1|Capital|machinery;equipment;computers
+1|Land|real estate;farmland;factory site
+1|Marketing|advertising;ads;customer acquisition
+1|Taxes|payroll tax;corporate tax;property tax
+1|Shipping and freight|delivery costs;logistics;trucking
+1|Insurance|liability insurance;workers comp
+1|Software|cloud hosting;aws;saas licenses
+1|Interest on debt|loan interest;bond coupons
+2|Benefits and healthcare|401k match;health insurance;pto
+2|Packaging|boxes;labels;bottles
+2|Research and development|r and d;engineering lab
+2|Depreciation|wear and tear;amortization
+2|Entrepreneurship|management;founders time
+2|Inventory carrying costs|warehousing;storage fees
+2|Repairs and maintenance|upkeep;servicing machines
+2|Water and sewer|municipal utilities
+2|Fuel|diesel;jet fuel;natural gas
+2|Legal and accounting fees|audit fees;outside counsel
+3|Executive compensation|stock options;bonuses
+3|Payment processing fees|stripe fees;interchange fees
+3|Patents and royalties|licensing fees;ip royalties
+3|Training and onboarding|recruiting fees;hr costs
+3|Security and compliance|cybersecurity;audits
+3|Fixed overhead|sg and a;admin costs
+3|Variable inputs|piecework inputs;hourly shifts
+3|Commissions|sales commissions;broker cuts
+3|Shrinkage and theft|spoilage;damaged goods
+3|Permits and environmental fees|carbon permits;zoning fees
+4|Tariffs on imported parts|customs duties
+4|Implicit opportunity cost|forgone salary;forgone owner interest
+4|Subcontractor outlays|outsourced labor;freelancers
+4|Telecommunications|fiber internet;phone trunks
+4|Waste disposal|hazardous waste hauling
+4|Tooling and dies|stamping molds;jigs
+4|Sunk setup costs|prelaunch engineering
+4|Working capital cost|trade credit discount
+4|Severance pay|layoff packages
+5|Demurrage and detention|port delay charges
+5|Actuarial pension funding|defined benefit accrual
+5|Stock-based comp dilution|equity expense
+5|Warranty reserve|defect recall provision
+5|Hedging premiums|fx forwards;options premium
+5|Bond underwriting fees|investment bank spread
+5|Environmental remediation|superfund escrow
+5|Catalyst precious metals|platinum gauze replacement
+5|Cleanroom filtration|hepa air handling cost
+6|Quasi-rent on specialized machines|marshallian quasi rent`},
+{id:"positive-externalities",cat:"Spillover wins",q:"Name an activity or investment that creates positive externalities (spillover benefits)",
+ a:`1|Vaccines|immunization;herd immunity;flu shots
+1|Education|public schools;college education;literacy
+1|Clean energy|solar power;wind turbines;ev adoption
+1|Scientific research|basic research;r and d;open science
+1|Tree planting|forests;urban parks;reforestation
+1|Public transit|subways;buses;high speed rail
+1|Flu handwashing|public sanitation;hygiene;clean water
+1|Beehives and pollination|honeybees;apiculture
+1|Restoring historic homes|neighborhood beautification;curb appeal
+1|Public libraries|free books;community centers
+2|Open-source software|linux;python;wikipedia
+2|Public parks|greenbelts;playgrounds
+2|Blood donation|organ donation;plasma drives
+2|Internet infrastructure|broadband;network growth
+2|Bike lanes|walkable sidewalks;crosswalks
+2|Smoking cessation|quitting cigarettes nearby
+2|Preventive healthcare|annual checkups;nutrition
+2|Community gardens|wetland restoration;marshes
+2|Streetlights|porch lights;neighborhood watch
+2|Mentorship programs|youth tutoring;job training
+3|Language standardization|common weights and measures
+3|GPS satellite signal|free public navigation
+3|Weather forecasting|noaa hurricane alerts
+3|Childhood nutrition|school lunches
+3|Electric vehicle chargers|grid battery storage
+3|Antibiotic stewardship|slowing superbugs
+3|Flood levees|upstream dams
+3|Historical preservation|museums;botanical gardens
+3|Snow shoveling|clearing public sidewalks
+3|Recycling|composting;circular scrap
+4|Knowledge clusters|silicon valley spillovers;agglomeration
+4|Artisan apprenticeships|guild skill sharing
+4|Code standards bodies|w3c;open web protocols
+4|Coral reef conservation|marine sanctuaries
+4|Smoke detectors in apartments|fire sprinklers
+4|Voluntary CPR training|first aid certification
+4|Seed banks|crop biodiversity conservation
+4|Urban shading canopy|heat island cooling
+4|Whistleblowing fraud|corporate transparency
+5|Open clinical trial registries|preprint archives;arxiv
+5|Pollinator hedgerows|wildflower field margins
+5|Mycorrhizal soil conservation|no till farming
+5|Interoperable QR standards|open banking rails
+5|Public health genomic surveillance|wastewater tracking
+5|Tidal marsh carbon sinks|blue carbon mangroves
+5|Lighthouses|maritime buoys;coastal beacons
+5|Acoustic noise barriers|quiet pavement
+5|Deep-sea hydrothermal catalogs|bioprospecting databases
+6|Coasean agglomeration knowledge spillovers|marshall arrow romer externalities`},
+{id:"oligopoly-industries",cat:"Few sellers",q:"Name an industry or market famously dominated by a few giant firms (an oligopoly)",
+ a:`1|Airlines|commercial aviation;legacy carriers
+1|Wireless telecom|cell carriers;verizon at t t mobile
+1|Smartphones|apple samsung mobile os
+1|Soft drinks|cola war;coke pepsi
+1|Search engines|google bing search
+1|Streaming video|netflix disney prime video
+1|Automakers|car manufacturers;big three autos
+1|Fast food burgers|mcdonalds burger king wendys
+1|Credit cards|visa mastercard amex
+1|Beer brewing|ab inbev heineken
+1|Commercial aircraft|boeing airbus duopoly
+1|Desktop operating systems|windows macos
+2|Breakfast cereal|kelloggs general mills post
+2|Cloud computing|aws azure google cloud
+2|Ride-hailing apps|uber lyft duopoly
+2|Video game consoles|sony nintendo microsoft
+2|Pharmacy chains|cvs walgreens
+2|Social media networks|meta tiktok youtube
+2|Package delivery|ups fedex dhl
+2|Athletic footwear|nike adidas puma
+2|Home improvement retail|home depot lowes
+2|Music labels|universal sony warner music
+2|Tax software|turbotax h and r block
+3|Computer CPUs and GPUs|intel amd nvidia
+3|Oil majors|exxon chevron shell bp
+3|Movie studios|disney warner universal sony
+3|Eyewear manufacturing|essilorluxottica monopoly
+3|Coffee chains|starbucks dunkin costa
+3|Canadian banking|big six banks
+3|Diamond mining|de beers alrosa
+3|Seed and agrochemicals|bayer corteva syngenta
+3|Medical device imaging|siemens ge philips
+3|Hospital supplies|cardinal mckesson amerisourcebergen
+4|Elevator manufacturing|otis kone schindler thyssenkrupp
+4|Jet engine makers|ge pratt and whitney rolls royce
+4|Semiconductor lithography|asml monopoly
+4|Railroads in North America|union pacific bnsf csx cn
+4|Book publishing|penguin random house harpercollins
+4|Ticketing platforms|ticketmaster live nation
+4|Candy and chocolate|mars hershey mondelez ferrero
+4|Tire manufacturing|michelin bridgestone goodyear
+4|Agricultural tractors|john deere cnh agco
+4|Ratings agencies|moodys s and p fitch
+5|Shipping container lines|maersk msc cma cgm
+5|Glass bottle makers|owens illinois ardagh
+5|Marine diesel engines|man energy wartsila
+5|Insulin production|novo nordisk eli lilly sanofi
+5|Commercial satellites|spacex airbus boeing
+5|Aluminum smelting|alcoa rio tinto rusal
+5|Subsea fiber cable laying|subcom alcatel nec
+5|Gas turbine manufacturing|ge vernova siemens mitsubishi
+5|Iron ore mining|vale rio tinto bhp
+5|Optical glass fibers|corning prysmian sumitomo
+6|Banknote security paper|de la rue giesecke devrient`},
+{id:"inflation-causes",cat:"Price pressures",q:"Name a factor or shock that pushes inflation (general prices) higher",
+ a:`1|Printing money|money supply expansion;excess liquidity
+1|Oil and gas spikes|energy shock;opec cuts;fuel prices
+1|Supply chain shortages|port bottlenecks;chip famine
+1|Low interest rates|easy money;dovish fed
+1|Government stimulus|deficit spending;stimulus checks
+1|Rising wages|wage price spiral;labor shortages
+1|Tariffs|import duties;trade war taxes
+1|War and conflict|sanctions;geopolitical disruption
+1|Housing shortage|rising rents;shelter costs
+1|Strong consumer demand|demand pull inflation;reopening boom
+1|Inflation expectations|self fulfilling expectations
+2|Droughts and crop failures|food price spikes;climate shocks
+2|Bird flu|egg shortages;livestock culling
+2|Corporate markups|greedflation;pricing power
+2|Currency depreciation|weak exchange rate;import costs
+2|Labor strikes|port strike;union walkouts
+2|Rent index lags|owners equivalent rent
+2|Booming credit growth|excess bank lending
+2|Carbon taxes|regulatory compliance costs
+2|Shipping canal blockages|suez drought;red sea attacks
+3|Commodity supercycles|copper and lithium rally
+3|Cost-push shocks|higher raw material prices
+3|Built-in inflation|cola wage indexation
+3|Minimum wage hikes|service wage pass through
+3|De-globalization|reshoring higher costs
+3|Velocity of money jump|faster money circulation
+3|Overheated GDP gap|output above potential
+3|Insurance premium surges|climate risk repricing
+3|Healthcare labor shortage|medical billing inflation
+4|Quantitative easing|central bank bond buying
+4|Price expectations anchoring loss|deanchored expectations
+4|Fiscal dominance|central bank financing deficits
+4|Birders or fertilizer shortage|potash export squeeze
+4|Aging shrinking workforce|demographic labor scarcity
+4|Environmental permitting delays|mineral supply crunch
+4|Electricity grid constraints|data center power demand
+4|Monopolization|industry consolidation price hikes
+4|Seigniorage abuse|hyperinflation money printing
+5|Quantity theory money excess|mv equals py growth
+5|Phillips curve overheating|below nairu unemployment
+5|Menu cost synchronized resets|staggered price jumps
+5|Hysteresis capacity scarring|lost capital stock
+5|Balance of payments crisis|fx reserve exhaustion
+5|Foreign exchange peg collapse|devaluation pass through
+5|Negative real interest rates|negative policy rate
+5|Treasury bill monetization|helicopter money
+5|Supply-side productivity slump|tfp slowdown
+6|Fiscal theory of the price level|ftpl unfunded deficits`},
+{id:"inflation-hedges",cat:"Inflation shields",q:"Name an asset, strategy, or contract people use to protect against inflation",
+ a:`1|Gold|gold bullion;precious metals
+1|Real estate|rental property;homes;farmland
+1|Stocks|equities;s and p 500;index funds
+1|TIPS bonds|treasury inflation protected securities;i bonds
+1|Bitcoin|btc;hard capped crypto
+1|Fixed-rate mortgage|30 year fixed debt;locking borrowing rates
+1|Salary raise negotiation|asking for a raise;job hopping
+1|Commodities|oil;copper;wheat futures
+1|Silver|silver bullion;silver coins
+1|Buying in bulk now|stocking up early;locking prices
+2|High-yield savings|money market funds;short t bills
+2|Value stocks|energy companies;consumer staples
+2|Fine art|collectibles;vintage watches
+2|Floating-rate loans|variable rate debt;tips etf
+2|COLA contract clause|cost of living adjustment;indexed pension
+2|Infrastructure stocks|toll roads;power utilities
+2|Timberland|ranch land;agricultural acreage
+2|REITs|commercial real estate trusts
+2|Swiss francs|strong safe haven currency
+2|Solar panels at home|locking energy costs
+3|Oil royalties|mineral rights;pipelines
+3|Inflation swaps|cpi derivatives;breakeven swaps
+3|Rare whiskey or wine|fine wine cellars
+3|Foreign stocks|emerging markets equities
+3|Prepaid tuition plans|locked education credits
+3|Long-term leases|triple net leases with escalators
+3|Gold miners|royalty streaming stocks
+3|Hard assets|machinery;collectible cars
+3|Barter networks|direct goods exchange
+4|Inflation-linked annuities|real return pension
+4|Senior secured bank loans|clo floating tranches
+4|Uranium trusts|uranium physical fund
+4|Rare coins|numismatic sovereign coins
+4|Inventory stockpiling|corporate commodity hoarding
+4|Commodity index ETFs|gsg;dbc;bcom
+4|Timber REITs|weyerhaeuser;rayonier
+4|Shipping charter contracts|long term time charters
+5|CPI-linked gilts|uk index linked bonds
+5|Brazilian NTN-B bonds|ipca inflation bonds
+5|Eurozone OATei bonds|harmonized hicp bonds
+5|Real asset private credit|infrastructure debt
+5|Water rights futures|nasdaq veles water
+5|Gold lease swaps|bullion forwards
+5|Energy tolling agreements|spark spread hedges
+5|Canadian Real Return Bonds|rrb debt
+5|Escalator supply contracts|cpi pass through clauses
+6|Marshallian tabula tabular standard|irving fisher compensated dollar`},
+{id:"gdp-components",cat:"Counting output",q:"Name a spending category or example counted in GDP — or famously excluded from it",
+ a:`1|Consumer spending|personal consumption;retail shopping;groceries
+1|Business investment|new factories;machinery;software capex
+1|Government spending|military jets;public school salaries;roads
+1|Exports|selling planes abroad;net exports
+1|Imports|subtracted foreign cars;trade deficit drag
+1|New home construction|residential investment;new houses
+1|Restaurant meals|haircuts;hotel stays;services
+1|Inventories|unsold cars on dealer lot
+1|Doctor visits|hospital care;medical services
+1|Clean air and unpaid housework|excluded nonmarket work;home cooking
+2|Used car sales|excluded second hand goods
+2|Stock market trades|excluded financial transfers
+2|Social Security checks|excluded government transfers
+2|Intermediate goods|steel inside new cars excluded
+2|Under-the-table cash work|excluded underground economy
+2|Real estate broker commissions|realtor fees on old homes
+2|Intellectual property R&D|movies;books;software investment
+2|Owner-occupied imputed rent|virtual homeowner rent
+2|Volunteer labor|excluded unpaid charity time
+2|College tuition|education services
+3|Pollution damage|excluded negative externalities
+3|Leisure time value|excluded free hours
+3|Foreign aid or remittances|excluded transfer outflows
+3|Public infrastructure|bridges;airports;sewers
+3|Durable goods|washing machines;new trucks
+3|Nondurable goods|gasoline;clothing
+3|State and local police|public teacher pay
+3|Farm crop output|harvested corn and soybeans
+3|Gross Domestic Product deflator|nominal vs real adjustment
+4|Inventory drawdowns|depleting existing stock
+4|Legal fees|corporate law services
+4|Imported intermediate chips|deducted value added
+4|Banking financial intermediation|fisim services
+4|Fixed residential renovations|home remodeling
+4|GNP net factor income abroad|domestic vs national adjustment
+4|Household solar installation|residential energy capex
+4|Illegal drug sales|excluded black market trades
+4|Disaster cleanup spending|broken window fallacy bump
+5|Hedonic quality adjustments|faster computer price adjustment
+5|Capital consumption allowance|depreciation deduction
+5|Own-account software capex|in house code production
+5|Statistical discrepancy|income vs expenditure gap
+5|Chain-weighted base year index|fisher ideal gdp index
+5|National Income and Product Accounts|nipa bea tables
+5|Art auction gallery commission|broker fee on antiques
+5|Mining mineral exploration|geological survey investment
+5|Defense weapon procurement|equipment delivery milestone
+6|Imputed financial intermediation FISIM|barter bank spread imputation`},
+{id:"fiscal-levers",cat:"Fiscal policy",q:"Name a government tax, transfer, or fiscal tool used to steer the economy",
+ a:`1|Income tax cuts|tax rebates;tax brackets;marginal rate cut
+1|Stimulus checks|direct cash payments;covid relief checks
+1|Unemployment insurance|jobless benefits;extended benefits
+1|Infrastructure spending|building highways;bridges;grid bills
+1|Corporate tax rate|business tax cut;corporate hike
+1|Sales tax holiday|vat cut;consumption tax break
+1|Earned Income Tax Credit|eitc;working tax credit
+1|Payroll tax holiday|fica cut;social security cut
+1|Child Tax Credit|family allowances;child benefits
+1|Tariffs|border import taxes
+2|Capital gains tax|investment tax rate;long term rate
+2|Food stamps|snap benefits;nutrition transfers
+2|Student loan relief|tuition grants;pell grants
+2|Small business loans|ppp loans;sba grants
+2|Automatic stabilizers|progressive taxes;unemployment surge
+2|Bonus depreciation|immediate expensing;capex tax credit
+2|Research tax credit|r and d subsidy
+2|EV tax credits|green energy subsidies;ira credits
+2|First-time homebuyer credit|mortgage interest deduction
+2|Medicaid expansion|public health subsidies
+3|Wealth tax|estate tax;inheritance tax
+3|Balanced budget rules|austerity;spending caps
+3|Defense budget expansion|military procurement surge
+3|Cash for Clunkers|auto trade in rebates
+3|Countercyclical fiscal deficits|keynesian deficit spending
+3|Carbon tax dividend|fee and dividend
+3|Sovereign wealth withdrawals|oil fund stimulus
+3|Excise taxes|sin taxes;gasoline tax cuts
+3|Local fiscal aid|state municipal bailout grants
+4|Accelerated depreciation|macrs write off
+4|Negative income tax|friedman guaranteed floor
+4|Enterprise zones|opportunity zones;local abatements
+4|Land value tax|henry george tax
+4|Value-added tax|vat rebates;export tax refund
+4|Short-time work subsidies|kurzarbeit wage subsidy
+4|Job guarantee programs|wpa public works
+4|Work-sharing tax credits|hiring subsidies
+4|Minimum corporate tax|pillar two global floor
+5|Pigouvian pollution tax|corrective externality levy
+5|Sovereign debt buybacks|treasury bond tender
+5|Pay-as-you-go PAYGO rule|statutory budget rule
+5|Sinking fund debt rule|fiscal golden rule
+5|Windfall profits tax|excess profits levy
+5|Harberger triangle tax reform|broad base rate lowering
+5|Fiscal multiplier spending|shovel ready transfers
+5|Cyclically adjusted budget balance|structural deficit rule
+5|Tobin financial transaction tax|securities turnover tax
+6|Ramsey optimal commodity taxation|inverse elasticity tax rule`},
+{id:"banking-crises",cat:"Bank rescues",q:"Name a famous bank failure, bank run, or financial rescue in history",
+ a:`1|Silicon Valley Bank|svb;svb collapse 2023
+1|Lehman Brothers|lehman collapse 2008
+1|2008 TARP bank bailout|troubled asset relief program;wall street bailout
+1|Bear Stearns|jp morgan rescue 2008
+1|Washington Mutual|wamu;largest us bank failure
+1|First Republic Bank|first republic;2023 regional crisis
+1|Signature Bank|signature nyc failure
+1|Credit Suisse|ubs rescue 2023
+1|FTX collapse|alameda research crash
+1|AIG bailout|aig credit default swaps rescue
+2|Northern Rock|uk bank run 2007
+2|Merrill Lynch|bank of america buyout
+2|Fannie Mae and Freddie Mac|mortgage giant conservatorship
+2|Wachovia|wells fargo rescue
+2|IndyMac|2008 mortgage lender failure
+2|Iceland banking collapse|kaupthing glitnir 2008
+2|Greek debt bailout|troika sovereign rescue
+2|Long-Term Capital Management|ltcm hedge fund rescue 1998
+2|Chrysler bailout 1979|2009 auto bailout;gm rescue
+2|Continental Illinois|too big to fail 1984
+3|Bank of the United States 1930|great depression bank runs
+3|Knickerbocker Trust|panic of 1907;jp morgan rescue
+3|Savings and Loan crisis|lincoln savings;1980s s and l
+3|Barings Bank|nick leeson rogue trader 1995
+3|Countrywide Financial|subprime mortgage collapse
+3|Dexia bailout|belgium france rescue
+3|Royal Bank of Scotland|rbs uk nationalization 2008
+3|Silvergate Bank|crypto bank liquidation 2023
+3|Banco Popular|santander 1 euro rescue
+3|Anglo Irish Bank|celtic tiger bailout
+4|Banca Monte dei Paschi|siena precautionary bailout
+4|Overend Gurney|lender of last resort 1866
+4|BCCI|bank of credit and commerce international
+4|Creditanstalt|austrian crash 1931
+4|Herstatt Bank|settlement risk failure 1974
+4|Penn Square Bank|oil loan bust 1982
+4|Franklin National Bank|1974 fx collapse
+4|Banco Espirito Santo|novo banco split
+4|Silicon Valley Bank UK|hsbc 1 pound rescue
+5|Yamaichi Securities|japanese 1997 crisis
+5|Banco Ambrosiano|1982 collapse
+5|Banca Nazionale del Lavoro|atlanta scandal
+5|Johnson Matthey Bankers|bank of england 1984 rescue
+5|Baring Brothers 1890|argentine debt rescue
+5|Banque Generale|john law mississippi collapse
+5|Ohio Life Insurance and Trust|panic of 1857 trigger
+5|Jay Cooke and Company|panic of 1873 crash
+5|Ayr Bank collapse|scottish credit panic 1772
+6|Reconstruction Finance Corporation|rfc hoover rdr rescues`},
+{id:"comparative-exports",cat:"Top exports",q:"Name a country paired with a famous export it dominates in world trade",
+ a:`1|Saudi Arabia oil|saudi crude oil
+1|Taiwan semiconductors|tsmc microchips;taiwan chips
+1|Brazil soybeans and coffee|brazil coffee;brazil iron ore
+1|Switzerland watches and chocolate|swiss watches;swiss pharma
+1|Germany cars|german autos;precision machinery
+1|China electronics and manufacturing|china consumer electronics;solar panels
+1|United States aircraft and software|us boeing planes;us corn and lng
+1|Japan cars and robotics|japanese autos;electronics
+1|Canada timber oil and maple syrup|canadian crude;canadian potash;lumber
+1|Australia iron ore and wool|australian coal;lithium
+2|South Korea memory chips and ships|korean dram;samsung ships
+2|Colombia coffee and cut flowers|colombian roses;emeralds
+2|Chile copper and lithium|chilean copper
+2|Netherlands ASML chip tools and flowers|dutch tulips;photolithography
+2|France wine cheese and Airbus|french wine;luxury handbags
+2|Norway salmon and North Sea oil|norwegian hydro energy
+2|India generic drugs and IT services|indian pharmaceuticals;basmati rice
+2|Vietnam textiles footwear and phones|vietnamese coffee;rice
+2|Italy olive oil wine and fashion|italian leather;pasta machinery
+2|New Zealand dairy and lamb|kiwi milk powder
+3|Ivory Coast cocoa|ghana cocoa
+3|Indonesia palm oil and nickel|indonesian nickel
+3|Russia natural gas palladium and wheat|russian wheat;russian palladium;urals crude
+3|DRC cobalt|congo cobalt mining
+3|Bangladesh ready-made garments|bangladeshi textiles
+3|Denmark Novo Nordisk GLP-1 and pork|danish shipping;lego;insulin
+3|Mexico avocados beer and autos|mexican auto parts;tequila
+3|Ethiopia coffee|ethiopian arabica
+3|Thailand rice and natural rubber|thai jasmine rice
+3|Ireland pharmaceuticals and software|irish medical devices
+4|Belgium diamonds and chocolate|antwerp diamond cutting
+4|Bolivia lithium and quinoa|bolivian tin
+4|Botswana gem diamonds|de beers botswana
+4|Iceland aluminum and geothermal fish|icelandic cod
+4|Ecuador bananas and shrimp|ecuadorian roses
+4|Peru alpaca copper and asparagus|peruvian blueberries
+4|Malaysia rubber gloves and palm oil|malaysian electronics packaging
+4|Morocco phosphates and sardines|moroccan autos
+4|Finland forestry and telecom gear|finnish paper pulp
+5|Madagascar vanilla|bourbon vanilla pods
+5|Guinea bauxite|guinean aluminum ore
+5|Costa Rica pineapples and medtech|costa rican surgical catheters
+5|Sri Lanka Ceylon tea|ceylon cinnamon
+5|Rwanda specialty coffee and tantalum|rwandan pyrethrum
+5|Namibia uranium|rossing uranium
+5|Uruguay beef and software|uruguayan soybeans
+5|Zambia copper cathodes|zambian copperbelt
+5|Trinidad and Tobago methanol and LNG|trinidadian ammonia
+6|Iran saffron|persian red gold saffron`},
+{id:"growth-drivers",cat:"Growth engines",q:"Name a factor, institution, or force that drives long-run economic growth (higher productivity)",
+ a:`1|Education and human capital|schooling;college;job training
+1|Technology and innovation|r and d;inventions;ai
+1|Rule of law|independent courts;legal contracts;constitutional stability
+1|Physical capital|factories;machines;automation
+1|Infrastructure|highways;railways;ports;power grids
+1|Free trade|open markets;comparative advantage
+1|Electricity and internet|broadband;cheap power
+1|Healthcare and sanitation|clean water;longer life expectancy
+1|Stable currency|low predictable inflation;sound money
+1|Capital markets|deep banking;venture capital;stock markets
+2|Property rights|patent protection;land titles
+2|Competition and low barriers|antitrust;easy business creation
+2|Immigration|high skill talent inflows;entrepreneurship
+2|Savings and investment rate|capital accumulation
+2|Scientific basic research|universities;national labs
+2|Trust and social capital|low corruption;honest courts
+2|Female labor participation|inclusive workforce
+2|Clean water and sewer systems|public sanitation
+2|Corporate governance|investor protections;accounting transparency
+2|Specialization and division of labor|adam smith pin factory
+3|Steam engine and electrification|general purpose technologies
+3|Container shipping|intermodal standardization
+3|Printing press|mass literacy
+3|Independent central bank|credible monetary rules
+3|Total factor productivity|tfp growth;solow residual
+3|Microprocessors|moores law;cheap compute
+3|Nitrogen fertilizer|haber bosch green revolution
+3|Microfinance and mobile money|mpesa financial inclusion
+3|Vocational apprenticeships|german dual training
+4|Patent and trademark registries|incentivized innovation
+4|Double-entry bookkeeping|luca pacioli accounting
+4|Corporate limited liability|joint stock companies
+4|Urban agglomeration clusters|dense productive cities
+4|Congestion pricing and transit|faster urban commutes
+4|Open data and public standards|ascii;internet tcp ip
+4|Micro-grid rural electrification|decentralized energy
+4|Judicial contract enforcement|speedy commercial courts
+4|Export discipline|global quality competition
+5|Solow Swan capital deepening|steady state productivity
+5|Endogenous growth Romer ideas|nonrival idea spillovers
+5|Coasean low transaction cost institutions|douglass north institutions
+5|Extractive vs inclusive institutions|acemoglu robinson thesis
+5|Standard gauge rail interoperability|continental freight integration
+5|Maritime admiralty law clarity|lloyds cargo insurance
+5|Cadastral land titling|hernando de soto dead capital
+5|Universal postal union clearing|cross border parcel mail
+5|Antimicrobial cold chains|refrigerated food supply
+6|Weberian bureaucratic capacity|impartial merit civil service`}
 ];
 
 // ---------- matching ----------
@@ -6935,6 +7706,32 @@ function judge(P,raw){
   }
   return best?{hit:best}:{miss:null};
 }
+function judgeTimeout(P,raw){
+  if(!P||!raw)return null;
+  const n=norm(raw);
+  if(!n)return null;
+  const st=P.people?n:stemStr(n);
+  if(P.reject&&(P.reject[n]||P.reject[st]))return null;
+  if(P.rejectRe)for(const [re] of P.rejectRe)if(re.test(n)||re.test(st))return null;
+  const ns=n.replace(/ /g,""),sq=squash(ns);
+  if(ns.length<4)return null;
+  let best=null,bestKey=[99,99,99];
+  for(const a of P.answers){
+    for(const v of a.variants){
+      let rank=0,diff=0;
+      if(v.al.startsWith(n)){rank=1;diff=v.al.length-n.length;}
+      else if(v.flat.startsWith(ns)){rank=2;diff=v.flat.length-ns.length;}
+      else if(v.sq.startsWith(sq)){rank=3;diff=v.sq.length-sq.length;}
+      else if(ns.length>=5&&v.flat.length>=ns.length&&dlev(ns,v.flat.slice(0,ns.length),1)<=1){rank=4;diff=v.flat.length-ns.length;}
+      if(!rank)continue;
+      const key=[rank,a.tier,diff];
+      if(key[0]<bestKey[0]||(key[0]===bestKey[0]&&(key[1]<bestKey[1]||(key[1]===bestKey[1]&&key[2]<bestKey[2])))){
+        bestKey=key;best=a;
+      }
+    }
+  }
+  return best?{hit:best,timeoutRescued:true}:null;
+}
 
 // ---------- daily seed & packs ----------
 const SECS=20, ROUNDS=7, EPOCH="2026-11-19";
@@ -6985,7 +7782,9 @@ const PACKS=[
   {id:"banks-world",name:"Banks, Cards & Markets",desc:"Canadian & global banks, credit cards, regulators, funds, slang & stock swings",ids:["canadian-finance","world-banks","credit-cards","financial-regulators","asset-managers","money-nicknames","why-stocks-move"]},
   {id:"work-careers",name:"Jobs, Pay & College",desc:"Top careers, job perks, layoffs, college costs, unions, gig apps & roles",ids:["high-paying-jobs","job-perks","unemployment-causes","college-costs","famous-unions","gig-apps","office-roles"]},
   {id:"sports-culture",name:"Sports, Travel & Lifestyle",desc:"Sports business, leagues, travel bills, healthcare, auctions, subs & weddings",ids:["sports-money","sports-leagues","travel-costs","healthcare-costs","auction-formats","everyday-subscriptions","wedding-costs"]},
-  {id:"world-cities",name:"World Regions & Wealth",desc:"Financial hubs, EU members, Asia, Americas, Africa, old money & assets",ids:["financial-hubs","eu-countries","asia-economies","americas-economies","africa-economies","famous-currencies-historic","household-assets"]}
+  {id:"world-cities",name:"World Regions & Wealth",desc:"Financial hubs, EU members, Asia, Americas, Africa, old money & assets",ids:["financial-hubs","eu-countries","asia-economies","americas-economies","africa-economies","famous-currencies-historic","household-assets"]},
+  {id:"micro-models",name:"Micro & Firm Strategy",desc:"Opportunity costs, complements, substitutes, monopoly walls, inputs, spillovers & oligopoly",ids:["opportunity-costs","complementary-goods","substitute-goods","barriers-to-entry","production-inputs","positive-externalities","oligopoly-industries"]},
+  {id:"macro-growth",name:"Macro, Money & Growth",desc:"Inflation drivers, hedges, GDP accounting, fiscal levers, bank rescues, exports & growth",ids:["inflation-causes","inflation-hedges","gdp-components","fiscal-levers","banking-crises","comparative-exports","growth-drivers"]}
 ];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
@@ -7173,26 +7972,32 @@ function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");set
 
 // ================= scene ($VEBL live stock wave) =================
 const cv=$("scene"),ctx=cv.getContext("2d");
-let S=3,W,H,dpr=1,tick=0;
+let S=1,W=1024,H=768,dpr=1,tick=0,lastW=0,lastH=0;
 const DECADE=700/12;
+const easeIO=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const lerpK=(rate,dt)=>1-Math.exp(-rate*dt);
 const SCN={floats:[],coins:[],rain:0,punch:0,goldBill:0,mood:'idle',quiet:true,hideHead:false,shake:0,parts:[],rings:[],flag:false};
-const WAVE={cur:0,cam:0,span:155,spanT:155,pts:[],col:"#4ef2a3",anim:null,speed:1,slope:0,lastBeat:0,idleDir:1,idleFrom:0,idleTo:0,idleT0:0,idleDur:360,lastNow:0};
+const WAVE={cur:0,cam:0,span:155,spanT:155,pts:[],col:"#4ef2a3",anim:null,speed:1,slope:0,lastBeat:0,idleDir:1,idleFrom:0,idleTo:0,idleT0:0,idleDur:1500,lastNow:0,gx:0};
 function rnd(a,b){return a+Math.random()*(b-a);}
 function resetWave(v=0){
   WAVE.cur=v;WAVE.cam=v;WAVE.span=155;WAVE.spanT=155;WAVE.anim=null;WAVE.speed=1;WAVE.slope=0;WAVE.col=v<0?"#ff5a6e":"#4ef2a3";
-  WAVE.idleDir=1;WAVE.idleFrom=v;WAVE.idleTo=v+5;WAVE.idleT0=performance.now();WAVE.idleDur=380;WAVE.lastNow=0;
-  WAVE.pts=[];const hx=Math.round((W||240)*0.62);
-  const n=8,offs=[0,-5,4.5,-4,6,-5.5,4,-3.5,0];
+  WAVE.idleDir=1;WAVE.idleFrom=v;WAVE.idleTo=v+4.5;WAVE.idleT0=performance.now();WAVE.idleDur=1600;WAVE.lastNow=0;
+  WAVE.pts=[];const hx=Math.round((W||1024)*(W<560?0.52:0.62));
+  const n=18,offs=[0,-2.8,-4.5,-2.2,1.8,4.2,2.5,-1.5,-3.8,-2.0,2.2,5.0,3.2,-1.0,-3.2,-1.8,1.5,2.2,0];
   for(let i=0;i<=n;i++)WAVE.pts.push({x:Math.round((hx*i)/n),v:v+offs[i],c:WAVE.col});
   WAVE.pts.push({x:hx,v:v,c:WAVE.col});
 }
 function build(){
-  dpr=Math.min(2,window.devicePixelRatio||1);S=innerWidth<600?3:4;
-  cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;
-  W=Math.ceil(innerWidth/S);H=Math.ceil(innerHeight/S);
+  dpr=Math.min(2,typeof window!=="undefined"&&window.devicePixelRatio||1);
+  const nw=Math.max(320,innerWidth||1024),nh=Math.max(320,innerHeight||768);
+  const kb=typeof document!=="undefined"&&document.body&&document.body.classList&&document.body.classList.contains("kb-open");
+  if(kb&&lastW===nw&&lastH&&nh<lastH)return;
+  lastW=nw;lastH=nh;S=1;
+  cv.width=Math.round(nw*dpr);cv.height=Math.round(nh*dpr);
+  W=nw;H=nh;
   if(!WAVE.pts.length)resetWave(WAVE.cur);
 }
-const HEAD_X=()=>Math.round(W*0.62);
+const HEAD_X=()=>Math.round(W*(W<560?0.52:0.62));
 const valToY=v=>H*0.56-((v-WAVE.cam)/WAVE.span)*H;
 // ---------- milestones ----------
 const MS=[
@@ -7205,11 +8010,11 @@ const MS=[
  {s:700,v:"$1T",n:"VEBLEN PEAK"}];
 function resetMilestones(score=0){MS.forEach(m=>{m.crossed=m.s<=score+.5;m.flash=0;});}
 resetMilestones();
-function pxText(t,x,y,col,align="left",size=4){ctx.font=`${size}px 'VT323',monospace`;ctx.textBaseline="middle";ctx.textAlign=align;ctx.fillStyle=col;ctx.fillText(t,x,y);ctx.textAlign="left";}
+function pxText(t,x,y,col,align="left",size=14){ctx.font=`${size}px 'VT323',monospace`;ctx.textBaseline="middle";ctx.textAlign=align;ctx.fillStyle=col;ctx.fillText(t,x,y);ctx.textAlign="left";}
 function celebrate(m){
  m.flash=90;SCN.punch=Math.max(SCN.punch,.08);
  const hy=valToY(m.s);
- for(let i=0;i<50;i++)SCN.parts.push({x:rnd(0,W),y:hy,vx:rnd(-.6,.6),vy:rnd(-1.6,.4),life:rnd(50,95),c:["#f5c542","#4ef2a3","#ff9ec4","#5fb3ff","#ffffff"][i%5],big:Math.random()<.3});
+ for(let i=0;i<50;i++)SCN.parts.push({x:rnd(0,W),y:hy,vx:rnd(-1.8,1.8),vy:rnd(-4.5,1.2),life:rnd(50,95),c:["#f5c542","#4ef2a3","#ff9ec4","#5fb3ff","#ffffff"][i%5],big:Math.random()<.3});
  if(!SCN.quiet){toast(`${m.v} · ${m.n}`);sfx.cross();say(MSAY[m.v]||"New milestone!",1600);}
 }
 const MSAY={"$100":"Oink! Piggy bank unlocked.","$10K":"Side hustle money!","$1M":"Millionaire. Jet set!","$100M":"Hedge fund heights 📈","$10B":"Orbital banking. Wild.","$1T":"VEBLEN PEAK REACHED!"};
@@ -7301,7 +8106,7 @@ function flushWave(){
   const tail=WAVE.pts[WAVE.pts.length-1];
   tail.x=hx;tail.v=a.to;tail.c=col;
   WAVE.pts.push({x:hx,v:a.to,c:col});
-  WAVE.idleFrom=a.to;WAVE.idleTo=a.to;WAVE.idleT0=performance.now();WAVE.idleDur=280;
+  WAVE.idleFrom=a.to;WAVE.idleTo=a.to;WAVE.idleT0=performance.now();WAVE.idleDur=1400;
   if(a.onDone)a.onDone();
 }
 function fmtGridVal(d,m){
@@ -7315,13 +8120,14 @@ function drawBill(cx,cy,slope,boost=0){
   const gold=SCN.goldBill>0;
   const P=gold?{edge:"#7a5300",face:"#f5c542",trim:"#c8901a",oval:"#fff1b0",ink:"#4a3200"}:{edge:"#2f5d27",face:"#9fd18a",trim:"#6da35a",oval:"#d8efc9",ink:"#1e3d18"};
   const mood=SCN.mood,w=22,h=11,x=cx-11,y=cy-5;
-  const wob=mood==="nervous"?Math.sin(tick*.8)*.05:mood==="sad"?Math.sin(tick*.3)*.06:0;
+  const wob=mood==="nervous"?Math.sin(tick*.28)*.05:mood==="sad"?Math.sin(tick*.12)*.06:0;
   ctx.save();
   ctx.translate(cx,cy);
   ctx.rotate(Math.max(-.48,Math.min(.48,-slope*.055))+wob);
-  const sc=1+Math.min(.32,boost)+(gold?.14:0);
+  const sc=(W<560?2.6:3.2)*(1+Math.min(.32,boost)+(gold?.14:0));
   ctx.scale(sc,sc);
   ctx.translate(-cx,-cy);
+  ctx.imageSmoothingEnabled=false;
   if(gold){ctx.fillStyle="rgba(245,197,66,0.28)";ctx.fillRect(x-3,y-3,w+6,h+6);}
   ctx.fillStyle="rgba(0,0,0,.35)";ctx.fillRect(x+2,y+2,w,h);
   ctx.fillStyle=P.edge;ctx.fillRect(x-1,y-1,w+2,h+2);
@@ -7343,10 +8149,11 @@ function drawBill(cx,cy,slope,boost=0){
 function frame(now){
   tick++;now=now||performance.now();
   const dt=WAVE.lastNow?Math.min(0.05,Math.max(0.001,(now-WAVE.lastNow)/1000)):1/60;
+  const f60=dt*60;
   WAVE.lastNow=now;
-  ctx.setTransform(dpr*S,0,0,dpr*S,0,0);ctx.imageSmoothingEnabled=false;
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=true;
   const hx=HEAD_X(), prevV=WAVE.cur;
-  if(SCN.goldBill>0)SCN.goldBill--;
+  if(SCN.goldBill>0)SCN.goldBill=Math.max(0,SCN.goldBill-f60);
   let seg=0,doneCb=null,doneTo=null,idleTurn=null;
   if(WAVE.anim){
     const a=WAVE.anim, t=Math.min(1,(now-a.t0)/a.dur);
@@ -7356,12 +8163,12 @@ function frame(now){
         a.fired[idx]=true;
         if(ev.startsWith("hb")){const n=+ev.slice(2);sfx.heartbeat(n);SCN.mood="nervous";SCN.shake=Math.max(SCN.shake,1.0+n*1.1);}
         else if(ev==="blip_up"||ev==="blip_dn"){sfx.blip(ev==="blip_up");SCN.mood="nervous";}
-        else if(ev==="rocket"){sfx.rocket();SCN.goldBill=900;SCN.mood="star";SCN.punch=Math.max(SCN.punch,.16);SCN.shake=Math.max(SCN.shake,7.5);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:4,maxR:75,c:"#f5c542",life:34,maxLife:34});$("flash").style.background="#fff6c7";$("flash").style.opacity=.35;setTimeout(()=>$("flash").style.opacity=0,160);}
-        else if(ev==="boost"){sfx.boost();SCN.punch=Math.max(SCN.punch,.20);SCN.shake=Math.max(SCN.shake,9);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:6,maxR:95,c:"#ffffff",life:38,maxLife:38});}
-        else if(ev==="summit"){sfx.summit();SCN.punch=Math.max(SCN.punch,.28);SCN.shake=Math.max(SCN.shake,13);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:8,maxR:120,c:"#f5c542",life:44,maxLife:44});const hy0=valToY(WAVE.cur);for(let i=0;i<60;i++){const ang=rnd(0,Math.PI*2),sp=rnd(0.6,2.8);SCN.parts.push({x:hx,y:hy0,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-0.5,life:rnd(45,85),c:i%3===0?"#ffffff":"#f5c542",big:i%2===0});}$("hud").classList.remove("bigshake");void $("hud").offsetWidth;$("hud").classList.add("bigshake");setTimeout(()=>$("hud").classList.remove("bigshake"),680);}
+        else if(ev==="rocket"){sfx.rocket();SCN.goldBill=900;SCN.mood="star";SCN.punch=Math.max(SCN.punch,.16);SCN.shake=Math.max(SCN.shake,9.5);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:12,maxR:220,c:"#f5c542",life:34,maxLife:34});$("flash").style.background="#fff6c7";$("flash").style.opacity=.35;setTimeout(()=>$("flash").style.opacity=0,160);}
+        else if(ev==="boost"){sfx.boost();SCN.punch=Math.max(SCN.punch,.20);SCN.shake=Math.max(SCN.shake,11);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:18,maxR:285,c:"#ffffff",life:38,maxLife:38});}
+        else if(ev==="summit"){sfx.summit();SCN.punch=Math.max(SCN.punch,.28);SCN.shake=Math.max(SCN.shake,14.5);SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:24,maxR:360,c:"#f5c542",life:44,maxLife:44});const hy0=valToY(WAVE.cur);for(let i=0;i<60;i++){const ang=rnd(0,Math.PI*2),sp=rnd(1.8,8.0);SCN.parts.push({x:hx,y:hy0,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-1.2,life:rnd(45,85),c:i%3===0?"#ffffff":"#f5c542",big:i%2===0});}$("hud").classList.remove("bigshake");void $("hud").offsetWidth;$("hud").classList.add("bigshake");setTimeout(()=>$("hud").classList.remove("bigshake"),680);}
         else if(ev==="dip"){sfx.dip();SCN.shake=Math.max(SCN.shake,1.4);}
-        else if(ev==="crash"||ev==="crash_heavy"){sfx.crash();const heavy=ev==="crash_heavy"||a.kind==="liq";SCN.shake=Math.max(SCN.shake,heavy?9.5:4.5);if(heavy)SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:5,maxR:70,c:"#ff5a6e",life:28,maxLife:28});$("flash").style.background="var(--red)";$("flash").style.opacity=heavy?.38:.22;setTimeout(()=>$("flash").style.opacity=0,160);}
-        else if(ev.startsWith("surge_")){const tr=+ev.slice(6);sfx.climb(tr);SCN.punch=Math.max(SCN.punch,.03*tr);if(tr>=4){SCN.shake=Math.max(SCN.shake,tr===5?4.5:2.5);$("flash").style.background=TIERS[tr].c;$("flash").style.opacity=tr===5?.24:.16;setTimeout(()=>$("flash").style.opacity=0,150);const hy0=valToY(WAVE.cur);for(let i=0;i<tr*5;i++)SCN.parts.push({x:hx,y:hy0,vx:rnd(-1.3,1.3),vy:rnd(-1.6,.4),life:rnd(30,55),c:TIERS[tr].c,big:tr===5});}}
+        else if(ev==="crash"||ev==="crash_heavy"){sfx.crash();const heavy=ev==="crash_heavy"||a.kind==="liq";SCN.shake=Math.max(SCN.shake,heavy?9.5:4.5);if(heavy)SCN.rings.push({x:hx,y:valToY(WAVE.cur),r:14,maxR:210,c:"#ff5a6e",life:28,maxLife:28});$("flash").style.background="var(--red)";$("flash").style.opacity=heavy?.38:.22;setTimeout(()=>$("flash").style.opacity=0,160);}
+        else if(ev.startsWith("surge_")){const tr=+ev.slice(6);sfx.climb(tr);SCN.punch=Math.max(SCN.punch,.03*tr);if(tr>=4){SCN.shake=Math.max(SCN.shake,tr===5?4.5:2.5);$("flash").style.background=TIERS[tr].c;$("flash").style.opacity=tr===5?.24:.16;setTimeout(()=>$("flash").style.opacity=0,150);const hy0=valToY(WAVE.cur);for(let i=0;i<tr*5;i++)SCN.parts.push({x:hx,y:hy0,vx:rnd(-3.5,3.5),vy:rnd(-4.5,1.2),life:rnd(30,55),c:TIERS[tr].c,big:tr===5});}}
       }
     }
     while(seg<a.keys.length-2&&t>a.keys[seg+1][0])seg++;
@@ -7370,11 +8177,11 @@ function frame(now){
     WAVE.cur=k0[1]+(k1[1]-k0[1])*st;
     WAVE.col=k1[2];WAVE.speed=k1[3];
     if(a.kind==="tier6"){
-      if(t<0.347){SCN.shake=Math.max(SCN.shake,0.6+t*6.5);}
-      else if(t<0.93){SCN.shake=Math.max(SCN.shake,t>0.52?7.5:4.5);for(let i=0;i<3;i++)SCN.parts.push({x:hx+rnd(-5,5),y:valToY(WAVE.cur),vx:rnd(-.9,.9),vy:rnd(-.4,1.5),life:48,c:i%2===0?"#f5c542":"#ffffff",big:true});}
+      if(t<0.347){SCN.shake=Math.max(SCN.shake,0.8+t*8.0);}
+      else if(t<0.93){SCN.shake=Math.max(SCN.shake,t>0.52?10.5:7.0);for(let i=0;i<3;i++)SCN.parts.push({x:hx+rnd(-12,12),y:valToY(WAVE.cur),vx:rnd(-2.4,2.4),vy:rnd(-1.0,4.2),life:48,c:i%2===0?"#f5c542":"#ffffff",big:true});}
     }
     if((a.kind==="miss"||a.kind==="liq")&&WAVE.col==="#ff5a6e"&&tick%2===0){
-      SCN.parts.push({x:hx+rnd(-3,3),y:valToY(WAVE.cur),vx:rnd(-.7,.7),vy:rnd(-1.2,.2),life:35,c:"#ff5a6e",big:a.kind==="liq"});
+      SCN.parts.push({x:hx+rnd(-9,9),y:valToY(WAVE.cur),vx:rnd(-2.0,2.0),vy:rnd(-3.4,.6),life:35,c:"#ff5a6e",big:a.kind==="liq"});
     }
     if(!$("hud").classList.contains("hide"))$("hCap").textContent=money(WAVE.cur);
     if(t>=1){doneCb=a.onDone;doneTo=a.to;}
@@ -7386,20 +8193,22 @@ function frame(now){
       idleTurn=WAVE.idleTo;
       WAVE.idleFrom=WAVE.idleTo;
       WAVE.idleDir=-(WAVE.idleDir||1);
-      WAVE.idleTo=Math.random()<0.2?base:(base+WAVE.idleDir*rnd(3.5,7.5));
-      WAVE.idleT0=now;WAVE.idleDur=rnd(300,520);
+      WAVE.idleTo=Math.random()<0.15?base:(base+WAVE.idleDir*rnd(3.0,6.5));
+      WAVE.idleT0=now;WAVE.idleDur=rnd(1250,1950);
     }
     const it=Math.min(1,Math.max(0,(now-WAVE.idleT0)/WAVE.idleDur));
-    WAVE.cur=WAVE.idleFrom+(WAVE.idleTo-WAVE.idleFrom)*it;
+    WAVE.cur=WAVE.idleFrom+(WAVE.idleTo-WAVE.idleFrom)*easeIO(it);
   }
   const camTarget=WAVE.anim?WAVE.cur:(G?G.alt:0);
-  WAVE.cam+=(camTarget-WAVE.cam)*0.16;
-  WAVE.span+=(WAVE.spanT-WAVE.span)*0.09;
+  WAVE.cam+=(camTarget-WAVE.cam)*lerpK(WAVE.anim?10:5.5,dt);
+  WAVE.span+=(WAVE.spanT-WAVE.span)*lerpK(5.2,dt);
   const dVal=WAVE.cur-prevV;
-  WAVE.slope+=(Math.max(-18,Math.min(18,dVal*2.5))-WAVE.slope)*0.32;
-  const stepX=Math.max(0.35,1.25*WAVE.speed)*(dt*60);
+  const instSlope=dt>0?(dVal/(dt*60))*2.5:0;
+  WAVE.slope+=(Math.max(-18,Math.min(18,instSlope))-WAVE.slope)*lerpK(14,dt);
+  const basePxPerSec=W<560?115:145;
+  const stepX=Math.max(0.5,basePxPerSec*WAVE.speed*dt);
   for(const p of WAVE.pts)p.x-=stepX;
-  while(WAVE.pts.length>2&&WAVE.pts[1].x<-20)WAVE.pts.shift();
+  while(WAVE.pts.length>2&&WAVE.pts[1].x<-60)WAVE.pts.shift();
   if(!WAVE.pts.length)WAVE.pts.push({x:0,v:WAVE.cur,c:WAVE.col},{x:hx,v:WAVE.cur,c:WAVE.col});
   if(WAVE.anim&&WAVE.anim.keys){
     const a=WAVE.anim;
@@ -7414,139 +8223,173 @@ function frame(now){
       WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
       a.lastSeg=seg;
     }
-  }else if(idleTurn!==null){
-    const prevHead=WAVE.pts[WAVE.pts.length-1];
-    prevHead.x=hx-stepX*0.5;prevHead.v=idleTurn;
-    WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
+  }else{
+    const tail=WAVE.pts[WAVE.pts.length-1],prevPt=WAVE.pts.length>1?WAVE.pts[WAVE.pts.length-2]:tail;
+    if(idleTurn!==null||hx-prevPt.x>=12){
+      WAVE.pts.push({x:hx,v:WAVE.cur,c:WAVE.col});
+    }
   }
   const head=WAVE.pts[WAVE.pts.length-1];
   if(doneTo!==null){
     WAVE.cur=doneTo;head.x=hx;head.v=doneTo;head.c=WAVE.col;
     WAVE.pts.push({x:hx,v:doneTo,c:WAVE.col});
     WAVE.anim=null;WAVE.speed=1;WAVE.spanT=155;
-    WAVE.idleFrom=doneTo;WAVE.idleTo=doneTo;WAVE.idleT0=now;WAVE.idleDur=280;
+    WAVE.idleFrom=doneTo;WAVE.idleTo=doneTo+4.5;WAVE.idleT0=now;WAVE.idleDur=1500;
     if(doneCb)doneCb();
   }else{
     head.x=hx;head.v=WAVE.cur;head.c=WAVE.col;
   }
   for(const m of MS){if(!m.crossed&&WAVE.cur>=m.s-.5){m.crossed=true;celebrate(m);}}
 
-  let shx=0,shy=0;if(SCN.shake>0){shx=Math.round(rnd(-1,1)*SCN.shake);shy=Math.round(rnd(-1,1)*SCN.shake*.65);SCN.shake*=.9;if(SCN.shake<.3)SCN.shake=0;}
+  let shx=0,shy=0;
+  if(SCN.shake>0){shx=rnd(-1,1)*SCN.shake*2.2;shy=rnd(-1,1)*SCN.shake*1.5;SCN.shake*=Math.pow(.9,f60);if(SCN.shake<.25)SCN.shake=0;}
   const hy=valToY(WAVE.cur);
   ctx.save();
-  if(SCN.punch>0.002){const z=1+SCN.punch;ctx.translate(hx,hy);ctx.scale(z,z);ctx.translate(-hx,-hy);SCN.punch*=.9;}
+  if(SCN.punch>0.002){const z=1+SCN.punch;ctx.translate(hx,hy);ctx.scale(z,z);ctx.translate(-hx,-hy);SCN.punch*=Math.pow(.9,f60);}
   ctx.translate(shx,shy);
 
   // Terminal dark backdrop subtly warmed as stock climbs
   const heat=Math.max(0,Math.min(1,WAVE.cam/700));
   ctx.fillStyle=`rgb(${Math.round(5+heat*14)},${Math.round(8+heat*6)},${Math.round(22+heat*14)})`;
-  ctx.fillRect(-10,-10,W+20,H+20);
+  ctx.fillRect(-30,-30,W+60,H+60);
 
-  // Scrolling vertical time gridlines
-  const vxOff=-(tick*stepX)%28;
+  // Smooth scrolling vertical time gridlines (continuous state prevents teleport jitter)
+  const gridGap=84;
+  WAVE.gx=(((WAVE.gx||0)-stepX)%gridGap+gridGap)%gridGap;
   ctx.fillStyle="rgba(44,65,112,0.22)";
-  for(let gx=vxOff;gx<W;gx+=28)ctx.fillRect(Math.round(gx),0,1,H);
+  for(let gx=WAVE.gx;gx<W;gx+=gridGap)ctx.fillRect(gx,0,1,H);
 
   // True 1-2-5 logarithmic horizontal price gridlines
   const vLow=WAVE.cam-WAVE.span*0.65, vHigh=WAVE.cam+WAVE.span*0.65;
   const dMin=Math.floor(vLow/DECADE)-1, dMax=Math.ceil(vHigh/DECADE)+1;
   for(let d=dMin;d<=dMax;d++){
     for(const m of [1,2,5]){
-      const val=(d+Math.log10(m))*DECADE, yy=Math.round(valToY(val));
-      if(yy<8||yy>H-8)continue;
+      const val=(d+Math.log10(m))*DECADE, yy=valToY(val);
+      if(yy<22||yy>H-22)continue;
       ctx.fillStyle=m===1?"rgba(78,242,163,0.13)":"rgba(44,65,112,0.2)";
       ctx.fillRect(0,yy,W,1);
-      if(m===1||WAVE.span<175)pxText(fmtGridVal(d,m),W-3,yy,m===1?"rgba(159,176,214,0.58)":"rgba(95,115,160,0.45)","right",4);
+      if(m===1||WAVE.span<175)pxText(fmtGridVal(d,m),W-8,yy,m===1?"rgba(159,176,214,0.6)":"rgba(95,115,160,0.45)","right",13);
     }
   }
 
   // Milestone horizontal lines (only rendered when inside viewport)
   for(const m of MS){
     if(m.s===0)continue;
-    const yy=Math.round(valToY(m.s));if(yy<6||yy>H-6)continue;
-    const lit=m.crossed,fl=m.flash>0?m.flash--:0;
-    ctx.fillStyle=fl&&tick%6<3?"#ffffff":lit?"rgba(245,197,66,0.75)":"rgba(233,240,255,0.25)";
-    for(let x=0;x<W;x+=4)ctx.fillRect(x,yy,2,1);
-    if(fl){ctx.fillStyle=`rgba(245,197,66,${fl/90*.28})`;ctx.fillRect(0,yy-fl/8,W,fl/4);}
+    const yy=valToY(m.s);if(yy<18||yy>H-18)continue;
+    const lit=m.crossed,fl=m.flash>0?(m.flash=Math.max(0,m.flash-f60)):0;
+    ctx.strokeStyle=fl&&tick%6<3?"#ffffff":lit?"rgba(245,197,66,0.75)":"rgba(233,240,255,0.26)";
+    ctx.lineWidth=1;ctx.setLineDash([7,7]);
+    ctx.beginPath();ctx.moveTo(0,yy);ctx.lineTo(W,yy);ctx.stroke();
+    ctx.setLineDash([]);
+    if(fl){ctx.fillStyle=`rgba(245,197,66,${fl/90*.28})`;ctx.fillRect(0,yy-fl*.35,W,fl*.7);}
     const lbl=`${m.v} · ${m.n}`;
-    ctx.font="4px 'VT323',monospace";const tw=Math.ceil(ctx.measureText(lbl).width)+6;
-    ctx.fillStyle=lit?"#f5c542":"rgba(10,18,38,0.86)";ctx.fillRect(4,yy-3,tw,6);
-    pxText(lbl,7,yy,lit?"#1a1300":"#9fb0d6","left",4);
+    ctx.font="14px 'VT323',monospace";const tw=Math.ceil(ctx.measureText(lbl).width)+14;
+    ctx.fillStyle=lit?"#f5c542":"rgba(10,18,38,0.88)";ctx.fillRect(10,yy-10,tw,20);
+    pxText(lbl,17,yy,lit?"#1a1300":"#9fb0d6","left",14);
   }
 
-  // Rigid area fill & mitered sharp polyline segments
+  // Smooth area fill & rounded Retina ticker curve
   if(WAVE.pts.length>1){
-    const grad=ctx.createLinearGradient(0,Math.max(0,hy-40),0,H);
+    const grad=ctx.createLinearGradient(0,Math.max(0,hy-120),0,H);
     const fillRGB=WAVE.col==="#ff5a6e"?"255,90,110":(WAVE.col==="#f5c542"?"245,197,66":(WAVE.col==="#c98a56"?"201,138,86":"78,242,163"));
     grad.addColorStop(0,`rgba(${fillRGB},0.22)`);grad.addColorStop(1,`rgba(${fillRGB},0.0)`);
     ctx.fillStyle=grad;ctx.beginPath();
-    WAVE.pts.forEach((p,idx)=>{const py=valToY(p.v);if(idx===0)ctx.moveTo(p.x,py);else ctx.lineTo(p.x,py);});
+    ctx.moveTo(WAVE.pts[0].x,valToY(WAVE.pts[0].v));
+    if(WAVE.anim){
+      for(let k=1;k<WAVE.pts.length;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
+    }else{
+      for(let k=1;k<WAVE.pts.length-1;k++){
+        const x0=WAVE.pts[k].x,y0=valToY(WAVE.pts[k].v),x1=WAVE.pts[k+1].x,y1=valToY(WAVE.pts[k+1].v);
+        ctx.quadraticCurveTo(x0,y0,(x0+x1)/2,(y0+y1)/2);
+      }
+      const lp=WAVE.pts[WAVE.pts.length-1];ctx.lineTo(lp.x,valToY(lp.v));
+    }
     ctx.lineTo(WAVE.pts[WAVE.pts.length-1].x,H);ctx.lineTo(WAVE.pts[0].x,H);ctx.closePath();ctx.fill();
 
-    ctx.lineJoin="miter";ctx.miterLimit=6;ctx.lineCap="square";
+    ctx.lineJoin="round";ctx.lineCap="round";
     let i=1;
     while(i<WAVE.pts.length){
       const col=WAVE.pts[i].c;let j=i;
       while(j+1<WAVE.pts.length&&WAVE.pts[j+1].c===col)j++;
       ctx.beginPath();
       ctx.moveTo(WAVE.pts[i-1].x,valToY(WAVE.pts[i-1].v));
-      for(let k=i;k<=j;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
-      ctx.strokeStyle=col;ctx.globalAlpha=0.26;ctx.lineWidth=4;ctx.stroke();
-      ctx.globalAlpha=1;ctx.lineWidth=2;ctx.stroke();
-      if(col==="#f5c542"){ctx.strokeStyle="#fff8cf";ctx.lineWidth=1;ctx.stroke();}
+      if(WAVE.anim){
+        for(let k=i;k<=j;k++)ctx.lineTo(WAVE.pts[k].x,valToY(WAVE.pts[k].v));
+      }else{
+        for(let k=i;k<j;k++){
+          const x0=WAVE.pts[k].x,y0=valToY(WAVE.pts[k].v),x1=WAVE.pts[k+1].x,y1=valToY(WAVE.pts[k+1].v);
+          ctx.quadraticCurveTo(x0,y0,(x0+x1)/2,(y0+y1)/2);
+        }
+        ctx.lineTo(WAVE.pts[j].x,valToY(WAVE.pts[j].v));
+      }
+      ctx.strokeStyle=col;ctx.globalAlpha=0.22;ctx.lineWidth=7.5;ctx.stroke();
+      ctx.globalAlpha=1;ctx.lineWidth=3.2;ctx.stroke();
+      if(col==="#f5c542"){ctx.strokeStyle="#fff8cf";ctx.lineWidth=1.4;ctx.stroke();}
       i=j+1;
     }
   }
 
   // Speedlines during sharp moves
   if(Math.abs(dVal)>1.5){
-    ctx.fillStyle=dVal>0?"rgba(245,197,66,0.3)":"rgba(255,90,110,0.3)";
+    ctx.fillStyle=dVal>0?"rgba(245,197,66,0.28)":"rgba(255,90,110,0.28)";
     const n=Math.min(20,Math.round(Math.abs(dVal)*2.5));
-    for(let i=0;i<n;i++)ctx.fillRect(Math.floor(rnd(0,W)),Math.floor(rnd(0,H)),1,Math.min(30,Math.round(Math.abs(dVal)*4)));
+    for(let i=0;i<n;i++)ctx.fillRect(rnd(0,W),rnd(0,H),2,Math.min(85,Math.round(Math.abs(dVal)*11)));
   }
 
   // Shockwave rings
   for(const rg of SCN.rings){
-    rg.r+=(rg.maxR-rg.r)*0.16;rg.life--;
-    ctx.strokeStyle=rg.c;ctx.lineWidth=1.5;ctx.globalAlpha=Math.max(0,rg.life/rg.maxLife);
-    ctx.beginPath();ctx.arc(rg.x,rg.y,Math.max(1,rg.r),0,Math.PI*2);ctx.stroke();
+    rg.r+=(rg.maxR-rg.r)*lerpK(10,dt);rg.life-=f60;
+    ctx.strokeStyle=rg.c;ctx.lineWidth=3;ctx.globalAlpha=Math.max(0,rg.life/rg.maxLife);
+    ctx.beginPath();ctx.arc(rg.x,rg.y,Math.max(2,rg.r),0,Math.PI*2);ctx.stroke();
   }
   ctx.globalAlpha=1;
   SCN.rings=SCN.rings.filter(rg=>rg.life>0);
 
   // Particles & floating multipliers
-  for(const p of SCN.parts){p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.life--;ctx.fillStyle=p.c;const ps=p.big?2:1;ctx.fillRect(Math.round(p.x),Math.round(p.y),ps,ps);}
+  for(const p of SCN.parts){p.x+=p.vx*f60;p.y+=p.vy*f60;p.vy+=.09*f60;p.life-=f60;ctx.fillStyle=p.c;const ps=p.big?6:3;ctx.fillRect(p.x,p.y,ps,ps);}
   SCN.parts=SCN.parts.filter(p=>p.life>0);
-  for(const f of SCN.floats){f.y-=.35;f.life--;ctx.globalAlpha=Math.min(1,f.life/30);pxText(f.t,f.x,f.y,f.c,"center",6);ctx.globalAlpha=1;}
+  for(const f of SCN.floats){f.y-=1.1*f60;f.life-=f60;ctx.globalAlpha=Math.min(1,Math.max(0,f.life/30));pxText(f.t,f.x,f.y,f.c,"center",20);ctx.globalAlpha=1;}
   SCN.floats=SCN.floats.filter(f=>f.life>0);
 
   // Dollar bill indicator + live $VEBL price tag
+  const cy=Math.max(36,Math.min(H-36,hy));
   if(!SCN.hideHead){
-    const cy=Math.max(14,Math.min(H-14,hy));
     drawBill(hx,cy,WAVE.slope,Math.abs(dVal)*0.055);
     const tag=`$VEBL ${money(WAVE.cur)}`;
-    ctx.font="4px 'VT323',monospace";const tw=Math.ceil(ctx.measureText(tag).width)+6;
-    const tx=Math.min(W-tw-4,hx+15), ty=Math.round(Math.max(14,Math.min(H-14,cy)));
-    ctx.fillStyle="rgba(10,18,38,0.9)";ctx.fillRect(tx,ty-4,tw,8);
-    ctx.fillStyle=WAVE.col;ctx.fillRect(tx,ty-4,tw,1);ctx.fillRect(tx,ty+3,tw,1);
-    pxText(tag,tx+3,ty,WAVE.col,"left",4);
+    ctx.font="14px 'VT323',monospace";const tw=Math.ceil(ctx.measureText(tag).width)+14;
+    const tx=Math.min(W-tw-10,hx+44), ty=Math.max(36,Math.min(H-36,cy));
+    ctx.fillStyle="rgba(10,18,38,0.92)";ctx.fillRect(tx,ty-11,tw,22);
+    ctx.fillStyle=WAVE.col;ctx.fillRect(tx,ty-11,tw,2);ctx.fillRect(tx,ty+9,tw,2);
+    pxText(tag,tx+7,ty,WAVE.col,"left",14);
   }
   ctx.restore();
 
   // Coin rain (Monopoly celebration)
-  if(SCN.rain>0){SCN.rain--;for(let i=0;i<2;i++)SCN.coins.push({x:rnd(0,W),y:-4,vy:rnd(.6,1.6),vx:rnd(-.2,.2),r:rnd(0,6)});}
-  for(const c of SCN.coins){c.y+=c.vy;c.vy+=.03;c.x+=c.vx;c.r+=.25;const w=Math.max(1,Math.round(Math.abs(Math.cos(c.r))*4));
-    ctx.fillStyle="#7a5300";ctx.fillRect(Math.round(c.x-w/2),Math.round(c.y),w+1,5);ctx.fillStyle="#f5c542";ctx.fillRect(Math.round(c.x-w/2),Math.round(c.y),w,4);if(w>2){ctx.fillStyle="#fff6c7";ctx.fillRect(Math.round(c.x-w/2)+1,Math.round(c.y)+1,1,1);}}
-  SCN.coins=SCN.coins.filter(c=>c.y<H+6);
+  if(SCN.rain>0){SCN.rain=Math.max(0,SCN.rain-f60);for(let i=0;i<2;i++)SCN.coins.push({x:rnd(0,W),y:-12,vy:rnd(1.8,4.6),vx:rnd(-.6,.6),r:rnd(0,6)});}
+  for(const c of SCN.coins){c.y+=c.vy*f60;c.vy+=.09*f60;c.x+=c.vx*f60;c.r+=.25*f60;const w=Math.max(3,Math.round(Math.abs(Math.cos(c.r))*12));
+    ctx.fillStyle="#7a5300";ctx.fillRect(c.x-w/2,c.y,w+2,15);ctx.fillStyle="#f5c542";ctx.fillRect(c.x-w/2,c.y,w,12);if(w>5){ctx.fillStyle="#fff6c7";ctx.fillRect(c.x-w/2+2,c.y+2,3,3);}}
+  SCN.coins=SCN.coins.filter(c=>c.y<H+18);
 
   const bub=$("bubble");
   if(bub&&!bub.classList.contains("hide")){
-    const by=Math.max(46,Math.min(H-20,hy)-13);
-    bub.style.left=(hx*S)+"px";bub.style.top=(by*S)+"px";
+    const by=Math.max(64,Math.min(H-48,cy)-34);
+    bub.style.left=hx+"px";bub.style.top=by+"px";
   }
   requestAnimationFrame(frame);
 }
-addEventListener("resize",build);build();requestAnimationFrame(frame);
+function syncViewport(){
+  if(typeof document==="undefined"||!document.documentElement||!document.body)return;
+  const vv=typeof window!=="undefined"&&window.visualViewport;
+  if(!vv){document.documentElement.style.setProperty("--kb-off","0px");document.body.classList.remove("kb-open");return;}
+  const kb=Math.max(0,Math.round((innerHeight||vv.height)-vv.height-vv.offsetTop));
+  document.documentElement.style.setProperty("--kb-off",(kb>80?kb:0)+"px");
+  if(document.body.classList)document.body.classList.toggle("kb-open",kb>80);
+}
+if(typeof window!=="undefined"&&window.visualViewport){
+  window.visualViewport.addEventListener("resize",syncViewport);
+  window.visualViewport.addEventListener("scroll",syncViewport);
+}
+addEventListener("resize",build);build();syncViewport();requestAnimationFrame(frame);
 
 // ---------- Ticker's voice ----------
 let sayT=null;
@@ -7598,7 +8441,7 @@ function bumpStreak(){const s=streak(),ykey=addDays(dkey,-1);
 function hideAll(){
   clearInterval(timerId);timerId=null;if(G&&G.idleT){clearTimeout(G.idleT);G.idleT=null;}
   WAVE.anim=null;SCN.hideHead=false;SCN.rings=[];SCN.goldBill=0;$("rays").classList.remove("on");$("bubble").classList.add("hide");$("hud").classList.remove("bigshake");$("reveal").classList.remove("bigshake");SCN.mood="idle";
-  ["home","question","bar","reveal","nextWrap","results","hud","archive"].forEach(i=>show(i,false));
+  ["home","question","bar","reveal","nextWrap","results","hud","archive","study"].forEach(i=>show(i,false));
 }
 async function acceptPendingChallenge(){
   if(!pendingChallenge)return;
@@ -7615,9 +8458,11 @@ function home(){
   const done=store.get("vebl-"+dkey),sn=activeStreak(),sp=SPEEDS[speedMode];
   const homeTag=speedMode==="study"?"Daily climbs are timed (20s, no Pass) · Study ∞ + Pass unlocks in Unlimited & Vault":`7 prompts · ${sp.tag} · rarer answers surge higher`;
   $("home").innerHTML=`
-   <div class="title chroma">VEBL</div>
-   <div class="sub">RIDE THE TICKER</div>
-   <div class="tag">${homeTag}</div>
+   <div class="homehead">
+     <div class="title chroma">VEBL</div>
+     <div class="sub">RIDE THE TICKER</div>
+     <div class="tag">${homeTag}</div>
+   </div>
    <div class="homebot"><div class="in">
      ${pendingChallenge?`<div class="panel chcard"><div class="chtitle">⚔ FRIEND CHALLENGE · ${SPEEDS[pendingChallenge.speed].label}</div><div class="chsub">${pendingChallenge.targetScore!=null?`Target to beat: <b>${pendingChallenge.targetScore} pts</b>${pendingChallenge.targetAlt!=null?` (${money(pendingChallenge.targetAlt)})`:""}${pendingChallenge.targetGrid?`<div style="margin-top:4px;letter-spacing:2px">${pendingChallenge.targetGrid}</div>`:""}`:`7-round seeded duel — set the score to beat!`}</div><div class="btnrow" style="margin-top:10px"><button class="btn gold small" style="flex:1" onclick="acceptPendingChallenge()">▲ ACCEPT CHALLENGE ▲</button><button class="btn ghost small" onclick="dismissChallenge()">✕</button></div></div>`:""}
      <details><summary>How to play</summary><div class="panel">
@@ -7627,7 +8472,8 @@ function home(){
        <div style="margin-top:8px">${TIERS.slice(1).map(t=>`<div class="trow"><span style="color:${t.c}">■ ${t.n}</span><span class="vt" style="font-size:18px">+${t.p}</span></div>`).join("")}</div>
        <div style="margin-top:6px;font-size:11px">Rarity tiers start as estimates and dynamically adapt as players play — if you're the only one out of 15+ plays to name an answer, it becomes a live Monopoly!</div></div></details>
      <div class="seg">${Object.values(SPEEDS).map(s=>`<button type="button" class="${speedMode===s.id?"on "+s.id:""}" onclick="setSpeed('${s.id}')">${s.label}</button>`).join("")}</div>
-     ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:20px" onclick="launchDaily('${dkey}',${dayNo})">▲ OPEN THE MARKET ▲</button>`}
+     ${done?`<button class="btn gold" onclick="showSaved('${dkey}')">▲ VIEW TODAY'S CLIMB ▲</button>`:`<button class="btn ghost" style="font-size:18px;padding:18px" onclick="launchDaily('${dkey}',${dayNo})">▲ OPEN THE MARKET ▲</button>`}
+     <div class="home-study"><button type="button" class="btn studybtn small" style="width:100%" onclick="openStudy('cards')">🎓 ECON 101 FINAL PREP · FLASHCARDS &amp; QUIZ</button></div>
      <div class="meta"><span>CLIMB #${dayNo} · STREAK ${sn} · ★${store.get("vebl-monopolies")||0}</span><div style="display:flex;gap:6px"><button class="btn ghost small" onclick="openArchive('days')">ARCHIVE</button><button class="btn ghost small" onclick="start('unlimited')">Unlimited ∞</button></div></div>
    </div></div>`;
 }
@@ -7744,7 +8590,8 @@ function resolve(raw,timeout,passed=false){
   show("errMsg",false);$("dial").classList.remove("low","wait");$("ans").disabled=true;$("ans").blur();$("ans").classList.remove("lev","bad");$("ans").placeholder="type one answer…";$("buyBtn").textContent="BUY ▲";
   const usedTip=!!G.roundTip, usedLev=!passed&&!!G.roundLev;
   if(usedLev)G.levLeft=Math.max(0,G.levLeft-1);
-  const r=!passed&&norm(raw)?judge(P,raw):null;
+  let r=!passed&&norm(raw)?judge(P,raw):null;
+  if(timeout&&(!r||!r.hit)&&!(r&&r.miss))r=judgeTimeout(P,raw)||r;
   const e={id:P.id,cat:P.cat,q:P.q,raw:passed?"":raw.trim(),tier:0,pts:0,altDelta:0,d:null,passed,lev:usedLev,tip:usedTip,before:G.score};
   const prev=G.score,prevAlt=G.alt;
   let note="";
@@ -7803,7 +8650,7 @@ function resolve(raw,timeout,passed=false){
     const st=$("rTier");st.classList.remove("slam");void st.offsetWidth;st.classList.add("slam");
     if(T){
       if(e.tier===6)jackpot();
-      else{SCN.mood=e.tier===1?"nervous":"happy";SCN.floats.push({t:e.altDelta>=0?`×${fmtMult(gainMult)}`:`÷${fmtMult(dropMult)}`,x:HEAD_X()+14,y:valToY(G.alt)-10,c:T.c,life:100});}
+      else{SCN.mood=e.tier===1?"nervous":"happy";SCN.floats.push({t:e.altDelta>=0?`×${fmtMult(gainMult)}`:`÷${fmtMult(dropMult)}`,x:HEAD_X()+36,y:valToY(G.alt)-24,c:T.c,life:100});}
       say(pickL(e.tier),1700);
     }else if(passed){
       SCN.mood="idle";say(pickL("pass"),1700);
@@ -7823,8 +8670,8 @@ function jackpot(){
   $("rays").classList.add("on");SCN.rain=180;SCN.goldBill=900;SCN.mood="star";SCN.punch=.28;SCN.shake=12;sfx.jackpot();
   $("reveal").classList.add("bigshake");$("hud").classList.add("bigshake");
   setTimeout(()=>{$("reveal").classList.remove("bigshake");$("hud").classList.remove("bigshake");},680);
-  const jx=HEAD_X(),jy=Math.max(14,Math.min(H-14,valToY(G?G.alt:0)));
-  for(let i=0;i<24;i++)SCN.coins.push({x:jx,y:jy,vx:rnd(-2.2,2.2),vy:rnd(-2.6,-.4),r:rnd(0,6)});
+  const jx=HEAD_X(),jy=Math.max(40,Math.min(H-40,valToY(G?G.alt:0)));
+  for(let i=0;i<24;i++)SCN.coins.push({x:jx,y:jy,vx:rnd(-5.5,5.5),vy:rnd(-7,-1.2),r:rnd(0,6)});
   try{navigator.vibrate&&navigator.vibrate([80,40,80,40,220]);}catch(e){}
   store.set("vebl-monopolies",(store.get("vebl-monopolies")||0)+1);
 }
@@ -7910,7 +8757,7 @@ function openArchive(tab="days"){
       ?vaultHtml+`<div class="archnote">All ${PROMPTS.length} prompts organized into ${PACKS.length} curated 7-round climbs.</div>`
       :chHtml);
   $("archive").innerHTML=`<div class="arch">
-    <div class="archhead"><div class="chroma">CLIMB ARCHIVE</div><button class="btn ghost small" onclick="show('archive',false)">✕ CLOSE</button></div>
+    <div class="archhead"><div class="chroma">CLIMB ARCHIVE</div><div style="display:flex;gap:6px"><button class="btn studybtn small" onclick="show('archive',false);openStudy('cards')">🎓 ECON 101</button><button class="btn ghost small" onclick="show('archive',false)">✕ CLOSE</button></div></div>
     <div class="statrow">
       <div class="panel statbox"><div class="slbl">CLIMBS</div><div class="sval">${st.played}</div></div>
       <div class="panel statbox"><div class="slbl">BEST CAP</div><div class="sval">${money(st.bestAlt)}</div></div>
@@ -8108,9 +8955,239 @@ function results(res,mode="daily",meta={}){
     if(fcb)fcb.onclick=async ()=>{try{await navigator.clipboard.writeText(body);fcb.textContent="COPIED!";}catch(e){fcb.textContent="DONE";}};
   };
 }
+// ================= ECON 101 FINAL STUDY HUB =================
+const ECON101_UNITS=[
+  {id:"scarcity",tag:"U1",name:"Thinking, Scarcity & Trade",pack:"econ-theory"},
+  {id:"supply-demand",tag:"U2",name:"Supply, Demand & Equilibrium",pack:"pricing-business"},
+  {id:"elasticity",tag:"U3",name:"Elasticity & Tax Incidence",pack:"pricing-business"},
+  {id:"welfare",tag:"U4",name:"Welfare, DWL & Price Controls",pack:"micro-models"},
+  {id:"externalities",tag:"U5",name:"Externalities, Public Goods & Info",pack:"econ-theory"},
+  {id:"costs-comp",tag:"U6",name:"Firm Costs & Perfect Competition",pack:"micro-models"},
+  {id:"imperfect-comp",tag:"U7",name:"Monopoly, Price Disc. & Oligopoly",pack:"micro-models"},
+  {id:"labor-macro",tag:"U8",name:"Labor, Inequality & Intro Macro",pack:"macro-growth"}
+];
+const ECON101_CARDS=[
+  {id:"c1",u:"scarcity",front:"Opportunity Cost",back:"The value of the next-best forgone alternative whenever a choice is made. Includes both explicit out-of-pocket costs AND implicit costs like forgone wages.",tip:"Exam trap: do NOT sum every unchosen option — only the single highest-valued alternative."},
+  {id:"c2",u:"scarcity",front:"Sunk Cost Fallacy",back:"A sunk cost has already been incurred and cannot be recovered, so rational marginal decisions ignore sunk costs and weigh only future marginal benefits vs marginal costs.",tip:"Non-refundable concert ticket cost should never affect whether you walk out at intermission."},
+  {id:"c3",u:"scarcity",front:"Marginal Benefit = Marginal Cost",back:"Net total surplus is maximized where MB = MC. If MB > MC, do one more unit; if MB < MC, cut back.",tip:"Keep thinking at the margin, not averages (e.g., deciding whether to run one more flight)."},
+  {id:"c4",u:"scarcity",front:"Bowed-Out PPF",back:"The Production Possibilities Frontier bows outward (concave) because of increasing opportunity cost: resources are specialized and not equally suited to every good.",tip:"A straight-line PPF implies constant opportunity cost."},
+  {id:"c5",u:"scarcity",front:"Comparative Advantage",back:"Having a lower opportunity cost than a trading partner. Even if one country has absolute advantage in every good, mutually beneficial trade exists as long as opportunity costs differ.",tip:"No single producer can have comparative advantage in both goods simultaneously (unless exact tie)."},
+  {id:"c6",u:"scarcity",front:"Terms of Trade Rule",back:"A mutually beneficial trading price must lie strictly between the two producers' opportunity costs for that good.",tip:"Calculate OC = What You Give Up / What You Gain."},
+  {id:"c7",u:"scarcity",front:"Positive vs Normative Statements",back:"Positive economics describes testable cause-and-effect facts ('what is'). Normative economics makes value judgments ('what ought to be').",tip:"'A higher minimum wage reduces teen employment' is positive; 'We should raise it' is normative."},
+  {id:"c8",u:"scarcity",front:"Economic Incentives",back:"Agents respond predictably to changes in marginal benefits and costs — including unintended consequences (like safer seatbelts increasing reckless driving: Peltzman effect).",tip:"Cowen & Tabarrok Ch.1 core theme: people respond to rewards AND hidden tradeoffs."},
+
+  {id:"c9",u:"supply-demand",front:"Change in Demand vs Quantity Demanded",back:"A change in the good's OWN price moves along the fixed demand curve (Delta Qd). A non-price shifter (income, tastes, related goods, expectations, population) shifts the whole curve.",tip:"MCQ classic: 'Demand falls when price rises' is FALSE — Quantity Demanded falls."},
+  {id:"c10",u:"supply-demand",front:"Normal vs Inferior Goods",back:"Income up -> Demand shifts right for Normal goods (restaurant meals) and left for Inferior goods (instant ramen, bus rides).",tip:"Sign of income elasticity: positive = normal, negative = inferior."},
+  {id:"c11",u:"supply-demand",front:"Substitutes vs Complements",back:"Price of X up -> Demand for Substitute Y shifts right (Coke vs Pepsi); Demand for Complement Y shifts left (printers vs ink).",tip:"Check cross-price elasticity sign: positive = substitutes, negative = complements."},
+  {id:"c12",u:"supply-demand",front:"Supply Curve Shifters",back:"Technology (+), input/wage costs (-), expectations, number of sellers (+), taxes/subsidies, and entry/exit opportunities shift Supply.",tip:"Price of the good itself ONLY changes Quantity Supplied along the curve."},
+  {id:"c13",u:"supply-demand",front:"Market Clearing & Shortage vs Surplus",back:"If P < P*, Qd > Qs creates a Shortage pushing P up. If P > P*, Qs > Qd creates a Surplus pushing P down.",tip:"In free competitive markets, equilibrium P* maximizes Q_traded and Total Surplus."},
+  {id:"c14",u:"supply-demand",front:"Double-Shift Rule",back:"When BOTH Supply and Demand shift simultaneously, either Equilibrium Price OR Equilibrium Quantity becomes ambiguous (depends on relative magnitudes) while the other is definite.",tip:"Demand up + Supply down -> P definitely rises, Q ambiguous."},
+  {id:"c15",u:"supply-demand",front:"Law of Demand & Substitution/Income Effects",back:"Demand slopes downward because higher prices push buyers toward cheaper substitutes (substitution effect) and shrink real purchasing power (income effect).",tip:"Giffen goods are rare theoretical exceptions among inferior staples."},
+  {id:"c16",u:"supply-demand",front:"Law of Supply",back:"Supply slopes upward because covering higher marginal costs on less productive inputs requires a higher market price.",tip:"Supply curves reflect firms' Marginal Cost curves."},
+
+  {id:"c17",u:"elasticity",front:"Price Elasticity of Demand (Ed)",back:"Ed = (% change in Qd) / (% change in P), always negative before taking absolute value. |Ed| > 1 is elastic; |Ed| < 1 is inelastic; |Ed| = 1 is unit elastic.",tip:"Flat demand = elastic (many substitutes); steep = inelastic (insulin, necessities)."},
+  {id:"c18",u:"elasticity",front:"Midpoint (Arc) Formula",back:"% change = (New - Old) / ((New + Old) / 2). Gives the exact same elasticity whether moving A->B or B->A.",tip:"Always divide by the average price and average quantity!"},
+  {id:"c19",u:"elasticity",front:"Determinants of Demand Elasticity",back:"More elastic when: closer substitutes exist, narrower market definition (Ford vs cars), larger budget share, longer time horizon, or luxury vs necessity.",tip:"Short-run gasoline Ed ~ -0.2; long-run Ed ~ -0.6 (people buy fuel-efficient cars)."},
+  {id:"c20",u:"elasticity",front:"Total Revenue Test (TR = P x Q)",back:"If demand is INELASTIC (|Ed|<1), P and TR move in the SAME direction (raise P -> TR up). If ELASTIC (|Ed|>1), P and TR move OPPOSITELY (raise P -> TR down).",tip:"Maximum Total Revenue occurs where demand is unit elastic (|Ed| = 1)."},
+  {id:"c21",u:"elasticity",front:"Price Elasticity of Supply (Es)",back:"Es = (% change in Qs) / (% change in P). More elastic when inputs are easy to scale, excess capacity exists, and firms have longer time horizons.",tip:"Perfectly inelastic Es = 0 is a vertical supply curve (Monet paintings, beachfront land)."},
+  {id:"c22",u:"elasticity",front:"Tax Incidence (Legal vs Economic)",back:"The statutory payer (buyer vs seller) does NOT determine who pays the economic burden! Buyers and sellers share the tax regardless of who writes the check.",tip:"Same equilibrium P_buyer, P_seller, Q_tax, and DWL whether the tax is on buyers or sellers."},
+  {id:"c23",u:"elasticity",front:"Who Pays More of a Tax?",back:"The MORE INELASTIC side of the market bears a larger share of the tax burden ('Elasticity escapes, Inelasticity pays').",tip:"If Supply is much more elastic than Demand (e.g., cigarettes), buyers bear most of the tax."},
+  {id:"c24",u:"elasticity",front:"Deadweight Loss & Elasticity",back:"Taxes shrink trade most when Supply and Demand are ELASTIC, so DWL is LARGER when elasticities are high and grows roughly with the SQUARE of the tax rate.",tip:"Doubling a tax quadruples its deadweight loss: DWL ~ t^2."},
+
+  {id:"c25",u:"welfare",front:"Consumer & Producer Surplus",back:"CS = sum of (WTP - P) above price & below Demand. PS = sum of (P - MC) below price & above Supply. Total Surplus = CS + PS.",tip:"On linear curves, both CS and PS are right triangles: 0.5 x Base x Height."},
+  {id:"c26",u:"welfare",front:"Great Economic Problem & Invisible Hand",back:"Price signals allocate scarce resources to the highest-value buyers and lowest-cost sellers without a central planner, maximizing Total Surplus at P*.",tip:"Hayek: prices summarize dispersed local knowledge."},
+  {id:"c27",u:"welfare",front:"Effective vs Non-Binding Price Ceiling",back:"A price ceiling (maximum legal price, e.g., rent control) is ONLY binding when set BELOW equilibrium P*. Setting P_max > P* has zero effect.",tip:"Check binding vs non-binding first on every exam problem!"},
+  {id:"c28",u:"welfare",front:"5 Consequences of a Binding Price Ceiling",back:"1) Persistent shortage (Qd > Qs), 2) Deadweight loss, 3) Wasteful search/waiting lines, 4) Lower product quality, 5) Misallocation of apartments/goods to non-highest-value buyers.",tip:"Supply becomes more elastic in the long run -> rent-control housing shortages worsen over time."},
+  {id:"c29",u:"welfare",front:"Binding Price Floor",back:"A legal minimum price set ABOVE P* (e.g., agricultural price supports or minimum wage > W*). Causes a persistent surplus (Qs > Qd), DWL, and wasted quality.",tip:"Minimum wage floor in labor markets: surplus of labor (Qs > Qd) = unemployment."},
+  {id:"c30",u:"welfare",front:"Gains from Free Trade (Imports vs Exports)",back:"If P_world < P_domestic, country imports: Consumers gain MORE than domestic producers lose -> Total Surplus increases! Exports reverse CS/PS but still increase Total Surplus.",tip:"Imports create net gains + concentrated producer losses (explains lobbying for tariffs)."},
+  {id:"c31",u:"welfare",front:"Tariff Effects on Welfare",back:"A tariff raises domestic price from P_w to P_w + t, reduces imports, generates tariff revenue, transfers CS to producers, and creates TWO DWL triangles (overproduction + underconsumption).",tip:"Quotas produce the same DWL, but quota rents go to license holders instead of the treasury."},
+  {id:"c32",u:"welfare",front:"Arbitrage & Law of One Price",back:"Buying low in one market and selling high in another eliminates price gaps (net of transport/tariffs) and smooths goods across space and time via speculators.",tip:"Without price signals/speculators, post-disaster price ceilings stall emergency restocking."},
+
+  {id:"c33",u:"externalities",front:"Negative Externality (Pollution)",back:"MSC = MPC + Marginal External Cost. Free market produces at MPC = MPB, OVERPRODUCING past social optimum (MSC = MSB) and creating DWL.",tip:"Fix: Pigouvian tax equal to Marginal External Cost AT the socially optimal quantity Q*."},
+  {id:"c34",u:"externalities",front:"Positive Externality (R&D, Vaccines)",back:"MSB = MPB + Marginal External Benefit. Free market UNDERPRODUCES because private buyers ignore spillover benefits to others.",tip:"Fix: Pigouvian subsidy equal to Marginal External Benefit AT Q*, plus patents."},
+  {id:"c35",u:"externalities",front:"Coase Theorem",back:"When property rights are clearly defined and transaction costs are low, private bargaining solves externalities efficiently regardless of who holds the property right.",tip:"Fails when many parties are involved (free-riding & high bargaining costs)."},
+  {id:"c36",u:"externalities",front:"Command-and-Control vs Cap-and-Trade",back:"Uniform mandates force high-cost and low-cost polluters to cut equally. Tradable permits (cap-and-trade) let low-abatement-cost firms cut more and sell permits, minimizing total abatement cost.",tip:"Pigouvian taxes and cap-and-trade achieve the equal-MC efficiency condition across firms."},
+  {id:"c37",u:"externalities",front:"4 Types of Goods Matrix",back:"Private (rival + excludable: pizza), Club/Artificially Scarce (non-rival + excludable: Netflix, toll road), Common Resource (rival + non-excludable: ocean fish), Public Good (non-rival + non-excludable: national defense).",tip:"Non-rival means MC of another user is 0; non-excludable means non-payers can't be blocked."},
+  {id:"c38",u:"externalities",front:"Free Rider & Tragedy of the Commons",back:"Public goods suffer underprovision from Free Riders (non-excludable -> won't pay voluntarily). Common resources suffer overuse (Tragedy of the Commons) because users ignore depletion costs on others.",tip:"Solving Commons: private property rights, catch shares/ITQs, or congestion pricing."},
+  {id:"c39",u:"externalities",front:"Adverse Selection (Hidden Type)",back:"Akerlof's Market for Lemons: high-risk or low-quality types are most eager to transact under asymmetric info before the trade (sickest people buy insurance, bad used cars flood lot).",tip:"Fixes: signaling (warranties, degrees), screening (deductibles), mandates, reputation."},
+  {id:"c40",u:"externalities",front:"Moral Hazard (Hidden Action)",back:"After a contract shields someone from risk (insurance, bank bailouts), they take less care or riskier actions because someone else bears the downside.",tip:"Fixes: copays, deductibles, performance pay, equity skin-in-the-game."},
+
+  {id:"c41",u:"costs-comp",front:"Accounting vs Economic Profit",back:"Accounting Profit = TR - Explicit Costs. Economic Profit = TR - (Explicit + Implicit Opportunity Costs). Economic Profit is always <= Accounting Profit.",tip:"Zero economic profit ('normal profit') means earning your exact next-best return — stay in business!"},
+  {id:"c42",u:"costs-comp",front:"Diminishing Marginal Product",back:"Adding more variable workers to fixed capital eventually lowers Marginal Product (MPL falls), which causes Marginal Cost (MC = W / MPL) to rise!",tip:"Rising MC is just the mirror image of falling marginal product."},
+  {id:"c43",u:"costs-comp",front:"Cost Curve Geometry Rules",back:"1) AFC = FC/Q falls forever; 2) ATC = AFC + AVC; 3) MC crosses BOTH AVC and ATC at their MINIMUM points!",tip:"Think GPA: if your Marginal grade is below your Average, Average falls; above, Average rises."},
+  {id:"c44",u:"costs-comp",front:"Perfect Competition Assumptions",back:"Many buyers/sellers (price takers: P = MR = AR), standardized product, free entry and exit in the long run.",tip:"Each competitive firm faces a perfectly elastic (horizontal) demand curve at market P."},
+  {id:"c45",u:"costs-comp",front:"Short-Run Shutdown Rule",back:"Firm stays open as long as TR >= VC (equivalently P >= min AVC) because Fixed Costs are sunk in the short run! Shut down immediately if P < AVC.",tip:"A firm earning a loss (AVC < P < ATC) still stays open in the SR to cover part of FC!"},
+  {id:"c46",u:"costs-comp",front:"Long-Run Exit & Supply Curve",back:"In the LR all costs are variable, so exit if P < min ATC (or enter if P > ATC). Entry/exit drives economic profit to ZERO at P = min ATC.",tip:"Firm SR Supply = MC curve above min AVC."},
+  {id:"c47",u:"costs-comp",front:"Long-Run Equilibrium Efficiency",back:"Perfect competition achieves both Productive Efficiency (producing at lowest P = min ATC) AND Allocative Efficiency (P = MC, maximizing total surplus).",tip:"Long-run industry supply can be horizontal (constant cost), upward (increasing cost), or downward (external economies)."},
+  {id:"c48",u:"costs-comp",front:"Producer Surplus vs Profit",back:"PS = TR - VC = Economic Profit + Fixed Cost. Notice PS >= Profit when Fixed Cost > 0!",tip:"Even at zero economic profit in LR, firms still earn Producer Surplus if SR FC exists."},
+
+  {id:"c49",u:"imperfect-comp",front:"Why Monopolies Exist & MR < P",back:"Created by patents, control of key resources, gov't licenses, or Economies of Scale (Natural Monopoly where ATC falls over all demand). Because demand slopes down, MR < P (must cut P on ALL previous units to sell 1 more).",tip:"Linear demand P = a - bQ -> Marginal Revenue has DOUBLE slope: MR = a - 2bQ!"},
+  {id:"c50",u:"imperfect-comp",front:"Monopoly Profit-Max Recipe (3 Steps)",back:"Step 1: Find Q* where MR = MC. Step 2: Go UP to the Demand curve to set P*. Step 3: Profit = (P* - ATC) x Q*.",tip:"Never read price off the MC curve! Price ALWAYS comes off Demand at Q*."},
+  {id:"c51",u:"imperfect-comp",front:"Monopoly Deadweight Loss & Rent-Seeking",back:"Monopoly restricts output (Q_m < Q_c) and charges P_m > MC, creating DWL. Firms also burn resources lobbying for monopoly status ('rent-seeking'), turning potential profit into waste.",tip:"Notice a monopolist has NO supply curve (no unique 1-to-1 P -> Q mapping)."},
+  {id:"c52",u:"imperfect-comp",front:"3 Degrees of Price Discrimination",back:"1st (Perfect): charge every buyer their max WTP (CS=0, DWL=0!). 2nd: bulk discounts/versions. 3rd: group pricing (student/senior discounts — charge MORE to inelastic buyers!). Requires market power + no resale arbitrage.",tip:"Perfect price discrimination eliminates ALL deadweight loss by capturing all surplus as profit."},
+  {id:"c53",u:"imperfect-comp",front:"Monopolistic Competition",back:"Many firms, differentiated products (P > MC downward demand), FREE entry/exit -> ZERO long-run economic profit (P = ATC tangent on falling side).",tip:"Results in Excess Capacity: firms produce LESS than min-ATC efficient scale + markup P > MC."},
+  {id:"c54",u:"imperfect-comp",front:"Oligopoly & Cartel Instability",back:"Few large firms with strategic interdependence. Cartels try to collude at monopoly Q, but every member has an incentive to cheat and expand output since P > MC.",tip:"Oligopoly outcomes fall between Monopoly (collusion) and Perfect Competition (Bertrand price war)."},
+  {id:"c55",u:"imperfect-comp",front:"Nash Equilibrium & Prisoner's Dilemma",back:"Nash Equilibrium: no player can increase their payoff by unilaterally changing their own strategy given others' choices. In a Prisoner's Dilemma, dominant strategies yield a worse outcome for both than cooperation.",tip:"Always check best-response arrows cell by cell; dominant strategies defeat every rival play."},
+  {id:"c56",u:"imperfect-comp",front:"Repeated Games & Folk Theorem",back:"In infinitely repeated games with patient players, trigger strategies (tit-for-tat, grim trigger) can sustain cooperation/collusion because short-run cheating triggers long-run punishment.",tip:"Known finite end unravels via backward induction unless reputation matters."},
+
+  {id:"c57",u:"labor-macro",front:"Value of Marginal Product of Labor (VMPL)",back:"Competitive firm hires workers until VMPL = P x MPL = Wage (W). Downward sloping because of diminishing MPL.",tip:"Labor Demand shifts right if product Price rises or technology boosts MPL."},
+  {id:"c58",u:"labor-macro",front:"Human Capital vs Signaling",back:"Human capital: education raises actual productivity (higher MPL). Signaling (Spence): degrees prove pre-existing ability even if coursework didn't raise productivity.",tip:"'Sheepskin effect' (graduation jump over completing 3.9 years) suggests strong signaling."},
+  {id:"c59",u:"labor-macro",front:"Compensating Differentials & Unions",back:"Higher wages paid to offset unpleasant, risky, or remote work (oil rig vs desk job). Labor unions raise member wages via collective bargaining (often with non-union spillover effects).",tip:"Superstar / tournament pay magnifies tiny skill gaps via global digital reach."},
+  {id:"c60",u:"labor-macro",front:"Discrimination in Competitive Markets",back:"Gary Becker: taste-based employer discrimination raises the discriminating firm's costs, letting non-discriminating entrants outcompete them — UNLESS customers/coworkers demand discrimination or monopsony power shields them.",tip:"Statistical discrimination uses group averages when individual screening is costly."},
+  {id:"c61",u:"labor-macro",front:"Poverty, Gini Coefficient & Lorenz Curve",back:"Lorenz curve plots cumulative income share vs population share. Gini = Area between 45-deg line & Lorenz / Total area under 45-deg line (0 = perfect equality, 1 = one person takes all).",tip:"Consumption inequality tends to be smaller than annual income inequality due to smoothing."},
+  {id:"c62",u:"labor-macro",front:"Public Choice & Median Voter Theorem",back:"Politics without romance: voters are rationally ignorant (one vote rarely swings an election), special interests enjoy concentrated benefits vs dispersed costs, and two-party platforms converge toward the median voter.",tip:"Explains sugar tariffs and farm subsidies despite overall DWL."},
+  {id:"c63",u:"labor-macro",front:"GDP & Real vs Nominal (Intro Macro)",back:"GDP = C + I + G + (X - M) (final domestic goods/services in a period; excludes intermediate goods & used sales). Real GDP uses constant base-year prices; Nominal uses current prices.",tip:"GDP Deflator = (Nominal GDP / Real GDP) x 100."},
+  {id:"c64",u:"labor-macro",front:"CPI, Unemployment & Solow Growth",back:"CPI measures fixed consumer basket inflation. Natural unemployment = Frictional + Structural (excludes Cyclical). Long-run living standards grow via institutions, human/physical capital, and ideas/TFP (Solow/Romer).",tip:"MV = PY (Quantity Theory): long-run inflation is driven by money growth outpacing real output growth."}
+];
+const ECON101_QUIZ=[
+  {id:"q1",u:"scarcity",q:"You paid \$90 for a non-refundable concert ticket. Halfway through the opening act, you get a migraine and would gladly pay \$40 just to go home and sleep. Rational decision?",opts:["Stay — don't waste the \$90 ticket","Stay only if drinks are free","Leave and go home to sleep (\$90 is sunk)","Stay until headline act so average cost per song drops"],ans:2,exp:"The \$90 ticket is a sunk cost you cannot recover either way. Comparing future marginal benefits and costs, going home beats enduring the show while sick."},
+  {id:"q2",u:"scarcity",q:"Country A produces either 10 cars or 20 computers. Country B produces 4 cars or 16 computers. Which statement is TRUE?",opts:["Country A has comparative advantage in computers","Country B has comparative advantage in cars","Both gain if 1 car trades for 3 computers","Country A has absolute advantage only in cars"],ans:2,exp:"A's OC of 1 car = 2 computers (B's = 4 computers), so A exports cars and B exports computers. Any price between 2 and 4 computers per car (like 3) makes both better off!"},
+  {id:"q3",u:"scarcity",q:"A bowed-out (concave) PPF becomes straight if:",opts:["Resources are equally well-suited to producing both goods","Technology improves rapidly in one sector","Economy moves from inside PPF onto the frontier","Trade opens with another country"],ans:0,exp:"Bowing comes from increasing opportunity cost as specialized resources shift. Equal suitability implies constant opportunity cost -> straight-line PPF."},
+  {id:"q4",u:"scarcity",q:"Which is a POSITIVE economic statement?",opts:["Minimum wages ought to guarantee a living standard","Capping apartment rents creates housing shortages over time","Central banks care too much about inflation","Wealth taxes are fairer than sales taxes"],ans:1,exp:"Positive statements make testable empirical claims without value judgments ('ought', 'too much', 'fairer' are normative)."},
+
+  {id:"q5",u:"supply-demand",q:"Avocado toast goes viral at the exact same time an unseasonal frost destroys half the California avocado crop. What happens to avocado equilibrium P and Q?",opts:["P rises; Q rises","P falls; Q is ambiguous","P rises; Q is ambiguous","P is ambiguous; Q falls"],ans:2,exp:"Viral popularity shifts Demand right (P up, Q up) and frost shifts Supply left (P up, Q down). Both push Price UP, while Quantity moves in opposite directions -> P definitely rises, Q is ambiguous."},
+  {id:"q6",u:"supply-demand",q:"Suppose coffee and creamer are complements, while coffee and tea are substitutes. If a freeze drives up coffee bean prices, what happens to creamer and tea?",opts:["Creamer demand rises; tea demand falls","Creamer demand falls; tea demand rises","Both creamer and tea demand fall","Neither shifts; only their quantities change"],ans:1,exp:"Higher coffee prices reduce coffee Qd -> shoppers buy LESS creamer (complement) and switch to MORE tea (substitute)."},
+  {id:"q7",u:"supply-demand",q:"When wheat's OWN market price drops from $8 to $5 per bushel (holding all else equal):",opts:["The demand curve for wheat shifts right","Quantity demanded of wheat increases (move down along D)","Supply of wheat shifts right","Equilibrium surplus persists forever"],ans:1,exp:"A change in the good's own price moves buyers along the existing Demand curve (increasing Quantity Demanded), never shifting the curve itself."},
+  {id:"q8",u:"supply-demand",q:"If market price is currently HELD below equilibrium (P < P*), what exists in the market?",opts:["Surplus: Qs > Qd putting downward pressure on price","Shortage: Qd > Qs putting upward pressure on price","Maximum Total Surplus","Excess capacity in supply"],ans:1,exp:"At prices below P*, buyers demand more than sellers wish to supply (Qd > Qs), creating a shortage."},
+
+  {id:"q9",u:"elasticity",q:"Price rises from \$8 to \$12 (midpoint P = \$10) and quantity demanded drops from 110 to 90 (midpoint Q = 100). Using the midpoint formula, |Ed| is:",opts:["0.40 (inelastic)","0.50 (inelastic)","1.00 (unit elastic)","2.00 (elastic)"],ans:1,exp:"%Delta Q = (90-110)/100 = -20%. %Delta P = (12-8)/10 = +40%. |Ed| = 20% / 40% = 0.50 (inelastic)."},
+  {id:"q10",u:"elasticity",q:"A university raises parking permits from \$200 to \$260 and total permit revenue RISES from \$400k to \$468k. Over this range, demand for campus parking is:",opts:["Price elastic (|Ed| > 1)","Price inelastic (|Ed| < 1)","Unit elastic (|Ed| = 1)","Perfectly elastic"],ans:1,exp:"Because Price rose AND Total Revenue rose together (moved in the same direction), demand is inelastic (|Ed| < 1)."},
+  {id:"q11",u:"elasticity",q:"A \$4 excise tax is shifted from being legally collected from buyers to legally collected from sellers. What changes in equilibrium?",opts:["Buyers pay \$4 less","Sellers keep \$4 less","Deadweight loss doubles","Nothing: P_buyer, P_seller, Q, and DWL stay identical"],ans:3,exp:"Tax incidence is independent of statutory placement! Whether sellers or buyers remit the \$4, the tax wedge between Demand and Supply is unchanged."},
+  {id:"q12",u:"elasticity",q:"Insulin demand is nearly vertical (highly inelastic), while insulin manufacturing supply is fairly flat (elastic). If Congress taxes insulin \$20/vial, who bears most of the burden?",opts:["Consumers/patients (inelastic side)","Pharmaceutical sellers (elastic side)","Split 50/50 by law","Neither — DWL absorbs it"],ans:0,exp:"The relatively more inelastic side of the market (patients needing insulin) bears the bulk of the tax burden."},
+
+  {id:"q13",u:"welfare",q:"A binding rent ceiling of \$1,200 is imposed on a city whose market equilibrium rent is \$1,800. Which outcome is LEAST likely?",opts:["Long waitlists and key-money side deals","Deteriorating apartment maintenance","Total Surplus (CS + PS) increases","Black-market subletting"],ans:2,exp:"A binding price ceiling below P* restricts Q traded below Q*, reducing Total Surplus and creating Deadweight Loss — never increasing total surplus."},
+  {id:"q14",u:"welfare",q:"A linear market opens at P* = \$10, Q* = 40. Demand chokes at \$30 and Supply intercepts at \$2. What is Total Surplus at equilibrium?",opts:["\$400","\$560","\$800","\$1,120"],ans:1,exp:"CS = 0.5 x 40 x (30 - 10) = \$400. PS = 0.5 x 40 x (10 - 2) = \$160. Total Surplus = \$400 + \$160 = \$560."},
+  {id:"q15",u:"welfare",q:"If a small country's autarky price of steel is \$800/ton and the world price is \$550/ton, opening to free trade means the country will:",opts:["Export steel; Producer Surplus rises and CS falls","Import steel; Consumer Surplus rises more than PS falls","Import steel; Total Surplus falls due to job losses","Keep trading at \$800/ton"],ans:1,exp:"Since P_world < P_domestic, domestic buyers import cheaper steel. Consumers gain CS + extra net triangle beyond what domestic steel producers lose."},
+  {id:"q16",u:"welfare",q:"Suppose a government puts a legal price floor of \$15 on wheat when equilibrium wheat price is \$20. What happens?",opts:["A wheat surplus appears","A wheat shortage appears","Nothing changes — the price floor is non-binding","Farmers cut production"],ans:2,exp:"A minimum price of \$15 does not bind when the market already clears above it at \$20!"},
+
+  {id:"q17",u:"externalities",q:"Paper mills dump waste causing \$30/ton of external river damage at the social optimum. The efficient Pigouvian corrective policy is:",opts:["Ban all paper production","A \$30/ton tax on paper output","A \$30/ton subsidy to paper buyers","A binding price ceiling on paper"],ans:1,exp:"Setting a Pigouvian tax equal to the Marginal External Cost (\$30/ton at Q*) internalizes the externality so firms set MPC + \$30 = MSC = MB."},
+  {id:"q18",u:"externalities",q:"According to the Coase Theorem, private bargaining fails to solve an externality mainly when:",opts:["Pollution damages exceed \$1 million","Government refuses to pass a Pigouvian tax","Property rights are unclear or transaction costs are high","Polluters earn positive accounting profit"],ans:2,exp:"Coase requires well-defined property rights AND low transaction/bargaining costs (which break down when thousands of citizens are affected)."},
+  {id:"q19",u:"externalities",q:"An uncongested toll bridge with an electronic pass barrier is BEST classified as a:",opts:["Public good (non-rival, non-excludable)","Common resource (rival, non-excludable)","Club good (non-rival, excludable)","Private good (rival, excludable)"],ans:2,exp:"Because it is uncongested, one more car causes no crowding (non-rival), while the toll gate keeps non-payers off (excludable) -> Club good."},
+  {id:"q20",u:"externalities",q:"Only risky drivers eagerly purchase zero-deductible collision coverage when insurers charge everyone one flat premium. This problem is:",opts:["Moral hazard (hidden action)","Adverse selection (hidden type)","Free-rider problem","Coasian bargaining failure"],ans:1,exp:"Hidden pre-contract risk types causing high-risk buyers to self-select into the pool is Adverse Selection."},
+
+  {id:"q21",u:"costs-comp",q:"A competitive bakery sells loaves for \$4. At 200 loaves/day: MC = \$4, ATC = \$4.50, AVC = \$3.60. In the SHORT RUN the bakery should:",opts:["Shut down immediately because economic profit is negative","Keep operating because P (\$4) > AVC (\$3.60)","Raise price to \$4.50 to break even","Double output to push ATC down"],ans:1,exp:"At Q=200 where P = MC = \$4, price covers all AVC (\$3.60) plus \$0.40/loaf toward fixed costs. Shutting down loses ALL fixed costs! (In the LR, exit if P < min ATC.)"},
+  {id:"q22",u:"costs-comp",q:"When Marginal Cost (MC) lies BELOW Average Total Cost (ATC), increasing output by 1 unit will cause ATC to:",opts:["Rise","Fall","Stay constant","Equal Fixed Cost"],ans:1,exp:"Whenever the marginal unit costs less than the existing average (MC < ATC), pulling that lower number into the average pulls ATC DOWN."},
+  {id:"q23",u:"costs-comp",q:"In a constant-cost competitive industry in LONG-RUN equilibrium, a permanent surge in consumer demand leads ultimately to:",opts:["Permanently higher price and higher firm profits","Higher market Q and MORE firms, at the original min-ATC price","Fewer firms earning monopoly rents","Price below AVC"],ans:1,exp:"SR profits attract entry, shifting industry supply right until price returns to min ATC and economic profits return to zero at higher total industry Q."},
+  {id:"q24",u:"costs-comp",q:"Emma quits a \$75k finance job and invests \$50k (which earned \$3k interest) into a cafe. Year-1 revenue is \$200k; rent + ingredients cost \$110k. Her Economic Profit is:",opts:["\$90k","\$40k","\$12k","\$15k"],ans:2,exp:"Accounting profit = 200k - 110k = \$90k. Subtract implicit costs (\$75k forgone salary + \$3k forgone interest = \$78k) -> Economic profit = \$90k - \$78k = \$12k."},
+
+  {id:"q25",u:"imperfect-comp",q:"A monopolist faces P = 100 - Q and constant MC = 20. What price and quantity maximize monopoly profit?",opts:["Q = 80, P = \$20","Q = 40, P = \$60","Q = 40, P = \$20","Q = 50, P = \$50"],ans:1,exp:"Linear demand P = 100 - Q -> MR = 100 - 2Q. Set MR = MC: 100 - 2Q = 20 -> Q* = 40. Plug into Demand: P* = 100 - 40 = \$60!"},
+  {id:"q26",u:"imperfect-comp",q:"Why does FIRST-DEGREE (perfect) price discrimination yield ZERO deadweight loss compared with single-price monopoly?",opts:["Buyers get maximum consumer surplus","Every buyer with WTP >= MC gets served at their WTP","The monopolist lowers MC via economies of scale","Price equals min ATC for everyone"],ans:1,exp:"Charging each buyer up to their own WTP removes the penalty of cutting prices on prior units, so the firm produces all the way to P = MC (maximizing total surplus, though profit captures all of it)."},
+  {id:"q27",u:"imperfect-comp",q:"Airline tickets cost \$850 for a Tuesday-Wednesday business trip vs \$260 if you stay Saturday night. Why does third-degree price discrimination charge business flyers more?",opts:["It costs \$590 more to fuel the plane for business flyers","Business flyers have MORE INELASTIC demand than leisure travelers","Airlines earn zero profit on \$850 fares","It prevents adverse selection"],ans:1,exp:"Optimal 3rd-degree pricing charges higher markups to the segment with lower price elasticity (more inelastic demand)."},
+  {id:"q28",u:"imperfect-comp",q:"Two gas stations compete in a one-shot Prisoner's Dilemma: High/High earns (\$10k, \$10k); Cheat Low/High earns (\$14k, \$2k); Low/Low earns (\$5k, \$5k). The Nash Equilibrium is:",opts:["Both charge High (\$10k, \$10k)","Both charge Low (\$5k, \$5k)","One High, One Low","No pure Nash equilibrium"],ans:1,exp:"Charging Low is a strict dominant strategy for each player (\$14k > \$10k if rival stays High; \$5k > \$2k if rival goes Low), trapping both at (\$5k, \$5k)."},
+
+  {id:"q29",u:"labor-macro",q:"A competitive apple orchard sells apples at \$2/lb and pays pickers \$24/hr. Hiring one more picker yields 10 extra lbs/hr. Should the orchard hire them?",opts:["Yes — MPL is positive","Yes — total output increases","No — VMPL = \$2 x 10 = \$20/hr < \$24/hr wage","Only if apple prices fall"],ans:2,exp:"Hire workers up to VMPL = P x MPL = W. Here VMPL (\$20) is less than the wage (\$24), so adding that worker cuts profit by \$4/hr."},
+  {id:"q30",u:"labor-macro",q:"Why do commercial saturation divers on oil rigs earn far higher pay than office clerks with similar degrees?",opts:["Human capital monopoly","Compensating differential for risk and harsh conditions","Efficiency wage surplus","Signaling bias"],ans:1,exp:"Compensating differentials equalize utility across jobs by paying higher wages for danger, dirt, isolation, or irregular hours."},
+  {id:"q31",u:"labor-macro",q:"Suppose nominal GDP rises 7% while the price level (GDP deflator) rises 5% in the same year. Real GDP grew approximately:",opts:["12%","2%","5%","35%"],ans:1,exp:"% change in Real GDP ≈ % change in Nominal GDP - Inflation = 7% - 5% ≈ 2%."},
+  {id:"q32",u:"labor-macro",q:"An economy's unemployment rate falls from 7% to 4% because previously discouraged workers stopped looking for jobs. Did employment actually surge?",opts:["Yes — unemployment always mirrors hiring","Not necessarily — dropping out of the labor force shrinks U even with zero new hires","Only Real GDP fell","Structural unemployment became zero"],ans:1,exp:"Unemployment rate = Unemployed / Labor Force. If idle workers leave the labor force (become discouraged), the measured unemployment rate falls without new jobs!"}
+];
+const ECON101_FORMULAS=[
+  {u:"scarcity",name:"Opportunity Cost of Good X",eq:"OC_X = Give Up (Y) / Gain (X)",note:"Comparative advantage = smaller OC ratio. Terms of trade lie strictly between partners' OCs."},
+  {u:"scarcity",name:"Marginal Rule",eq:"Maximize Surplus at MB = MC",note:"Ignore sunk costs (already spent & unrecoverable); focus strictly on future marginal changes."},
+  {u:"supply-demand",name:"Equilibrium & Shifts",eq:"Qd(P*) = Qs(P*)",note:"Own-price changes slide ALONG a curve (Qd/Qs). Non-price shifters move the ENTIRE curve."},
+  {u:"supply-demand",name:"Related Goods & Income",eq:"Exy > 0 Substitutes · < 0 Complements · Ei > 0 Normal",note:"Substitutes move with rival's price; complements move opposite; inferior goods fall as income rises."},
+  {u:"elasticity",name:"Midpoint Price Elasticity",eq:"Ed = [(Q2-Q1)/avgQ] / [(P2-P1)/avgP]",note:"|Ed| > 1 Elastic (TR moves opposite P) · |Ed| < 1 Inelastic (TR moves WITH P)."},
+  {u:"elasticity",name:"Tax Wedge & Incidence",eq:"Tax Share ∝ Inelasticity · DWL = 0.5 × t × ΔQ",note:"Statutory side doesn't matter. More inelastic side pays more; doubling a tax roughly 4x's DWL."},
+  {u:"welfare",name:"Surplus Triangles",eq:"CS = 0.5×Base×(P_choke - P*) · PS = 0.5×Base×(P* - P_min)",note:"Total Surplus = CS + PS (+ Gov Revenue if taxed). Binding ceiling < P* -> shortage; floor > P* -> surplus."},
+  {u:"welfare",name:"Free Trade Rule",eq:"Import if P_world < P_autarky · Export if P_world > P_autarky",note:"Both imports and exports strictly raise Total Surplus vs autarky; tariffs create two DWL triangles."},
+  {u:"externalities",name:"Externality Equilibrium",eq:"Social Opt: MSC = MSB (Pigouvian Tax = MEC at Q*)",note:"Negative ext: MSC > MPC (overproduction). Positive ext: MSB > MPB (underproduction)."},
+  {u:"externalities",name:"4 Goods & Info Failures",eq:"Excludable? × Rival? (Private / Club / Common / Public)",note:"Adverse Selection = hidden type BEFORE trade; Moral Hazard = hidden risky action AFTER contract."},
+  {u:"costs-comp",name:"Profit Identities",eq:"Econ Profit = TR - Explicit - Implicit Costs",note:"Normal profit means Econ Profit = 0 (stay in market). MC = ΔTC/ΔQ crosses AVC and ATC at their MINIMUMS."},
+  {u:"costs-comp",name:"Shutdown vs Exit (Comp.)",eq:"SR Shut Down: P < AVC · LR Exit: P < ATC",note:"Long-run equilibrium: P = MR = MC = min ATC (Zero Econ Profit, Allocative + Productive Efficiency)."},
+  {u:"imperfect-comp",name:"Monopoly Pricing (P > MC)",eq:"1) Solve MR = MC -> Q* · 2) Read P* up on Demand",note:"Linear Demand P = a - bQ gives MR = a - 2bQ. Monopoly creates DWL unless 1st-degree price discriminating."},
+  {u:"imperfect-comp",name:"Third-Degree Markup & Nash",eq:"Charge MORE to inelastic buyers · Nash: Mutual Best Response",note:"Check cell-by-cell best responses for Nash equilibrium; dominant strategy beats every rival action."},
+  {u:"labor-macro",name:"Labor Hiring & Inequality",eq:"Hire up to VMPL = P × MPL = W · Gini ∈ [0, 1]",note:"Compensating differentials pay extra for risk/disutility; 0 Gini = equality, 1 = complete concentration."},
+  {u:"labor-macro",name:"National Income & Inflation",eq:"GDP = C + I + G + (X - M) · %ΔReal ≈ %ΔNom - π",note:"Quantity Theory (long run): MV = PY (money growth > real growth drives inflation)."}
+];
+let studyState=(()=>{const s=store.get("vebl-econ101")||{};return {known:s.known||{},quiz:s.quiz||{},tab:"cards",unit:"all",cIdx:0,qIdx:0,flipped:false};})();
+function saveStudy(){store.set("vebl-econ101",{known:studyState.known,quiz:studyState.quiz});}
+function openStudy(tab=studyState.tab||"cards",unit=studyState.unit||"all"){
+  studyState.tab=tab;studyState.unit=unit;
+  const knownN=ECON101_CARDS.filter(c=>studyState.known[c.id]).length;
+  const quizIds=Object.keys(studyState.quiz);
+  const quizCorrect=quizIds.filter(id=>{const q=ECON101_QUIZ.find(x=>x.id===id);return q&&studyState.quiz[id]===q.ans;}).length;
+  const cards=unit==="all"?ECON101_CARDS:ECON101_CARDS.filter(c=>c.u===unit);
+  const qList=unit==="all"?ECON101_QUIZ:ECON101_QUIZ.filter(q=>q.u===unit);
+  const fList=unit==="all"?ECON101_FORMULAS:ECON101_FORMULAS.filter(f=>f.u===unit);
+  if(studyState.cIdx>=cards.length)studyState.cIdx=0;
+  if(studyState.qIdx>=qList.length)studyState.qIdx=0;
+  const pillsHtml=`<div class="unitpills"><button type="button" class="upill ${unit==="all"?"on":""}" onclick="studySetUnit('all')">ALL (${ECON101_CARDS.length})</button>${ECON101_UNITS.map(u=>`<button type="button" class="upill ${unit===u.id?"on":""}" onclick="studySetUnit('${u.id}')">${u.tag}: ${esc(u.name.split("&")[0].trim())}</button>`).join("")}</div>`;
+  let bodyHtml="";
+  if(tab==="cards"){
+    const card=cards[studyState.cIdx]||cards[0];
+    const uObj=ECON101_UNITS.find(x=>x.id===card.u);
+    const isKnown=!!studyState.known[card.id];
+    bodyHtml=`
+      <div class="panel fcard" onclick="studyFlip()">
+        <div class="ftag"><span>${uObj?uObj.tag+" · "+esc(uObj.name.toUpperCase()):""}</span><span>CARD ${studyState.cIdx+1} / ${cards.length}${isKnown?" · ✓ MASTERED":""}</span></div>
+        <div class="fq">${esc(card.front)}</div>
+        ${studyState.flipped
+          ?`<div class="fa"><b>Definition &amp; Intuition:</b> ${esc(card.back)}<div style="margin-top:8px;color:var(--gold);font-size:12px">★ <b>Exam Note:</b> ${esc(card.tip)}</div></div>`
+          :`<div class="ftap">TAP CARD TO REVEAL ANSWER &amp; EXAM TRAP ▼</div>`}
+      </div>
+      <div class="btnrow" style="margin-top:10px">
+        <button type="button" class="btn ghost small" style="flex:1" onclick="studyNavCard(-1)">◀ PREV</button>
+        <button type="button" class="btn ${isKnown?"gold":"mint"} small" style="flex:1.4" onclick="studyMarkKnown('${card.id}')">${isKnown?"✓ MASTERED":"✓ GOT IT"}</button>
+        <button type="button" class="btn ghost small" style="flex:1" onclick="studyNavCard(1)">NEXT ▶</button>
+      </div>
+      <div class="btnrow" style="margin-top:8px">
+        <button type="button" class="btn ghost small" style="flex:1" onclick="studyShuffleCard()">🔀 RANDOM CARD</button>
+        ${uObj&&uObj.pack?`<button type="button" class="btn ghost small" style="flex:1.3" onclick="show('study',false);openPack('${uObj.pack}')">🎮 DRILL IN VEBL</button>`:""}
+      </div>`;
+  }else if(tab==="quiz"){
+    const q=qList[studyState.qIdx]||qList[0];
+    const uObj=ECON101_UNITS.find(x=>x.id===q.u);
+    const picked=studyState.quiz[q.id];
+    const answered=picked!==undefined;
+    bodyHtml=`
+      <div class="panel acard" style="display:block">
+        <div class="ftag" style="display:flex;justify-content:space-between;font-family:'Silkscreen',monospace;font-size:9px;letter-spacing:2px;color:var(--gold)"><span>${uObj?uObj.tag+" · "+esc(uObj.name.toUpperCase()):""}</span><span>QUESTION ${studyState.qIdx+1} / ${qList.length}</span></div>
+        <div style="font-size:15px;font-weight:700;line-height:1.4;margin:10px 0 4px;color:#fff">${esc(q.q)}</div>
+        <div class="qopts">${q.opts.map((opt,idx)=>{
+          const cls=answered?(idx===q.ans?"ok":(idx===picked?"no":"")):"";
+          return `<button type="button" class="qopt ${cls}" ${answered?"disabled":""} onclick="studyPickQuiz('${q.id}',${idx})"><b>${"ABCD"[idx]}.</b> ${esc(opt)}</button>`;
+        }).join("")}</div>
+        ${answered?`<div class="qexp"><b>${picked===q.ans?"✓ Correct!":"✗ Check reasoning:"}</b> ${esc(q.exp)}</div>`:""}
+      </div>
+      <div class="btnrow" style="margin-top:10px">
+        <button type="button" class="btn ghost small" style="flex:1" onclick="studyNavQuiz(-1)">◀ PREV</button>
+        <button type="button" class="btn gold small" style="flex:1.4" onclick="studyNavQuiz(1)">NEXT QUESTION ▶</button>
+        <button type="button" class="btn ghost small" onclick="studyResetQuiz()">RESET</button>
+      </div>`;
+  }else{
+    bodyHtml=`<div class="fgrid">${fList.map(f=>`<div class="panel fbox"><div class="ftit">${esc(f.name)}</div><div class="feq">${esc(f.eq)}</div><div class="fnote">${esc(f.note)}</div></div>`).join("")}</div>`;
+  }
+  $("study").innerHTML=`<div class="arch">
+    <div class="archhead"><div class="chroma">ECON 101 PREP</div><button class="btn ghost small" onclick="show('study',false)">✕ CLOSE</button></div>
+    <div class="statrow">
+      <div class="panel statbox"><div class="slbl">MASTERED</div><div class="sval">${knownN}/${ECON101_CARDS.length}</div></div>
+      <div class="panel statbox"><div class="slbl">QUIZ SCORE</div><div class="sval">${quizCorrect}/${quizIds.length}</div></div>
+      <div class="panel statbox"><div class="slbl">UNITS</div><div class="sval">${ECON101_UNITS.length}</div></div>
+      <div class="panel statbox"><div class="slbl">FORMULAS</div><div class="sval">${ECON101_FORMULAS.length}</div></div>
+    </div>
+    <div class="tabs">
+      <button class="tab ${tab==="cards"?"on":""}" onclick="openStudy('cards',studyState.unit)">CARDS (${ECON101_CARDS.length})</button>
+      <button class="tab ${tab==="quiz"?"on":""}" onclick="openStudy('quiz',studyState.unit)">EXAM QUIZ (${ECON101_QUIZ.length})</button>
+      <button class="tab ${tab==="formulas"?"on":""}" onclick="openStudy('formulas',studyState.unit)">FORMULAS</button>
+    </div>
+    ${pillsHtml}
+    ${bodyHtml}
+    <div class="archnote">Aligned with Cowen &amp; Tabarrok <i>Modern Principles: Microeconomics</i> + core ECON 101 Final topics.</div>
+  </div>`;
+  $("study").scrollTop=0;show("study",true);
+}
+function studySetUnit(u){studyState.cIdx=0;studyState.qIdx=0;studyState.flipped=false;openStudy(studyState.tab,u);}
+function studyFlip(){studyState.flipped=!studyState.flipped;sfx.tick();openStudy(studyState.tab,studyState.unit);}
+function studyNavCard(d){const list=studyState.unit==="all"?ECON101_CARDS:ECON101_CARDS.filter(c=>c.u===studyState.unit);studyState.cIdx=(studyState.cIdx+d+list.length)%list.length;studyState.flipped=false;openStudy("cards",studyState.unit);}
+function studyShuffleCard(){const list=studyState.unit==="all"?ECON101_CARDS:ECON101_CARDS.filter(c=>c.u===studyState.unit);studyState.cIdx=Math.floor(Math.random()*list.length);studyState.flipped=false;openStudy("cards",studyState.unit);}
+function studyMarkKnown(id){studyState.known[id]=!studyState.known[id];if(!studyState.known[id])delete studyState.known[id];saveStudy();sfx.blip(!!studyState.known[id]);studyNavCard(1);}
+function studyNavQuiz(d){const list=studyState.unit==="all"?ECON101_QUIZ:ECON101_QUIZ.filter(q=>q.u===studyState.unit);studyState.qIdx=(studyState.qIdx+d+list.length)%list.length;openStudy("quiz",studyState.unit);}
+function studyPickQuiz(id,idx){const q=ECON101_QUIZ.find(x=>x.id===id);if(!q)return;studyState.quiz[id]=idx;saveStudy();sfx.blip(idx===q.ans);openStudy("quiz",studyState.unit);}
+function studyResetQuiz(){studyState.quiz={};studyState.qIdx=0;saveStudy();openStudy("quiz",studyState.unit);}
+
 addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&!$("study").classList.contains("hide")){show("study",false);return;}
   if(e.key==="Escape"&&!$("archive").classList.contains("hide")){show("archive",false);return;}
-  if(e.key==="Enter"&&!$("reveal").classList.contains("hide")&&$("archive").classList.contains("hide")&&performance.now()-revealAt>380){
+  if(e.key==="Enter"&&!$("reveal").classList.contains("hide")&&$("archive").classList.contains("hide")&&$("study").classList.contains("hide")&&performance.now()-revealAt>380){
     e.preventDefault();$("nextBtn").click();
   }
 });
